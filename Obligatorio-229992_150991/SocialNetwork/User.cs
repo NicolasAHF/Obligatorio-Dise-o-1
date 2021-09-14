@@ -9,17 +9,25 @@ namespace SocialNetwork
     public class User
     {
         private string _username;
+        private string _name;
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
+
+        public string Name 
+        {
+            get { return _name; }
+            private set => SetName(value);
+        }
         public string Username
         { 
             get { return _username; }
-            private set => ChangeName(value); 
+            private set => SetUsername(value); 
         }
-        public User(string username)
+        public User(string username, string name)
         {
             this.Username = username;
+            this.Name = name;
         }
-        public void ChangeName(string username)
+        public void SetUsername(string username)
         {
             if (!ValidUsername(username))
             {
@@ -28,6 +36,18 @@ namespace SocialNetwork
             else
             {
                 this._username = username;
+            }
+        }
+
+        public void SetName(string name)
+        {
+            if (name.Length == 0)
+            {
+                throw new InvalidOperationException("Largo del nombre no puede ser vacio");
+            }
+            else
+            {
+                this._name = name;
             }
         }
         private bool ValidUsername(string username)
