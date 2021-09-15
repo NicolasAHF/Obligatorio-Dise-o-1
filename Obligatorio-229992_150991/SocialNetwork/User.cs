@@ -10,6 +10,7 @@ namespace SocialNetwork
     {
         private string _username;
         private string _name;
+        private string _lastname;
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
 
         public string Name 
@@ -22,11 +23,18 @@ namespace SocialNetwork
             get { return _username; }
             private set => SetUsername(value); 
         }
-        public User(string username, string name)
+        public string Lastname 
+        {
+            get { return _lastname; }
+            private set => SetLastname(value);
+        }
+        public User(string username, string name, string lastname)
         {
             this.Username = username;
             this.Name = name;
+            this.Lastname = lastname;
         }
+        
         public void SetUsername(string username)
         {
             if (!ValidUsername(username))
@@ -48,6 +56,18 @@ namespace SocialNetwork
             else
             {
                 this._name = name;
+            }
+        }
+
+        public void SetLastname(string lastname)
+        {
+            if (lastname.Length == 0)
+            {
+                throw new InvalidOperationException("Largo del apellido no puede ser vacio");
+            }
+            else
+            {
+                this._lastname = lastname;
             }
         }
         private bool ValidUsername(string username)

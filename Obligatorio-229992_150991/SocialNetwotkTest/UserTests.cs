@@ -7,34 +7,60 @@ namespace SocialNetwotkTest
     [TestClass]
     public class UserTests
     {
+       
+        User validUser;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            validUser = new User("User1", "Nicolas", "Hernandez");
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            validUser = null;
+        }
+
         [TestMethod]
         public void CreateUserWithValidUsername()
         {
             string validUsername = "User1";
-            User user = new User("User1", "Nicolas");
-            Assert.AreEqual(user.Username, validUsername);
+            Assert.AreEqual(validUser.Username, validUsername);
         }
         
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateUserWithUsernameShorterThanTheMinimumValidLength()
         {
-            User user = new User("User", "Nicolas");
+            User invalidUser = new User("User", "Nicolas", "Hernandez");
         }
         
         [TestMethod] 
         public void CreateUserWithValidName()
         {
             string validName = "Nicolas";
-            User user = new User("User1", "Nicolas");
-            Assert.AreEqual(user.Name, validName);
+            Assert.AreEqual(validUser.Name, validName);
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateUserWithEmptyName()
         {
-            User user = new User("User1", "");
+            User invalidUser = new User("User1", "", "Hernandez");
+        }
+
+        [TestMethod]
+        public void CreateUserWithValidLastname()
+        {
+            string validLastName = "Hernandez";
+            Assert.AreEqual(validUser.Lastname, validLastName);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CreateUserWithEmptyLastname()
+        {
+            User invalidUser = new User("User1", "Nicolas", "");
         }
     }
 }
