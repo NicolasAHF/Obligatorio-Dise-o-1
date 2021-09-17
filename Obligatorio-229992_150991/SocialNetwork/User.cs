@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SocialNetwork
@@ -11,30 +12,40 @@ namespace SocialNetwork
         private string _username;
         private string _name;
         private string _lastname;
+        private DateTime _dateofbirth;
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
 
-        public string Name 
+        public string Name
         {
             get { return _name; }
             private set => SetName(value);
         }
         public string Username
-        { 
+        {
             get { return _username; }
-            private set => SetUsername(value); 
+            private set => SetUsername(value);
         }
-        public string Lastname 
+        public string Lastname
         {
             get { return _lastname; }
             private set => SetLastname(value);
         }
-        public User(string username, string name, string lastname)
+        public DateTime DateOfBirth 
+        {
+            get { return _dateofbirth; }
+            private set => SetDateOfBirth(value);
+        }
+
+        public Direction Direction { get; set; }
+
+        public User(string username, string name, string lastname, DateTime birthday)
         {
             this.Username = username;
             this.Name = name;
             this.Lastname = lastname;
+            this.DateOfBirth = birthday;
         }
-        
+
         public void SetUsername(string username)
         {
             if (!ValidUsername(username))
@@ -49,9 +60,9 @@ namespace SocialNetwork
 
         public void SetName(string name)
         {
-            if (name.Length == 0)
+            if (EmptyString(name) || !StringOnlyLetters(name))
             {
-                throw new InvalidOperationException("Largo del nombre no puede ser vacio");
+                throw new InvalidOperationException("Nombre no valido");
             }
             else
             {
@@ -61,18 +72,55 @@ namespace SocialNetwork
 
         public void SetLastname(string lastname)
         {
-            if (lastname.Length == 0)
+            if (EmptyString(lastname) || !StringOnlyLetters(lastname))
             {
-                throw new InvalidOperationException("Largo del apellido no puede ser vacio");
+                throw new InvalidOperationException("Apellido no valido");
             }
             else
             {
                 this._lastname = lastname;
             }
         }
+
+        public void SetDateOfBirth(DateTime dateofbirth)
+        {
+            if (!BirthdayAfter1940(dateofbirth) || !BirthdayBeforeActualDate(dateofbirth))
+            {
+                throw new InvalidOperationException("Fecha de nacimiento no valida");
+            }
+            else
+            {
+                this._dateofbirth = dateofbirth;
+            }
+        }
+
         private bool ValidUsername(string username)
         {
             return username.Length >= MIN_LENGTH_FOR_VALID_NAME;
+        }
+
+        private bool EmptyString(string value)
+        {
+            return value.Length.Equals(0);
+        }
+
+        private bool StringOnlyLetters(string str)
+        {
+           return Regex.IsMatch(str, @"^[\p{L}]+$");
+        }
+
+        private bool BirthdayAfter1940(DateTime birthday)
+        {
+            DateTime dateLimit = new DateTime(1940, 12, 31);
+            int result = DateTime.Compare(birthday, dateLimit);
+            return result > 0;
+        }
+
+        private bool BirthdayBeforeActualDate(DateTime birthday)
+        {
+            DateTime dateLimit = DateTime.Now;
+            int result = DateTime.Compare(birthday, dateLimit);
+            return result < 0;
         }
     }
 }
