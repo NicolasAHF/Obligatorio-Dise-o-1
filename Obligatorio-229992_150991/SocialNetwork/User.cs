@@ -13,6 +13,7 @@ namespace SocialNetwork
         private string _name;
         private string _lastname;
         private DateTime _dateofbirth;
+        private Direction _direction;
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
 
         public string Name
@@ -36,14 +37,18 @@ namespace SocialNetwork
             private set => SetDateOfBirth(value);
         }
 
-        public Direction Direction { get; set; }
-
-        public User(string username, string name, string lastname, DateTime birthday)
+        public Direction Direction 
+        {
+            get { return _direction; }
+            private set => SetDirection(value);
+        }
+        public User(string username, string name, string lastname, DateTime birthday, Direction direction)
         {
             this.Username = username;
             this.Name = name;
             this.Lastname = lastname;
             this.DateOfBirth = birthday;
+            this.Direction = direction;
         }
 
         public void SetUsername(string username)
@@ -91,6 +96,18 @@ namespace SocialNetwork
             else
             {
                 this._dateofbirth = dateofbirth;
+            }
+        }
+
+        public void SetDirection(Direction direction)
+        {
+            if (direction == null)
+            {
+                throw new InvalidOperationException("Direccion no puede ser vacia");
+            }
+            else
+            {
+                this._direction = direction;
             }
         }
 
