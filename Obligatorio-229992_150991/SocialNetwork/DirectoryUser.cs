@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork
 {
-    public class Directory
+    public class DirectoryUser
     {
         public List<User> Users { get; set; }
 
-        public Directory(){
+        public DirectoryUser(){
             Users = new List<User>();
         }
 

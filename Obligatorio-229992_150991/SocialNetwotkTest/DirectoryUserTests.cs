@@ -5,12 +5,12 @@ using SocialNetwork;
 namespace SocialNetwotkTest
 {
     [TestClass]
-    public class DirectoryTests
+    public class DirectoryUserTests
     {
         private User user;
         DateTime validBirthday = new DateTime(1999, 12, 22);
         Direction validDirection = new Direction();
-        private Directory directory;
+        private DirectoryUser directory;
 
         [TestInitialize]
         public void Setup()
@@ -19,7 +19,7 @@ namespace SocialNetwotkTest
             validDirection.Counrty = "Uruguay";
             validDirection.Street = "Francisco luis 608";
             user = new User("User1", "Nicolas", "Hernandez", validBirthday, validDirection);
-            directory = new Directory();
+            directory = new DirectoryUser();
         }
 
         [TestCleanup]
