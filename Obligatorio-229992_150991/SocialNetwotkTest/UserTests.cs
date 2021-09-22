@@ -123,6 +123,5 @@ namespace SocialNetwotkTest
             invalidDirection = null;
             User invalidUser = new User("User1", "Nicolas", "Hernandez", validBirthday, invalidDirection);
         }
-
     }
 }

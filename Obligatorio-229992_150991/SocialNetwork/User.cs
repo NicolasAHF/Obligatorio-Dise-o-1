@@ -42,6 +42,7 @@ namespace SocialNetwork
             get { return _direction; }
             private set => SetDirection(value);
         }
+
         public User(string username, string name, string lastname, DateTime birthday, Direction direction)
         {
             this.Username = username;
@@ -111,6 +112,11 @@ namespace SocialNetwork
             }
         }
 
+        public bool IsEqual(User user)
+        {
+            return this.Username.ToUpper() == user.Username.ToUpper();
+        }
+
         private bool ValidUsername(string username)
         {
             return username.Length >= MIN_LENGTH_FOR_VALID_NAME;
@@ -139,5 +145,7 @@ namespace SocialNetwork
             int result = DateTime.Compare(birthday, dateLimit);
             return result < 0;
         }
+
+
     }
 }
