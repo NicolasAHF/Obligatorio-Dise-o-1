@@ -21,7 +21,7 @@ namespace SocialNetwotkTest
             validDirection.Counrty = "Uruguay";
             validDirection.Street = "Francisco luis 608";
             validPassword = "P@ssword10";
-            validUser = new User("User1", "Nicolas", "Hernandez", validBirthday, validDirection, validPassword);
+            validUser = new User("User1", "Nicolas", "Hernandez", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
             
         }
 
@@ -42,7 +42,7 @@ namespace SocialNetwotkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateUserWithUsernameShorterThanTheMinimumValidLength()
         {
-            User invalidUser = new User("User", "Nicolas", "Hernandez", validBirthday, validDirection, validPassword);
+            User invalidUser = new User("User", "Nicolas", "Hernandez", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
         }
         
         [TestMethod] 
@@ -56,7 +56,7 @@ namespace SocialNetwotkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateUserWithEmptyName()
         {
-            User invalidUser = new User("User1", "", "Hernandez", validBirthday, validDirection, validPassword);
+            User invalidUser = new User("User1", "", "Hernandez", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
         }
 
         [TestMethod]
@@ -69,14 +69,14 @@ namespace SocialNetwotkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateUserWithEmptyLastname()
         {
-            User invalidUser = new User("User1", "Nicolas", "", validBirthday, validDirection, validPassword);
+            User invalidUser = new User("User1", "Nicolas", "", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void NameWithOnlyLetters()
         {
-            User invalidUser = new User("User1", "123", "Hernandez", validBirthday, validDirection, validPassword);
+            User invalidUser = new User("User1", "123", "Hernandez", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
 
         }
         
@@ -84,7 +84,7 @@ namespace SocialNetwotkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void LastnameWithOnlyLetters()
         {
-            User invalidUser = new User("User1", "Nicolas", "3123", validBirthday, validDirection, validPassword);
+            User invalidUser = new User("User1", "Nicolas", "3123", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
         }
 
         [TestMethod]
@@ -100,7 +100,7 @@ namespace SocialNetwotkTest
         public void BirthdayAfter1940()
         {
             DateTime invalidBirthday = new DateTime(1940, 12, 22);
-            User invalidUser = new User("User1", "Nicolas", "Hernandez", invalidBirthday, validDirection, validPassword);
+            User invalidUser = new User("User1", "Nicolas", "Hernandez", invalidBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
         }
 
         [TestMethod]
@@ -108,7 +108,7 @@ namespace SocialNetwotkTest
         public void BirthdayBeforeNow()
         {
             DateTime invalidBirthday = new DateTime(2100, 12, 22);
-            User invalidUser = new User("User1", "Nicolas", "Hernandez", invalidBirthday, validDirection, validPassword);
+            User invalidUser = new User("User1", "Nicolas", "Hernandez", invalidBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
         }
 
         [TestMethod]
@@ -116,7 +116,7 @@ namespace SocialNetwotkTest
         public void BirthdayNotEmpty()
         {
             DateTime invalidBirthday = new DateTime();
-            User invalidUser = new User("User1", "Fernando", "Rivera", invalidBirthday, validDirection, validPassword);
+            User invalidUser = new User("User1", "Fernando", "Rivera", invalidBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
         }
 
         [TestMethod]
@@ -132,7 +132,30 @@ namespace SocialNetwotkTest
         {
             Direction invalidDirection = new Direction();
             invalidDirection = null;
-            User invalidUser = new User("User1", "Fernando", "Rivera", validBirthday, invalidDirection, validPassword);
+            User invalidUser = new User("User1", "Fernando", "Rivera", validBirthday, invalidDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
+        }
+
+        [TestMethod]
+        public void ValidAvatarJPG()
+        {
+            string validAvatar = @"C:\Users\Admin\Pictures\unnamed.jpg";
+            Assert.AreEqual(validUser.Avatar, validAvatar);
+        }
+
+        [TestMethod]
+        public void ValidAvatarJPEG()
+        {
+            string validAvatar = @"C:\Users\Admin\Pictures\unnamed.jpeg";
+            User validUserJPEG = new User("User1", "Nicolas", "Hernandez", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpeg");
+            Assert.AreEqual(validUserJPEG.Avatar, validAvatar);
+        }
+
+        [TestMethod]
+        public void ValidAvatarPNG()
+        {
+            string validAvatar = @"C:\Users\Admin\Pictures\unnamed.png";
+            User validUserPNG = new User("User1", "Nicolas", "Hernandez", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.png");
+            Assert.AreEqual(validUserPNG.Avatar, validAvatar);
         }
     }
 }

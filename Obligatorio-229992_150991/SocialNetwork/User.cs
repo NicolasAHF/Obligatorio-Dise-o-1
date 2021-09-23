@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -15,6 +16,7 @@ namespace SocialNetwork
         private Password _password;
         private DateTime _dateofbirth;
         private Direction _direction;
+        private string _avatar;
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
 
         public string Name
@@ -48,7 +50,13 @@ namespace SocialNetwork
            _password.SetPassword(unaPassword);
         }
 
-        public User(string username, string name, string lastname, DateTime birthday, Direction direction, string password)
+        public string Avatar 
+        {
+            get { return _avatar; }
+            private set => SetAvatar(value);
+        }
+
+        public User(string username, string name, string lastname, DateTime birthday, Direction direction, string password, string avatar)
         {
             this.Username = username;
             this.Name = name;
@@ -56,6 +64,7 @@ namespace SocialNetwork
             this.DateOfBirth = birthday;
             this.Direction = direction;
             this._password = new Password(password);
+            this.Avatar = avatar;
             
         }
 
@@ -116,6 +125,19 @@ namespace SocialNetwork
             else
             {
                 this._direction = direction;
+            }
+        }
+
+        public void SetAvatar(string avatar)
+        {
+            string extension = Path.GetExtension(avatar);
+            if (avatar == null || (extension != ".jpg" && extension != ".jpeg" && extension != ".png"))
+            {
+                throw new InvalidOperationException("Imagen no valida");
+            }
+            else
+            {
+                this._avatar = avatar;
             }
         }
 
