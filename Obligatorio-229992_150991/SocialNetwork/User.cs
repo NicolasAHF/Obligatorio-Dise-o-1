@@ -174,7 +174,6 @@ namespace SocialNetwork
             int result = DateTime.Compare(birthday, dateLimit);
             return result < 0;
         }
-
-
+        ListeningNow hola = new ListeningNow;
     }
 }

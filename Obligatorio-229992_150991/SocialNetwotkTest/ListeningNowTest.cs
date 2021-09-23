@@ -2,7 +2,7 @@
 using System;
 using SocialNetwork;
 
-namespace SocialNetwotkTest
+namespace SocialNetworkTest
 {
     [TestClass]
     public class ListeningNowTest
