@@ -109,6 +109,14 @@ namespace SocialNetwotkTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void BirthdayNotEmpty()
+        {
+            DateTime invalidBirthday = new DateTime();
+            User invalidUser = new User("User1", "Fernando", "Rivera", invalidBirthday, validDirection);
+        }
+
+        [TestMethod]
         public void CreateUserWithValidDirection()
         {
             
@@ -121,7 +129,7 @@ namespace SocialNetwotkTest
         {
             Direction invalidDirection = new Direction();
             invalidDirection = null;
-            User invalidUser = new User("User1", "Nicolas", "Hernandez", validBirthday, invalidDirection);
+            User invalidUser = new User("User1", "Fernando", "Rivera", validBirthday, invalidDirection);
         }
     }
 }

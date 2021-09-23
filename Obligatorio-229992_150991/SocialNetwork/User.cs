@@ -90,7 +90,7 @@ namespace SocialNetwork
 
         public void SetDateOfBirth(DateTime dateofbirth)
         {
-            if (!BirthdayAfter1940(dateofbirth) || !BirthdayBeforeActualDate(dateofbirth))
+            if (!BirthdayAfter1940(dateofbirth) || !BirthdayBeforeActualDate(dateofbirth) || dateofbirth == null)
             {
                 throw new InvalidOperationException("Fecha de nacimiento no valida");
             }
