@@ -11,6 +11,7 @@ namespace SocialNetwotkTest
         DateTime validBirthday = new DateTime(1999, 12, 22);
         Direction validDirection = new Direction();
         private DirectoryUser directory;
+        string validPassword;
 
         [TestInitialize]
         public void Setup()
@@ -18,7 +19,8 @@ namespace SocialNetwotkTest
             validDirection.City = "Montevideo";
             validDirection.Counrty = "Uruguay";
             validDirection.Street = "Francisco luis 608";
-            user = new User("User1", "Nicolas", "Hernandez", validBirthday, validDirection);
+            validPassword = "P@ssword10";
+            user = new User("User1", "Nicolas", "Hernandez", validBirthday, validDirection, validPassword);
             directory = new DirectoryUser();
         }
 
@@ -59,7 +61,7 @@ namespace SocialNetwotkTest
         public void AddUserThatAlreadyExistsThrowsException()
         {
             directory.AddUser(user);
-            User userWithSameUsername = new User("User1", "Antonio", "Hernandez", validBirthday, validDirection);
+            User userWithSameUsername = new User("User1", "Antonio", "Hernandez", validBirthday, validDirection, validPassword);
             directory.AddUser(userWithSameUsername);
         }
 
@@ -69,7 +71,7 @@ namespace SocialNetwotkTest
         {
             directory.AddUser(user);
             string usernameUperCase = user.Username.ToUpper();
-            User userWithSameUsername = new User("User1", "Antonio", "Hernandez", validBirthday, validDirection);
+            User userWithSameUsername = new User("User1", "Antonio", "Hernandez", validBirthday, validDirection, validPassword);
             directory.AddUser(userWithSameUsername);
         }
 

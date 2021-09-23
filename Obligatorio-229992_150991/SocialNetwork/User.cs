@@ -12,6 +12,7 @@ namespace SocialNetwork
         private string _username;
         private string _name;
         private string _lastname;
+        private Password _password;
         private DateTime _dateofbirth;
         private Direction _direction;
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
@@ -42,14 +43,20 @@ namespace SocialNetwork
             get { return _direction; }
             private set => SetDirection(value);
         }
+        public void SetPassword (string unaPassword)
+        {
+           _password.SetPassword(unaPassword);
+        }
 
-        public User(string username, string name, string lastname, DateTime birthday, Direction direction)
+        public User(string username, string name, string lastname, DateTime birthday, Direction direction, string password)
         {
             this.Username = username;
             this.Name = name;
             this.Lastname = lastname;
             this.DateOfBirth = birthday;
             this.Direction = direction;
+            this._password = new Password(password);
+            
         }
 
         public void SetUsername(string username)
