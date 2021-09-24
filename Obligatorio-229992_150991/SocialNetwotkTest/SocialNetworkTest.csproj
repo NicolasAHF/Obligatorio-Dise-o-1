@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectoryUserTests.cs" />
+    <Compile Include="ListeningNowTest.cs" />
     <Compile Include="PasswordTest.cs" />
     <Compile Include="UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

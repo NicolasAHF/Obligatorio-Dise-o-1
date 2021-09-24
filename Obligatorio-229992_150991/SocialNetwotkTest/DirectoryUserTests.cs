@@ -20,7 +20,7 @@ namespace SocialNetwotkTest
             validDirection.Counrty = "Uruguay";
             validDirection.Street = "Francisco luis 608";
             validPassword = "P@ssword10";
-            user = new User("User1", "Nicolas", "Hernandez", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpeg");
+            user = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpeg");
             directory = new DirectoryUser();
         }
 
@@ -61,7 +61,7 @@ namespace SocialNetwotkTest
         public void AddUserThatAlreadyExistsThrowsException()
         {
             directory.AddUser(user);
-            User userWithSameUsername = new User("User1", "Antonio", "Hernandez", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpeg");
+            User userWithSameUsername = new User("User1", validPassword, "Antonio", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpeg");
             directory.AddUser(userWithSameUsername);
         }
 
@@ -71,7 +71,7 @@ namespace SocialNetwotkTest
         {
             directory.AddUser(user);
             string usernameUperCase = user.Username.ToUpper();
-            User userWithSameUsername = new User("User1", "Antonio", "Hernandez", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpeg");
+            User userWithSameUsername = new User("User1", validPassword, "Antonio", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpeg");
             directory.AddUser(userWithSameUsername);
         }
 

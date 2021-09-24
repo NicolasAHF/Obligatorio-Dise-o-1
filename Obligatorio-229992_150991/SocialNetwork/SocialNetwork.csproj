@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Direction.cs" />
     <Compile Include="DirectoryUser.cs" />
+    <Compile Include="ListeningNow.cs" />
     <Compile Include="Password.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

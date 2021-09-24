@@ -56,7 +56,7 @@ namespace SocialNetwork
             private set => SetAvatar(value);
         }
 
-        public User(string username, string name, string lastname, DateTime birthday, Direction direction, string password, string avatar)
+        public User(string username, string password, string name, string lastname, DateTime birthday, Direction direction, string avatar)
         {
             this.Username = username;
             this.Name = name;
@@ -174,6 +174,5 @@ namespace SocialNetwork
             int result = DateTime.Compare(birthday, dateLimit);
             return result < 0;
         }
-        ListeningNow hola = new ListeningNow;
     }
 }
