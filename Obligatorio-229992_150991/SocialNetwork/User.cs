@@ -72,7 +72,7 @@ namespace SocialNetwork
         {
             if (!ValidUsername(username))
             {
-                throw new InvalidOperationException("Largo del nombre de usuario demasiado corto");
+                throw new InvalidOperationException("Nombre de usuario demasiado corto");
             }
             else
             {

@@ -52,12 +52,12 @@ namespace UISocialNetwork
             this.saveUser = new System.Windows.Forms.Button();
             this.lblErrorMsg = new System.Windows.Forms.Label();
             this.lblPath = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).BeginInit();
             this.SuspendLayout();
             // 
             // UsernamelblCreate
             // 
+            this.UsernamelblCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UsernamelblCreate.AutoSize = true;
             this.UsernamelblCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.UsernamelblCreate.Location = new System.Drawing.Point(12, 61);
@@ -68,6 +68,7 @@ namespace UISocialNetwork
             // 
             // PasswordlblCreate
             // 
+            this.PasswordlblCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PasswordlblCreate.AutoSize = true;
             this.PasswordlblCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.PasswordlblCreate.Location = new System.Drawing.Point(12, 88);
@@ -78,6 +79,7 @@ namespace UISocialNetwork
             // 
             // nameLbl
             // 
+            this.nameLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nameLbl.AutoSize = true;
             this.nameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.nameLbl.Location = new System.Drawing.Point(12, 114);
@@ -88,6 +90,7 @@ namespace UISocialNetwork
             // 
             // Lastnamelbl
             // 
+            this.Lastnamelbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Lastnamelbl.AutoSize = true;
             this.Lastnamelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Lastnamelbl.Location = new System.Drawing.Point(12, 140);
@@ -98,6 +101,7 @@ namespace UISocialNetwork
             // 
             // textBoxUsername
             // 
+            this.textBoxUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxUsername.Location = new System.Drawing.Point(154, 58);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(133, 20);
@@ -105,13 +109,16 @@ namespace UISocialNetwork
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxPassword.Location = new System.Drawing.Point(154, 85);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(133, 20);
             this.textBoxPassword.TabIndex = 5;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBoxName
             // 
+            this.textBoxName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxName.Location = new System.Drawing.Point(154, 111);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(133, 20);
@@ -119,6 +126,7 @@ namespace UISocialNetwork
             // 
             // textBoxLastname
             // 
+            this.textBoxLastname.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxLastname.Location = new System.Drawing.Point(154, 137);
             this.textBoxLastname.Name = "textBoxLastname";
             this.textBoxLastname.Size = new System.Drawing.Size(133, 20);
@@ -126,6 +134,7 @@ namespace UISocialNetwork
             // 
             // dateofbirth
             // 
+            this.dateofbirth.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dateofbirth.Location = new System.Drawing.Point(161, 163);
             this.dateofbirth.MinDate = new System.DateTime(1941, 1, 1, 0, 0, 0, 0);
             this.dateofbirth.Name = "dateofbirth";
@@ -135,6 +144,7 @@ namespace UISocialNetwork
             // 
             // doblbl
             // 
+            this.doblbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.doblbl.AutoSize = true;
             this.doblbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.doblbl.Location = new System.Drawing.Point(12, 166);
@@ -145,6 +155,7 @@ namespace UISocialNetwork
             // 
             // titleCreateUser
             // 
+            this.titleCreateUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.titleCreateUser.AutoSize = true;
             this.titleCreateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.titleCreateUser.Location = new System.Drawing.Point(88, 9);
@@ -155,6 +166,7 @@ namespace UISocialNetwork
             // 
             // streetlbl
             // 
+            this.streetlbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.streetlbl.AutoSize = true;
             this.streetlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.streetlbl.Location = new System.Drawing.Point(12, 199);
@@ -165,6 +177,7 @@ namespace UISocialNetwork
             // 
             // textBoxStreet
             // 
+            this.textBoxStreet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxStreet.Location = new System.Drawing.Point(154, 196);
             this.textBoxStreet.Name = "textBoxStreet";
             this.textBoxStreet.Size = new System.Drawing.Size(133, 20);
@@ -172,6 +185,7 @@ namespace UISocialNetwork
             // 
             // textBoxCity
             // 
+            this.textBoxCity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxCity.Location = new System.Drawing.Point(154, 222);
             this.textBoxCity.Name = "textBoxCity";
             this.textBoxCity.Size = new System.Drawing.Size(133, 20);
@@ -179,6 +193,7 @@ namespace UISocialNetwork
             // 
             // textBoxCountry
             // 
+            this.textBoxCountry.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxCountry.Location = new System.Drawing.Point(154, 248);
             this.textBoxCountry.Name = "textBoxCountry";
             this.textBoxCountry.Size = new System.Drawing.Size(133, 20);
@@ -186,35 +201,41 @@ namespace UISocialNetwork
             // 
             // cityLbl
             // 
+            this.cityLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cityLbl.AutoSize = true;
             this.cityLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cityLbl.Location = new System.Drawing.Point(15, 228);
             this.cityLbl.Name = "cityLbl";
-            this.cityLbl.Size = new System.Drawing.Size(35, 17);
+            this.cityLbl.Size = new System.Drawing.Size(56, 17);
             this.cityLbl.TabIndex = 15;
-            this.cityLbl.Text = "City:";
+            this.cityLbl.Text = "Ciudad:";
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label1.Location = new System.Drawing.Point(18, 254);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.Size = new System.Drawing.Size(39, 17);
             this.label1.TabIndex = 16;
-            this.label1.Text = "Country:";
+            this.label1.Text = "Pais:";
             // 
             // avatarBox
             // 
-            this.avatarBox.Location = new System.Drawing.Point(154, 274);
+            this.avatarBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.avatarBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.avatarBox.Location = new System.Drawing.Point(229, 274);
             this.avatarBox.Name = "avatarBox";
-            this.avatarBox.Size = new System.Drawing.Size(133, 119);
+            this.avatarBox.Size = new System.Drawing.Size(171, 134);
+            this.avatarBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.avatarBox.TabIndex = 17;
             this.avatarBox.TabStop = false;
             // 
             // avatarBtn
             // 
-            this.avatarBtn.Location = new System.Drawing.Point(31, 323);
+            this.avatarBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.avatarBtn.Location = new System.Drawing.Point(148, 289);
             this.avatarBtn.Name = "avatarBtn";
             this.avatarBtn.Size = new System.Drawing.Size(75, 23);
             this.avatarBtn.TabIndex = 18;
@@ -224,7 +245,8 @@ namespace UISocialNetwork
             // 
             // saveUser
             // 
-            this.saveUser.Location = new System.Drawing.Point(12, 400);
+            this.saveUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.saveUser.Location = new System.Drawing.Point(12, 403);
             this.saveUser.Name = "saveUser";
             this.saveUser.Size = new System.Drawing.Size(127, 23);
             this.saveUser.TabIndex = 19;
@@ -234,9 +256,10 @@ namespace UISocialNetwork
             // 
             // lblErrorMsg
             // 
+            this.lblErrorMsg.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblErrorMsg.AutoSize = true;
             this.lblErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblErrorMsg.Location = new System.Drawing.Point(145, 403);
+            this.lblErrorMsg.Location = new System.Drawing.Point(145, 409);
             this.lblErrorMsg.Name = "lblErrorMsg";
             this.lblErrorMsg.Size = new System.Drawing.Size(40, 17);
             this.lblErrorMsg.TabIndex = 20;
@@ -245,28 +268,19 @@ namespace UISocialNetwork
             // 
             // lblPath
             // 
+            this.lblPath.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(21, 353);
+            this.lblPath.Location = new System.Drawing.Point(12, 325);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(32, 13);
             this.lblPath.TabIndex = 21;
             this.lblPath.Text = "Path:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 379);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "label2";
             // 
             // CreateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 435);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPath);
             this.Controls.Add(this.lblErrorMsg);
             this.Controls.Add(this.saveUser);
@@ -289,7 +303,10 @@ namespace UISocialNetwork
             this.Controls.Add(this.nameLbl);
             this.Controls.Add(this.PasswordlblCreate);
             this.Controls.Add(this.UsernamelblCreate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(450, 500);
+            this.MinimumSize = new System.Drawing.Size(450, 474);
             this.Name = "CreateUser";
             this.Text = "Crear Usuario";
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
@@ -322,6 +339,5 @@ namespace UISocialNetwork
         private System.Windows.Forms.Button saveUser;
         private System.Windows.Forms.Label lblErrorMsg;
         private System.Windows.Forms.Label lblPath;
-        private System.Windows.Forms.Label label2;
     }
 }

@@ -41,6 +41,7 @@ namespace UISocialNetwork
             // 
             // UsernameTextBox
             // 
+            this.UsernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UsernameTextBox.Location = new System.Drawing.Point(158, 80);
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(132, 20);
@@ -48,13 +49,16 @@ namespace UISocialNetwork
             // 
             // PasswordTextBox
             // 
+            this.PasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PasswordTextBox.Location = new System.Drawing.Point(158, 127);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(132, 20);
             this.PasswordTextBox.TabIndex = 1;
+            this.PasswordTextBox.UseSystemPasswordChar = true;
             // 
             // UsernameLbl
             // 
+            this.UsernameLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UsernameLbl.AutoSize = true;
             this.UsernameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.UsernameLbl.Location = new System.Drawing.Point(19, 83);
@@ -65,6 +69,7 @@ namespace UISocialNetwork
             // 
             // PasswordLbL
             // 
+            this.PasswordLbL.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PasswordLbL.AutoSize = true;
             this.PasswordLbL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.PasswordLbL.Location = new System.Drawing.Point(22, 133);
@@ -75,6 +80,7 @@ namespace UISocialNetwork
             // 
             // LoginBtn
             // 
+            this.LoginBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LoginBtn.Location = new System.Drawing.Point(158, 186);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(132, 23);
@@ -84,6 +90,7 @@ namespace UISocialNetwork
             // 
             // CreateUserBtn
             // 
+            this.CreateUserBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CreateUserBtn.Location = new System.Drawing.Point(25, 268);
             this.CreateUserBtn.Name = "CreateUserBtn";
             this.CreateUserBtn.Size = new System.Drawing.Size(127, 23);
@@ -94,6 +101,7 @@ namespace UISocialNetwork
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.label1.Location = new System.Drawing.Point(162, 9);
@@ -114,6 +122,7 @@ namespace UISocialNetwork
             this.Controls.Add(this.UsernameLbl);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.UsernameTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Text = "Login";

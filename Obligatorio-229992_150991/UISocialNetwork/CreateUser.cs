@@ -31,8 +31,6 @@ namespace UISocialNetwork
                 direction.Counrty = textBoxCountry.Text;
                 users.AddUser(new User(textBoxUsername.Text, textBoxPassword.Text, textBoxName.Text, textBoxLastname.Text, dateofbirth.Value, direction, lblPath.Text));
                 ShowFeedbackMessage(System.Drawing.Color.Green, USER_CREATED_SUCCESFULLY);
-                label2.Text = users.Count().ToString();
-                
             }
             catch (Exception exp)
             {
