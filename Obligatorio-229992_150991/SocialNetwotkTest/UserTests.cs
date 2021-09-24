@@ -128,10 +128,43 @@ namespace SocialNetwotkTest
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void CreateUserWithInvalidDirection()
+        public void CreateUserWithInvalidDirectionNull()
         {
             Direction invalidDirection = new Direction();
             invalidDirection = null;
+            User invalidUser = new User("User1", "Fernando", "Rivera", validBirthday, invalidDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CreateUserWithInvalidDirectionStreet()
+        {
+            Direction invalidDirection = new Direction();
+            invalidDirection.Street = "";
+            invalidDirection.City = "Montevideo";
+            invalidDirection.Counrty = "Uruguay";
+            User invalidUser = new User("User1", "Fernando", "Rivera", validBirthday, invalidDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CreateUserWithInvalidDirectionCity()
+        {
+            Direction invalidDirection = new Direction();
+            invalidDirection.Street = "Francisco luis 608";
+            invalidDirection.City = "";
+            invalidDirection.Counrty = "Uruguay";
+            User invalidUser = new User("User1", "Fernando", "Rivera", validBirthday, invalidDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CreateUserWithInvalidDirectionCountry()
+        {
+            Direction invalidDirection = new Direction();
+            invalidDirection.Street = "Francisco luis 608";
+            invalidDirection.City = "Montevideo";
+            invalidDirection.Counrty = "";
             User invalidUser = new User("User1", "Fernando", "Rivera", validBirthday, invalidDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.jpg");
         }
 

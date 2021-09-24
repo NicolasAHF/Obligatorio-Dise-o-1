@@ -118,7 +118,7 @@ namespace SocialNetwork
 
         public void SetDirection(Direction direction)
         {
-            if (direction == null)
+            if (direction == null || EmptyString(direction.Street) || EmptyString(direction.City) || EmptyString(direction.Counrty))
             {
                 throw new InvalidOperationException("Direccion no puede ser vacia");
             }
