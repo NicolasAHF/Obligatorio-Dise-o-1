@@ -49,6 +49,10 @@ namespace SocialNetwork
         {
            _password.SetPassword(unaPassword);
         }
+        public Password GetPassword()
+        {
+            return this._password;
+        }
 
         public string Avatar 
         {

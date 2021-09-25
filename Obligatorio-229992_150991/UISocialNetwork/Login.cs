@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialNetwork;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,23 @@ namespace UISocialNetwork
 {
     public partial class Login : UserControl
     {
-        public Login()
+        private DirectoryUser users;
+        public Login(DirectoryUser users)
         {
             InitializeComponent();
+            this.users = users;
         }
 
+        private void LoginBtn_Click(object sender, EventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            Password password = new Password(PasswordTextBox.Text); 
+
+            User actualUser = users.GetUser(username);
+            if (actualUser.GetPassword().CheckPassword(password))
+            {
+
+            }
+        }
     }
 }
