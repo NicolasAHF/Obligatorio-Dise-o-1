@@ -14,7 +14,6 @@ namespace UISocialNetwork
     public partial class Login : UserControl
     {
         private DirectoryUser users;
-
         public Login(DirectoryUser users)
         {
             InitializeComponent();
@@ -24,8 +23,13 @@ namespace UISocialNetwork
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             string username = UsernameTextBox.Text;
-            string password = PasswordTextBox.Text;
+            Password password = new Password(PasswordTextBox.Text); 
 
+            User actualUser = users.GetUser(username);
+            if (actualUser.GetPassword().CheckPassword(password))
+            {
+
+            }
         }
     }
 }

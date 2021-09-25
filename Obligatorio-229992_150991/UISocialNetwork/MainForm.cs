@@ -23,22 +23,27 @@ namespace UISocialNetwork
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            mainPanel.Controls.Clear();
+            ClearPanel();
             UserControl login = new Login(users);
             mainPanel.Controls.Add(login);
         }
 
         private void createUserBtn_Click(object sender, EventArgs e)
         {
-            mainPanel.Controls.Clear();
+            ClearPanel();
             UserControl createUser = new CreateUserControl(users);
             mainPanel.Controls.Add(createUser);
         }
 
-        private void mainPanel_Paint(object sender, PaintEventArgs e)
+        private void CreateHomePanel(User user)
         {
-            DirectoryUser userRepository = new DirectoryUser();
-
+            ClearPanel();
+            UserControl home = new Home();
+            mainPanel.Controls.Add(home);
+        }
+        private void ClearPanel()
+        {
+            mainPanel.Controls.Clear();
         }
     }
 }

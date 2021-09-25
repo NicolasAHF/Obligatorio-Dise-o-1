@@ -48,7 +48,6 @@ namespace UISocialNetwork
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(845, 480);
             this.mainPanel.TabIndex = 0;
-            this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPanel_Paint);
             // 
             // header
             // 
