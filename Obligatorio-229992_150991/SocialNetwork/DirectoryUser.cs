@@ -51,7 +51,29 @@ namespace SocialNetwork
 
         public void RemoveUser(User user)
         {
-            Users.Remove(user);
+            if (this.UsersAdded(user))
+            {
+                Users.Remove(user);
+            }
+            else
+            {
+                const string USER_ALREADY_EXISTS = "No existe una usuario con ese nombre de usuario";
+                throw new InvalidOperationException(USER_ALREADY_EXISTS);
+            }
+        }
+        
+        public User GetUser(string username)
+        {
+            
+            foreach(User user in this.Users)
+            {
+                if (user.Username.Equals(username))
+                {
+                    return user;
+                }
+            }
+            throw new InvalidOperationException("No hay un usuario con ese nombre");
+
         }
     }
 }
