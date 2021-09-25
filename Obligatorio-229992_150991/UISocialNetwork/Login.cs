@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialNetwork;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,23 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SocialNetwork;
 
 namespace UISocialNetwork
 {
-    public partial class Login : Form
+    public partial class Login : UserControl
     {
-        private DirectoryUser users = new DirectoryUser();
-        public Login()
+        private DirectoryUser users;
+
+        public Login(DirectoryUser users)
         {
             InitializeComponent();
+            this.users = users;
         }
 
-        private void CreateUserBtn_Click(object sender, EventArgs e)
+        private void LoginBtn_Click(object sender, EventArgs e)
         {
-            CreateUser formUser = new CreateUser(users);
-            formUser.Show();
-        }
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Text;
 
+        }
     }
 }

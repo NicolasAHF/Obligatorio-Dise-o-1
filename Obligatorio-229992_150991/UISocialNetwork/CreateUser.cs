@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialNetwork;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SocialNetwork;
 
 namespace UISocialNetwork
 {
-    public partial class CreateUser : Form
+    public partial class CreateUserControl : UserControl
     {
         private DirectoryUser users;
-        public CreateUser(DirectoryUser users)
+        public CreateUserControl(DirectoryUser users)
         {
             InitializeComponent();
             this.users = users;
@@ -37,7 +37,6 @@ namespace UISocialNetwork
                 ShowFeedbackMessage(System.Drawing.Color.Red, exp.Message);
             }
         }
-
         private void ShowFeedbackMessage(System.Drawing.Color color, string message)
         {
             lblErrorMsg.Show();
@@ -45,14 +44,14 @@ namespace UISocialNetwork
             lblErrorMsg.Text = message;
         }
 
-        private void avatarBtn_Click(object sender, EventArgs e)
+        private void avatarBtn_Click_1(object sender, EventArgs e)
         {
             string imageLocation = "";
             try
             {
                 OpenFileDialog dialog = new OpenFileDialog();
 
-                if(dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     imageLocation = dialog.FileName;
 
@@ -60,7 +59,7 @@ namespace UISocialNetwork
                     lblPath.Text = "Path:" + imageLocation;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
