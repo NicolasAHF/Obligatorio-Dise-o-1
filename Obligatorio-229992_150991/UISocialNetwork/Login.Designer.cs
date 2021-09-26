@@ -35,6 +35,7 @@ namespace UISocialNetwork
             this.UsernameLbl = new System.Windows.Forms.Label();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
+            this.lblErrorMsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -53,7 +54,7 @@ namespace UISocialNetwork
             // 
             this.LoginBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LoginBtn.Location = new System.Drawing.Point(231, 289);
-            this.LoginBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoginBtn.Margin = new System.Windows.Forms.Padding(4);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(176, 28);
             this.LoginBtn.TabIndex = 12;
@@ -89,7 +90,7 @@ namespace UISocialNetwork
             // 
             this.PasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PasswordTextBox.Location = new System.Drawing.Point(231, 217);
-            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(175, 22);
             this.PasswordTextBox.TabIndex = 9;
@@ -99,22 +100,32 @@ namespace UISocialNetwork
             // 
             this.UsernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UsernameTextBox.Location = new System.Drawing.Point(231, 159);
-            this.UsernameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UsernameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(175, 22);
             this.UsernameTextBox.TabIndex = 8;
+            // 
+            // lblErrorMsg
+            // 
+            this.lblErrorMsg.AutoSize = true;
+            this.lblErrorMsg.Location = new System.Drawing.Point(148, 338);
+            this.lblErrorMsg.Name = "lblErrorMsg";
+            this.lblErrorMsg.Size = new System.Drawing.Size(40, 17);
+            this.lblErrorMsg.TabIndex = 13;
+            this.lblErrorMsg.Text = "Error";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblErrorMsg);
             this.Controls.Add(this.LoginBtn);
             this.Controls.Add(this.PasswordLbL);
             this.Controls.Add(this.UsernameLbl);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.UsernameTextBox);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Size = new System.Drawing.Size(600, 554);
             this.ResumeLayout(false);
@@ -130,5 +141,6 @@ namespace UISocialNetwork
         private System.Windows.Forms.Label UsernameLbl;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.TextBox UsernameTextBox;
+        private System.Windows.Forms.Label lblErrorMsg;
     }
 }
