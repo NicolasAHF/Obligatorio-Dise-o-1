@@ -59,6 +59,7 @@ namespace UISocialNetwork
         private void PostLoginShow()
         {
             profileBtn.Show();
+            marketplaceBtn.Show();
         }
         private void ClearPanel()
         {
