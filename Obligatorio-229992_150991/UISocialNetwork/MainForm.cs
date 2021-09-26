@@ -13,7 +13,6 @@ namespace UISocialNetwork
 {
     public partial class MainForm : Form
     {
-        private User user;
         private DirectoryUser users = new DirectoryUser();
         public MainForm()
         {
@@ -24,22 +23,29 @@ namespace UISocialNetwork
         private void loginBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            UserControl login = new Login(users);
+            Login login = new Login(users);
+            login.AddListener(PostLogin);
             mainPanel.Controls.Add(login);
         }
 
         private void createUserBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            UserControl createUser = new CreateUserControl(users);
+            CreateUserControl createUser = new CreateUserControl(users);
             mainPanel.Controls.Add(createUser);
         }
 
-        private void CreateHomePanel(User user)
+        private void CreateHomePanel()
         {
             ClearPanel();
             UserControl home = new Home();
             mainPanel.Controls.Add(home);
+        }
+
+        private void PostLogin()
+        {
+            ClearPanel();
+            CreateHomePanel();
         }
         private void ClearPanel()
         {
