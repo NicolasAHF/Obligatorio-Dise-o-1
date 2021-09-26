@@ -22,8 +22,13 @@ namespace UISocialNetwork
 
         private void Profile_Load(object sender, EventArgs e)
         {
-            usernameLbl.Text = user.Username;
+            lblUsername.Text = user.Username;
             avatar.ImageLocation = user.Avatar;
+        }
+
+        private void modifyUser_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
