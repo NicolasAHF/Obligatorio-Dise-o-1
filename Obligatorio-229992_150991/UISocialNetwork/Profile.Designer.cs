@@ -57,7 +57,7 @@ namespace UISocialNetwork
             // 
             // modifyUser
             // 
-            this.modifyUser.Location = new System.Drawing.Point(603, 18);
+            this.modifyUser.Location = new System.Drawing.Point(605, 10);
             this.modifyUser.Name = "modifyUser";
             this.modifyUser.Size = new System.Drawing.Size(157, 46);
             this.modifyUser.TabIndex = 3;
@@ -69,7 +69,7 @@ namespace UISocialNetwork
             // 
             this.modifyPanel.Location = new System.Drawing.Point(511, 70);
             this.modifyPanel.Name = "modifyPanel";
-            this.modifyPanel.Size = new System.Drawing.Size(278, 322);
+            this.modifyPanel.Size = new System.Drawing.Size(278, 479);
             this.modifyPanel.TabIndex = 4;
             this.modifyPanel.Visible = false;
             // 
