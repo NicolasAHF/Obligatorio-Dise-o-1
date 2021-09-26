@@ -46,12 +46,30 @@ namespace UISocialNetwork
         {
             ClearPanel();
             CreateHomePanel();
+            PostLoginHide();
+            PostLoginShow();
+        }
+
+        private void PostLoginHide()
+        {
             createUserBtn.Hide();
             loginBtn.Hide();
+        }
+
+        private void PostLoginShow()
+        {
+            profileBtn.Show();
         }
         private void ClearPanel()
         {
             mainPanel.Controls.Clear();
+        }
+
+        private void profileBtn_Click(object sender, EventArgs e)
+        {
+            ClearPanel();
+            Profile profile = new Profile();
+            mainPanel.Controls.Add(profile);
         }
     }
 }

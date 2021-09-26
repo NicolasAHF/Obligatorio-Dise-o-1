@@ -36,6 +36,8 @@ namespace UISocialNetwork
             this.loginBtn = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.profileBtn = new System.Windows.Forms.Button();
+            this.marketplaceBtn = new System.Windows.Forms.Button();
             this.header.SuspendLayout();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -85,6 +87,8 @@ namespace UISocialNetwork
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panelMenu.Controls.Add(this.marketplaceBtn);
+            this.panelMenu.Controls.Add(this.profileBtn);
             this.panelMenu.Controls.Add(this.pictureBox1);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -104,6 +108,29 @@ namespace UISocialNetwork
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // profileBtn
+            // 
+            this.profileBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.profileBtn.Location = new System.Drawing.Point(0, 100);
+            this.profileBtn.Name = "profileBtn";
+            this.profileBtn.Size = new System.Drawing.Size(220, 60);
+            this.profileBtn.TabIndex = 1;
+            this.profileBtn.Text = "Perfil";
+            this.profileBtn.UseVisualStyleBackColor = true;
+            this.profileBtn.Visible = false;
+            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
+            // 
+            // marketplaceBtn
+            // 
+            this.marketplaceBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.marketplaceBtn.Location = new System.Drawing.Point(0, 160);
+            this.marketplaceBtn.Name = "marketplaceBtn";
+            this.marketplaceBtn.Size = new System.Drawing.Size(220, 60);
+            this.marketplaceBtn.TabIndex = 2;
+            this.marketplaceBtn.Text = "MarketPlace";
+            this.marketplaceBtn.UseVisualStyleBackColor = true;
+            this.marketplaceBtn.Visible = false;
             // 
             // MainForm
             // 
@@ -131,5 +158,7 @@ namespace UISocialNetwork
         private System.Windows.Forms.Button createUserBtn;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button profileBtn;
+        private System.Windows.Forms.Button marketplaceBtn;
     }
 }
