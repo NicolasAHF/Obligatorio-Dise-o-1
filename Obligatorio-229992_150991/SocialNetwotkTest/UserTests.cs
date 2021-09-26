@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using SocialNetwork;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SocialNetwotkTest
 {
@@ -189,6 +191,33 @@ namespace SocialNetwotkTest
             string validAvatar = @"C:\Users\Admin\Pictures\unnamed.png";
             User validUserPNG = new User("User1", "Nicolas", "Hernandez", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.png");
             Assert.AreEqual(validUserPNG.Avatar, validAvatar);
+        }
+
+        [TestMethod]
+        public void ValidAdmin()
+        {
+            validUser.Admin = true;
+            Assert.IsTrue(validUser.Admin);
+        }
+
+        [TestMethod]
+        public void ValidAdminFalse()
+        {
+            Assert.IsFalse(validUser.Admin);
+        }
+
+        [TestMethod]
+        public void FollowingListAdding()
+        {
+            User validUser2 = new User("User1", "Nicolas", "Hernandez", validBirthday, validDirection, validPassword, @"C:\Users\Admin\Pictures\unnamed.png");
+            validUser.Following.Add(validUser2);
+            Assert.IsTrue(validUser.Following.Count() != 0);
+        }
+
+        [TestMethod]
+        public void FollowingListEmpty()
+        {
+            Assert.IsTrue(validUser.Following.Count() == 0);
         }
     }
 }
