@@ -24,7 +24,7 @@ namespace UISocialNetwork
         {
             ClearPanel();
             Login login = new Login(users);
-            login.AddListener(PostLogin);
+            login.AddListener(PostLogin(user));
             mainPanel.Controls.Add(login);
         }
 
