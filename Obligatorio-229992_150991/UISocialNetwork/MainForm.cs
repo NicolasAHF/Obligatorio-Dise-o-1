@@ -46,6 +46,8 @@ namespace UISocialNetwork
         {
             ClearPanel();
             CreateHomePanel();
+            createUserBtn.Hide();
+            loginBtn.Hide();
         }
         private void ClearPanel()
         {
