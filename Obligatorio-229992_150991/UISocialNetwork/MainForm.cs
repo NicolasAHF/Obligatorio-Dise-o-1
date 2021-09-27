@@ -24,7 +24,7 @@ namespace UISocialNetwork
         {
             ClearPanel();
             Login login = new Login(users);
-            login.AddListener(PostLogin(user));
+            login.AddListener(PostLogin);
             mainPanel.Controls.Add(login);
         }
 
@@ -35,17 +35,17 @@ namespace UISocialNetwork
             mainPanel.Controls.Add(createUser);
         }
 
-        private void CreateHomePanel()
+        private void CreateHomePanel(User user)
         {
             ClearPanel();
-            UserControl home = new Home();
+            UserControl home = new Home(user);
             mainPanel.Controls.Add(home);
         }
 
-        private void PostLogin()
+        private void PostLogin(User user)
         {
             ClearPanel();
-            CreateHomePanel();
+            CreateHomePanel(user);
             PostLoginHide();
             PostLoginShow();
         }
@@ -72,5 +72,6 @@ namespace UISocialNetwork
             Profile profile = new Profile();
             mainPanel.Controls.Add(profile);
         }
+
     }
 }
