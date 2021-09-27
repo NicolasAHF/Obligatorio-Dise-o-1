@@ -105,6 +105,7 @@ namespace UISocialNetwork
             this.lblErrorMsg.Size = new System.Drawing.Size(44, 20);
             this.lblErrorMsg.TabIndex = 13;
             this.lblErrorMsg.Text = "Error";
+            this.lblErrorMsg.Visible = false;
             // 
             // underlineUsername
             // 
