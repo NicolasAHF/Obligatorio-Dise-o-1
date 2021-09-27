@@ -31,6 +31,7 @@ namespace UISocialNetwork
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.header = new System.Windows.Forms.Panel();
             this.createUserBtn = new System.Windows.Forms.Button();
             this.loginBtn = new System.Windows.Forms.Button();
@@ -38,7 +39,7 @@ namespace UISocialNetwork
             this.marketplaceBtn = new System.Windows.Forms.Button();
             this.profileBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LogoutBtn = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.header.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -54,9 +55,21 @@ namespace UISocialNetwork
             this.mainPanel.Size = new System.Drawing.Size(634, 390);
             this.mainPanel.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
+            this.label1.Location = new System.Drawing.Point(74, 108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(488, 126);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Obligatorio Diseño \r\nde aplicaciones 1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.header.Controls.Add(this.LogoutBtn);
             this.header.Controls.Add(this.createUserBtn);
             this.header.Controls.Add(this.loginBtn);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
@@ -150,16 +163,20 @@ namespace UISocialNetwork
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // LogoutBtn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.label1.Location = new System.Drawing.Point(74, 108);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(488, 126);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Obligatorio Diseño \r\nde aplicaciones 1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LogoutBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LogoutBtn.Location = new System.Drawing.Point(358, 0);
+            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Size = new System.Drawing.Size(92, 81);
+            this.LogoutBtn.TabIndex = 4;
+            this.LogoutBtn.Text = "Logout";
+            this.LogoutBtn.UseVisualStyleBackColor = true;
+            this.LogoutBtn.Visible = false;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
             // MainForm
             // 
@@ -193,5 +210,6 @@ namespace UISocialNetwork
         private System.Windows.Forms.Button profileBtn;
         private System.Windows.Forms.Button marketplaceBtn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button LogoutBtn;
     }
 }

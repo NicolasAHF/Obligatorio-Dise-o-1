@@ -60,6 +60,7 @@ namespace UISocialNetwork
         {
             profileBtn.Show();
             marketplaceBtn.Show();
+            LogoutBtn.Show();
         }
         private void ClearPanel()
         {
@@ -73,5 +74,25 @@ namespace UISocialNetwork
             mainPanel.Controls.Add(profile);
         }
 
+        private void LogoutBtn_Click(object sender, EventArgs e)
+        {
+           ClearPanel();
+           label1.Show(); 
+           PostLogoutShow();
+           PostLogoutHide();
+        }
+
+        private void PostLogoutShow()
+        {
+            createUserBtn.Show();
+            loginBtn.Show();
+        }
+
+        private void PostLogoutHide()
+        {
+            profileBtn.Hide();
+            marketplaceBtn.Hide();
+            LogoutBtn.Hide();
+        }
     }
 }
