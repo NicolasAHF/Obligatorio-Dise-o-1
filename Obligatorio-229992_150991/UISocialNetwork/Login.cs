@@ -11,7 +11,8 @@ using System.Windows.Forms;
 
 namespace UISocialNetwork
 {
-    public delegate void PostLogin();
+
+    public delegate void PostLogin(User user);
     public partial class Login : UserControl
     {
         private DirectoryUser users;
@@ -36,7 +37,7 @@ namespace UISocialNetwork
                 User actualUser = users.GetUser(username);
                 if (actualUser.GetPassword().CheckPassword(password))
                 {
-                    PostLoginEvent();
+                    PostLoginEvent(actualUser);
                 }
             }
             catch (Exception exp)
