@@ -46,12 +46,37 @@ namespace UISocialNetwork
         {
             try
             {
-                
+                Direction auxDirection = new Direction();
+                auxDirection.Street = streetModifyBox.Text;
+                auxDirection.City = cityModifyBox.Text;
+                auxDirection.Counrty = countryModifyBox.Text;
+                user.SetName(nameModifyBox.Text);
+                user.SetLastname(lastnameModifyBox.Text);
+                user.SetDirection(auxDirection);
+                user.SetAvatar(avatarModifyBox.ImageLocation);
             }
             catch (Exception exp)
             {
-
+                ShowFeedbackMessage(System.Drawing.Color.Red, exp.Message);
             }
+        }
+
+        private void ModifyUser_Load(object sender, EventArgs e)
+        {
+            lastnameModifyBox.Text = user.Lastname;
+            nameModifyBox.Text = user.Name;
+            streetModifyBox.Text = user.Direction.Street;
+            cityModifyBox.Text = user.Direction.City;
+            countryModifyBox.Text = user.Direction.Counrty;
+            dobModify.Value = user.DateOfBirth;
+            avatarModifyBox.ImageLocation = user.Avatar;
+        }
+
+        private void ShowFeedbackMessage(System.Drawing.Color color, string message)
+        {
+            lblErrorMsg.Show();
+            lblErrorMsg.ForeColor = color;
+            lblErrorMsg.Text = message;
         }
     }
 }

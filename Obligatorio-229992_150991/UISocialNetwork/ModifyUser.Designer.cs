@@ -29,7 +29,7 @@ namespace UISocialNetwork
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nameModifyBox = new System.Windows.Forms.TextBox();
             this.usernameModifylbl = new System.Windows.Forms.Label();
             this.lastnameModifylbl = new System.Windows.Forms.Label();
             this.cityModifyLbl = new System.Windows.Forms.Label();
@@ -37,119 +37,133 @@ namespace UISocialNetwork
             this.countryModifyLbl = new System.Windows.Forms.Label();
             this.avatarModifyBox = new System.Windows.Forms.PictureBox();
             this.uploadModifyBtn = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.lastnameModifyBox = new System.Windows.Forms.TextBox();
+            this.streetModifyBox = new System.Windows.Forms.TextBox();
+            this.cityModifyBox = new System.Windows.Forms.TextBox();
+            this.countryModifyBox = new System.Windows.Forms.TextBox();
             this.saveModifyBtn = new System.Windows.Forms.Button();
             this.doBModifyLbl = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dobModify = new System.Windows.Forms.DateTimePicker();
+            this.lblErrorMsg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.avatarModifyBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // nameModifyBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(101, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(127, 22);
-            this.textBox1.TabIndex = 0;
+            this.nameModifyBox.Location = new System.Drawing.Point(76, 32);
+            this.nameModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameModifyBox.Name = "nameModifyBox";
+            this.nameModifyBox.Size = new System.Drawing.Size(96, 20);
+            this.nameModifyBox.TabIndex = 0;
             // 
             // usernameModifylbl
             // 
             this.usernameModifylbl.AutoSize = true;
-            this.usernameModifylbl.Location = new System.Drawing.Point(26, 42);
+            this.usernameModifylbl.Location = new System.Drawing.Point(20, 34);
+            this.usernameModifylbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.usernameModifylbl.Name = "usernameModifylbl";
-            this.usernameModifylbl.Size = new System.Drawing.Size(49, 17);
+            this.usernameModifylbl.Size = new System.Drawing.Size(38, 13);
             this.usernameModifylbl.TabIndex = 1;
             this.usernameModifylbl.Text = "Name:";
             // 
             // lastnameModifylbl
             // 
             this.lastnameModifylbl.AutoSize = true;
-            this.lastnameModifylbl.Location = new System.Drawing.Point(26, 74);
+            this.lastnameModifylbl.Location = new System.Drawing.Point(20, 60);
+            this.lastnameModifylbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lastnameModifylbl.Name = "lastnameModifylbl";
-            this.lastnameModifylbl.Size = new System.Drawing.Size(62, 17);
+            this.lastnameModifylbl.Size = new System.Drawing.Size(47, 13);
             this.lastnameModifylbl.TabIndex = 2;
             this.lastnameModifylbl.Text = "Apellido:";
             // 
             // cityModifyLbl
             // 
             this.cityModifyLbl.AutoSize = true;
-            this.cityModifyLbl.Location = new System.Drawing.Point(26, 133);
+            this.cityModifyLbl.Location = new System.Drawing.Point(20, 108);
+            this.cityModifyLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.cityModifyLbl.Name = "cityModifyLbl";
-            this.cityModifyLbl.Size = new System.Drawing.Size(56, 17);
+            this.cityModifyLbl.Size = new System.Drawing.Size(43, 13);
             this.cityModifyLbl.TabIndex = 3;
             this.cityModifyLbl.Text = "Ciudad:";
             // 
             // streetModifyLbl
             // 
             this.streetModifyLbl.AutoSize = true;
-            this.streetModifyLbl.Location = new System.Drawing.Point(26, 104);
+            this.streetModifyLbl.Location = new System.Drawing.Point(20, 84);
+            this.streetModifyLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.streetModifyLbl.Name = "streetModifyLbl";
-            this.streetModifyLbl.Size = new System.Drawing.Size(43, 17);
+            this.streetModifyLbl.Size = new System.Drawing.Size(33, 13);
             this.streetModifyLbl.TabIndex = 4;
             this.streetModifyLbl.Text = "Calle:";
             // 
             // countryModifyLbl
             // 
             this.countryModifyLbl.AutoSize = true;
-            this.countryModifyLbl.Location = new System.Drawing.Point(26, 165);
+            this.countryModifyLbl.Location = new System.Drawing.Point(20, 134);
+            this.countryModifyLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.countryModifyLbl.Name = "countryModifyLbl";
-            this.countryModifyLbl.Size = new System.Drawing.Size(39, 17);
+            this.countryModifyLbl.Size = new System.Drawing.Size(30, 13);
             this.countryModifyLbl.TabIndex = 5;
             this.countryModifyLbl.Text = "Pais:";
             // 
             // avatarModifyBox
             // 
-            this.avatarModifyBox.Location = new System.Drawing.Point(29, 248);
+            this.avatarModifyBox.Location = new System.Drawing.Point(22, 202);
+            this.avatarModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.avatarModifyBox.Name = "avatarModifyBox";
-            this.avatarModifyBox.Size = new System.Drawing.Size(135, 128);
+            this.avatarModifyBox.Size = new System.Drawing.Size(101, 104);
             this.avatarModifyBox.TabIndex = 6;
             this.avatarModifyBox.TabStop = false;
             // 
             // uploadModifyBtn
             // 
-            this.uploadModifyBtn.Location = new System.Drawing.Point(29, 382);
+            this.uploadModifyBtn.Location = new System.Drawing.Point(22, 310);
+            this.uploadModifyBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uploadModifyBtn.Name = "uploadModifyBtn";
-            this.uploadModifyBtn.Size = new System.Drawing.Size(75, 23);
+            this.uploadModifyBtn.Size = new System.Drawing.Size(56, 19);
             this.uploadModifyBtn.TabIndex = 7;
             this.uploadModifyBtn.Text = "Subir";
             this.uploadModifyBtn.UseVisualStyleBackColor = true;
             this.uploadModifyBtn.Click += new System.EventHandler(this.uploadModifyBtn_Click);
             // 
-            // textBox2
+            // lastnameModifyBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(101, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(127, 22);
-            this.textBox2.TabIndex = 8;
+            this.lastnameModifyBox.Location = new System.Drawing.Point(76, 58);
+            this.lastnameModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lastnameModifyBox.Name = "lastnameModifyBox";
+            this.lastnameModifyBox.Size = new System.Drawing.Size(96, 20);
+            this.lastnameModifyBox.TabIndex = 8;
             // 
-            // textBox3
+            // streetModifyBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(101, 99);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(127, 22);
-            this.textBox3.TabIndex = 9;
+            this.streetModifyBox.Location = new System.Drawing.Point(76, 80);
+            this.streetModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.streetModifyBox.Name = "streetModifyBox";
+            this.streetModifyBox.Size = new System.Drawing.Size(96, 20);
+            this.streetModifyBox.TabIndex = 9;
             // 
-            // textBox4
+            // cityModifyBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(101, 128);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(127, 22);
-            this.textBox4.TabIndex = 10;
+            this.cityModifyBox.Location = new System.Drawing.Point(76, 104);
+            this.cityModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cityModifyBox.Name = "cityModifyBox";
+            this.cityModifyBox.Size = new System.Drawing.Size(96, 20);
+            this.cityModifyBox.TabIndex = 10;
             // 
-            // textBox5
+            // countryModifyBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(101, 160);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(127, 22);
-            this.textBox5.TabIndex = 11;
+            this.countryModifyBox.Location = new System.Drawing.Point(76, 130);
+            this.countryModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.countryModifyBox.Name = "countryModifyBox";
+            this.countryModifyBox.Size = new System.Drawing.Size(96, 20);
+            this.countryModifyBox.TabIndex = 11;
             // 
             // saveModifyBtn
             // 
-            this.saveModifyBtn.Location = new System.Drawing.Point(53, 425);
+            this.saveModifyBtn.Location = new System.Drawing.Point(40, 345);
+            this.saveModifyBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.saveModifyBtn.Name = "saveModifyBtn";
-            this.saveModifyBtn.Size = new System.Drawing.Size(159, 23);
+            this.saveModifyBtn.Size = new System.Drawing.Size(119, 19);
             this.saveModifyBtn.TabIndex = 12;
             this.saveModifyBtn.Text = "Guardar";
             this.saveModifyBtn.UseVisualStyleBackColor = true;
@@ -158,30 +172,42 @@ namespace UISocialNetwork
             // doBModifyLbl
             // 
             this.doBModifyLbl.AutoSize = true;
-            this.doBModifyLbl.Location = new System.Drawing.Point(26, 194);
+            this.doBModifyLbl.Location = new System.Drawing.Point(20, 158);
+            this.doBModifyLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.doBModifyLbl.Name = "doBModifyLbl";
-            this.doBModifyLbl.Size = new System.Drawing.Size(143, 17);
+            this.doBModifyLbl.Size = new System.Drawing.Size(109, 13);
             this.doBModifyLbl.TabIndex = 13;
             this.doBModifyLbl.Text = "Fecha de nacimiento:";
             // 
-            // dateTimePicker1
+            // dobModify
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(28, 214);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 14;
+            this.dobModify.Location = new System.Drawing.Point(21, 174);
+            this.dobModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dobModify.Name = "dobModify";
+            this.dobModify.Size = new System.Drawing.Size(151, 20);
+            this.dobModify.TabIndex = 14;
+            // 
+            // lblErrorMsg
+            // 
+            this.lblErrorMsg.AutoSize = true;
+            this.lblErrorMsg.Location = new System.Drawing.Point(3, 366);
+            this.lblErrorMsg.Name = "lblErrorMsg";
+            this.lblErrorMsg.Size = new System.Drawing.Size(29, 13);
+            this.lblErrorMsg.TabIndex = 15;
+            this.lblErrorMsg.Text = "Error";
             // 
             // ModifyUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.lblErrorMsg);
+            this.Controls.Add(this.dobModify);
             this.Controls.Add(this.doBModifyLbl);
             this.Controls.Add(this.saveModifyBtn);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.countryModifyBox);
+            this.Controls.Add(this.cityModifyBox);
+            this.Controls.Add(this.streetModifyBox);
+            this.Controls.Add(this.lastnameModifyBox);
             this.Controls.Add(this.uploadModifyBtn);
             this.Controls.Add(this.avatarModifyBox);
             this.Controls.Add(this.countryModifyLbl);
@@ -189,9 +215,11 @@ namespace UISocialNetwork
             this.Controls.Add(this.cityModifyLbl);
             this.Controls.Add(this.lastnameModifylbl);
             this.Controls.Add(this.usernameModifylbl);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nameModifyBox);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ModifyUser";
-            this.Size = new System.Drawing.Size(278, 479);
+            this.Size = new System.Drawing.Size(208, 389);
+            this.Load += new System.EventHandler(this.ModifyUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.avatarModifyBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -200,7 +228,7 @@ namespace UISocialNetwork
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nameModifyBox;
         private System.Windows.Forms.Label usernameModifylbl;
         private System.Windows.Forms.Label lastnameModifylbl;
         private System.Windows.Forms.Label cityModifyLbl;
@@ -208,12 +236,13 @@ namespace UISocialNetwork
         private System.Windows.Forms.Label countryModifyLbl;
         private System.Windows.Forms.PictureBox avatarModifyBox;
         private System.Windows.Forms.Button uploadModifyBtn;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox lastnameModifyBox;
+        private System.Windows.Forms.TextBox streetModifyBox;
+        private System.Windows.Forms.TextBox cityModifyBox;
+        private System.Windows.Forms.TextBox countryModifyBox;
         private System.Windows.Forms.Button saveModifyBtn;
         private System.Windows.Forms.Label doBModifyLbl;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dobModify;
+        private System.Windows.Forms.Label lblErrorMsg;
     }
 }
