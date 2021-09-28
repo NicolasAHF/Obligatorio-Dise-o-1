@@ -33,13 +33,14 @@ namespace UISocialNetwork
             this.mainPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.header = new System.Windows.Forms.Panel();
+            this.LogoutBtn = new System.Windows.Forms.Button();
             this.createUserBtn = new System.Windows.Forms.Button();
             this.loginBtn = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.marketplaceBtn = new System.Windows.Forms.Button();
             this.profileBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.LogoutBtn = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.ComboBox();
             this.mainPanel.SuspendLayout();
             this.header.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -69,6 +70,7 @@ namespace UISocialNetwork
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.header.Controls.Add(this.searchBox);
             this.header.Controls.Add(this.LogoutBtn);
             this.header.Controls.Add(this.createUserBtn);
             this.header.Controls.Add(this.loginBtn);
@@ -78,6 +80,21 @@ namespace UISocialNetwork
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(634, 81);
             this.header.TabIndex = 4;
+            // 
+            // LogoutBtn
+            // 
+            this.LogoutBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LogoutBtn.Location = new System.Drawing.Point(358, 0);
+            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Size = new System.Drawing.Size(92, 81);
+            this.LogoutBtn.TabIndex = 4;
+            this.LogoutBtn.Text = "Logout";
+            this.LogoutBtn.UseVisualStyleBackColor = true;
+            this.LogoutBtn.Visible = false;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
             // createUserBtn
             // 
@@ -163,20 +180,17 @@ namespace UISocialNetwork
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // LogoutBtn
+            // searchBox
             // 
-            this.LogoutBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LogoutBtn.Location = new System.Drawing.Point(358, 0);
-            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Size = new System.Drawing.Size(92, 81);
-            this.LogoutBtn.TabIndex = 4;
-            this.LogoutBtn.Text = "Logout";
-            this.LogoutBtn.UseVisualStyleBackColor = true;
-            this.LogoutBtn.Visible = false;
-            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
+            this.searchBox.FormattingEnabled = true;
+            this.searchBox.Items.AddRange(new object[] {
+            "Nicolas Hernandez",
+            "Carlitos Bala"});
+            this.searchBox.Location = new System.Drawing.Point(6, 53);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(347, 21);
+            this.searchBox.TabIndex = 5;
+            this.searchBox.Visible = false;
             // 
             // MainForm
             // 
@@ -190,6 +204,7 @@ namespace UISocialNetwork
             this.MinimumSize = new System.Drawing.Size(815, 506);
             this.Name = "MainForm";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.header.ResumeLayout(false);
@@ -211,5 +226,6 @@ namespace UISocialNetwork
         private System.Windows.Forms.Button marketplaceBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button LogoutBtn;
+        private System.Windows.Forms.ComboBox searchBox;
     }
 }

@@ -61,6 +61,7 @@ namespace UISocialNetwork
             profileBtn.Show();
             marketplaceBtn.Show();
             LogoutBtn.Show();
+            searchBox.Show();
         }
         private void ClearPanel()
         {
@@ -93,6 +94,12 @@ namespace UISocialNetwork
             profileBtn.Hide();
             marketplaceBtn.Hide();
             LogoutBtn.Hide();
+            searchBox.Hide();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            searchBox.Items.Add(users);
         }
     }
 }
