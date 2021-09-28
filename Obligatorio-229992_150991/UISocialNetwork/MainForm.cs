@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿using System;
-=======
 ﻿using SocialNetwork;
 using System;
->>>>>>> develop
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,13 +11,6 @@ using System.Windows.Forms;
 
 namespace UISocialNetwork
 {
-<<<<<<< HEAD
-    public partial class MainForm: Form
-    {
-        public MainForm()
-        {
-            InitializeComponent();
-=======
     public partial class MainForm : Form
     {
         private DirectoryUser users = new DirectoryUser();
@@ -42,7 +31,7 @@ namespace UISocialNetwork
         private void createUserBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            CreateUserControl createUser = new CreateUserControl(users);
+            CreateUser createUser = new CreateUser(users);
             mainPanel.Controls.Add(createUser);
         }
 
@@ -104,7 +93,6 @@ namespace UISocialNetwork
             profileBtn.Hide();
             marketplaceBtn.Hide();
             LogoutBtn.Hide();
->>>>>>> develop
         }
     }
 }

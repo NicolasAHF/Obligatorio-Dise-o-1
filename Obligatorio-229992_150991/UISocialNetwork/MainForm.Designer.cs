@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿namespace UISocialNetwork
-=======
 ﻿
 namespace UISocialNetwork
->>>>>>> develop
 {
     partial class MainForm
     {
@@ -33,15 +29,6 @@ namespace UISocialNetwork
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "MainForm";
-        }
-
-        #endregion
-=======
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -224,6 +211,5 @@ namespace UISocialNetwork
         private System.Windows.Forms.Button marketplaceBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button LogoutBtn;
->>>>>>> develop
     }
 }
