@@ -29,6 +29,7 @@ namespace UISocialNetwork
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.avatar = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.modifyUser = new System.Windows.Forms.Button();
@@ -83,10 +84,15 @@ namespace UISocialNetwork
             this.completeNameLbl.TabIndex = 5;
             this.completeNameLbl.Text = "Nombre y apellido";
             // 
+=======
+            this.SuspendLayout();
+            // 
+>>>>>>> develop
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.Controls.Add(this.completeNameLbl);
             this.Controls.Add(this.modifyPanel);
             this.Controls.Add(this.modifyUser);
@@ -98,15 +104,23 @@ namespace UISocialNetwork
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+=======
+            this.Name = "Profile";
+            this.Size = new System.Drawing.Size(825, 488);
+            this.ResumeLayout(false);
+>>>>>>> develop
 
         }
 
         #endregion
+<<<<<<< HEAD
 
         private System.Windows.Forms.PictureBox avatar;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button modifyUser;
         private System.Windows.Forms.Panel modifyPanel;
         private System.Windows.Forms.Label completeNameLbl;
+=======
+>>>>>>> develop
     }
 }
