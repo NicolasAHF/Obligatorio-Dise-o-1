@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 ﻿using SocialNetwork;
 using System;
+=======
+﻿using System;
+>>>>>>> develop
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +17,7 @@ namespace UISocialNetwork
 {
     public partial class Profile : UserControl
     {
+<<<<<<< HEAD
         private User user;
         public Profile(User user)
         {
@@ -29,6 +34,11 @@ namespace UISocialNetwork
         private void modifyUser_Click(object sender, EventArgs e)
         {
             
+=======
+        public Profile()
+        {
+            InitializeComponent();
+>>>>>>> develop
         }
     }
 }

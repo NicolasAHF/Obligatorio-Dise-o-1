@@ -11,7 +11,8 @@ using System.Windows.Forms;
 
 namespace UISocialNetwork
 {
-    public delegate void PostLogin();
+
+    public delegate void PostLogin(User user);
     public partial class Login : UserControl
     {
         private DirectoryUser users;
@@ -36,7 +37,7 @@ namespace UISocialNetwork
                 User actualUser = users.GetUser(username);
                 if (actualUser.GetPassword().CheckPassword(password))
                 {
-                    PostLoginEvent();
+                    PostLoginEvent(actualUser);
                 }
             }
             catch (Exception exp)
@@ -52,6 +53,46 @@ namespace UISocialNetwork
             lblErrorMsg.Show();
             lblErrorMsg.ForeColor = color;
             lblErrorMsg.Text = message;
+        }
+
+        private void UsernameTextBox_Enter(object sender, EventArgs e)
+        {
+            if(UsernameTextBox.Text.Equals("Nombre de usuario"))
+            {
+                UsernameTextBox.Text = "";
+
+                UsernameTextBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void UsernameTextBox_Leave(object sender, EventArgs e)
+        {
+            if (UsernameTextBox.Text.Equals(""))
+            {
+                UsernameTextBox.Text = "Nombre de usuario";
+
+                UsernameTextBox.ForeColor = Color.Maroon;
+            }
+        }
+
+        private void PasswordTextBox_Enter(object sender, EventArgs e)
+        {
+            if (PasswordTextBox.Text.Equals("Contraseña"))
+            {
+                PasswordTextBox.Text = "";
+
+                PasswordTextBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void PasswordTextBox_Leave(object sender, EventArgs e)
+        {
+            if (PasswordTextBox.Text.Equals(""))
+            {
+                PasswordTextBox.Text = "Contraseña";
+
+                PasswordTextBox.ForeColor = Color.Maroon;
+            }
         }
     }
 }
