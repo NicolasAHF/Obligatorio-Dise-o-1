@@ -29,20 +29,22 @@ namespace UISocialNetwork
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             this.avatar = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.modifyUser = new System.Windows.Forms.Button();
             this.modifyPanel = new System.Windows.Forms.Panel();
             this.completeNameLbl = new System.Windows.Forms.Label();
+            this.statusLbl = new System.Windows.Forms.Label();
+            this.listeningNowLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // avatar
             // 
-            this.avatar.Location = new System.Drawing.Point(15, 18);
+            this.avatar.Location = new System.Drawing.Point(11, 15);
+            this.avatar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.avatar.Name = "avatar";
-            this.avatar.Size = new System.Drawing.Size(145, 138);
+            this.avatar.Size = new System.Drawing.Size(109, 112);
             this.avatar.TabIndex = 0;
             this.avatar.TabStop = false;
             // 
@@ -50,17 +52,19 @@ namespace UISocialNetwork
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblUsername.Location = new System.Drawing.Point(166, 18);
+            this.lblUsername.Location = new System.Drawing.Point(124, 15);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(102, 25);
+            this.lblUsername.Size = new System.Drawing.Size(83, 20);
             this.lblUsername.TabIndex = 2;
             this.lblUsername.Text = "Username";
             // 
             // modifyUser
             // 
-            this.modifyUser.Location = new System.Drawing.Point(603, 18);
+            this.modifyUser.Location = new System.Drawing.Point(452, 15);
+            this.modifyUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modifyUser.Name = "modifyUser";
-            this.modifyUser.Size = new System.Drawing.Size(157, 46);
+            this.modifyUser.Size = new System.Drawing.Size(118, 37);
             this.modifyUser.TabIndex = 3;
             this.modifyUser.Text = "Modificar Usuario";
             this.modifyUser.UseVisualStyleBackColor = true;
@@ -68,9 +72,10 @@ namespace UISocialNetwork
             // 
             // modifyPanel
             // 
-            this.modifyPanel.Location = new System.Drawing.Point(511, 70);
+            this.modifyPanel.Location = new System.Drawing.Point(383, 57);
+            this.modifyPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.modifyPanel.Name = "modifyPanel";
-            this.modifyPanel.Size = new System.Drawing.Size(278, 322);
+            this.modifyPanel.Size = new System.Drawing.Size(208, 262);
             this.modifyPanel.TabIndex = 4;
             this.modifyPanel.Visible = false;
             // 
@@ -78,49 +83,62 @@ namespace UISocialNetwork
             // 
             this.completeNameLbl.AutoSize = true;
             this.completeNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.completeNameLbl.Location = new System.Drawing.Point(171, 47);
+            this.completeNameLbl.Location = new System.Drawing.Point(128, 38);
+            this.completeNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.completeNameLbl.Name = "completeNameLbl";
-            this.completeNameLbl.Size = new System.Drawing.Size(143, 20);
+            this.completeNameLbl.Size = new System.Drawing.Size(122, 17);
             this.completeNameLbl.TabIndex = 5;
             this.completeNameLbl.Text = "Nombre y apellido";
             // 
-=======
-            this.SuspendLayout();
+            // statusLbl
             // 
->>>>>>> develop
+            this.statusLbl.AutoSize = true;
+            this.statusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.statusLbl.Location = new System.Drawing.Point(8, 138);
+            this.statusLbl.Name = "statusLbl";
+            this.statusLbl.Size = new System.Drawing.Size(46, 17);
+            this.statusLbl.TabIndex = 6;
+            this.statusLbl.Text = "status";
+            // 
+            // listeningNowLbl
+            // 
+            this.listeningNowLbl.AutoSize = true;
+            this.listeningNowLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.listeningNowLbl.Location = new System.Drawing.Point(128, 110);
+            this.listeningNowLbl.Name = "listeningNowLbl";
+            this.listeningNowLbl.Size = new System.Drawing.Size(92, 17);
+            this.listeningNowLbl.TabIndex = 7;
+            this.listeningNowLbl.Text = "ListeningNow";
+            // 
             // Profile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
+            this.Controls.Add(this.listeningNowLbl);
+            this.Controls.Add(this.statusLbl);
             this.Controls.Add(this.completeNameLbl);
             this.Controls.Add(this.modifyPanel);
             this.Controls.Add(this.modifyUser);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.avatar);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Profile";
-            this.Size = new System.Drawing.Size(825, 488);
+            this.Size = new System.Drawing.Size(619, 396);
             this.Load += new System.EventHandler(this.Profile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-=======
-            this.Name = "Profile";
-            this.Size = new System.Drawing.Size(825, 488);
-            this.ResumeLayout(false);
->>>>>>> develop
 
         }
 
         #endregion
-<<<<<<< HEAD
 
         private System.Windows.Forms.PictureBox avatar;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button modifyUser;
         private System.Windows.Forms.Panel modifyPanel;
         private System.Windows.Forms.Label completeNameLbl;
-=======
->>>>>>> develop
+        private System.Windows.Forms.Label statusLbl;
+        private System.Windows.Forms.Label listeningNowLbl;
     }
 }

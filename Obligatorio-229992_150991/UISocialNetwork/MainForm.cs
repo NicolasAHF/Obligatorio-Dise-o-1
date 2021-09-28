@@ -31,14 +31,14 @@ namespace UISocialNetwork
         private void createUserBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            CreateUserControl createUser = new CreateUserControl(users);
+            CreateUser createUser = new CreateUser();
             mainPanel.Controls.Add(createUser);
         }
 
         private void CreateHomePanel(User user)
         {
             ClearPanel();
-            UserControl home = new Home(user);
+            UserControl home = new Home();
             mainPanel.Controls.Add(home);
         }
 
@@ -70,7 +70,7 @@ namespace UISocialNetwork
         private void profileBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            Profile profile = new Profile();
+            Profile profile = new Profile(users.GetUser(usernameLblMain.Text));
             mainPanel.Controls.Add(profile);
         }
 
