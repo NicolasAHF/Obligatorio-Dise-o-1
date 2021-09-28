@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialNetwork;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,56 @@ namespace UISocialNetwork
 {
     public partial class CreateUser : UserControl
     {
-        public CreateUser()
+        private DirectoryUser users;
+        public CreateUser(DirectoryUser users)
         {
             InitializeComponent();
+            this.users = users;
+        }
+
+        private void saveUser_Click(object sender, EventArgs e)
+        {
+            const string USER_CREATED_SUCCESFULLY = "Usuario creado con exito";
+            try
+            {
+                Direction direction = new Direction();
+                direction.Street = textBoxStreet.Text;
+                direction.City = textBoxCity.Text;
+                direction.Counrty = textBoxCountry.Text;
+                users.AddUser(new User(textBoxUsername.Text, textBoxPassword.Text, textBoxName.Text, textBoxLastname.Text, dateofbirth.Value, direction, lblPath.Text));
+                ShowFeedbackMessage(System.Drawing.Color.Green, USER_CREATED_SUCCESFULLY);
+            }
+            catch (Exception exp)
+            {
+                ShowFeedbackMessage(System.Drawing.Color.Red, exp.Message);
+            }
+        }
+        private void ShowFeedbackMessage(System.Drawing.Color color, string message)
+        {
+            lblErrorMsg.Show();
+            lblErrorMsg.ForeColor = color;
+            lblErrorMsg.Text = message;
+        }
+
+        private void avatarBtn_Click(object sender, EventArgs e)
+        {
+            string imageLocation = "";
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    imageLocation = dialog.FileName;
+
+                    avatarBox.ImageLocation = imageLocation;
+                    lblPath.Text = "Path:" + imageLocation;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

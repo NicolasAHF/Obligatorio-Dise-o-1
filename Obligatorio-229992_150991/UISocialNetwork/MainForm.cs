@@ -31,7 +31,7 @@ namespace UISocialNetwork
         private void createUserBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            CreateUserControl createUser = new CreateUserControl(users);
+            CreateUser createUser = new CreateUser(users);
             mainPanel.Controls.Add(createUser);
         }
 
