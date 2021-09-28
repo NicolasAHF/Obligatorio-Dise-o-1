@@ -90,11 +90,6 @@ namespace UISocialNetwork
 
         #endregion
 
-        private System.Windows.Forms.PictureBox avatar;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Button modifyUser;
-        private System.Windows.Forms.Panel modifyPanel;
-        private System.Windows.Forms.Label completeNameLbl;
         private System.Windows.Forms.Button modifyUserBtn;
         private System.Windows.Forms.Label lblUsernameProfile;
         private System.Windows.Forms.Panel panel1;

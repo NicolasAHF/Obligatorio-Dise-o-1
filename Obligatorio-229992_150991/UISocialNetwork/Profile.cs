@@ -30,6 +30,7 @@ namespace UISocialNetwork
         {
             namelblModify.Text = user.Name;
             panel1.Hide();
+            modifyUserBtn.Enabled = true;
         }
 
         private void modifyUserBtn_Click(object sender, EventArgs e)
