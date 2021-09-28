@@ -46,6 +46,8 @@ namespace UISocialNetwork
         {
             ClearPanel();
             CreateHomePanel(user);
+            usernamelblHome.Show();
+            usernamelblHome.Text = user.Username;
             PostLoginHide();
             PostLoginShow();
         }
@@ -67,13 +69,6 @@ namespace UISocialNetwork
             mainPanel.Controls.Clear();
         }
 
-        private void profileBtn_Click(object sender, EventArgs e)
-        {
-            ClearPanel();
-            Profile profile = new Profile();
-            mainPanel.Controls.Add(profile);
-        }
-
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
            ClearPanel();
@@ -93,6 +88,13 @@ namespace UISocialNetwork
             profileBtn.Hide();
             marketplaceBtn.Hide();
             LogoutBtn.Hide();
+        }
+
+        private void profileBtn_Click(object sender, EventArgs e)
+        {
+            ClearPanel();
+            Profile profile = new Profile(users.GetUser(usernamelblHome.Text));
+            mainPanel.Controls.Add(profile);
         }
     }
 }

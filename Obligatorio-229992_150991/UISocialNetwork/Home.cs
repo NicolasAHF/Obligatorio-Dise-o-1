@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialNetwork;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace UISocialNetwork
 {
     public partial class Home : UserControl
     {
-        public Home()
+        private User user;
+        public Home(User user)
         {
             InitializeComponent();
+            this.user = user;
         }
     }
 }

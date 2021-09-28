@@ -11,15 +11,20 @@ using System.Windows.Forms;
 
 namespace UISocialNetwork
 {
+    public delegate void PostModify();
     public partial class ModifyUser : UserControl
     {
         private User user;
-        private DirectoryUser users;
-        public ModifyUser(User user, DirectoryUser users)
+        private event PostModify PostModifyEvent;
+        public ModifyUser(User user)
         {
             InitializeComponent();
             this.user = user;
-            this.users = users;
+        }
+
+        public void AddListener(PostModify del)
+        {
+            PostModifyEvent += del;
         }
 
         private void uploadModifyBtn_Click(object sender, EventArgs e)
@@ -54,6 +59,7 @@ namespace UISocialNetwork
                 user.SetLastname(lastnameModifyBox.Text);
                 user.SetDirection(auxDirection);
                 user.SetAvatar(avatarModifyBox.ImageLocation);
+                PostModifyEvent();
             }
             catch (Exception exp)
             {

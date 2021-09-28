@@ -33,13 +33,14 @@ namespace UISocialNetwork
             this.mainPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.header = new System.Windows.Forms.Panel();
+            this.LogoutBtn = new System.Windows.Forms.Button();
             this.createUserBtn = new System.Windows.Forms.Button();
             this.loginBtn = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.marketplaceBtn = new System.Windows.Forms.Button();
             this.profileBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.LogoutBtn = new System.Windows.Forms.Button();
+            this.usernamelblHome = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.header.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -49,6 +50,7 @@ namespace UISocialNetwork
             // mainPanel
             // 
             this.mainPanel.AutoScroll = true;
+            this.mainPanel.Controls.Add(this.usernamelblHome);
             this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Location = new System.Drawing.Point(165, 80);
             this.mainPanel.Name = "mainPanel";
@@ -78,6 +80,21 @@ namespace UISocialNetwork
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(634, 81);
             this.header.TabIndex = 4;
+            // 
+            // LogoutBtn
+            // 
+            this.LogoutBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LogoutBtn.Location = new System.Drawing.Point(358, 0);
+            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Size = new System.Drawing.Size(92, 81);
+            this.LogoutBtn.TabIndex = 4;
+            this.LogoutBtn.Text = "Logout";
+            this.LogoutBtn.UseVisualStyleBackColor = true;
+            this.LogoutBtn.Visible = false;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
             // createUserBtn
             // 
@@ -163,20 +180,15 @@ namespace UISocialNetwork
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // LogoutBtn
+            // usernamelblHome
             // 
-            this.LogoutBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LogoutBtn.Location = new System.Drawing.Point(358, 0);
-            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Size = new System.Drawing.Size(92, 81);
-            this.LogoutBtn.TabIndex = 4;
-            this.LogoutBtn.Text = "Logout";
-            this.LogoutBtn.UseVisualStyleBackColor = true;
-            this.LogoutBtn.Visible = false;
-            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
+            this.usernamelblHome.AutoSize = true;
+            this.usernamelblHome.Location = new System.Drawing.Point(4, 7);
+            this.usernamelblHome.Name = "usernamelblHome";
+            this.usernamelblHome.Size = new System.Drawing.Size(55, 13);
+            this.usernamelblHome.TabIndex = 1;
+            this.usernamelblHome.Text = "Username";
+            this.usernamelblHome.Visible = false;
             // 
             // MainForm
             // 
@@ -211,5 +223,6 @@ namespace UISocialNetwork
         private System.Windows.Forms.Button marketplaceBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button LogoutBtn;
+        private System.Windows.Forms.Label usernamelblHome;
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace UISocialNetwork
+﻿namespace UISocialNetwork
 {
     partial class CreateUser
     {
@@ -85,6 +84,7 @@ namespace UISocialNetwork
             this.saveUser.TabIndex = 41;
             this.saveUser.Text = "Guardar Usuario";
             this.saveUser.UseVisualStyleBackColor = true;
+            this.saveUser.Click += new System.EventHandler(this.saveUser_Click);
             // 
             // avatarBtn
             // 
@@ -95,6 +95,7 @@ namespace UISocialNetwork
             this.avatarBtn.TabIndex = 40;
             this.avatarBtn.Text = "Upload";
             this.avatarBtn.UseVisualStyleBackColor = true;
+            this.avatarBtn.Click += new System.EventHandler(this.avatarBtn_Click);
             // 
             // avatarBox
             // 
@@ -273,7 +274,7 @@ namespace UISocialNetwork
             this.UsernamelblCreate.TabIndex = 22;
             this.UsernamelblCreate.Text = "Nombre de usuario:";
             // 
-            // CreateUser1
+            // CreateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -299,7 +300,7 @@ namespace UISocialNetwork
             this.Controls.Add(this.nameLbl);
             this.Controls.Add(this.PasswordlblCreate);
             this.Controls.Add(this.UsernamelblCreate);
-            this.Name = "CreateUser1";
+            this.Name = "CreateUser";
             this.Size = new System.Drawing.Size(450, 450);
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
             this.ResumeLayout(false);

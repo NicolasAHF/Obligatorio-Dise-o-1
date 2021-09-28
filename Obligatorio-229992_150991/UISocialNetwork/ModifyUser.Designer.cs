@@ -51,7 +51,7 @@ namespace UISocialNetwork
             // nameModifyBox
             // 
             this.nameModifyBox.Location = new System.Drawing.Point(76, 32);
-            this.nameModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameModifyBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameModifyBox.Name = "nameModifyBox";
             this.nameModifyBox.Size = new System.Drawing.Size(96, 20);
             this.nameModifyBox.TabIndex = 0;
@@ -109,7 +109,7 @@ namespace UISocialNetwork
             // avatarModifyBox
             // 
             this.avatarModifyBox.Location = new System.Drawing.Point(22, 202);
-            this.avatarModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.avatarModifyBox.Margin = new System.Windows.Forms.Padding(2);
             this.avatarModifyBox.Name = "avatarModifyBox";
             this.avatarModifyBox.Size = new System.Drawing.Size(101, 104);
             this.avatarModifyBox.TabIndex = 6;
@@ -118,7 +118,7 @@ namespace UISocialNetwork
             // uploadModifyBtn
             // 
             this.uploadModifyBtn.Location = new System.Drawing.Point(22, 310);
-            this.uploadModifyBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uploadModifyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.uploadModifyBtn.Name = "uploadModifyBtn";
             this.uploadModifyBtn.Size = new System.Drawing.Size(56, 19);
             this.uploadModifyBtn.TabIndex = 7;
@@ -129,7 +129,7 @@ namespace UISocialNetwork
             // lastnameModifyBox
             // 
             this.lastnameModifyBox.Location = new System.Drawing.Point(76, 58);
-            this.lastnameModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lastnameModifyBox.Margin = new System.Windows.Forms.Padding(2);
             this.lastnameModifyBox.Name = "lastnameModifyBox";
             this.lastnameModifyBox.Size = new System.Drawing.Size(96, 20);
             this.lastnameModifyBox.TabIndex = 8;
@@ -137,7 +137,7 @@ namespace UISocialNetwork
             // streetModifyBox
             // 
             this.streetModifyBox.Location = new System.Drawing.Point(76, 80);
-            this.streetModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.streetModifyBox.Margin = new System.Windows.Forms.Padding(2);
             this.streetModifyBox.Name = "streetModifyBox";
             this.streetModifyBox.Size = new System.Drawing.Size(96, 20);
             this.streetModifyBox.TabIndex = 9;
@@ -145,7 +145,7 @@ namespace UISocialNetwork
             // cityModifyBox
             // 
             this.cityModifyBox.Location = new System.Drawing.Point(76, 104);
-            this.cityModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cityModifyBox.Margin = new System.Windows.Forms.Padding(2);
             this.cityModifyBox.Name = "cityModifyBox";
             this.cityModifyBox.Size = new System.Drawing.Size(96, 20);
             this.cityModifyBox.TabIndex = 10;
@@ -153,7 +153,7 @@ namespace UISocialNetwork
             // countryModifyBox
             // 
             this.countryModifyBox.Location = new System.Drawing.Point(76, 130);
-            this.countryModifyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.countryModifyBox.Margin = new System.Windows.Forms.Padding(2);
             this.countryModifyBox.Name = "countryModifyBox";
             this.countryModifyBox.Size = new System.Drawing.Size(96, 20);
             this.countryModifyBox.TabIndex = 11;
@@ -161,7 +161,7 @@ namespace UISocialNetwork
             // saveModifyBtn
             // 
             this.saveModifyBtn.Location = new System.Drawing.Point(40, 345);
-            this.saveModifyBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveModifyBtn.Margin = new System.Windows.Forms.Padding(2);
             this.saveModifyBtn.Name = "saveModifyBtn";
             this.saveModifyBtn.Size = new System.Drawing.Size(119, 19);
             this.saveModifyBtn.TabIndex = 12;
@@ -182,7 +182,7 @@ namespace UISocialNetwork
             // dobModify
             // 
             this.dobModify.Location = new System.Drawing.Point(21, 174);
-            this.dobModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dobModify.Margin = new System.Windows.Forms.Padding(2);
             this.dobModify.Name = "dobModify";
             this.dobModify.Size = new System.Drawing.Size(151, 20);
             this.dobModify.TabIndex = 14;
@@ -200,6 +200,7 @@ namespace UISocialNetwork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.Controls.Add(this.lblErrorMsg);
             this.Controls.Add(this.dobModify);
             this.Controls.Add(this.doBModifyLbl);
@@ -216,7 +217,7 @@ namespace UISocialNetwork
             this.Controls.Add(this.lastnameModifylbl);
             this.Controls.Add(this.usernameModifylbl);
             this.Controls.Add(this.nameModifyBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ModifyUser";
             this.Size = new System.Drawing.Size(208, 389);
             this.Load += new System.EventHandler(this.ModifyUser_Load);

@@ -22,13 +22,24 @@ namespace UISocialNetwork
 
         private void Profile_Load(object sender, EventArgs e)
         {
-            lblUsername.Text = user.Username;
-            avatar.ImageLocation = user.Avatar;
+            lblUsernameProfile.Text = user.Username;
+            namelblModify.Text = user.Name;
         }
 
-        private void modifyUser_Click(object sender, EventArgs e)
+        private void PostModify()
         {
-            
+            namelblModify.Text = user.Name;
+            panel1.Hide();
+        }
+
+        private void modifyUserBtn_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            ModifyUser modifyUser = new ModifyUser(user);
+            modifyUser.AddListener(PostModify);
+            panel1.Controls.Add(modifyUser);
+            panel1.Show();
+            modifyUserBtn.Enabled = false;
         }
     }
 }
