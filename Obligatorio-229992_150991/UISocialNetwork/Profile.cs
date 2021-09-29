@@ -27,9 +27,21 @@ namespace UISocialNetwork
             completeNameLbl.Text = user.Name + " " + user.Lastname;
         }
 
+        private void PostModify()
+        {
+            namelblModify.Text = user.Name;
+            modifyPanel.Hide();
+            modifyUser.Enabled = true;
+        }
+
         private void modifyUser_Click(object sender, EventArgs e)
         {
-            
+            modifyPanel.Controls.Clear();
+            ModifyUser modifyUser = new ModifyUser(user);
+            modifyUser.AddListener(PostModify);
+            modifyPanel.Controls.Add(modifyUser);
+            modifyPanel.Show();
+            modifyUser.Enabled = false;
         }
     }
 }
