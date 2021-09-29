@@ -36,13 +36,14 @@ namespace UISocialNetwork
             this.completeNameLbl = new System.Windows.Forms.Label();
             this.statusLbl = new System.Windows.Forms.Label();
             this.listeningNowLbl = new System.Windows.Forms.Label();
+            this.followBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // avatar
             // 
             this.avatar.Location = new System.Drawing.Point(11, 15);
-            this.avatar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.avatar.Margin = new System.Windows.Forms.Padding(2);
             this.avatar.Name = "avatar";
             this.avatar.Size = new System.Drawing.Size(109, 112);
             this.avatar.TabIndex = 0;
@@ -62,7 +63,7 @@ namespace UISocialNetwork
             // modifyUser
             // 
             this.modifyUser.Location = new System.Drawing.Point(452, 15);
-            this.modifyUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modifyUser.Margin = new System.Windows.Forms.Padding(2);
             this.modifyUser.Name = "modifyUser";
             this.modifyUser.Size = new System.Drawing.Size(118, 37);
             this.modifyUser.TabIndex = 3;
@@ -73,7 +74,7 @@ namespace UISocialNetwork
             // modifyPanel
             // 
             this.modifyPanel.Location = new System.Drawing.Point(383, 57);
-            this.modifyPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modifyPanel.Margin = new System.Windows.Forms.Padding(2);
             this.modifyPanel.Name = "modifyPanel";
             this.modifyPanel.Size = new System.Drawing.Size(208, 262);
             this.modifyPanel.TabIndex = 4;
@@ -110,10 +111,25 @@ namespace UISocialNetwork
             this.listeningNowLbl.TabIndex = 7;
             this.listeningNowLbl.Text = "ListeningNow";
             // 
+            // followBtn
+            // 
+            this.followBtn.BackColor = System.Drawing.Color.Maroon;
+            this.followBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.followBtn.Location = new System.Drawing.Point(304, 15);
+            this.followBtn.Name = "followBtn";
+            this.followBtn.Size = new System.Drawing.Size(106, 37);
+            this.followBtn.TabIndex = 8;
+            this.followBtn.Text = "Seguir";
+            this.followBtn.UseVisualStyleBackColor = false;
+            this.followBtn.Click += new System.EventHandler(this.followBtn_Click);
+            this.followBtn.MouseLeave += new System.EventHandler(this.followBtn_MouseLeave);
+            this.followBtn.MouseHover += new System.EventHandler(this.followBtn_MouseHover);
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.followBtn);
             this.Controls.Add(this.listeningNowLbl);
             this.Controls.Add(this.statusLbl);
             this.Controls.Add(this.completeNameLbl);
@@ -121,7 +137,7 @@ namespace UISocialNetwork
             this.Controls.Add(this.modifyUser);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.avatar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Profile";
             this.Size = new System.Drawing.Size(619, 396);
             this.Load += new System.EventHandler(this.Profile_Load);
@@ -140,5 +156,6 @@ namespace UISocialNetwork
         private System.Windows.Forms.Label completeNameLbl;
         private System.Windows.Forms.Label statusLbl;
         private System.Windows.Forms.Label listeningNowLbl;
+        private System.Windows.Forms.Button followBtn;
     }
 }
