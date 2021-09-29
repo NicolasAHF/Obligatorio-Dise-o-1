@@ -33,6 +33,7 @@ namespace UISocialNetwork
             this.mainPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.header = new System.Windows.Forms.Panel();
+            this.adminLbl = new System.Windows.Forms.Label();
             this.LogoutBtn = new System.Windows.Forms.Button();
             this.createUserBtn = new System.Windows.Forms.Button();
             this.loginBtn = new System.Windows.Forms.Button();
@@ -40,7 +41,7 @@ namespace UISocialNetwork
             this.marketplaceBtn = new System.Windows.Forms.Button();
             this.profileBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.adminLbl = new System.Windows.Forms.Label();
+            this.usernamelblHome = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.header.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -50,6 +51,7 @@ namespace UISocialNetwork
             // mainPanel
             // 
             this.mainPanel.AutoScroll = true;
+            this.mainPanel.Controls.Add(this.usernamelblHome);
             this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Location = new System.Drawing.Point(165, 80);
             this.mainPanel.Name = "mainPanel";
@@ -80,6 +82,15 @@ namespace UISocialNetwork
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(634, 81);
             this.header.TabIndex = 4;
+            // 
+            // adminLbl
+            // 
+            this.adminLbl.AutoSize = true;
+            this.adminLbl.Location = new System.Drawing.Point(6, 4);
+            this.adminLbl.Name = "adminLbl";
+            this.adminLbl.Size = new System.Drawing.Size(74, 13);
+            this.adminLbl.TabIndex = 5;
+            this.adminLbl.Text = "Version Admin";
             // 
             // LogoutBtn
             // 
@@ -164,7 +175,6 @@ namespace UISocialNetwork
             this.profileBtn.Text = "Perfil";
             this.profileBtn.UseVisualStyleBackColor = true;
             this.profileBtn.Visible = false;
-            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
             // 
             // pictureBox1
             // 
@@ -180,14 +190,15 @@ namespace UISocialNetwork
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // adminLbl
+            // usernamelblHome
             // 
-            this.adminLbl.AutoSize = true;
-            this.adminLbl.Location = new System.Drawing.Point(6, 4);
-            this.adminLbl.Name = "adminLbl";
-            this.adminLbl.Size = new System.Drawing.Size(74, 13);
-            this.adminLbl.TabIndex = 5;
-            this.adminLbl.Text = "Version Admin";
+            this.usernamelblHome.AutoSize = true;
+            this.usernamelblHome.Location = new System.Drawing.Point(6, 4);
+            this.usernamelblHome.Name = "usernamelblHome";
+            this.usernamelblHome.Size = new System.Drawing.Size(55, 13);
+            this.usernamelblHome.TabIndex = 1;
+            this.usernamelblHome.Text = "Username";
+            this.usernamelblHome.Visible = false;
             // 
             // MainForm
             // 
@@ -224,5 +235,6 @@ namespace UISocialNetwork
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button LogoutBtn;
         private System.Windows.Forms.Label adminLbl;
+        private System.Windows.Forms.Label usernamelblHome;
     }
 }

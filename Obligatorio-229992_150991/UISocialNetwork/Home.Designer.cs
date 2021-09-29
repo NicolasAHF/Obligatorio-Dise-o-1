@@ -31,6 +31,8 @@ namespace UISocialNetwork
         {
             this.searchBox = new System.Windows.Forms.TextBox();
             this.userList = new System.Windows.Forms.ListBox();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.lblErrorMsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // searchBox
@@ -50,11 +52,34 @@ namespace UISocialNetwork
             this.userList.Size = new System.Drawing.Size(225, 95);
             this.userList.TabIndex = 1;
             this.userList.Visible = false;
+            this.userList.DoubleClick += new System.EventHandler(this.userList_DoubleClick);
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(262, 4);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(124, 20);
+            this.searchBtn.TabIndex = 2;
+            this.searchBtn.Text = "Buscar";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // lblErrorMsg
+            // 
+            this.lblErrorMsg.AutoSize = true;
+            this.lblErrorMsg.Location = new System.Drawing.Point(262, 31);
+            this.lblErrorMsg.Name = "lblErrorMsg";
+            this.lblErrorMsg.Size = new System.Drawing.Size(29, 13);
+            this.lblErrorMsg.TabIndex = 3;
+            this.lblErrorMsg.Text = "Error";
+            this.lblErrorMsg.Visible = false;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblErrorMsg);
+            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.userList);
             this.Controls.Add(this.searchBox);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -69,5 +94,7 @@ namespace UISocialNetwork
 
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.ListBox userList;
+        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.Label lblErrorMsg;
     }
 }

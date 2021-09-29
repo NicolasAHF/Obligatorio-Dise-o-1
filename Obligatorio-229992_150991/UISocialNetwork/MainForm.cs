@@ -32,15 +32,17 @@ namespace UISocialNetwork
         private void createUserBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            CreateUserControl createUser = new CreateUserControl(users);
+            CreateUser createUser = new CreateUser(users);
             mainPanel.Controls.Add(createUser);
         }
 
         private void CreateHomePanel(DirectoryUser users)
         {
             ClearPanel();
-            UserControl home = new Home(users);
+            Home home = new Home(users);
+            home.AddListener(PostSearch);
             mainPanel.Controls.Add(home);
+
         }
 
         private void PostLogin(User user)
@@ -76,8 +78,9 @@ namespace UISocialNetwork
         private void profileBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            Profile profile = new Profile();
+            Profile profile = new Profile(users.GetUser(usernamelblHome.Text), users.GetUser(usernamelblHome.Text));
             mainPanel.Controls.Add(profile);
+
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
@@ -100,12 +103,14 @@ namespace UISocialNetwork
             marketplaceBtn.Hide();
             LogoutBtn.Hide();
         }
-        private void profileBtn_Click(object sender, EventArgs e)
+
+        private void PostSearch(User user)
         {
             ClearPanel();
-            Profile profile = new Profile(users.GetUser(usernamelblHome.Text));
+            Profile profile = new Profile(user, users.GetUser(usernamelblHome.Text));
             mainPanel.Controls.Add(profile);
         }
+
 
     }
 }
