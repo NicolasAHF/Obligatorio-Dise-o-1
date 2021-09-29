@@ -40,7 +40,7 @@ namespace UISocialNetwork
             this.marketplaceBtn = new System.Windows.Forms.Button();
             this.profileBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.searchBox = new System.Windows.Forms.ComboBox();
+            this.adminLbl = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.header.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -70,7 +70,7 @@ namespace UISocialNetwork
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.header.Controls.Add(this.searchBox);
+            this.header.Controls.Add(this.adminLbl);
             this.header.Controls.Add(this.LogoutBtn);
             this.header.Controls.Add(this.createUserBtn);
             this.header.Controls.Add(this.loginBtn);
@@ -180,17 +180,14 @@ namespace UISocialNetwork
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // searchBox
+            // adminLbl
             // 
-            this.searchBox.FormattingEnabled = true;
-            this.searchBox.Items.AddRange(new object[] {
-            "Nicolas Hernandez",
-            "Carlitos Bala"});
-            this.searchBox.Location = new System.Drawing.Point(6, 53);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(347, 21);
-            this.searchBox.TabIndex = 5;
-            this.searchBox.Visible = false;
+            this.adminLbl.AutoSize = true;
+            this.adminLbl.Location = new System.Drawing.Point(6, 4);
+            this.adminLbl.Name = "adminLbl";
+            this.adminLbl.Size = new System.Drawing.Size(74, 13);
+            this.adminLbl.TabIndex = 5;
+            this.adminLbl.Text = "Version Admin";
             // 
             // MainForm
             // 
@@ -204,10 +201,10 @@ namespace UISocialNetwork
             this.MinimumSize = new System.Drawing.Size(815, 506);
             this.Name = "MainForm";
             this.Text = "Main";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.header.ResumeLayout(false);
+            this.header.PerformLayout();
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -226,6 +223,6 @@ namespace UISocialNetwork
         private System.Windows.Forms.Button marketplaceBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button LogoutBtn;
-        private System.Windows.Forms.ComboBox searchBox;
+        private System.Windows.Forms.Label adminLbl;
     }
 }

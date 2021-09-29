@@ -13,11 +13,18 @@ namespace UISocialNetwork
 {
     public partial class Home : UserControl
     {
-        private User user;
-        public Home(User user)
+        private DirectoryUser users;
+        public Home(DirectoryUser users)
         {
             InitializeComponent();
-            this.user = user;
+            this.users = users;
+            userList.DataSource = users.Users;
+        }
+
+        private void searchBox_Click(object sender, EventArgs e)
+        {
+            userList.Show();
         }
     }
+
 }

@@ -29,19 +29,45 @@ namespace UISocialNetwork
         /// </summary>
         private void InitializeComponent()
         {
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.userList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
+            // 
+            // searchBox
+            // 
+            this.searchBox.Location = new System.Drawing.Point(18, 4);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(225, 20);
+            this.searchBox.TabIndex = 0;
+            this.searchBox.Text = "Buscar usuario";
+            this.searchBox.Click += new System.EventHandler(this.searchBox_Click);
+            // 
+            // userList
+            // 
+            this.userList.FormattingEnabled = true;
+            this.userList.Location = new System.Drawing.Point(18, 31);
+            this.userList.Name = "userList";
+            this.userList.Size = new System.Drawing.Size(225, 95);
+            this.userList.TabIndex = 1;
+            this.userList.Visible = false;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.userList);
+            this.Controls.Add(this.searchBox);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Home";
             this.Size = new System.Drawing.Size(634, 715);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.ListBox userList;
     }
 }

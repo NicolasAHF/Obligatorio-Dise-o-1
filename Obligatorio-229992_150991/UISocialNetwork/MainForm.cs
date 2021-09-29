@@ -13,10 +13,11 @@ namespace UISocialNetwork
 {
     public partial class MainForm : Form
     {
-        private DirectoryUser users = new DirectoryUser();
+        private DirectoryUser users;
         public MainForm()
         {
             InitializeComponent();
+            users = new DirectoryUser();
             
         }
 
@@ -35,19 +36,24 @@ namespace UISocialNetwork
             mainPanel.Controls.Add(createUser);
         }
 
-        private void CreateHomePanel(User user)
+        private void CreateHomePanel(DirectoryUser users)
         {
             ClearPanel();
-            UserControl home = new Home(user);
+            UserControl home = new Home(users);
             mainPanel.Controls.Add(home);
         }
 
         private void PostLogin(User user)
         {
             ClearPanel();
-            CreateHomePanel(user);
+            CreateHomePanel(users);
             PostLoginHide();
             PostLoginShow();
+            if (user.Admin == true)
+            {
+                adminLbl.Show();
+            }
+
         }
 
         private void PostLoginHide()
@@ -61,7 +67,6 @@ namespace UISocialNetwork
             profileBtn.Show();
             marketplaceBtn.Show();
             LogoutBtn.Show();
-            searchBox.Show();
         }
         private void ClearPanel()
         {
@@ -94,12 +99,13 @@ namespace UISocialNetwork
             profileBtn.Hide();
             marketplaceBtn.Hide();
             LogoutBtn.Hide();
-            searchBox.Hide();
+        }
+        private void profileBtn_Click(object sender, EventArgs e)
+        {
+            ClearPanel();
+            Profile profile = new Profile(users.GetUser(usernamelblHome.Text));
+            mainPanel.Controls.Add(profile);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            searchBox.Items.Add(users);
-        }
     }
 }
