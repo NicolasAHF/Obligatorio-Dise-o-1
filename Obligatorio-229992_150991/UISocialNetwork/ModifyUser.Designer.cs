@@ -195,6 +195,7 @@ namespace UISocialNetwork
             this.lblErrorMsg.Size = new System.Drawing.Size(29, 13);
             this.lblErrorMsg.TabIndex = 15;
             this.lblErrorMsg.Text = "Error";
+            this.lblErrorMsg.Visible = false;
             // 
             // ModifyUser
             // 
