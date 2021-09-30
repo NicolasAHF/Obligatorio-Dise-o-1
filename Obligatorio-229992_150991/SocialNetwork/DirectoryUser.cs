@@ -75,19 +75,5 @@ namespace SocialNetwork
             throw new InvalidOperationException("No hay un usuario con ese nombre");
 
         }
-
-        public User GetUser(string username)
-        {
-
-            foreach (User user in this.Users)
-            {
-                if (user.Username.Equals(username))
-                {
-                    return user;
-                }
-            }
-            throw new InvalidOperationException("No hay un usuario con ese nombre");
-
-        }
     }
 }

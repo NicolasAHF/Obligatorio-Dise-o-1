@@ -11,24 +11,17 @@ using System.Windows.Forms;
 
 namespace UISocialNetwork
 {
-<<<<<<< HEAD
 
     public delegate void PostLogin(User user);
     public partial class Login : UserControl
     {
         private DirectoryUser users;
         private event PostLogin PostLoginEvent;
-=======
-    public partial class Login : UserControl
-    {
-        private DirectoryUser users;
->>>>>>> user
         public Login(DirectoryUser users)
         {
             InitializeComponent();
             this.users = users;
         }
-<<<<<<< HEAD
         public void AddListener(PostLogin del)
         {
             PostLoginEvent += del;
@@ -100,20 +93,6 @@ namespace UISocialNetwork
 
                 PasswordTextBox.ForeColor = Color.Maroon;
             }
-=======
-
-        private void LoginBtn_Click(object sender, EventArgs e)
-        {
-            string username = UsernameTextBox.Text;
-            string password = PasswordTextBox.Text;
-
-
-        }
-
-        private User SearchUser(DirectoryUser users, string username, string password)
-        {
-            
->>>>>>> user
         }
     }
 }
