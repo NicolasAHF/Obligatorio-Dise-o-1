@@ -84,5 +84,26 @@ namespace SocialNetwotkTest
 
             Assert.AreEqual(directory.Count(), 0);
         }
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void InvalidRemoveUser()
+        {
+            directory.RemoveUser(user);
+        }
+
+        [TestMethod]
+        public void GetUser()
+        {
+            directory.AddUser(user);
+            User user2 = directory.GetUser("User1");
+            Assert.AreEqual(user, user2);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void InvalidGetUser()
+        {
+            User user2 = directory.GetUser("User1");
+        }
     }
 }
