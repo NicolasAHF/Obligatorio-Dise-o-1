@@ -17,33 +17,35 @@ namespace SocialNetwork
         private DateTime _dateofbirth;
         private Direction _direction;
         private string _avatar;
+        private bool _admin = false;
+        private List<User> _following = new List<User>();
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
 
         public string Name
         {
             get { return _name; }
-            private set => SetName(value);
+            set => SetName(value);
         }
         public string Username
         {
             get { return _username; }
-            private set => SetUsername(value);
+            set => SetUsername(value);
         }
         public string Lastname
         {
             get { return _lastname; }
-            private set => SetLastname(value);
+            set => SetLastname(value);
         }
         public DateTime DateOfBirth 
         {
             get { return _dateofbirth; }
-            private set => SetDateOfBirth(value);
+            set => SetDateOfBirth(value);
         }
 
         public Direction Direction 
         {
             get { return _direction; }
-            private set => SetDirection(value);
+            set => SetDirection(value);
         }
         public void SetPassword (string unaPassword)
         {
@@ -57,7 +59,18 @@ namespace SocialNetwork
         public string Avatar 
         {
             get { return _avatar; }
-            private set => SetAvatar(value);
+            set => SetAvatar(value);
+        }
+        public bool Admin 
+        {
+            get { return _admin; }
+            set => SetAdmin(value);
+        }
+
+        public List<User> Following
+        {
+            get { return _following; }
+            set { _following = value; }
         }
 
         public User(string username, string password, string name, string lastname, DateTime birthday, Direction direction, string avatar)
@@ -70,6 +83,11 @@ namespace SocialNetwork
             this._password = new Password(password);
             this.Avatar = avatar;
             
+        }
+
+        public void SetAdmin(bool admin)
+        {
+            this._admin = true;
         }
 
         public void SetUsername(string username)
@@ -122,7 +140,7 @@ namespace SocialNetwork
 
         public void SetDirection(Direction direction)
         {
-            if (direction == null)
+            if (direction == null || EmptyString(direction.Street) || EmptyString(direction.City) || EmptyString(direction.Counrty))
             {
                 throw new InvalidOperationException("Direccion no puede ser vacia");
             }

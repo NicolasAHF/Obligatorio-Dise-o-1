@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using SocialNetwork;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SocialNetwotkTest
 {
@@ -128,10 +130,43 @@ namespace SocialNetwotkTest
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void CreateUserWithInvalidDirection()
+        public void CreateUserWithInvalidDirectionNull()
         {
             Direction invalidDirection = new Direction();
             invalidDirection = null;
+            User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, invalidDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CreateUserWithInvalidDirectionStreet()
+        {
+            Direction invalidDirection = new Direction();
+            invalidDirection.Street = "";
+            invalidDirection.City = "Montevideo";
+            invalidDirection.Counrty = "Uruguay";
+            User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, invalidDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CreateUserWithInvalidDirectionCity()
+        {
+            Direction invalidDirection = new Direction();
+            invalidDirection.Street = "Francisco luis 608";
+            invalidDirection.City = "";
+            invalidDirection.Counrty = "Uruguay";
+            User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, invalidDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CreateUserWithInvalidDirectionCountry()
+        {
+            Direction invalidDirection = new Direction();
+            invalidDirection.Street = "Francisco luis 608";
+            invalidDirection.City = "Montevideo";
+            invalidDirection.Counrty = "";
             User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, invalidDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
         }
 
@@ -156,6 +191,33 @@ namespace SocialNetwotkTest
             string validAvatar = @"C:\Users\Admin\Pictures\unnamed.png";
             User validUserPNG = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.png");
             Assert.AreEqual(validUserPNG.Avatar, validAvatar);
+        }
+
+        [TestMethod]
+        public void ValidAdmin()
+        {
+            validUser.Admin = true;
+            Assert.IsTrue(validUser.Admin);
+        }
+
+        [TestMethod]
+        public void ValidAdminFalse()
+        {
+            Assert.IsFalse(validUser.Admin);
+        }
+
+        [TestMethod]
+        public void FollowingListAdding()
+        {
+            User validUser2 = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.png");
+            validUser.Following.Add(validUser2);
+            Assert.IsTrue(validUser.Following.Count() != 0);
+        }
+
+        [TestMethod]
+        public void FollowingListEmpty()
+        {
+            Assert.IsTrue(validUser.Following.Count() == 0);
         }
     }
 }
