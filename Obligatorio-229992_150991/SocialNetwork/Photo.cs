@@ -1,5 +1,9 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace SocialNetwork
 {
@@ -21,13 +25,13 @@ namespace SocialNetwork
             private set => SetSize(value);
         }
 
+
+
         //Constructor
-        // public Photo(string path, int size)
         public Photo(string path, int size)
         {
-           this.SetPath(path);
-           this.SetSize(size);
-
+            this.ElPath = path;
+            this.ElSize = size;
         }
 
         public void SetPath(string elPath)
@@ -38,23 +42,22 @@ namespace SocialNetwork
             }
             else
             {
-                this.ElPath = elPath;
-
+                this._path = elPath;
             }
         }
 
         public void SetSize(int elSize)
         {
-            if (elSize > MAX_SIZE_FOR_VALID_PHOTO)
+            if (elSize < 0 || elSize > MAX_SIZE_FOR_VALID_PHOTO)
             {
                 throw new InvalidOperationException("El tamaño de la imagen es excesivo");
             }
             else
             {
-                this.ElSize = elSize;
-
+              this._size = elSize;
             }
         }
+
 
         private bool ValidPathSpecialExtension(string path)
         {
@@ -68,6 +71,8 @@ namespace SocialNetwork
                 return true;
             }
         }
+
+
         private bool EmptyString(string value)
         {
             return value.Length.Equals(0);

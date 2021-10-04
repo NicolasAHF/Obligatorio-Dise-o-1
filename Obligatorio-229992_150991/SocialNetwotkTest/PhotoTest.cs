@@ -2,75 +2,45 @@
 using System;
 using SocialNetwork;
 
-namespace SocialNetwotkTest
+namespace SocialNetworkTest
 {
     [TestClass]
     public class PhotoTests
     {
-        Photo unaPhoto;
-
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            unaPhoto = null;
-        }
 
         [TestMethod]
-        public void CreatePhotoWithValidLenght()
+        public void CreatePhotoWithValidFormatAndSize()
         {
-            Photo correctPhoto = new Photo("Photo/la.jpg", 4);
+            Photo correctPhoto = new Photo("Album/Verano 2021.jpg", 5);
         }
-        /*
-         
+
+        
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void CreatePhotoWithInvalidLenght()
-        {
-            Photo incorrectPhoto = new Photo("Passwor");
-        }
+         public void CreatePhotoWithInvalidFormat()
+         {
+            Photo correctPhoto = new Photo("Album/Verano 2021.mp3", 5);
+         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void CreatePhotoInvalidEmpty()
+        public void CreatePhotoInvalidEmptyPath()
         {
-            Photo incorrectPhoto = new Photo("");
-        }
-
-        [TestMethod]
-        public void ValidPassworClearNotEqualsHashPhoto()
-        {
-            Photo hashPhoto = new Photo("Photo");
-            Assert.AreNotEqual(hashPhoto.LaPhoto, "Photo");
-        }
-
-        [TestMethod]
-        public void InvalidIfPhotoHashEqualsHashPhoto()
-        {
-            Photo hashPhoto = new Photo("Photo");
-            string elHash = "Photo";
-            Assert.AreEqual(hashPhoto.LaPhoto, elHash.GetHashCode().ToString());
-        }
-
-        [TestMethod]
-        public void ValidCorrectCheckPhoto()
-        {
-            Photo unaPhoto = new Photo("P@ssw0rd10");
-            Photo otraPhoto = new Photo("P@ssw0rd10");
-            unaPhoto.CheckPhoto(otraPhoto);
+            Photo correctPhoto = new Photo("", 5);
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void InvalidWrongCheckPhoto()
+        public void CreatePhotoWithInvalidMaxSize()
         {
-            Photo unaPhoto = new Photo("P@ssw0rd10");
-            Photo otraPhoto = new Photo("Mosswprdas10");
-            unaPhoto.CheckPhoto(otraPhoto);
+            Photo correctPhoto = new Photo("Album/Verano 2021.mp3", 6);
         }
 
-        */
-
-
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CreatePhotoInvalidMinSize()
+        {
+            Photo correctPhoto = new Photo("Album/Verano 2021.mp3", -1);
+        }
     }
 }

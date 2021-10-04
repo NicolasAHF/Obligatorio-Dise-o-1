@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace SocialNetwork
 {
@@ -8,6 +9,9 @@ namespace SocialNetwork
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
         const int MAX_CANT_FOR_VALID_LOAD_PHOTO = 10;
         const int MAX_SIZE_FOR_VALID_LOAD_PHOTO = 5; //MB
+
+        ArrayList PhotosList = new ArrayList();
+
 
         public string Name
         {
@@ -33,10 +37,25 @@ namespace SocialNetwork
             }
         }
 
-
+        public void addPhoto(Photo laPhoto)
+        {
+            if (PhotosList.Count >= MAX_CANT_FOR_VALID_LOAD_PHOTO || ValiExistPohoto(laPhoto))
+            {
+                throw new InvalidOperationException("No es posible agregar la Foto");
+            }
+            else
+            {
+                this.PhotosList.Add(laPhoto);
+            }
+        }
         private bool ValidName(string elNombre)
         {
             return elNombre.Length >= MIN_LENGTH_FOR_VALID_NAME;
+        }
+
+        private bool ValiExistPohoto(Photo laPhoto)
+        {
+            return PhotosList.Contains(laPhoto);
         }
 
         private bool EmptyString(string value)

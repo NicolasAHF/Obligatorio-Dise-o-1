@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SocialNetwotkTest
+namespace SocialNetworkTest
 {
     [TestClass]
     public class UserTests
