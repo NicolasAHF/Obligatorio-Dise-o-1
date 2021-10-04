@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace SocialNetwork
 {
@@ -26,7 +21,7 @@ namespace SocialNetwork
         }
 
 
-        public void SetName(string elNombre) 
+        public void SetName(string elNombre)
         {
             if (EmptyString(elNombre) || !ValidName(elNombre))
             {

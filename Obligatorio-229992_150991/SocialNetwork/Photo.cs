@@ -1,77 +1,81 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SocialNetwork
 {
-    public string ElPath
+    public class Photo
     {
-        get { return _path; }
-        private set => SetPath(value);
-    }
+        private string _path;
+        private int _size;
+        const int MAX_SIZE_FOR_VALID_PHOTO = 5;
 
-    public string ElSize
-    {
-        get { return _size; }
-        private set => SetSize(value);
-    }
-
-    //Constructor
-    public Photo(string elPath, int elSize)
-    {
-        this.SetPath(elPath);
-        this.SetSize(elSize);
-    }
-
-    public void SetPhoto(string elPath)
-    {
-        if (EmptyString(elPath) || !ValidFormatPhoto(elPath))
+        public string ElPath
         {
-            throw new InvalidOperationException("Password no valida");
+            get { return _path; }
+            private set => SetPath(value);
         }
-        else
+
+        public int ElSize
         {
-            this._password = password.GetHashCode().ToString();
+            get { return _size; }
+            private set => SetSize(value);
+        }
+
+        //Constructor
+        // public Photo(string path, int size)
+        public Photo(string path, int size)
+        {
+           this.SetPath(path);
+           this.SetSize(size);
 
         }
-    }
 
-    public bool ValidLenghtPassword(string password)
-    {
-        return password.Length >= MIN_LENGTH_FOR_VALID_PASSWORD;
-    }
-
-
-    private bool ValidPathSpecialFormat(string str)
-    {
-        return Regex.IsMatch(str, str.Length-3) ".jpg");
-
-
-    }
-
-    private bool EmptyString(string value)
-    {
-        return value.Length.Equals(0);
-    }
-
-    private bool Equals(Password pass)
-    {
-        return this.LaPassword.Equals(pass.LaPassword);
-    }
-
-    public bool CheckPassword(Password password)
-    {
-
-        if (!this.Equals(password))
+        public void SetPath(string elPath)
         {
-            throw new InvalidOperationException("Password incorrecta");
-        }
-        else
-        {
-            return true;
+            if (EmptyString(elPath) || !ValidPathSpecialExtension(elPath))
+            {
+                throw new InvalidOperationException("El Path no es valido");
+            }
+            else
+            {
+                this.ElPath = elPath;
 
+            }
+        }
+
+        public void SetSize(int elSize)
+        {
+            if (elSize > MAX_SIZE_FOR_VALID_PHOTO)
+            {
+                throw new InvalidOperationException("El tamaño de la imagen es excesivo");
+            }
+            else
+            {
+                this.ElSize = elSize;
+
+            }
+        }
+
+        private bool ValidPathSpecialExtension(string path)
+        {
+            string extension = System.IO.Path.GetExtension(path);
+            if (extension == null || (extension != ".jpg" && extension != ".jpeg" && extension != ".png"))
+            {
+                throw new InvalidOperationException("Extension no valida");
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private bool EmptyString(string value)
+        {
+            return value.Length.Equals(0);
+        }
+
+        private bool Equals(Photo pic)
+        {
+            return this.ElPath.Equals(pic.ElPath);
         }
     }
-
+}
