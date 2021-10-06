@@ -7,7 +7,7 @@ namespace SocialNetwotkTest
     [TestClass]
     public class PasswordTests
     {
-        Password unaPassword;
+        private Password unaPassword;
 
 
         [TestCleanup]
