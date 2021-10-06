@@ -4,7 +4,7 @@ using SocialNetwork;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SocialNetwotkTest
+namespace SocialNetworkTest
 {
     [TestClass]
     public class UserTests

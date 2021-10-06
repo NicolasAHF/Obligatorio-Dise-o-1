@@ -49,6 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumTests.cs" />
+    <Compile Include="PhotoTest.cs" />
     <Compile Include="DirectoryUserTests.cs" />
     <Compile Include="ListeningNowTest.cs" />
     <Compile Include="PasswordTest.cs" />
