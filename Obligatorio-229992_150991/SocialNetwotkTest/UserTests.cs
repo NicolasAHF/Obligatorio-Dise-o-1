@@ -4,7 +4,7 @@ using SocialNetwork;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SocialNetwotkTest
+namespace SocialNetworkTest
 {
     [TestClass]
     public class UserTests
@@ -14,17 +14,16 @@ namespace SocialNetwotkTest
         DateTime validBirthday = new DateTime(1999, 12, 22);
         Direction validDirection = new Direction();
         string validPassword;
+        Photo validPhoto = new Photo("Album/Verano 2021.jpg", 5);
 
-
-        [TestInitialize]
-        public void Setup()
+          [TestInitialize]
+    public void Setup()
         {
             validDirection.City = "Montevideo";
             validDirection.Counrty = "Uruguay";
             validDirection.Street = "Francisco luis 608";
-            validPassword = "P@ssword10";
-            validUser = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
-            
+            string validPassword = "P@ssword10";
+        validUser = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, @"\c.pepe.jpg");
         }
 
         [TestCleanup]

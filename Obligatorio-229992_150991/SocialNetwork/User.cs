@@ -18,7 +18,9 @@ namespace SocialNetwork
         private Direction _direction;
         private string _avatar;
         private bool _admin = false;
-        private List<User> _following = new List<User>();
+        private List<User> _followingList = new List<User>();
+        private List<Album> _albumList = new List<Album>();
+
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
 
         public string Name
@@ -69,18 +71,24 @@ namespace SocialNetwork
 
         public List<User> Following
         {
-            get { return _following; }
-            set { _following = value; }
+            get { return _followingList; }
+            set { _followingList = value; }
         }
 
-        public User(string username, string password, string name, string lastname, DateTime birthday, Direction direction, string avatar)
+        public List<Album> AlbumList
+        {
+            get { return _albumList; }
+            set { _albumList = value; }
+        }
+
+        public User(string username, string passwordClear, string name, string lastname, DateTime birthday, Direction direction, string avatar)
         {
             this.Username = username;
             this.Name = name;
             this.Lastname = lastname;
             this.DateOfBirth = birthday;
             this.Direction = direction;
-            this._password = new Password(password);
+            this._password = new Password(passwordClear);
             this.Avatar = avatar;
             
         }
