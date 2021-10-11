@@ -1,7 +1,7 @@
 ﻿
 namespace UISocialNetwork
 {
-    partial class CreateUserControl
+    partial class CreateUser
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

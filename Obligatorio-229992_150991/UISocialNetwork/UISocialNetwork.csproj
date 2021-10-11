@@ -47,24 +47,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateUser.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CreateUser.Designer.cs">
       <DependentUpon>CreateUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CreateUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CreateUserControl.Designer.cs">
-      <DependentUpon>CreateUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CreateUser.resx">
       <DependentUpon>CreateUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateUserControl.resx">
-      <DependentUpon>CreateUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
