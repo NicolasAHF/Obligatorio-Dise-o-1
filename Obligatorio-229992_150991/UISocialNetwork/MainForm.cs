@@ -36,10 +36,10 @@ namespace UISocialNetwork
             mainPanel.Controls.Add(createUser);
         }
 
-        private void CreateHomePanel(DirectoryUser users)
+        private void CreateHomePanel(User user)
         {
             ClearPanel();
-            Home home = new Home(users);
+            Home home = new Home(users, user);
             home.AddListener(PostSearch);
             mainPanel.Controls.Add(home);
 
@@ -48,9 +48,11 @@ namespace UISocialNetwork
         private void PostLogin(User user)
         {
             ClearPanel();
-            CreateHomePanel(users);
+            CreateHomePanel(user);
             PostLoginHide();
             PostLoginShow();
+            usernamelblHome.Show();
+            usernamelblHome.Text = user.Username;
             if (user.Admin == true)
             {
                 adminLbl.Show();
@@ -102,6 +104,7 @@ namespace UISocialNetwork
             profileBtn.Hide();
             marketplaceBtn.Hide();
             LogoutBtn.Hide();
+            usernamelblHome.Hide();
         }
 
         private void PostSearch(User user)
@@ -111,6 +114,15 @@ namespace UISocialNetwork
             mainPanel.Controls.Add(profile);
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (loginBtn.Visible != true)
+            {
+                ClearPanel();
+                CreateHomePanel(users.GetUser(usernamelblHome.Text));
+            }
+
+        }
 
     }
 }

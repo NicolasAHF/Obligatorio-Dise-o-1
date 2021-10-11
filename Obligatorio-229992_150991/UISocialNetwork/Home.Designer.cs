@@ -33,6 +33,10 @@ namespace UISocialNetwork
             this.userList = new System.Windows.Forms.ListBox();
             this.searchBtn = new System.Windows.Forms.Button();
             this.lblErrorMsg = new System.Windows.Forms.Label();
+            this.listeningBtn = new System.Windows.Forms.Button();
+            this.panelContent = new System.Windows.Forms.Panel();
+            this.panelButtons = new System.Windows.Forms.Panel();
+            this.showContentPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // searchBox
@@ -74,17 +78,58 @@ namespace UISocialNetwork
             this.lblErrorMsg.Text = "Error";
             this.lblErrorMsg.Visible = false;
             // 
+            // listeningBtn
+            // 
+            this.listeningBtn.Location = new System.Drawing.Point(429, 4);
+            this.listeningBtn.Name = "listeningBtn";
+            this.listeningBtn.Size = new System.Drawing.Size(132, 20);
+            this.listeningBtn.TabIndex = 4;
+            this.listeningBtn.Text = "Que estas escuchando";
+            this.listeningBtn.UseVisualStyleBackColor = true;
+            this.listeningBtn.Click += new System.EventHandler(this.listeningBtn_Click);
+            // 
+            // panelContent
+            // 
+            this.panelContent.AutoScroll = true;
+            this.panelContent.AutoSize = true;
+            this.panelContent.Location = new System.Drawing.Point(0, 92);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(712, 105);
+            this.panelContent.TabIndex = 5;
+            // 
+            // panelButtons
+            // 
+            this.panelButtons.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelButtons.Location = new System.Drawing.Point(0, 0);
+            this.panelButtons.Name = "panelButtons";
+            this.panelButtons.Size = new System.Drawing.Size(716, 86);
+            this.panelButtons.TabIndex = 6;
+            // 
+            // showContentPanel
+            // 
+            this.showContentPanel.AutoSize = true;
+            this.showContentPanel.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.showContentPanel.Location = new System.Drawing.Point(3, 203);
+            this.showContentPanel.Name = "showContentPanel";
+            this.showContentPanel.Size = new System.Drawing.Size(709, 131);
+            this.showContentPanel.TabIndex = 7;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.Controls.Add(this.showContentPanel);
+            this.Controls.Add(this.listeningBtn);
             this.Controls.Add(this.lblErrorMsg);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.userList);
             this.Controls.Add(this.searchBox);
+            this.Controls.Add(this.panelButtons);
+            this.Controls.Add(this.panelContent);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Home";
-            this.Size = new System.Drawing.Size(634, 715);
+            this.Size = new System.Drawing.Size(716, 480);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,5 +141,9 @@ namespace UISocialNetwork
         private System.Windows.Forms.ListBox userList;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.Label lblErrorMsg;
+        private System.Windows.Forms.Button listeningBtn;
+        private System.Windows.Forms.Panel panelContent;
+        private System.Windows.Forms.Panel panelButtons;
+        private System.Windows.Forms.FlowLayoutPanel showContentPanel;
     }
 }

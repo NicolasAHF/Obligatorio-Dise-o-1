@@ -11,15 +11,41 @@ using System.Windows.Forms;
 
 namespace UISocialNetwork
 {
+    public delegate void PostSearch(User user);
     public partial class Home : UserControl
     {
         private DirectoryUser users;
+        private User actualUser;
         private event PostSearch PostSearchEvent;
-        public Home(DirectoryUser users)
+        private List<UserControl> content;
+        public Home(DirectoryUser users, User actualUser)
         {
             InitializeComponent();
             this.users = users;
+            this.actualUser = actualUser;
+            this.content = new List<UserControl>();
             userList.DataSource = users.Users;
+        }
+
+        public void AddListener(PostSearch del)
+        {
+            PostSearchEvent += del;
+        }
+
+        private void ShowContent(List<UserControl> content)
+        {
+            ListeningNowCreated[] items = new ListeningNowCreated[20];
+
+            items[0] = new ListeningNowCreated(actualUser);
+            if (showContentPanel.Controls.Count < 0)
+            {
+                showContentPanel.Controls.Clear();
+            }
+            else
+            {
+                showContentPanel.Controls.Add(items[0]);
+            }
+
         }
 
         private void searchBox_Click(object sender, EventArgs e)
@@ -51,7 +77,20 @@ namespace UISocialNetwork
             lblErrorMsg.Text = message;
         }
 
+        private void listeningBtn_Click(object sender, EventArgs e)
+        {
+            CreateListeningNow listening = new CreateListeningNow(actualUser);
+            listening.AddListener(PostCreate);
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(listening);
+        }
 
+        private void PostCreate(ListeningNowCreated listeningCreated)
+        {
+            panelContent.Controls.Clear();
+            content.Add(listeningCreated);
+            ShowContent(content);
+        }
     }
 
 }

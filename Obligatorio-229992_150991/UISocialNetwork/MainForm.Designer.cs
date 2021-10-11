@@ -31,6 +31,7 @@ namespace UISocialNetwork
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.usernamelblHome = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.header = new System.Windows.Forms.Panel();
             this.adminLbl = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@ namespace UISocialNetwork
             this.marketplaceBtn = new System.Windows.Forms.Button();
             this.profileBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.usernamelblHome = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.header.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -57,6 +57,16 @@ namespace UISocialNetwork
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(634, 390);
             this.mainPanel.TabIndex = 0;
+            // 
+            // usernamelblHome
+            // 
+            this.usernamelblHome.AutoSize = true;
+            this.usernamelblHome.Location = new System.Drawing.Point(6, 4);
+            this.usernamelblHome.Name = "usernamelblHome";
+            this.usernamelblHome.Size = new System.Drawing.Size(55, 13);
+            this.usernamelblHome.TabIndex = 1;
+            this.usernamelblHome.Text = "Username";
+            this.usernamelblHome.Visible = false;
             // 
             // label1
             // 
@@ -189,16 +199,7 @@ namespace UISocialNetwork
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // usernamelblHome
-            // 
-            this.usernamelblHome.AutoSize = true;
-            this.usernamelblHome.Location = new System.Drawing.Point(6, 4);
-            this.usernamelblHome.Name = "usernamelblHome";
-            this.usernamelblHome.Size = new System.Drawing.Size(55, 13);
-            this.usernamelblHome.TabIndex = 1;
-            this.usernamelblHome.Text = "Username";
-            this.usernamelblHome.Visible = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MainForm
             // 
