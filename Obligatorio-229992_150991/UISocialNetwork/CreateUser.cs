@@ -32,7 +32,7 @@ namespace UISocialNetwork
                 direction.Counrty = textBoxCountry.Text;
                 users.AddUser(new User(textBoxUsername.Text, textBoxPassword.Text, textBoxName.Text, textBoxLastname.Text, dateofbirth.Value, direction, lblPath.Text, adminCheckBox.Checked));
                 ShowFeedbackMessage(System.Drawing.Color.Green, USER_CREATED_SUCCESFULLY);
-
+   
             }
             catch (Exception exp)
             {
