@@ -41,9 +41,9 @@ namespace UISocialNetwork
                     avatarModifyBox.ImageLocation = imageLocation;
                 }
             }
-            catch (Exception ex)
+            catch (Exception exp)
             {
-                MessageBox.Show(ex.Message);
+                ShowFeedbackMessage(System.Drawing.Color.Red, exp.Message);
             }
         }
 
