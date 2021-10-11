@@ -114,6 +114,7 @@ namespace UISocialNetwork
             // followBtn
             // 
             this.followBtn.BackColor = System.Drawing.Color.Maroon;
+            this.followBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.followBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.followBtn.Location = new System.Drawing.Point(304, 15);
             this.followBtn.Name = "followBtn";

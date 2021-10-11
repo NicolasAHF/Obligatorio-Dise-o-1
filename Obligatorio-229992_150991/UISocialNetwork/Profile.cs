@@ -20,6 +20,7 @@ namespace UISocialNetwork
             InitializeComponent();
             this.user = user;
             this.actualUser = actualUser;
+            CheckFollowing(user, actualUser);
         }
 
         private void Profile_Load(object sender, EventArgs e)
@@ -52,7 +53,7 @@ namespace UISocialNetwork
             modifyUser.AddListener(PostModify);
             modifyPanel.Controls.Add(modifyUser);
             modifyPanel.Show();
-            modifyUser.Enabled = false;
+            modifyUserBtn.Enabled = false;
         }
 
         private void followBtn_Click(object sender, EventArgs e)
@@ -88,5 +89,14 @@ namespace UISocialNetwork
             }
         }
 
+        private void CheckFollowing(User user, User actualUser)
+        {
+            if (actualUser.Following.Contains(user))
+            {
+                followBtn.Text = "Siguiendo";
+                followBtn.BackColor = Color.White;
+                followBtn.ForeColor = Color.Maroon;
+            }
+        }
     }
 }
