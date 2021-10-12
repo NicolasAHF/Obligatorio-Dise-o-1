@@ -199,6 +199,21 @@ namespace UISocialNetwork
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // LogoutBtn
+            // 
+            this.LogoutBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LogoutBtn.Location = new System.Drawing.Point(358, 0);
+            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Size = new System.Drawing.Size(92, 81);
+            this.LogoutBtn.TabIndex = 4;
+            this.LogoutBtn.Text = "Logout";
+            this.LogoutBtn.UseVisualStyleBackColor = true;
+            this.LogoutBtn.Visible = false;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MainForm
