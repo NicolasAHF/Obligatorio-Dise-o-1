@@ -31,15 +31,17 @@ namespace UISocialNetwork
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.usernamelblHome = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.header = new System.Windows.Forms.Panel();
+            this.adminLbl = new System.Windows.Forms.Label();
+            this.LogoutBtn = new System.Windows.Forms.Button();
             this.createUserBtn = new System.Windows.Forms.Button();
             this.loginBtn = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.marketplaceBtn = new System.Windows.Forms.Button();
             this.profileBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.LogoutBtn = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.header.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -49,11 +51,22 @@ namespace UISocialNetwork
             // mainPanel
             // 
             this.mainPanel.AutoScroll = true;
+            this.mainPanel.Controls.Add(this.usernamelblHome);
             this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Location = new System.Drawing.Point(165, 80);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(634, 390);
             this.mainPanel.TabIndex = 0;
+            // 
+            // usernamelblHome
+            // 
+            this.usernamelblHome.AutoSize = true;
+            this.usernamelblHome.Location = new System.Drawing.Point(6, 4);
+            this.usernamelblHome.Name = "usernamelblHome";
+            this.usernamelblHome.Size = new System.Drawing.Size(55, 13);
+            this.usernamelblHome.TabIndex = 1;
+            this.usernamelblHome.Text = "Username";
+            this.usernamelblHome.Visible = false;
             // 
             // label1
             // 
@@ -69,6 +82,7 @@ namespace UISocialNetwork
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.header.Controls.Add(this.adminLbl);
             this.header.Controls.Add(this.LogoutBtn);
             this.header.Controls.Add(this.createUserBtn);
             this.header.Controls.Add(this.loginBtn);
@@ -78,6 +92,30 @@ namespace UISocialNetwork
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(634, 81);
             this.header.TabIndex = 4;
+            // 
+            // adminLbl
+            // 
+            this.adminLbl.AutoSize = true;
+            this.adminLbl.Location = new System.Drawing.Point(6, 4);
+            this.adminLbl.Name = "adminLbl";
+            this.adminLbl.Size = new System.Drawing.Size(74, 13);
+            this.adminLbl.TabIndex = 5;
+            this.adminLbl.Text = "Version Admin";
+            // 
+            // LogoutBtn
+            // 
+            this.LogoutBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LogoutBtn.Location = new System.Drawing.Point(358, 0);
+            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.LogoutBtn.Name = "LogoutBtn";
+            this.LogoutBtn.Size = new System.Drawing.Size(92, 81);
+            this.LogoutBtn.TabIndex = 4;
+            this.LogoutBtn.Text = "Logout";
+            this.LogoutBtn.UseVisualStyleBackColor = true;
+            this.LogoutBtn.Visible = false;
+            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             // 
             // createUserBtn
             // 
@@ -147,7 +185,6 @@ namespace UISocialNetwork
             this.profileBtn.Text = "Perfil";
             this.profileBtn.UseVisualStyleBackColor = true;
             this.profileBtn.Visible = false;
-            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
             // 
             // pictureBox1
             // 
@@ -162,21 +199,7 @@ namespace UISocialNetwork
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // LogoutBtn
-            // 
-            this.LogoutBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LogoutBtn.Location = new System.Drawing.Point(358, 0);
-            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Size = new System.Drawing.Size(92, 81);
-            this.LogoutBtn.TabIndex = 4;
-            this.LogoutBtn.Text = "Logout";
-            this.LogoutBtn.UseVisualStyleBackColor = true;
-            this.LogoutBtn.Visible = false;
-            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MainForm
             // 
@@ -190,9 +213,11 @@ namespace UISocialNetwork
             this.MinimumSize = new System.Drawing.Size(815, 506);
             this.Name = "MainForm";
             this.Text = "Main";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.header.ResumeLayout(false);
+            this.header.PerformLayout();
             this.panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -211,5 +236,7 @@ namespace UISocialNetwork
         private System.Windows.Forms.Button marketplaceBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button LogoutBtn;
+        private System.Windows.Forms.Label adminLbl;
+        private System.Windows.Forms.Label usernamelblHome;
     }
 }
