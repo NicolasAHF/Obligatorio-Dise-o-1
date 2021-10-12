@@ -26,8 +26,6 @@ namespace SocialNetwork
         }
 
 
-
-        //Constructor
         public Photo(string path, int size)
         {
             this.ElPath = path;
@@ -36,14 +34,10 @@ namespace SocialNetwork
 
         public void SetPath(string elPath)
         {
-            if (EmptyString(elPath) || !ValidPathSpecialExtension(elPath))
-            {
-                throw new InvalidOperationException("El Path no es valido");
-            }
-            else
-            {
-                this._path = elPath;
-            }
+            NullorEmptyString(elPath);
+            ValidPathSpecialExtension(elPath);
+
+            this._path = elPath;
         }
 
         public void SetSize(int elSize)
@@ -58,24 +52,22 @@ namespace SocialNetwork
             }
         }
 
-
-        private bool ValidPathSpecialExtension(string path)
+        private void ValidPathSpecialExtension(string path)
         {
             string extension = System.IO.Path.GetExtension(path);
+            extension = extension.ToLower();
             if (extension == null || (extension != ".jpg" && extension != ".jpeg" && extension != ".png"))
             {
                 throw new InvalidOperationException("Extension no valida");
             }
-            else
-            {
-                return true;
-            }
         }
 
-
-        private bool EmptyString(string value)
+        private void NullorEmptyString(string path)
         {
-            return value.Length.Equals(0);
+            if (string.IsNullOrEmpty(path))
+            {
+                throw new InvalidOperationException("el Paht no puede ser nullo o vacio");
+            }
         }
 
         private bool Equals(Photo pic)

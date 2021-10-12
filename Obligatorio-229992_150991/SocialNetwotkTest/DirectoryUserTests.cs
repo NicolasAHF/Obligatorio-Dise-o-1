@@ -11,7 +11,8 @@ namespace SocialNetwotkTest
         DateTime validBirthday = new DateTime(1999, 12, 22);
         Direction validDirection = new Direction();
         private DirectoryUser directory;
-        string validPassword;
+        Password validPassword = new Password("P@ssword10");
+        Photo validPhoto = new Photo("Album/Verano 2021.jpg", 5);
 
         [TestInitialize]
         public void Setup()
@@ -19,8 +20,7 @@ namespace SocialNetwotkTest
             validDirection.City = "Montevideo";
             validDirection.Counrty = "Uruguay";
             validDirection.Street = "Francisco luis 608";
-            validPassword = "P@ssword10";
-            user = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpeg");
+            user = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto);
             directory = new DirectoryUser();
         }
 
@@ -61,7 +61,7 @@ namespace SocialNetwotkTest
         public void AddUserThatAlreadyExistsThrowsException()
         {
             directory.AddUser(user);
-            User userWithSameUsername = new User("User1", validPassword, "Antonio", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpeg");
+            User userWithSameUsername = new User("User1", validPassword, "Antonio", "Hernandez", validBirthday, validDirection, validPhoto);
             directory.AddUser(userWithSameUsername);
         }
 
@@ -71,7 +71,7 @@ namespace SocialNetwotkTest
         {
             directory.AddUser(user);
             string usernameUperCase = user.Username.ToUpper();
-            User userWithSameUsername = new User("User1", validPassword, "Antonio", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpeg");
+            User userWithSameUsername = new User("User1", validPassword, "Antonio", "Hernandez", validBirthday, validDirection, validPhoto);
             directory.AddUser(userWithSameUsername);
         }
 

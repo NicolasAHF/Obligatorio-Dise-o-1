@@ -13,15 +13,18 @@ namespace SocialNetwork
         private string _username;
         private string _name;
         private string _lastname;
+        private string _status;
         private Password _password;
         private DateTime _dateofbirth;
         private Direction _direction;
-        private string _avatar;
+        private Photo _avatar;
         private bool _admin = false;
         private List<User> _followingList = new List<User>();
         private List<Album> _albumList = new List<Album>();
 
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
+        const int MIN_LENGTH_FOR_VALID_STATUS = 10;
+        const int MAX_LENGTH_FOR_VALID_STATUS = 160;
 
         public string Name
         {
@@ -38,6 +41,11 @@ namespace SocialNetwork
             get { return _lastname; }
             set => SetLastname(value);
         }
+        public string Status
+        {
+            get { return _lastname; }
+            set => SetLastname(value);
+        }
         public DateTime DateOfBirth 
         {
             get { return _dateofbirth; }
@@ -47,21 +55,43 @@ namespace SocialNetwork
         public Direction Direction 
         {
             get { return _direction; }
-            set => SetDirection(value);
+            set => _direction = Direction;
         }
-        public void SetPassword (string unaPassword)
+        private void SetPassword (Password password)
         {
-           _password.SetPassword(unaPassword);
+            this._password = password;
         }
+
+        public void SetStatus(String status)
+        {
+            ValidMinLengthStatus(status);
+            ValidMaxLengthStatus(status);
+            this._status = status;
+        }
+
         public Password GetPassword()
         {
             return this._password;
         }
 
-        public string Avatar 
+        public bool ChangePassword(User elUsuario, Password userEnteredActualPassword, Password pasNueva)
+        {
+
+            if (this.GetPassword().LaPassword != userEnteredActualPassword.LaPassword)
+            {
+                throw new InvalidOperationException("La Password ingresada no es correcta");
+            }
+            else
+            {
+                return true;
+
+            }
+        }
+    
+        public Photo Avatar 
         {
             get { return _avatar; }
-            set => SetAvatar(value);
+            set => SetAvatar(_avatar);
         }
         public bool Admin 
         {
@@ -69,7 +99,7 @@ namespace SocialNetwork
             set => SetAdmin(value);
         }
 
-        public List<User> Following
+        public List<User> FollowingList
         {
             get { return _followingList; }
             set { _followingList = value; }
@@ -81,15 +111,16 @@ namespace SocialNetwork
             set { _albumList = value; }
         }
 
-        public User(string username, string passwordClear, string name, string lastname, DateTime birthday, Direction direction, string avatar)
+        public User(string username, Password password, string name, string lastname, DateTime birthday, Direction direction, Photo avatar)
         {
             this.Username = username;
             this.Name = name;
             this.Lastname = lastname;
             this.DateOfBirth = birthday;
             this.Direction = direction;
-            this._password = new Password(passwordClear);
+            this.SetPassword(password);
             this.Avatar = avatar;
+            
             
         }
 
@@ -146,29 +177,15 @@ namespace SocialNetwork
             }
         }
 
-        public void SetDirection(Direction direction)
+        public void SetDirection(string Country, string City, string Sreet)
         {
-            if (direction == null || EmptyString(direction.Street) || EmptyString(direction.City) || EmptyString(direction.Counrty))
-            {
-                throw new InvalidOperationException("Direccion no puede ser vacia");
-            }
-            else
-            {
-                this._direction = direction;
-            }
+            this._direction.SetDirection(Country, City, Sreet);
         }
 
-        public void SetAvatar(string avatar)
+        public void SetAvatar(Photo avatar)
         {
-            string extension = Path.GetExtension(avatar);
-            if (avatar == null || (extension != ".jpg" && extension != ".jpeg" && extension != ".png"))
-            {
-                throw new InvalidOperationException("Imagen no valida");
-            }
-            else
-            {
-                this._avatar = avatar;
-            }
+            //File.Delete(Avatar.ElPath);
+            this._avatar = avatar;
         }
 
         public bool IsEqual(User user)
@@ -181,6 +198,18 @@ namespace SocialNetwork
             return username.Length >= MIN_LENGTH_FOR_VALID_NAME;
         }
 
+        private void ValidMinLengthStatus(string status)
+        {
+            if (status.Length < MIN_LENGTH_FOR_VALID_STATUS) {
+                throw new InvalidOperationException("La frace de estado no alcanza el largo minimo");
+            }
+        }
+        private void ValidMaxLengthStatus(string status)
+        {
+            if (status.Length > MAX_LENGTH_FOR_VALID_STATUS) {
+                throw new InvalidOperationException("La frace de estado supera el largo máximo");
+            }
+        }
         private bool EmptyString(string value)
         {
             return value.Length.Equals(0);
