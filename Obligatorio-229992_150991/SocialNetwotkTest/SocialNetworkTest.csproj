@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlbumTests.cs" />
+    <Compile Include="DirectionTest.cs" />
     <Compile Include="PhotoTest.cs" />
     <Compile Include="DirectoryUserTests.cs" />
     <Compile Include="ListeningNowTest.cs" />

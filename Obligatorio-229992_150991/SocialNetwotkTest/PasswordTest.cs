@@ -67,9 +67,5 @@ namespace SocialNetwotkTest
             Password otraPassword = new Password("Mosswprdas10");
             unaPassword.CheckPassword(otraPassword);
         }
-
-
-
-
     }
 }

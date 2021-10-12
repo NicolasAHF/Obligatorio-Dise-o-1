@@ -13,7 +13,7 @@ namespace SocialNetworkTest
         User validUser;
         DateTime validBirthday = new DateTime(1999, 12, 22);
         Direction validDirection = new Direction();
-        string validPassword;
+        Password validPassword = new Password("P@ssword10");
         Photo validPhoto = new Photo("Album/Verano 2021.jpg", 5);
 
           [TestInitialize]
@@ -22,8 +22,7 @@ namespace SocialNetworkTest
             validDirection.City = "Montevideo";
             validDirection.Counrty = "Uruguay";
             validDirection.Street = "Francisco luis 608";
-            string validPassword = "P@ssword10";
-        validUser = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, @"\c.pepe.jpg");
+        validUser = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto);
         }
 
         [TestCleanup]
@@ -43,7 +42,7 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateUserWithUsernameShorterThanTheMinimumValidLength()
         {
-            User invalidUser = new User("User", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
+            User invalidUser = new User("User", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto);
         }
         
         [TestMethod] 
@@ -57,7 +56,7 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateUserWithEmptyName()
         {
-            User invalidUser = new User("User1", validPassword, "", "Hernandez", validBirthday, validDirection,@"C:\Users\Admin\Pictures\unnamed.jpg");
+            User invalidUser = new User("User1", validPassword, "", "Hernandez", validBirthday, validDirection, validPhoto);
         }
 
         [TestMethod]
@@ -70,14 +69,14 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateUserWithEmptyLastname()
         {
-            User invalidUser = new User("User1", validPassword, "Nicolas", "", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
+            User invalidUser = new User("User1", validPassword, "Nicolas", "", validBirthday, validDirection, validPhoto);
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void NameWithOnlyLetters()
         {
-            User invalidUser = new User("User1", validPassword, "123", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
+            User invalidUser = new User("User1", validPassword, "123", "Hernandez", validBirthday, validDirection, validPhoto);
 
         }
         
@@ -85,7 +84,7 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void LastnameWithOnlyLetters()
         {
-            User invalidUser = new User("User1", validPassword, "Nicolas", "3123", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
+            User invalidUser = new User("User1", validPassword, "Nicolas", "3123", validBirthday, validDirection, validPhoto);
         }
 
         [TestMethod]
@@ -101,7 +100,7 @@ namespace SocialNetworkTest
         public void BirthdayAfter1940()
         {
             DateTime invalidBirthday = new DateTime(1940, 12, 22);
-            User invalidUser = new User("User1", validPassword, "Nicolas", "Hernandez", invalidBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
+            User invalidUser = new User("User1", validPassword, "Nicolas", "Hernandez", invalidBirthday, validDirection, validPhoto);
         }
 
         [TestMethod]
@@ -109,7 +108,7 @@ namespace SocialNetworkTest
         public void BirthdayBeforeNow()
         {
             DateTime invalidBirthday = new DateTime(2100, 12, 22);
-            User invalidUser = new User("User1", validPassword, "Nicolas", "Hernandez", invalidBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
+            User invalidUser = new User("User1", validPassword, "Nicolas", "Hernandez", invalidBirthday, validDirection, validPhoto);
         }
 
         [TestMethod]
@@ -117,79 +116,28 @@ namespace SocialNetworkTest
         public void BirthdayNotEmpty()
         {
             DateTime invalidBirthday = new DateTime();
-            User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", invalidBirthday, validDirection,@"C:\Users\Admin\Pictures\unnamed.jpg");
+            User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", invalidBirthday, validDirection, validPhoto);
         }
 
         [TestMethod]
-        public void CreateUserWithValidDirection()
+        public void ChangePasswordWithValidUserEnteredPassword()
         {
-            
-            Assert.AreEqual(validDirection, validUser.Direction);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void CreateUserWithInvalidDirectionNull()
-        {
-            Direction invalidDirection = new Direction();
-            invalidDirection = null;
-            User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, invalidDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
+            validPassword.SetPassword("P@ssword10");
+            validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            Password userEnteredActualPassword = new Password("P@ssword10");
+            Password newPassword = new Password("Password20");
+            validUser.ChangePassword(validUser, userEnteredActualPassword, newPassword);
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void CreateUserWithInvalidDirectionStreet()
+        public void ChangePasswordWithInvalidUserEnteredPassword()
         {
-            Direction invalidDirection = new Direction();
-            invalidDirection.Street = "";
-            invalidDirection.City = "Montevideo";
-            invalidDirection.Counrty = "Uruguay";
-            User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, invalidDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void CreateUserWithInvalidDirectionCity()
-        {
-            Direction invalidDirection = new Direction();
-            invalidDirection.Street = "Francisco luis 608";
-            invalidDirection.City = "";
-            invalidDirection.Counrty = "Uruguay";
-            User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, invalidDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void CreateUserWithInvalidDirectionCountry()
-        {
-            Direction invalidDirection = new Direction();
-            invalidDirection.Street = "Francisco luis 608";
-            invalidDirection.City = "Montevideo";
-            invalidDirection.Counrty = "";
-            User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, invalidDirection, @"C:\Users\Admin\Pictures\unnamed.jpg");
-        }
-
-        [TestMethod]
-        public void ValidAvatarJPG()
-        {
-            string validAvatar = @"C:\Users\Admin\Pictures\unnamed.jpg";
-            Assert.AreEqual(validUser.Avatar, validAvatar);
-        }
-
-        [TestMethod]
-        public void ValidAvatarJPEG()
-        {
-            string validAvatar = @"C:\Users\Admin\Pictures\unnamed.jpeg";
-            User validUserJPEG = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.jpeg");
-            Assert.AreEqual(validUserJPEG.Avatar, validAvatar);
-        }
-
-        [TestMethod]
-        public void ValidAvatarPNG()
-        {
-            string validAvatar = @"C:\Users\Admin\Pictures\unnamed.png";
-            User validUserPNG = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.png");
-            Assert.AreEqual(validUserPNG.Avatar, validAvatar);
+            Password validPassword = new Password("P@ssword10");
+            validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            Password userEnteredPassword = new Password("Contraseña20");
+            Password newPassword = new Password("Password20");
+            validUser.ChangePassword(validUser, userEnteredPassword, newPassword);
         }
 
         [TestMethod]
@@ -208,15 +156,77 @@ namespace SocialNetworkTest
         [TestMethod]
         public void FollowingListAdding()
         {
-            User validUser2 = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, @"C:\Users\Admin\Pictures\unnamed.png");
-            validUser.Following.Add(validUser2);
-            Assert.IsTrue(validUser.Following.Count() != 0);
+            User validUser2 = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto);
+            validUser.FollowingList.Add(validUser2);
+            Assert.IsTrue(validUser.FollowingList.Count() != 0);
         }
 
         [TestMethod]
         public void FollowingListEmpty()
         {
-            Assert.IsTrue(validUser.Following.Count() == 0);
+            Assert.IsTrue(validUser.FollowingList.Count() == 0);
         }
+
+        [TestMethod]
+        public void ValidSetStatus()
+        {
+            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            validUser.SetStatus("Día lluvioso hermoso para programar");
+        }
+
+        [TestMethod]
+        public void ValidMinSetStatus()
+        {
+            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+
+            string status = "a";
+            for (int i = 0; i < 9; i++)
+            {
+                status += "a";
+            }
+            validUser.SetStatus(status);
+        }
+
+        [TestMethod]
+        public void ValidMaxSetStatus()
+        {
+            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+
+            string status = "a";
+            for (int i = 0; i < 159; i++)
+            {
+                status += "a";
+            }
+            validUser.SetStatus(status);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void InvalidMinSetStatus()
+        {
+            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+
+            string status = "a";
+            for (int i = 0; i < 8; i++)
+            {
+                status += "a";
+            }
+            validUser.SetStatus(status);
+        }
+    
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void InvalidMaxSetStatus()
+        {
+            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            
+            string status = "a";
+            for (int i = 0; i < 160; i++)
+            {
+                status += "a";                
+            }
+            validUser.SetStatus(status);
+        }
+
     }
 }

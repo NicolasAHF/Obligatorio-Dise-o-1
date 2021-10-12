@@ -19,14 +19,11 @@ namespace SocialNetwork
             private set => SetPassword(value);
         }
 
-        //Constructor
+
         public Password(string password)
         {
-            //this.LaPassword = password;
             this.SetPassword(password);
         }
-
-
 
         public void SetPassword(string password)
         {
@@ -37,7 +34,6 @@ namespace SocialNetwork
            else
            {
                 this._password = password.GetHashCode().ToString();
- 
             }
         }
 
