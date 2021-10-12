@@ -34,16 +34,16 @@ namespace UISocialNetwork
 
         private void ShowContent(List<UserControl> content)
         {
-            ListeningNowCreated[] items = new ListeningNowCreated[20];
-
-            items[0] = new ListeningNowCreated(actualUser);
             if (showContentPanel.Controls.Count < 0)
             {
                 showContentPanel.Controls.Clear();
             }
             else
             {
-                showContentPanel.Controls.Add(items[0]);
+                for(int i = 0; i< content.Count(); i++)
+                {
+                    showContentPanel.Controls.Add(content[i]);
+                }
             }
 
         }

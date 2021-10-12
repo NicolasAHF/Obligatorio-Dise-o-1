@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -124,5 +125,13 @@ namespace UISocialNetwork
 
         }
 
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DirectoryInfo path = new DirectoryInfo(@"C:\Users\Admin\Desktop\OBLIDA1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources");
+            foreach(FileInfo image in path.GetFiles())
+            {
+                image.Delete();
+            }
+        }
     }
 }
