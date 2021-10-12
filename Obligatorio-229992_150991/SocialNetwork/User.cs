@@ -111,7 +111,7 @@ namespace SocialNetwork
             set { _albumList = value; }
         }
 
-        public User(string username, Password password, string name, string lastname, DateTime birthday, Direction direction, Photo avatar)
+        public User(string username, Password password, string name, string lastname, DateTime birthday, Direction direction, Photo avatar, bool admin)
         {
             this.Username = username;
             this.Name = name;
@@ -120,7 +120,7 @@ namespace SocialNetwork
             this.Direction = direction;
             this.SetPassword(password);
             this.Avatar = avatar;
-            
+            this.Admin = admin;
             
         }
 
@@ -232,6 +232,11 @@ namespace SocialNetwork
             DateTime dateLimit = DateTime.Now;
             int result = DateTime.Compare(birthday, dateLimit);
             return result < 0;
+        }
+
+        public override string ToString()
+        {
+            return this.Username;
         }
     }
 }
