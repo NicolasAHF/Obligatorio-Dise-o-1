@@ -98,5 +98,10 @@ namespace UISocialNetwork
                 followBtn.ForeColor = Color.Maroon;
             }
         }
+
+        private void changePasswordBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
