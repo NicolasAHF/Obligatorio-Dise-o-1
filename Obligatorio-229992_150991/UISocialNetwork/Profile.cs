@@ -26,7 +26,7 @@ namespace UISocialNetwork
         private void Profile_Load(object sender, EventArgs e)
         {
             lblUsername.Text = user.Username;
-            avatar.ImageLocation = user.Avatar;
+            avatar.ImageLocation = user.Avatar.ElPath;
             completeNameLbl.Text = user.Name + " " + user.Lastname;
             if (user.Username != actualUser.Username)
             {
@@ -53,7 +53,7 @@ namespace UISocialNetwork
             modifyUser.AddListener(PostModify);
             modifyPanel.Controls.Add(modifyUser);
             modifyPanel.Show();
-            modifyUserBtn.Enabled = false;
+            modifyUser.Enabled = false;
         }
 
         private void followBtn_Click(object sender, EventArgs e)

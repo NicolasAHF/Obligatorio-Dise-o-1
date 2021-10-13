@@ -46,27 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlbumCreated.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="AlbumCreated.cs" />
     <Compile Include="AlbumCreated.Designer.cs">
       <DependentUpon>AlbumCreated.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateAlbum.cs">
+    <Compile Include="ChangePassword.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAlbum.cs" />
     <Compile Include="CreateAlbum.Designer.cs">
       <DependentUpon>CreateAlbum.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateListeningNow.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="CreateListeningNow.cs" />
     <Compile Include="CreateListeningNow.Designer.cs">
       <DependentUpon>CreateListeningNow.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateStatus.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="CreateStatus.cs" />
     <Compile Include="CreateStatus.Designer.cs">
       <DependentUpon>CreateStatus.cs</DependentUpon>
     </Compile>
@@ -82,9 +80,7 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListeningNowCreated.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="ListeningNowCreated.cs" />
     <Compile Include="ListeningNowCreated.Designer.cs">
       <DependentUpon>ListeningNowCreated.cs</DependentUpon>
     </Compile>
@@ -114,14 +110,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatusCreated.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="StatusCreated.cs" />
     <Compile Include="StatusCreated.Designer.cs">
       <DependentUpon>StatusCreated.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AlbumCreated.resx">
       <DependentUpon>AlbumCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateAlbum.resx">
       <DependentUpon>CreateAlbum.cs</DependentUpon>
