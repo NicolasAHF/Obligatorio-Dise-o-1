@@ -33,7 +33,7 @@ namespace SocialNetworkTest
         [TestMethod]
         public void CreateAlbumWithValidPhoto()
         {
-            Photo correctPhoto = new Photo("Album/Verano 2021.jpg", 5);
+            Photo correctPhoto = new Photo("Album/Verano 2021.jpg", 5000) ;
             Album validAlbum = new Album("Verano 2021");
             validAlbum.addPhoto(correctPhoto);
         }
@@ -45,7 +45,7 @@ namespace SocialNetworkTest
             
             for (int i = 0; i < 10; i++)
             {
-                Photo correctPhoto = new Photo($"Album/Verano 2021 {i}.jpg", 5);
+                Photo correctPhoto = new Photo($"Album/Verano 2021 {i}.jpg", 5000);
                 validAlbum.addPhoto(correctPhoto);
             }
 
@@ -58,7 +58,7 @@ namespace SocialNetworkTest
             Album validAlbum = new Album("Verano 2021");
             for (int i = 0; i < 11; i++)
             {
-                Photo correctPhoto = new Photo($"Album/Verano 2021 {i}.jpg", 5);
+                Photo correctPhoto = new Photo($"Album/Verano 2021 {i}.jpg", 5000);
                 validAlbum.addPhoto(correctPhoto);
             }
 
@@ -69,12 +69,21 @@ namespace SocialNetworkTest
         public void CreateAlbumWithRepetidPhoto()
         {
             Album validAlbum = new Album("Verano 2021");
-            Photo correctPhoto = new Photo("Album/Verano 2021.jpg", 5);
+            Photo correctPhoto = new Photo("Album/Verano 2021.jpg", 5000);
             for (int i = 0; i < 2; i++)
             {
                 validAlbum.addPhoto(correctPhoto);
             }
 
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void CreateAlbumWithMaxInvalidPhotoSize()
+        {
+            Album validAlbum = new Album("Verano 2021");
+            Photo invalidPhoto = new Photo($"Album/Verano 2021.jpg", 5001);
+            validAlbum.addPhoto(invalidPhoto);
         }
     }
 }

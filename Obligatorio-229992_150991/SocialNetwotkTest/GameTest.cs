@@ -9,7 +9,7 @@ namespace SocialNetworkTest
     {
         private string validName = "Hitman 3";
         private string validCategory = "Action";
-        Photo validPhoto = new Photo("Game/Hitman 3.jpg", 5);
+        Photo validPhoto = new Photo("Game/Hitman 3.jpg", 5000);
 
         [TestMethod]
         public void CreateGameWithValidName()
@@ -68,7 +68,7 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateGameWithInvalidvalidCoverMaxSize()
         {
-            Photo invalidPhoto = new Photo("Game/Hitman 3.jpg", 6);
+            Photo invalidPhoto = new Photo("Game/Hitman 3.jpg", 5001);
             Game validGame = new Game(validName, validCategory, invalidPhoto);
         }
 

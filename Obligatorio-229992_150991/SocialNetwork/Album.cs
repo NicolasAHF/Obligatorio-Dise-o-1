@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace SocialNetwork
 {
@@ -8,10 +9,7 @@ namespace SocialNetwork
         private string _name;
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
         const int MAX_CANT_FOR_VALID_LOAD_PHOTO = 10;
-        const int MAX_SIZE_FOR_VALID_LOAD_PHOTO = 5; //MB
-
-        ArrayList PhotosList = new ArrayList();
-
+        private List<Photo> _PhotoList = new List<Photo>();
 
         public string Name
         {
@@ -19,11 +17,15 @@ namespace SocialNetwork
             private set => SetName(value);
         }
 
+        public List<Photo> PhotoList
+        {
+            get { return _PhotoList; }
+        }
+
         public Album(string elNombre)
         {
             this.Name = elNombre;
         }
-
 
         public void SetName(string elNombre)
         {
@@ -37,26 +39,34 @@ namespace SocialNetwork
             }
         }
 
-        public void addPhoto(Photo laPhoto)
+        public void addPhoto(Photo photo)
         {
-            if (PhotosList.Count >= MAX_CANT_FOR_VALID_LOAD_PHOTO || ValiExistPohoto(laPhoto))
-            {
-                throw new InvalidOperationException("No es posible agregar la Foto");
-            }
-            else
-            {
-                this.PhotosList.Add(laPhoto);
-            }
+            ValidExistPhoto(photo);
+            ValidePhotoMaxCantLoad();
+
+            this.PhotoList.Add(photo);
+
         }
         private bool ValidName(string elNombre)
         {
             return elNombre.Length >= MIN_LENGTH_FOR_VALID_NAME;
         }
 
-        private bool ValiExistPohoto(Photo laPhoto)
+        private void ValidExistPhoto(Photo laPhoto)
         {
-            return PhotosList.Contains(laPhoto);
+            if (PhotoList.Contains(laPhoto))
+            {
+                throw new InvalidOperationException("La foto ya existe");
+            }
         }
+
+    private void ValidePhotoMaxCantLoad()
+    {
+        if (PhotoList.Count >= MAX_CANT_FOR_VALID_LOAD_PHOTO)
+        {
+            throw new InvalidOperationException("No se puede agregar mas fotos al album");
+        }
+    }
 
         private bool EmptyString(string value)
         {

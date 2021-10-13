@@ -11,7 +11,7 @@ namespace SocialNetwork
     {
         private string _path;
         private int _size;
-        const int MAX_SIZE_FOR_VALID_PHOTO = 5;
+        const int MAX_SIZE_FOR_VALID_PHOTO = 5000;//Byte
 
         public string ElPath
         {
@@ -44,7 +44,7 @@ namespace SocialNetwork
         {
             if (elSize < 0 || elSize > MAX_SIZE_FOR_VALID_PHOTO)
             {
-                throw new InvalidOperationException("El tamaño de la imagen es excesivo");
+                throw new InvalidOperationException("El tamaño de la foto excede el valor permitido " +MAX_SIZE_FOR_VALID_PHOTO+" Byte");
             }
             else
             {
