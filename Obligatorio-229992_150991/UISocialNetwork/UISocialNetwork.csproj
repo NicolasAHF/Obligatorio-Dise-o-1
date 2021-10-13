@@ -52,6 +52,12 @@
     <Compile Include="CreateListeningNow.Designer.cs">
       <DependentUpon>CreateListeningNow.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateStatus.Designer.cs">
+      <DependentUpon>CreateStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -90,6 +96,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusCreated.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StatusCreated.Designer.cs">
+      <DependentUpon>StatusCreated.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CreateStatus.resx">
+      <DependentUpon>CreateStatus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateUser.resx">
       <DependentUpon>CreateUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +129,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StatusCreated.resx">
+      <DependentUpon>StatusCreated.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -99,6 +99,13 @@ namespace UISocialNetwork
             ShowContent(content);
         }
 
+        private void PostCreateStatus(StatusCreated statusCreated)
+        {
+            panelContent.Controls.Clear();
+            content.Add(statusCreated);
+            ShowContent(content);
+        }
+
         private void createAlbumBtn_Click(object sender, EventArgs e)
         {
             CreateAlbum album = new CreateAlbum(actualUser);
