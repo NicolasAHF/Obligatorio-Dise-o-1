@@ -91,6 +91,21 @@ namespace UISocialNetwork
             content.Add(listeningCreated);
             ShowContent(content);
         }
+
+        private void PostCreateAlbum(AlbumCreated albumCreated)
+        {
+            panelContent.Controls.Clear();
+            content.Add(albumCreated);
+            ShowContent(content);
+        }
+
+        private void createAlbumBtn_Click(object sender, EventArgs e)
+        {
+            CreateAlbum album = new CreateAlbum(actualUser);
+            album.AddListener(PostCreateAlbum);
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(album);
+        }
     }
 
 }

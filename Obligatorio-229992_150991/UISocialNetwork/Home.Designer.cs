@@ -37,6 +37,8 @@ namespace UISocialNetwork
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelButtons = new System.Windows.Forms.Panel();
             this.showContentPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.createAlbumBtn = new System.Windows.Forms.Button();
+            this.panelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // searchBox
@@ -99,6 +101,7 @@ namespace UISocialNetwork
             // 
             // panelButtons
             // 
+            this.panelButtons.Controls.Add(this.createAlbumBtn);
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelButtons.Location = new System.Drawing.Point(0, 0);
             this.panelButtons.Name = "panelButtons";
@@ -114,12 +117,21 @@ namespace UISocialNetwork
             this.showContentPanel.Size = new System.Drawing.Size(709, 131);
             this.showContentPanel.TabIndex = 7;
             // 
+            // createAlbumBtn
+            // 
+            this.createAlbumBtn.Location = new System.Drawing.Point(567, 4);
+            this.createAlbumBtn.Name = "createAlbumBtn";
+            this.createAlbumBtn.Size = new System.Drawing.Size(132, 20);
+            this.createAlbumBtn.TabIndex = 8;
+            this.createAlbumBtn.Text = "Crear Album";
+            this.createAlbumBtn.UseVisualStyleBackColor = true;
+            this.createAlbumBtn.Click += new System.EventHandler(this.createAlbumBtn_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.Controls.Add(this.showContentPanel);
             this.Controls.Add(this.listeningBtn);
             this.Controls.Add(this.lblErrorMsg);
             this.Controls.Add(this.searchBtn);
@@ -127,9 +139,11 @@ namespace UISocialNetwork
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.panelContent);
+            this.Controls.Add(this.showContentPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Home";
             this.Size = new System.Drawing.Size(716, 480);
+            this.panelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +159,6 @@ namespace UISocialNetwork
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Panel panelButtons;
         private System.Windows.Forms.FlowLayoutPanel showContentPanel;
+        private System.Windows.Forms.Button createAlbumBtn;
     }
 }

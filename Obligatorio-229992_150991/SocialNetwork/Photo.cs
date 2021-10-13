@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,8 +11,8 @@ namespace SocialNetwork
     public class Photo
     {
         private string _path;
-        private int _size;
-        const int MAX_SIZE_FOR_VALID_PHOTO = 5000;//Byte
+        private long _size;
+        const long MAX_SIZE_FOR_VALID_PHOTO = 5000;//Byte
 
         public string ElPath
         {
@@ -19,14 +20,14 @@ namespace SocialNetwork
             private set => SetPath(value);
         }
 
-        public int ElSize
+        public long ElSize
         {
             get { return _size; }
             private set => SetSize(value);
         }
 
 
-        public Photo(string path, int size)
+        public Photo(string path, long size)
         {
             this.ElPath = path;
             this.ElSize = size;
@@ -40,7 +41,7 @@ namespace SocialNetwork
             this._path = elPath;
         }
 
-        public void SetSize(int elSize)
+        public void SetSize(long elSize)
         {
             if (elSize < 0 || elSize > MAX_SIZE_FOR_VALID_PHOTO)
             {
@@ -54,7 +55,7 @@ namespace SocialNetwork
 
         private void ValidPathSpecialExtension(string path)
         {
-            string extension = System.IO.Path.GetExtension(path);
+            string extension = Path.GetExtension(path);
             extension = extension.ToLower();
             if (extension == null || (extension != ".jpg" && extension != ".jpeg" && extension != ".png"))
             {

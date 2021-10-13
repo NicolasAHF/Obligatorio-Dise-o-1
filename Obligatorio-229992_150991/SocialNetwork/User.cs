@@ -22,6 +22,7 @@ namespace SocialNetwork
         private List<User> _followingList = new List<User>();
         private List<Album> _albumList = new List<Album>();
         private List<GameScore> _gameScoreList = new List<GameScore>();
+        private ListeningNow _listeningNow = new ListeningNow();
 
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
         const int MIN_LENGTH_FOR_VALID_STATUS = 10;
@@ -58,6 +59,45 @@ namespace SocialNetwork
             get { return _direction; }
             set => _direction = Direction;
         }
+        public Photo Avatar
+        {
+            get { return _avatar; }
+            set => SetAvatar(_avatar);
+        }
+        public bool Admin
+        {
+            get { return _admin; }
+            set => SetAdmin(value);
+        }
+
+        public List<User> FollowingList
+        {
+            get { return _followingList; }
+            set { _followingList = value; }
+        }
+
+        public List<Album> AlbumList
+        {
+            get { return _albumList; }
+            set { _albumList = value; }
+        }
+        public void SetStatus(String status)
+        {
+            ValidMinLengthStatus(status);
+            ValidMaxLengthStatus(status);
+            this._status = status;
+        }
+
+        public Password GetPassword()
+        {
+            return this._password;
+        }
+
+        public ListeningNow Listening
+        {
+            get{ return _listeningNow; }
+            set { _listeningNow = value; }
+        }
 
         public User(string username, Password password, string name, string lastname, DateTime birthday, Direction direction, Photo avatar, bool Admin)
         {
@@ -77,18 +117,6 @@ namespace SocialNetwork
             this._password = password;
         }
 
-        public void SetStatus(String status)
-        {
-            ValidMinLengthStatus(status);
-            ValidMaxLengthStatus(status);
-            this._status = status;
-        }
-
-        public Password GetPassword()
-        {
-            return this._password;
-        }
-
         public bool ChangePassword(User elUsuario, Password userEnteredActualPassword, Password pasNueva)
         {
 
@@ -101,29 +129,6 @@ namespace SocialNetwork
                 return true;
 
             }
-        }
-    
-        public Photo Avatar 
-        {
-            get { return _avatar; }
-            set => SetAvatar(_avatar);
-        }
-        public bool Admin 
-        {
-            get { return _admin; }
-            set => SetAdmin(value);
-        }
-
-        public List<User> FollowingList
-        {
-            get { return _followingList; }
-            set { _followingList = value; }
-        }
-
-        public List<Album> AlbumList
-        {
-            get { return _albumList; }
-            set { _albumList = value; }
         }
 
         public void AddGameScore(string gameName, int score)
