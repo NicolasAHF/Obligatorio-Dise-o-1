@@ -55,7 +55,7 @@ namespace UISocialNetwork
             this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Location = new System.Drawing.Point(165, 80);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(634, 390);
+            this.mainPanel.Size = new System.Drawing.Size(953, 591);
             this.mainPanel.TabIndex = 0;
             // 
             // usernamelblHome
@@ -90,7 +90,7 @@ namespace UISocialNetwork
             this.header.Location = new System.Drawing.Point(165, 0);
             this.header.Margin = new System.Windows.Forms.Padding(2);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(634, 81);
+            this.header.Size = new System.Drawing.Size(900, 81);
             this.header.TabIndex = 4;
             // 
             // adminLbl
@@ -107,7 +107,7 @@ namespace UISocialNetwork
             this.LogoutBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LogoutBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LogoutBtn.Location = new System.Drawing.Point(358, 0);
+            this.LogoutBtn.Location = new System.Drawing.Point(624, 0);
             this.LogoutBtn.Margin = new System.Windows.Forms.Padding(2);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Size = new System.Drawing.Size(92, 81);
@@ -122,7 +122,7 @@ namespace UISocialNetwork
             this.createUserBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.createUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createUserBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.createUserBtn.Location = new System.Drawing.Point(450, 0);
+            this.createUserBtn.Location = new System.Drawing.Point(716, 0);
             this.createUserBtn.Margin = new System.Windows.Forms.Padding(2);
             this.createUserBtn.Name = "createUserBtn";
             this.createUserBtn.Size = new System.Drawing.Size(92, 81);
@@ -136,7 +136,7 @@ namespace UISocialNetwork
             this.loginBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.loginBtn.Location = new System.Drawing.Point(542, 0);
+            this.loginBtn.Location = new System.Drawing.Point(808, 0);
             this.loginBtn.Margin = new System.Windows.Forms.Padding(2);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(92, 81);
@@ -155,7 +155,7 @@ namespace UISocialNetwork
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(2);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(165, 467);
+            this.panelMenu.Size = new System.Drawing.Size(165, 573);
             this.panelMenu.TabIndex = 3;
             // 
             // marketplaceBtn
@@ -171,6 +171,7 @@ namespace UISocialNetwork
             this.marketplaceBtn.Text = "MarketPlace";
             this.marketplaceBtn.UseVisualStyleBackColor = true;
             this.marketplaceBtn.Visible = false;
+            this.marketplaceBtn.Click += new System.EventHandler(this.marketplaceBtn_Click);
             // 
             // profileBtn
             // 
@@ -199,33 +200,18 @@ namespace UISocialNetwork
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // LogoutBtn
-            // 
-            this.LogoutBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.LogoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LogoutBtn.Location = new System.Drawing.Point(358, 0);
-            this.LogoutBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Size = new System.Drawing.Size(92, 81);
-            this.LogoutBtn.TabIndex = 4;
-            this.LogoutBtn.Text = "Logout";
-            this.LogoutBtn.UseVisualStyleBackColor = true;
-            this.LogoutBtn.Visible = false;
-            this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 467);
+            this.ClientSize = new System.Drawing.Size(1065, 573);
             this.Controls.Add(this.header);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.mainPanel);
-            this.MaximumSize = new System.Drawing.Size(815, 506);
-            this.MinimumSize = new System.Drawing.Size(815, 506);
+            this.MaximumSize = new System.Drawing.Size(1194, 728);
+            this.MinimumSize = new System.Drawing.Size(1081, 612);
             this.Name = "MainForm";
             this.Text = "Main";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);

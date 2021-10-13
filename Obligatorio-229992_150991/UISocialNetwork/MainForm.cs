@@ -133,5 +133,10 @@ namespace UISocialNetwork
                 image.Delete();
             }
         }
+
+        private void marketplaceBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
