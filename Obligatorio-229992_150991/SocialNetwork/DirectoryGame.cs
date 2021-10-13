@@ -15,8 +15,10 @@ namespace SocialNetwork
             GameList = new List<Game>();
         }
 
-        public void AddGame(Game game)
+        public void AddGame(Game game, User user)
         {
+            this.userIsAdmin(user);
+
             if (this.GameAdded(game))
             {
                 const string GAME_ALREADY_EXISTS = "Ya existe un juego con ese nombre de usuario";
@@ -28,7 +30,7 @@ namespace SocialNetwork
             }
         }
 
-        public bool GameAdded(Game gameToAdd, User user)
+        public bool GameAdded(Game gameToAdd)
         {
             foreach (Game game in this.GameList)
             {
@@ -50,8 +52,9 @@ namespace SocialNetwork
             return GameList.Count;
         }
 
-        public void RemoveGame(Game game)
+        public void RemoveGame(Game game, User user)
         {
+            this.userIsAdmin(user);
             if (GetGame(game).Played == 0)
             {
                 GameList.Remove(game);
@@ -72,6 +75,13 @@ namespace SocialNetwork
                 }
             }
             throw new InvalidOperationException("No hay un juego con ese nombre");
+        }
+
+        public void userIsAdmin(User user)
+        {
+            if (!user.Admin) {
+                throw new InvalidOperationException("El usuario no es administrador");
+            }
         }
 
         public void SetPlayed(Game elGame)
