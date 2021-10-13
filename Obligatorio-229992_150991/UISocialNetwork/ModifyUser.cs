@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,10 +56,11 @@ namespace UISocialNetwork
                 auxDirection.Street = streetModifyBox.Text;
                 auxDirection.City = cityModifyBox.Text;
                 auxDirection.Counrty = countryModifyBox.Text;
+                FileInfo fileInfo = new FileInfo(user.Avatar.ElPath);
                 user.SetName(nameModifyBox.Text);
                 user.SetLastname(lastnameModifyBox.Text);
-                user.SetDirection(auxDirection);
-                user.SetAvatar(avatarModifyBox.ImageLocation);
+                user.Direction = auxDirection;
+                user.Avatar = new Photo(avatarModifyBox.ImageLocation, fileInfo.Length/1000);
                 PostModifyEvent();
             }
             catch (Exception exp)
@@ -75,7 +77,7 @@ namespace UISocialNetwork
             cityModifyBox.Text = user.Direction.City;
             countryModifyBox.Text = user.Direction.Counrty;
             dobModify.Value = user.DateOfBirth;
-            avatarModifyBox.ImageLocation = user.Avatar;
+            avatarModifyBox.ImageLocation = user.Avatar.ElPath;
         }
 
         private void ShowFeedbackMessage(System.Drawing.Color color, string message)
