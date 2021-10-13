@@ -73,20 +73,6 @@ namespace SocialNetwork
         {
             return this._password;
         }
-
-        public bool ChangePassword(User elUsuario, Password userEnteredActualPassword, Password pasNueva)
-        {
-
-            if (this.GetPassword().LaPassword != userEnteredActualPassword.LaPassword)
-            {
-                throw new InvalidOperationException("La Password ingresada no es correcta");
-            }
-            else
-            {
-                return true;
-
-            }
-        }
     
         public Photo Avatar 
         {
@@ -191,6 +177,19 @@ namespace SocialNetwork
         public bool IsEqual(User user)
         {
             return this.Username.ToUpper() == user.Username.ToUpper();
+        }
+
+        public void ChangePassword(User elUsuario, Password userEnteredActualPassword, Password pasNueva)
+        {
+
+            if (this.GetPassword().LaPassword != userEnteredActualPassword.LaPassword)
+            {
+                throw new InvalidOperationException("La Password ingresada no es correcta");
+            }
+            else
+            {
+                elUsuario.SetPassword(pasNueva);
+            }
         }
 
         private bool ValidUsername(string username)
