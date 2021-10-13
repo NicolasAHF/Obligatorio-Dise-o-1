@@ -80,7 +80,7 @@ namespace UISocialNetwork
             if (PasswordTextBox.Text.Equals("Contraseña"))
             {
                 PasswordTextBox.Text = "";
-                PasswordTextBox.UseSystemPasswordChar = true;
+                PasswordTextBox.PasswordChar = '*';
                 PasswordTextBox.ForeColor = Color.Black;
             }
         }
