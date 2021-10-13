@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumCreated.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlbumCreated.Designer.cs">
+      <DependentUpon>AlbumCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAlbum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateAlbum.Designer.cs">
+      <DependentUpon>CreateAlbum.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateListeningNow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -102,6 +114,12 @@
     <Compile Include="StatusCreated.Designer.cs">
       <DependentUpon>StatusCreated.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AlbumCreated.resx">
+      <DependentUpon>AlbumCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateAlbum.resx">
+      <DependentUpon>CreateAlbum.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateStatus.resx">
       <DependentUpon>CreateStatus.cs</DependentUpon>
     </EmbeddedResource>
