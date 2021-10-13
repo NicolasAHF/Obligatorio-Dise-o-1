@@ -55,7 +55,8 @@ namespace UISocialNetwork
             this.LoginBtn.BackColor = System.Drawing.Color.Maroon;
             this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LoginBtn.Location = new System.Drawing.Point(128, 235);
+            this.LoginBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LoginBtn.Location = new System.Drawing.Point(154, 237);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(269, 32);
             this.LoginBtn.TabIndex = 12;
@@ -69,7 +70,7 @@ namespace UISocialNetwork
             this.PasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.PasswordTextBox.ForeColor = System.Drawing.Color.Maroon;
-            this.PasswordTextBox.Location = new System.Drawing.Point(129, 159);
+            this.PasswordTextBox.Location = new System.Drawing.Point(155, 161);
             this.PasswordTextBox.Multiline = true;
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(268, 22);
@@ -86,7 +87,7 @@ namespace UISocialNetwork
             this.UsernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UsernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.UsernameTextBox.ForeColor = System.Drawing.Color.Maroon;
-            this.UsernameTextBox.Location = new System.Drawing.Point(129, 110);
+            this.UsernameTextBox.Location = new System.Drawing.Point(155, 112);
             this.UsernameTextBox.Multiline = true;
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(268, 22);
@@ -99,7 +100,7 @@ namespace UISocialNetwork
             // 
             this.lblErrorMsg.AutoSize = true;
             this.lblErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblErrorMsg.Location = new System.Drawing.Point(126, 291);
+            this.lblErrorMsg.Location = new System.Drawing.Point(152, 293);
             this.lblErrorMsg.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblErrorMsg.Name = "lblErrorMsg";
             this.lblErrorMsg.Size = new System.Drawing.Size(44, 20);
@@ -110,7 +111,7 @@ namespace UISocialNetwork
             // underlineUsername
             // 
             this.underlineUsername.BackColor = System.Drawing.Color.Maroon;
-            this.underlineUsername.Location = new System.Drawing.Point(129, 134);
+            this.underlineUsername.Location = new System.Drawing.Point(155, 136);
             this.underlineUsername.Name = "underlineUsername";
             this.underlineUsername.Size = new System.Drawing.Size(269, 1);
             this.underlineUsername.TabIndex = 14;
@@ -118,7 +119,7 @@ namespace UISocialNetwork
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
-            this.panel1.Location = new System.Drawing.Point(129, 184);
+            this.panel1.Location = new System.Drawing.Point(155, 186);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(269, 1);
             this.panel1.TabIndex = 15;
