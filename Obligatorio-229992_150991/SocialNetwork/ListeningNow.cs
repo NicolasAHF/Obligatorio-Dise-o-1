@@ -31,6 +31,11 @@ namespace SocialNetwork
             private set => SetAlbumName(value);
         }
 
+        public ListeningNow()
+        {
+
+        }
+
         public ListeningNow(string songName, string artist, string albumName)
         {
             this.SongName = songName;
