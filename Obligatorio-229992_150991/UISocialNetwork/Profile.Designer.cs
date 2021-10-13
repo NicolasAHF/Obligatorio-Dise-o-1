@@ -35,7 +35,7 @@ namespace UISocialNetwork
             this.modifyPanel = new System.Windows.Forms.Panel();
             this.completeNameLbl = new System.Windows.Forms.Label();
             this.followBtn = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.passwordPanel = new System.Windows.Forms.Panel();
             this.changePasswordBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
@@ -106,12 +106,12 @@ namespace UISocialNetwork
             this.followBtn.MouseLeave += new System.EventHandler(this.followBtn_MouseLeave);
             this.followBtn.MouseHover += new System.EventHandler(this.followBtn_MouseHover);
             // 
-            // panel1
+            // passwordPanel
             // 
-            this.panel1.Location = new System.Drawing.Point(11, 179);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(356, 204);
-            this.panel1.TabIndex = 9;
+            this.passwordPanel.Location = new System.Drawing.Point(11, 179);
+            this.passwordPanel.Name = "passwordPanel";
+            this.passwordPanel.Size = new System.Drawing.Size(356, 204);
+            this.passwordPanel.TabIndex = 9;
             // 
             // changePasswordBtn
             // 
@@ -131,7 +131,7 @@ namespace UISocialNetwork
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.changePasswordBtn);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.passwordPanel);
             this.Controls.Add(this.followBtn);
             this.Controls.Add(this.completeNameLbl);
             this.Controls.Add(this.modifyPanel);
@@ -156,7 +156,7 @@ namespace UISocialNetwork
         private System.Windows.Forms.Panel modifyPanel;
         private System.Windows.Forms.Label completeNameLbl;
         private System.Windows.Forms.Button followBtn;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel passwordPanel;
         private System.Windows.Forms.Button changePasswordBtn;
     }
 }

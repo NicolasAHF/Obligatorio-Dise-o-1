@@ -101,7 +101,17 @@ namespace UISocialNetwork
 
         private void changePasswordBtn_Click(object sender, EventArgs e)
         {
+            ChangePassword newPassword = new ChangePassword(actualUser);
+            newPassword.AddListener(PostModifyPassword);
+            changePasswordBtn.Enabled = false;
+            passwordPanel.Controls.Clear();
+            passwordPanel.Controls.Add(newPassword);
+        }
 
+        private void PostModifyPassword()
+        {
+            passwordPanel.Controls.Clear();
+            changePasswordBtn.Enabled = true;
         }
     }
 }
