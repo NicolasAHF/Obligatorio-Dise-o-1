@@ -21,6 +21,11 @@ namespace SocialNetwork
             private set => SetScore(value);
         }
 
+        public GameScore()
+        {
+
+        }
+
         public GameScore(string name, int score)
         {
             this.SetName(name);
