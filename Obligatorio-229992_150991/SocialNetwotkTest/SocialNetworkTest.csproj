@@ -49,6 +49,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DirectoryGameTests.cs" />
+    <Compile Include="GameScoreTest.cs" />
+    <Compile Include="GameTest.cs" />
     <Compile Include="AlbumTests.cs" />
     <Compile Include="DirectionTest.cs" />
     <Compile Include="PhotoTest.cs" />

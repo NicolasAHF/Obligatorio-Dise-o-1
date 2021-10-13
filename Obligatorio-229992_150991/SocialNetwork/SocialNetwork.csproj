@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DirectoryGame.cs" />
+    <Compile Include="GameScore.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="DirectoryUser.cs" />
     <Compile Include="ListeningNow.cs" />

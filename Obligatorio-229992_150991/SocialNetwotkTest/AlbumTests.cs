@@ -1,12 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SocialNetwork;
 using System;
+using SocialNetwork;
 
-namespace SocialNetworkTest
+namespace SocialNetwokTest
 {
     [TestClass]
     public class AlbumTests
     {
+        ListeningNow validListeningNow;
+
         [TestMethod]
         public void CreateAlbumWithValidName()
         {

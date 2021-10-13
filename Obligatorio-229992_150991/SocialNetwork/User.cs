@@ -21,6 +21,7 @@ namespace SocialNetwork
         private bool _admin = false;
         private List<User> _followingList = new List<User>();
         private List<Album> _albumList = new List<Album>();
+        private List<GameScore> _gameScoreList = new List<GameScore>();
 
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
         const int MIN_LENGTH_FOR_VALID_STATUS = 10;
@@ -57,6 +58,20 @@ namespace SocialNetwork
             get { return _direction; }
             set => _direction = Direction;
         }
+
+        public User(string username, Password password, string name, string lastname, DateTime birthday, Direction direction, Photo avatar)
+        {
+            this.Username = username;
+            this.Name = name;
+            this.Lastname = lastname;
+            this.DateOfBirth = birthday;
+            this.Direction = direction;
+            this.SetPassword(password);
+            this.Avatar = avatar;
+
+
+        }
+
         private void SetPassword (Password password)
         {
             this._password = password;
@@ -111,18 +126,11 @@ namespace SocialNetwork
             set { _albumList = value; }
         }
 
-        public User(string username, Password password, string name, string lastname, DateTime birthday, Direction direction, Photo avatar)
+        public void AddGameScore(string gameName, int score)
         {
-            this.Username = username;
-            this.Name = name;
-            this.Lastname = lastname;
-            this.DateOfBirth = birthday;
-            this.Direction = direction;
-            this.SetPassword(password);
-            this.Avatar = avatar;
-            
-            
-        }
+            GameScore newGameScore = new GameScore(gameName, score);
+            _gameScoreList.Add(newGameScore);
+         }
 
         public void SetAdmin(bool admin)
         {
@@ -184,7 +192,6 @@ namespace SocialNetwork
 
         public void SetAvatar(Photo avatar)
         {
-            //File.Delete(Avatar.ElPath);
             this._avatar = avatar;
         }
 
@@ -210,6 +217,7 @@ namespace SocialNetwork
                 throw new InvalidOperationException("La frace de estado supera el largo máximo");
             }
         }
+
         private bool EmptyString(string value)
         {
             return value.Length.Equals(0);
@@ -226,7 +234,6 @@ namespace SocialNetwork
             int result = DateTime.Compare(birthday, dateLimit);
             return result > 0;
         }
-
         private bool BirthdayBeforeActualDate(DateTime birthday)
         {
             DateTime dateLimit = DateTime.Now;
