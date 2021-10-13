@@ -15,6 +15,7 @@ namespace UISocialNetwork
     public partial class CreateUser : UserControl
     {
         private DirectoryUser users;
+        private Photo avatar;
         public CreateUser(DirectoryUser users)
         {
             InitializeComponent();
@@ -30,7 +31,8 @@ namespace UISocialNetwork
                 direction.Street = textBoxStreet.Text;
                 direction.City = textBoxCity.Text;
                 direction.Counrty = textBoxCountry.Text;
-                users.AddUser(new User(textBoxUsername.Text, textBoxPassword.Text, textBoxName.Text, textBoxLastname.Text, dateofbirth.Value, direction, lblPath.Text, adminCheckBox.Checked));
+                Password pass = new Password(textBoxPassword.Text);
+                users.AddUser(new User(textBoxUsername.Text, pass, textBoxName.Text, textBoxLastname.Text, dateofbirth.Value, direction, avatar, adminCheckBox.Checked));
                 ShowFeedbackMessage(System.Drawing.Color.Green, USER_CREATED_SUCCESFULLY);
    
             }
@@ -57,7 +59,9 @@ namespace UISocialNetwork
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     imageLocation = dialog.FileName;
-
+                    FileInfo fileSize = new FileInfo(dialog.FileName);
+                    Photo avatar = new Photo(lblPath.Text, fileSize.Length/1000);
+                    this.avatar = avatar;
                     avatarBox.Image = new Bitmap(imageLocation);
                     lblPath.Text = "Path:" + imageLocation;
                     SaveImage(imageLocation);
@@ -73,5 +77,6 @@ namespace UISocialNetwork
         {
             File.Copy(imageLocation, Path.Combine(@"C:\Users\nicolas\Desktop\COPIA OBLI\OBLIDA1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources", Path.GetFileName(lblPath.Text)));
         }
+
     }
 }
