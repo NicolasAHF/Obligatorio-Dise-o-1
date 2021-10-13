@@ -2,7 +2,7 @@
 using System;
 using SocialNetwork;
 
-namespace SocialNetwokTest
+namespace SocialNetworkTest
 {
     [TestClass]
     public class AlbumTests

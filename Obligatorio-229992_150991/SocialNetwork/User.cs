@@ -68,6 +68,7 @@ namespace SocialNetwork
             this.Direction = direction;
             this.SetPassword(password);
             this.Avatar = avatar;
+            this.SetAdmin (false);
 
 
         }
@@ -134,7 +135,7 @@ namespace SocialNetwork
 
         public void SetAdmin(bool admin)
         {
-            this._admin = true;
+            this._admin = admin;
         }
 
         public void SetUsername(string username)
