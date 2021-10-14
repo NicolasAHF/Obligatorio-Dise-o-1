@@ -59,8 +59,9 @@ namespace UISocialNetwork
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     imageLocation = dialog.FileName;
+                    String destinationPath = Path.Combine(@"C:\ORT\2021\02_S2\Diseño AP1\Obligatorio\Repo_1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources", Path.GetFileName(imageLocation));
                     FileInfo fileSize = new FileInfo(dialog.FileName);
-                    Photo avatar = new Photo(imageLocation, fileSize.Length/1000);
+                    Photo avatar = new Photo(destinationPath, fileSize.Length);
                     this.avatar = avatar;
                     avatarBox.Image = new Bitmap(imageLocation);
                     SaveImage(imageLocation);
@@ -74,7 +75,6 @@ namespace UISocialNetwork
 
         private void SaveImage(string imageLocation)
         {
-
             File.Copy(imageLocation, Path.Combine(@"C:\ORT\2021\02_S2\Diseño AP1\Obligatorio\Repo_1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources", Path.GetFileName(imageLocation)));
         }
 

@@ -57,7 +57,8 @@ namespace UISocialNetwork
 
         private void SaveImage(string imageLocation)
         {
-            File.Copy(imageLocation, Path.Combine(@"C:\Users\nicolas\Desktop\COPIA OBLI\OBLIDA1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources", Path.GetFileName(cover.ElPath)));
+
+            File.Copy(imageLocation, Path.Combine(@"C:\ORT\2021\02_S2\Diseño AP1\Obligatorio\Repo_1\229992_150991\Obligatorio - 229992_150991\UISocialNetwork\Resources", Path.GetFileName(cover.ElPath)));
         }
 
         private void saveGame_Click(object sender, EventArgs e)
