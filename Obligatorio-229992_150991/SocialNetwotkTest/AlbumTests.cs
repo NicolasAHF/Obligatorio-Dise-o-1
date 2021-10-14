@@ -73,6 +73,8 @@ namespace SocialNetworkTest
             Album validAlbum = new Album("Verano 2021");
             Photo correctPhoto1 = new Photo("Album/Verano 2021.jpg", ValidMaxSize);
             Photo correctPhoto2 = new Photo("Album/Verano 2021.jpg", ValidMaxSize);
+            validAlbum.addPhoto(correctPhoto1);
+            validAlbum.addPhoto(correctPhoto2);
         }
 
         [TestMethod]
