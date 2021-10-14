@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3708D927-314F-4299-8B53-F1A9BDCF6F71}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UISocialNetwork</RootNamespace>
+    <AssemblyName>UISocialNetwork</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlbumCreated.cs" />
+    <Compile Include="AlbumCreated.Designer.cs">
+      <DependentUpon>AlbumCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAlbum.cs" />
+    <Compile Include="CreateAlbum.Designer.cs">
+      <DependentUpon>CreateAlbum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateGame.Designer.cs">
+      <DependentUpon>CreateGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateListeningNow.cs" />
+    <Compile Include="CreateListeningNow.Designer.cs">
+      <DependentUpon>CreateListeningNow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateStatus.cs" />
+    <Compile Include="CreateStatus.Designer.cs">
+      <DependentUpon>CreateStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateUser.Designer.cs">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameCreated.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameCreated.Designer.cs">
+      <DependentUpon>GameCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameScoreUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameScoreUI.Designer.cs">
+      <DependentUpon>GameScoreUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListeningNowCreated.cs" />
+    <Compile Include="ListeningNowCreated.Designer.cs">
+      <DependentUpon>ListeningNowCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarketPlace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MarketPlace.Designer.cs">
+      <DependentUpon>MarketPlace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModifyUser.Designer.cs">
+      <DependentUpon>ModifyUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusCreated.cs" />
+    <Compile Include="StatusCreated.Designer.cs">
+      <DependentUpon>StatusCreated.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AlbumCreated.resx">
+      <DependentUpon>AlbumCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateAlbum.resx">
+      <DependentUpon>CreateAlbum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateGame.resx">
+      <DependentUpon>CreateGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateStatus.resx">
+      <DependentUpon>CreateStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateUser.resx">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameCreated.resx">
+      <DependentUpon>GameCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameScoreUI.resx">
+      <DependentUpon>GameScoreUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarketPlace.resx">
+      <DependentUpon>MarketPlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyUser.resx">
+      <DependentUpon>ModifyUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="StatusCreated.resx">
+      <DependentUpon>StatusCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocialNetwork\SocialNetwork.csproj">
+      <Project>{0aad30a5-553e-46ed-9f90-ddac3291a361}</Project>
+      <Name>SocialNetwork</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
