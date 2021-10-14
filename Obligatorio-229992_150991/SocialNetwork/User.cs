@@ -117,7 +117,7 @@ namespace SocialNetwork
             this._password = password;
         }
 
-        public bool ChangePassword(User elUsuario, Password userEnteredActualPassword, Password pasNueva)
+        public void ChangePassword(User elUsuario, Password userEnteredActualPassword, Password pasNueva)
         {
 
             if (this.GetPassword().LaPassword != userEnteredActualPassword.LaPassword)
@@ -126,7 +126,7 @@ namespace SocialNetwork
             }
             else
             {
-                return true;
+                this.SetPassword(pasNueva);
 
             }
         }

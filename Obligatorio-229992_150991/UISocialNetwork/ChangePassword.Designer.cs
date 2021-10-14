@@ -41,24 +41,26 @@ namespace UISocialNetwork
             this.button1.BackColor = System.Drawing.Color.Maroon;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(41, 146);
+            this.button1.Location = new System.Drawing.Point(33, 159);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 42);
             this.button1.TabIndex = 0;
             this.button1.Text = "Guardar Nueva Contraseña";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.SavePassword_Click);
             // 
             // newPasswordTxtBox
             // 
-            this.newPasswordTxtBox.Location = new System.Drawing.Point(172, 44);
+            this.newPasswordTxtBox.Location = new System.Drawing.Point(132, 87);
             this.newPasswordTxtBox.Name = "newPasswordTxtBox";
             this.newPasswordTxtBox.Size = new System.Drawing.Size(100, 20);
             this.newPasswordTxtBox.TabIndex = 1;
+            this.newPasswordTxtBox.UseSystemPasswordChar = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 47);
+            this.label1.Location = new System.Drawing.Point(30, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 2;
@@ -67,7 +69,7 @@ namespace UISocialNetwork
             // currentPassword
             // 
             this.currentPassword.AutoSize = true;
-            this.currentPassword.Location = new System.Drawing.Point(62, 81);
+            this.currentPassword.Location = new System.Drawing.Point(38, 45);
             this.currentPassword.Name = "currentPassword";
             this.currentPassword.Size = new System.Drawing.Size(88, 13);
             this.currentPassword.TabIndex = 3;
@@ -75,10 +77,11 @@ namespace UISocialNetwork
             // 
             // currentPasswordTxtBox
             // 
-            this.currentPasswordTxtBox.Location = new System.Drawing.Point(172, 81);
+            this.currentPasswordTxtBox.Location = new System.Drawing.Point(132, 45);
             this.currentPasswordTxtBox.Name = "currentPasswordTxtBox";
             this.currentPasswordTxtBox.Size = new System.Drawing.Size(100, 20);
             this.currentPasswordTxtBox.TabIndex = 4;
+            this.currentPasswordTxtBox.UseSystemPasswordChar = true;
             // 
             // ChangePassword
             // 

@@ -137,7 +137,9 @@ namespace UISocialNetwork
 
         private void marketplaceBtn_Click(object sender, EventArgs e)
         {
-
+            ClearPanel();
+            MarketPlace marketPlace = new MarketPlace((users.GetUser(usernamelblHome.Text)));
+            mainPanel.Controls.Add(marketPlace);
         }
     }
 }

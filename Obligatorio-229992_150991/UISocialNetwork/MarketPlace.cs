@@ -40,7 +40,7 @@ namespace UISocialNetwork
             CreateGame game = new CreateGame(actualUser);
             game.AddListener(PostCreateGame);
             crateGamePanel.Controls.Add(game);
-            crateGamePanel.Controls.Clear();
+           // crateGamePanel.Controls.Clear();
         }
     }
 }

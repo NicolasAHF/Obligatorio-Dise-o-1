@@ -186,6 +186,7 @@ namespace UISocialNetwork
             this.profileBtn.Text = "Perfil";
             this.profileBtn.UseVisualStyleBackColor = true;
             this.profileBtn.Visible = false;
+            this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
             // 
             // pictureBox1
             // 

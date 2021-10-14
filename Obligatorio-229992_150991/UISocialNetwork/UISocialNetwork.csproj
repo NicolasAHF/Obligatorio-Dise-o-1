@@ -60,6 +60,12 @@
     <Compile Include="CreateAlbum.Designer.cs">
       <DependentUpon>CreateAlbum.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateGame.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateGame.Designer.cs">
+      <DependentUpon>CreateGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateListeningNow.cs" />
     <Compile Include="CreateListeningNow.Designer.cs">
       <DependentUpon>CreateListeningNow.cs</DependentUpon>
@@ -73,6 +79,18 @@
     </Compile>
     <Compile Include="CreateUser.Designer.cs">
       <DependentUpon>CreateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameCreated.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameCreated.Designer.cs">
+      <DependentUpon>GameCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameScoreUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameScoreUI.Designer.cs">
+      <DependentUpon>GameScoreUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>UserControl</SubType>
@@ -95,6 +113,12 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarketPlace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MarketPlace.Designer.cs">
+      <DependentUpon>MarketPlace.cs</DependentUpon>
     </Compile>
     <Compile Include="ModifyUser.cs">
       <SubType>UserControl</SubType>
@@ -123,11 +147,20 @@
     <EmbeddedResource Include="CreateAlbum.resx">
       <DependentUpon>CreateAlbum.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateGame.resx">
+      <DependentUpon>CreateGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateStatus.resx">
       <DependentUpon>CreateStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateUser.resx">
       <DependentUpon>CreateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameCreated.resx">
+      <DependentUpon>GameCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameScoreUI.resx">
+      <DependentUpon>GameScoreUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -137,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarketPlace.resx">
+      <DependentUpon>MarketPlace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyUser.resx">
       <DependentUpon>ModifyUser.cs</DependentUpon>
