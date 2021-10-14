@@ -7,8 +7,8 @@ namespace SocialNetworkTest
     [TestClass]
     public class PhotoTests
     {
-        const int ValidMaxSize = 5000; //Byte
-        const int InvalidMaxSize = 5001; //Byte
+        const int ValidMaxSize = 5000000; //Byte
+        const int InvalidMaxSize = 5000001; //Byte
         [TestMethod]
         public void CreatePhotoWithValidFormatAndSizeJPGToLower()
         {

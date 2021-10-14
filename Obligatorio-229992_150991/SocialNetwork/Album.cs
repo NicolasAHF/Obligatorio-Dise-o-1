@@ -41,10 +41,13 @@ namespace SocialNetwork
 
         public void addPhoto(Photo photo)
         {
-            ValidExistPhoto(photo);
+            
             ValidePhotoMaxCantLoad();
+           if (!ValidExistPhoto(photo))
+            {
+                this.PhotoList.Add(photo);
+            }
 
-            this.PhotoList.Add(photo);
 
         }
         private bool ValidName(string elNombre)
@@ -52,12 +55,13 @@ namespace SocialNetwork
             return elNombre.Length >= MIN_LENGTH_FOR_VALID_NAME;
         }
 
-        private void ValidExistPhoto(Photo laPhoto)
+        private bool ValidExistPhoto(Photo laPhoto)
         {
             if (PhotoList.Contains(laPhoto))
             {
                 throw new InvalidOperationException("La foto ya existe");
             }
+            return false;
         }
 
     private void ValidePhotoMaxCantLoad()

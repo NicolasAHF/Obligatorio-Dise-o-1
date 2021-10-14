@@ -13,6 +13,7 @@ namespace SocialNetworkTest
         private DirectoryUser directory;
         Password validPassword = new Password("P@ssword10");
         Photo validPhoto = new Photo("Album/Verano 2021.jpg", 5);
+        bool admin = true;
 
         [TestInitialize]
         public void Setup()
@@ -20,7 +21,7 @@ namespace SocialNetworkTest
             validDirection.City = "Montevideo";
             validDirection.Counrty = "Uruguay";
             validDirection.Street = "Francisco luis 608";
-            user = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto);
+            user = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto, admin);
             directory = new DirectoryUser();
         }
 
@@ -61,7 +62,7 @@ namespace SocialNetworkTest
         public void AddUserThatAlreadyExistsThrowsException()
         {
             directory.AddUser(user);
-            User userWithSameUsername = new User("User1", validPassword, "Antonio", "Hernandez", validBirthday, validDirection, validPhoto);
+            User userWithSameUsername = new User("User1", validPassword, "Antonio", "Hernandez", validBirthday, validDirection, validPhoto, admin);
             directory.AddUser(userWithSameUsername);
         }
 
@@ -71,7 +72,7 @@ namespace SocialNetworkTest
         {
             directory.AddUser(user);
             string usernameUperCase = user.Username.ToUpper();
-            User userWithSameUsername = new User("User1", validPassword, "Antonio", "Hernandez", validBirthday, validDirection, validPhoto);
+            User userWithSameUsername = new User("User1", validPassword, "Antonio", "Hernandez", validBirthday, validDirection, validPhoto, admin);
             directory.AddUser(userWithSameUsername);
         }
 

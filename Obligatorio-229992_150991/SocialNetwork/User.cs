@@ -70,7 +70,7 @@ namespace SocialNetwork
             set => SetAdmin(value);
         }
 
-        public List<User> FollowingList
+        public List<User> Following
         {
             get { return _followingList; }
             set { _followingList = value; }
@@ -139,7 +139,7 @@ namespace SocialNetwork
 
         public void SetAdmin(bool admin)
         {
-            this._admin = true;
+            this._admin = admin;
         }
 
         public void SetUsername(string username)
@@ -244,6 +244,11 @@ namespace SocialNetwork
             DateTime dateLimit = DateTime.Now;
             int result = DateTime.Compare(birthday, dateLimit);
             return result < 0;
+        }
+
+        public override string ToString()
+        {
+            return this.Username;
         }
     }
 }

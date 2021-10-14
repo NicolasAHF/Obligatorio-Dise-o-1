@@ -42,11 +42,11 @@ namespace UISocialNetwork
                     image.Size = new System.Drawing.Size(75, 75);
                     image.SizeMode = PictureBoxSizeMode.StretchImage;
                     FileInfo fileNameInfo = new FileInfo(dialog.FileName);
-                    Photo newPhoto = new Photo(dialog.FileName, fileNameInfo.Length / 1000);
-                    AlbumPanel.Controls.Add(image);
+                    Photo newPhoto = new Photo(dialog.FileName, fileNameInfo.Length);
                     imageLocation = dialog.FileName;
                     image.ImageLocation = imageLocation;
                     album.addPhoto(newPhoto);
+                    AlbumPanel.Controls.Add(image);
 
                 }
             }catch(Exception ex)

@@ -18,13 +18,14 @@ namespace UISocialNetwork
         private User actualUser;
         private event PostSearch PostSearchEvent;
         private List<UserControl> content;
-        public Home(DirectoryUser users, User actualUser)
+        public Home(DirectoryUser users, User actualUser, List<UserControl> contents)
         {
             InitializeComponent();
             this.users = users;
             this.actualUser = actualUser;
-            this.content = new List<UserControl>();
+            this.content = contents;
             userList.DataSource = users.Users;
+            ShowContent(content);
         }
 
         public void AddListener(PostSearch del)

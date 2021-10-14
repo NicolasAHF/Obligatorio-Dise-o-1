@@ -60,10 +60,9 @@ namespace UISocialNetwork
                 {
                     imageLocation = dialog.FileName;
                     FileInfo fileSize = new FileInfo(dialog.FileName);
-                    Photo avatar = new Photo(lblPath.Text, fileSize.Length/1000);
+                    Photo avatar = new Photo(imageLocation, fileSize.Length/1000);
                     this.avatar = avatar;
                     avatarBox.Image = new Bitmap(imageLocation);
-                    lblPath.Text = "Path:" + imageLocation;
                     SaveImage(imageLocation);
                 }
             }
@@ -75,7 +74,8 @@ namespace UISocialNetwork
 
         private void SaveImage(string imageLocation)
         {
-            File.Copy(imageLocation, Path.Combine(@"C:\Users\nicolas\Desktop\COPIA OBLI\OBLIDA1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources", Path.GetFileName(lblPath.Text)));
+
+            File.Copy(imageLocation, Path.Combine(@"C:\ORT\2021\02_S2\Diseño AP1\Obligatorio\Repo_1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources", Path.GetFileName(imageLocation)));
         }
 
     }

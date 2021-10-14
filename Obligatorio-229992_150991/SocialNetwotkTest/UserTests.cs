@@ -15,6 +15,7 @@ namespace SocialNetworkTest
         Direction validDirection = new Direction();
         Password validPassword = new Password("P@ssword10");
         Photo validPhoto = new Photo("Album/Verano 2021.jpg", 5);
+        bool admin = true;
 
           [TestInitialize]
     public void Setup()
@@ -22,7 +23,7 @@ namespace SocialNetworkTest
             validDirection.City = "Montevideo";
             validDirection.Counrty = "Uruguay";
             validDirection.Street = "Francisco luis 608";
-        validUser = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto);
+        validUser = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto, admin);
         }
 
         [TestCleanup]
@@ -42,7 +43,7 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateUserWithUsernameShorterThanTheMinimumValidLength()
         {
-            User invalidUser = new User("User", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto);
+            User invalidUser = new User("User", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto, admin);
         }
         
         [TestMethod] 
@@ -56,7 +57,7 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateUserWithEmptyName()
         {
-            User invalidUser = new User("User1", validPassword, "", "Hernandez", validBirthday, validDirection, validPhoto);
+            User invalidUser = new User("User1", validPassword, "", "Hernandez", validBirthday, validDirection, validPhoto, admin);
         }
 
         [TestMethod]
@@ -69,14 +70,14 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateUserWithEmptyLastname()
         {
-            User invalidUser = new User("User1", validPassword, "Nicolas", "", validBirthday, validDirection, validPhoto);
+            User invalidUser = new User("User1", validPassword, "Nicolas", "", validBirthday, validDirection, validPhoto, admin);
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void NameWithOnlyLetters()
         {
-            User invalidUser = new User("User1", validPassword, "123", "Hernandez", validBirthday, validDirection, validPhoto);
+            User invalidUser = new User("User1", validPassword, "123", "Hernandez", validBirthday, validDirection, validPhoto, admin);
 
         }
         
@@ -84,7 +85,7 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void LastnameWithOnlyLetters()
         {
-            User invalidUser = new User("User1", validPassword, "Nicolas", "3123", validBirthday, validDirection, validPhoto);
+            User invalidUser = new User("User1", validPassword, "Nicolas", "3123", validBirthday, validDirection, validPhoto, admin);
         }
 
         [TestMethod]
@@ -100,7 +101,7 @@ namespace SocialNetworkTest
         public void BirthdayAfter1940()
         {
             DateTime invalidBirthday = new DateTime(1940, 12, 22);
-            User invalidUser = new User("User1", validPassword, "Nicolas", "Hernandez", invalidBirthday, validDirection, validPhoto);
+            User invalidUser = new User("User1", validPassword, "Nicolas", "Hernandez", invalidBirthday, validDirection, validPhoto, admin);
         }
 
         [TestMethod]
@@ -108,7 +109,7 @@ namespace SocialNetworkTest
         public void BirthdayBeforeNow()
         {
             DateTime invalidBirthday = new DateTime(2100, 12, 22);
-            User invalidUser = new User("User1", validPassword, "Nicolas", "Hernandez", invalidBirthday, validDirection, validPhoto);
+            User invalidUser = new User("User1", validPassword, "Nicolas", "Hernandez", invalidBirthday, validDirection, validPhoto, admin);
         }
 
         [TestMethod]
@@ -116,14 +117,14 @@ namespace SocialNetworkTest
         public void BirthdayNotEmpty()
         {
             DateTime invalidBirthday = new DateTime();
-            User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", invalidBirthday, validDirection, validPhoto);
+            User invalidUser = new User("User1", validPassword, "Fernando", "Rivera", invalidBirthday, validDirection, validPhoto, admin);
         }
 
         [TestMethod]
         public void ChangePasswordWithValidUserEnteredPassword()
         {
             validPassword.SetPassword("P@ssword10");
-            validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
             Password userEnteredActualPassword = new Password("P@ssword10");
             Password newPassword = new Password("Password20");
             validUser.ChangePassword(validUser, userEnteredActualPassword, newPassword);
@@ -134,50 +135,53 @@ namespace SocialNetworkTest
         public void ChangePasswordWithInvalidUserEnteredPassword()
         {
             Password validPassword = new Password("P@ssword10");
-            validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
             Password userEnteredPassword = new Password("Contraseña20");
             Password newPassword = new Password("Password20");
             validUser.ChangePassword(validUser, userEnteredPassword, newPassword);
         }
 
         [TestMethod]
-        public void ValidAdmin()
+        public void ValidTrueAdmin()
         {
-            validUser.Admin = true;
+            validUser.SetAdmin(true);
             Assert.IsTrue(validUser.Admin);
         }
 
+
         [TestMethod]
-        public void ValidAdminFalse()
+        public void ValidFalseAdmin()
         {
+            validUser.SetAdmin(false);
             Assert.IsFalse(validUser.Admin);
         }
+
 
         [TestMethod]
         public void FollowingListAdding()
         {
-            User validUser2 = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto);
-            validUser.FollowingList.Add(validUser2);
-            Assert.IsTrue(validUser.FollowingList.Count() != 0);
+            User validUser2 = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto, admin);
+            validUser.Following.Add(validUser2);
+            Assert.IsTrue(validUser.Following.Count() != 0);
         }
 
         [TestMethod]
         public void FollowingListEmpty()
         {
-            Assert.IsTrue(validUser.FollowingList.Count() == 0);
+            Assert.IsTrue(validUser.Following.Count() == 0);
         }
 
         [TestMethod]
         public void ValidSetStatus()
         {
-            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
             validUser.SetStatus("Día lluvioso hermoso para programar");
         }
 
         [TestMethod]
         public void ValidMinSetStatus()
         {
-            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
 
             string status = "a";
             for (int i = 0; i < 9; i++)
@@ -190,7 +194,7 @@ namespace SocialNetworkTest
         [TestMethod]
         public void ValidMaxSetStatus()
         {
-            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
 
             string status = "a";
             for (int i = 0; i < 159; i++)
@@ -204,7 +208,7 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void InvalidMinSetStatus()
         {
-            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
 
             string status = "a";
             for (int i = 0; i < 8; i++)
@@ -218,7 +222,7 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void InvalidMaxSetStatus()
         {
-            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
             
             string status = "a";
             for (int i = 0; i < 160; i++)

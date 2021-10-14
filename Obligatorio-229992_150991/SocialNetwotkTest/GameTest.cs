@@ -9,7 +9,9 @@ namespace SocialNetworkTest
     {
         private string validName = "Hitman 3";
         private string validCategory = "Action";
-        Photo validPhoto = new Photo("Game/Hitman 3.jpg", 5000);
+        const int ValidMaxSize = 5000000; //Byte
+        const int InvalidMaxSize = 5000001; //Byte
+        Photo validPhoto = new Photo("Game/Hitman 3.jpg", ValidMaxSize);
 
         [TestMethod]
         public void CreateGameWithValidName()
@@ -68,7 +70,7 @@ namespace SocialNetworkTest
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateGameWithInvalidvalidCoverMaxSize()
         {
-            Photo invalidPhoto = new Photo("Game/Hitman 3.jpg", 5001);
+            Photo invalidPhoto = new Photo("Game/Hitman 3.jpg", InvalidMaxSize);
             Game validGame = new Game(validName, validCategory, invalidPhoto);
         }
 

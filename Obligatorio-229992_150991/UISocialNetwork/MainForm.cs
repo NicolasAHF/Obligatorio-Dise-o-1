@@ -15,12 +15,12 @@ namespace UISocialNetwork
     public partial class MainForm : Form
     {
         private DirectoryUser users;
+        private List<UserControl> contents;
         public MainForm()
         {
             InitializeComponent();
             users = new DirectoryUser();
-            
-        }
+            contents = new List<UserControl>();        }
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
@@ -40,7 +40,7 @@ namespace UISocialNetwork
         private void CreateHomePanel(User user)
         {
             ClearPanel();
-            Home home = new Home(users, user);
+            Home home = new Home(users, user, contents);
             home.AddListener(PostSearch);
             mainPanel.Controls.Add(home);
 
@@ -127,8 +127,9 @@ namespace UISocialNetwork
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DirectoryInfo path = new DirectoryInfo(@"C:\Users\Admin\Desktop\OBLIDA1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources");
-            foreach(FileInfo image in path.GetFiles())
+            DirectoryInfo path = new DirectoryInfo(@"C:\ORT\2021\02_S2\Diseño AP1\Obligatorio\Repo_1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources");
+
+            foreach (FileInfo image in path.GetFiles())
             {
                 image.Delete();
             }

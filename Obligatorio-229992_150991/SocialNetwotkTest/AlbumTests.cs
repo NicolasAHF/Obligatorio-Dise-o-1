@@ -8,6 +8,8 @@ namespace SocialNetworkTest
     public class AlbumTests
     {
         ListeningNow validListeningNow;
+        const int ValidMaxSize = 5000000; //Byte
+        const int InvalidMaxSize = 5000001; //Byte
 
         [TestMethod]
         public void CreateAlbumWithValidName()
@@ -33,7 +35,7 @@ namespace SocialNetworkTest
         [TestMethod]
         public void CreateAlbumWithValidPhoto()
         {
-            Photo correctPhoto = new Photo("Album/Verano 2021.jpg", 5000) ;
+            Photo correctPhoto = new Photo("Album/Verano 2021.jpg", ValidMaxSize) ;
             Album validAlbum = new Album("Verano 2021");
             validAlbum.addPhoto(correctPhoto);
         }
@@ -45,7 +47,7 @@ namespace SocialNetworkTest
             
             for (int i = 0; i < 10; i++)
             {
-                Photo correctPhoto = new Photo($"Album/Verano 2021 {i}.jpg", 5000);
+                Photo correctPhoto = new Photo($"Album/Verano 2021 {i}.jpg", ValidMaxSize);
                 validAlbum.addPhoto(correctPhoto);
             }
 
@@ -58,7 +60,7 @@ namespace SocialNetworkTest
             Album validAlbum = new Album("Verano 2021");
             for (int i = 0; i < 11; i++)
             {
-                Photo correctPhoto = new Photo($"Album/Verano 2021 {i}.jpg", 5000);
+                Photo correctPhoto = new Photo($"Album/Verano 2021 {i}.jpg", ValidMaxSize);
                 validAlbum.addPhoto(correctPhoto);
             }
 
@@ -69,12 +71,8 @@ namespace SocialNetworkTest
         public void CreateAlbumWithRepetidPhoto()
         {
             Album validAlbum = new Album("Verano 2021");
-            Photo correctPhoto = new Photo("Album/Verano 2021.jpg", 5000);
-            for (int i = 0; i < 2; i++)
-            {
-                validAlbum.addPhoto(correctPhoto);
-            }
-
+            Photo correctPhoto1 = new Photo("Album/Verano 2021.jpg", ValidMaxSize);
+            Photo correctPhoto2 = new Photo("Album/Verano 2021.jpg", ValidMaxSize);
         }
 
         [TestMethod]
@@ -82,7 +80,7 @@ namespace SocialNetworkTest
         public void CreateAlbumWithMaxInvalidPhotoSize()
         {
             Album validAlbum = new Album("Verano 2021");
-            Photo invalidPhoto = new Photo($"Album/Verano 2021.jpg", 5001);
+            Photo invalidPhoto = new Photo($"Album/Verano 2021.jpg", InvalidMaxSize);
             validAlbum.addPhoto(invalidPhoto);
         }
     }

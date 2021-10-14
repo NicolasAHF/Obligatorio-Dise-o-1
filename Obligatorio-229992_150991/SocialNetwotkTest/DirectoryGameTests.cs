@@ -18,6 +18,8 @@ namespace SocialNetworkTest
         private string validCategory = "Action";
         private Photo validCase = new Photo("Game/Hitman 3.jpg", 5);
         private DirectoryGame directory;
+        private bool adminT = true;
+        private bool adminF = true;
 
         [TestInitialize]
         public void Setup()
@@ -25,8 +27,8 @@ namespace SocialNetworkTest
             validDirection.City = "Montevideo";
             validDirection.Counrty = "Uruguay";
             validDirection.Street = "Francisco luis 608";
-            validUserAdmin = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto);
-            validUserNonAdmin = new User("User2", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto);
+            validUserAdmin = new User("User1", validPassword, "Nicolas", "Hernandez", validBirthday, validDirection, validPhoto, adminT);
+            validUserNonAdmin = new User("User2", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, adminF);
 
             validUserAdmin.SetAdmin(true);
             validUserNonAdmin.SetAdmin(false);

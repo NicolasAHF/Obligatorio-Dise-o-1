@@ -12,7 +12,7 @@ namespace SocialNetwork
     {
         private string _path;
         private long _size;
-        const long MAX_SIZE_FOR_VALID_PHOTO = 5000;//Byte
+        const long MAX_SIZE_FOR_VALID_PHOTO = 5000000;//Byte
 
         public string ElPath
         {
@@ -59,7 +59,7 @@ namespace SocialNetwork
             extension = extension.ToLower();
             if (extension == null || (extension != ".jpg" && extension != ".jpeg" && extension != ".png"))
             {
-                throw new InvalidOperationException("Extension no valida");
+                throw new InvalidOperationException("Extension no valida Back" + extension);
             }
         }
 
@@ -71,9 +71,18 @@ namespace SocialNetwork
             }
         }
 
-        private bool Equals(Photo pic)
+        public override bool Equals(Object obj)
         {
-            return this.ElPath.Equals(pic.ElPath);
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Photo p = (Photo)obj;
+                return this.ElPath.Equals(p.ElPath);
+            }
         }
+
     }
 }
