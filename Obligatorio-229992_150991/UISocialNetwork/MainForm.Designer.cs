@@ -55,7 +55,7 @@ namespace UISocialNetwork
             this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Location = new System.Drawing.Point(165, 80);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(953, 591);
+            this.mainPanel.Size = new System.Drawing.Size(900, 490);
             this.mainPanel.TabIndex = 0;
             // 
             // usernamelblHome
