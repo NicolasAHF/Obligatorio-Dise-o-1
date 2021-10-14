@@ -114,6 +114,19 @@ namespace UISocialNetwork
             panelContent.Controls.Clear();
             panelContent.Controls.Add(album);
         }
+
+        private void userList_Leave(object sender, EventArgs e)
+        {
+            userList.Hide();
+        }
+
+        private void statusBtn_Click(object sender, EventArgs e)
+        {
+            CreateStatus status = new CreateStatus(actualUser);
+            status.AddListener(PostCreateStatus);
+            panelContent.Controls.Clear();
+            panelContent.Controls.Add(status);
+        }
     }
 
 }
