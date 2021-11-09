@@ -14,6 +14,8 @@ namespace SocialNetwork
         private long _size;
         const long MAX_SIZE_FOR_VALID_PHOTO = 5000000;//Byte
 
+        public int Id { get; set; }
+
         public string ElPath
         {
             get { return _path; }
@@ -26,7 +28,10 @@ namespace SocialNetwork
             private set => SetSize(value);
         }
 
+        public Photo()
+        {
 
+        }
         public Photo(string path, long size)
         {
             this.ElPath = path;
@@ -71,18 +76,18 @@ namespace SocialNetwork
             }
         }
 
-        public override bool Equals(Object obj)
+        public override bool Equals(object obj)
         {
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            Photo photoObj = obj as Photo;
+
+            if (photoObj == null || this.GetType() != photoObj.GetType())
             {
                 return false;
             }
-            else
-            {
-                Photo p = (Photo)obj;
-                return this.ElPath.Equals(p.ElPath);
-            }
-        }
 
+            return this.Id == photoObj.Id ? true : false;
+        }
     }
 }
+
+

@@ -28,6 +28,8 @@ namespace SocialNetwork
         const int MIN_LENGTH_FOR_VALID_STATUS = 10;
         const int MAX_LENGTH_FOR_VALID_STATUS = 160;
 
+
+        public int Id { get; set; }
         public string Name
         {
             get { return _name; }
@@ -48,6 +50,13 @@ namespace SocialNetwork
             get { return _lastname; }
             set => SetLastname(value);
         }
+
+        public Password Password
+        {
+            get { return _password; }
+            set => SetPassword(value);
+        }
+
         public DateTime DateOfBirth 
         {
             get { return _dateofbirth; }
@@ -57,7 +66,7 @@ namespace SocialNetwork
         public Direction Direction 
         {
             get { return _direction; }
-            set => _direction = Direction;
+            set => _direction = value;
         }
         public Photo Avatar
         {
@@ -99,6 +108,14 @@ namespace SocialNetwork
             set { _listeningNow = value; }
         }
 
+        public User()
+        {
+            this._followingList = null;
+            this._albumList = null;
+            this._gameScoreList = null;
+            this._listeningNow = null;
+            this._avatar = null;
+        }
         public User(string username, Password password, string name, string lastname, DateTime birthday, Direction direction, Photo avatar, bool Admin)
         {
             this.Username = username;
@@ -109,6 +126,10 @@ namespace SocialNetwork
             this.SetPassword(password);
             this.Avatar = avatar;
             this.Admin = Admin;
+            this._followingList = null;
+            this._albumList = null;
+            this._gameScoreList = null;
+            this._listeningNow = null;
 
         }
 
@@ -120,7 +141,7 @@ namespace SocialNetwork
         public void ChangePassword(User elUsuario, Password userEnteredActualPassword, Password pasNueva)
         {
 
-            if (this.GetPassword().LaPassword != userEnteredActualPassword.LaPassword)
+            if (this.GetPassword().Hashpassword != userEnteredActualPassword.Hashpassword)
             {
                 throw new InvalidOperationException("La Password ingresada no es correcta");
             }
@@ -250,5 +271,18 @@ namespace SocialNetwork
         {
             return this.Username;
         }
+
+        public override bool Equals(object obj)
+        {
+            User userObj = obj as User;
+
+            if (userObj == null || this.GetType() != userObj.GetType())
+            {
+                return false;
+            }
+
+            return Id == userObj.Id ? true : false;
+        }
     }
 }
+

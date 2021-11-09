@@ -13,10 +13,11 @@ namespace SocialNetwork
         private string _city;
         private string _country;
 
-
+        public int Id { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
         public string Counrty { get; set; }
+
 
         public Direction()
         {
@@ -59,6 +60,18 @@ namespace SocialNetwork
             {
                 throw new InvalidOperationException("El campo País no puede ser vacio o nullo");
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            Direction dirObj = obj as Direction;
+
+            if (dirObj == null || this.GetType() != dirObj.GetType())
+            {
+                return false;
+            }
+
+            return Id == dirObj.Id ? true : false;
         }
 
     }

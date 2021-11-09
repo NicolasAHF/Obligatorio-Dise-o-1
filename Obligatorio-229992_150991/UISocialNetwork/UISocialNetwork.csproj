@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +36,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,7 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlbumCreated.cs" />
+    <Compile Include="AlbumCreated.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="AlbumCreated.Designer.cs">
       <DependentUpon>AlbumCreated.cs</DependentUpon>
     </Compile>
@@ -56,7 +68,9 @@
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateAlbum.cs" />
+    <Compile Include="CreateAlbum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="CreateAlbum.Designer.cs">
       <DependentUpon>CreateAlbum.cs</DependentUpon>
     </Compile>
@@ -66,11 +80,15 @@
     <Compile Include="CreateGame.Designer.cs">
       <DependentUpon>CreateGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateListeningNow.cs" />
+    <Compile Include="CreateListeningNow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="CreateListeningNow.Designer.cs">
       <DependentUpon>CreateListeningNow.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateStatus.cs" />
+    <Compile Include="CreateStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="CreateStatus.Designer.cs">
       <DependentUpon>CreateStatus.cs</DependentUpon>
     </Compile>
@@ -98,7 +116,9 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListeningNowCreated.cs" />
+    <Compile Include="ListeningNowCreated.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ListeningNowCreated.Designer.cs">
       <DependentUpon>ListeningNowCreated.cs</DependentUpon>
     </Compile>
@@ -134,7 +154,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatusCreated.cs" />
+    <Compile Include="StatusCreated.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="StatusCreated.Designer.cs">
       <DependentUpon>StatusCreated.cs</DependentUpon>
     </Compile>
@@ -192,6 +214,7 @@
     <EmbeddedResource Include="StatusCreated.resx">
       <DependentUpon>StatusCreated.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -215,4 +238,12 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

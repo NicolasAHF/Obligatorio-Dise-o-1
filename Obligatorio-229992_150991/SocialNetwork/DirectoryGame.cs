@@ -8,6 +8,7 @@ namespace SocialNetwork
 {
     public class DirectoryGame
     {
+        public int Id { get; set; }
         public List<Game> GameList { get; set; }
 
         public DirectoryGame()

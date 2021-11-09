@@ -12,6 +12,7 @@ namespace SocialNetwork
         private string _artist;
         private string _albumName;
 
+        public int Id { get; set; }
 
         public string SongName 
         {

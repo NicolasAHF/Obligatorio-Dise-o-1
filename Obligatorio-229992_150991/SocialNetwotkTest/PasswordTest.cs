@@ -40,7 +40,7 @@ namespace SocialNetworkTest
         public void ValidPassworClearNotEqualsHashPassword()
         {
             Password hashPassword = new Password("Password");
-            Assert.AreNotEqual(hashPassword.LaPassword, "Password");
+            Assert.AreNotEqual(hashPassword.Hashpassword, "Password");
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@ namespace SocialNetworkTest
         {
             Password hashPassword = new Password("Password");
             string elHash = "Password";
-            Assert.AreEqual(hashPassword.LaPassword, elHash.GetHashCode().ToString());
+            Assert.AreEqual(hashPassword.Hashpassword, elHash.GetHashCode().ToString());
         }
 
         [TestMethod]

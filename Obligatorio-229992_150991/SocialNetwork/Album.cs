@@ -11,6 +11,8 @@ namespace SocialNetwork
         const int MAX_CANT_FOR_VALID_LOAD_PHOTO = 10;
         private List<Photo> _PhotoList = new List<Photo>();
 
+        public int Id { get; set; }
+
         public string Name
         {
             get { return _name; }
@@ -22,9 +24,14 @@ namespace SocialNetwork
             get { return _PhotoList; }
         }
 
+        public Album()
+        {
+            this._PhotoList = null;
+        }
         public Album(string elNombre)
         {
             this.Name = elNombre;
+            this._PhotoList = null;
         }
 
         public void SetName(string elNombre)
@@ -75,6 +82,18 @@ namespace SocialNetwork
         private bool EmptyString(string value)
         {
             return value.Length.Equals(0);
+        }
+
+        public override bool Equals(object obj)
+        {
+            Album albumObj = obj as Album;
+
+            if (albumObj == null || this.GetType() != albumObj.GetType())
+            {
+                return false;
+            }
+
+            return Id == albumObj.Id ? true : false;
         }
     }
 }

@@ -9,6 +9,7 @@ namespace SocialNetwork
         private string _category;
         private Photo _cover;
         private int _played = 0;
+        public int Id { get; set; }
 
         public string Name
         {
@@ -33,6 +34,10 @@ namespace SocialNetwork
             private set => SetPlayed();
         }
 
+        public Game()
+        {
+
+        }
         public Game(string name, string category, Photo cover)
         {
             this.SetName(name);
@@ -88,7 +93,7 @@ namespace SocialNetwork
             else 
             {
                 Game elObj = (Game)obj;
-                return this.Name.Equals(elObj.Name);
+                return this.Name.Equals(elObj.Name) || this.Id == elObj.Id ? true : false;
             }
         }
     }

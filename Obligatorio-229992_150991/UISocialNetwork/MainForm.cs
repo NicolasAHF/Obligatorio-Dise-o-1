@@ -127,7 +127,7 @@ namespace UISocialNetwork
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DirectoryInfo path = new DirectoryInfo(@"C:\ORT\2021\02_S2\Diseño AP1\Obligatorio\Repo_1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources");
+            DirectoryInfo path = new DirectoryInfo(@"C:\Foto");
 
             foreach (FileInfo image in path.GetFiles())
             {
