@@ -229,9 +229,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SocialNetworkDB\SocialNetworkDB.csproj">
+      <Project>{433d5664-cde3-4f93-97bc-f78d5efb5d97}</Project>
+      <Name>SocialNetworkDB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SocialNetwork\SocialNetwork.csproj">
       <Project>{0aad30a5-553e-46ed-9f90-ddac3291a361}</Project>
       <Name>SocialNetwork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialNetwotkTest\SocialNetworkTest.csproj">
+      <Project>{5a4b79bc-0173-4775-aff0-5597cf380404}</Project>
+      <Name>SocialNetworkTest</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

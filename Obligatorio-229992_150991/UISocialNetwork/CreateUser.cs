@@ -10,14 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using SocialNetworkDB;
 
 namespace UISocialNetwork
 {
     public partial class CreateUser : UserControl
     {
-        private DirectoryUser users;
+        private UserRepository users;
         private Photo avatar;
-        public CreateUser(DirectoryUser users)
+        public CreateUser(UserRepository users)
         {
             InitializeComponent();
             this.users = users;
@@ -35,17 +36,8 @@ namespace UISocialNetwork
                 Password pass = new Password(textBoxPassword.Text);
 
                 User elUsuario = new User(textBoxUsername.Text, pass, textBoxName.Text, textBoxLastname.Text, dateofbirth.Value, direction, avatar, adminCheckBox.Checked);
-
-
-                using (SocialContext db = new SocialContext())
-                {
-
-                    db.Users.Add(elUsuario);
-                    db.SaveChanges();
-                    ShowFeedbackMessage(System.Drawing.Color.Green, USER_CREATED_SUCCESFULLY);
-                }
-
-
+                users.Add(elUsuario);
+                ShowFeedbackMessage(System.Drawing.Color.Green, USER_CREATED_SUCCESFULLY);
             }
             catch (Exception exp)
             {

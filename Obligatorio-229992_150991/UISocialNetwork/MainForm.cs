@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,7 +34,8 @@ namespace UISocialNetwork
         private void createUserBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            CreateUser createUser = new CreateUser(users);
+            UserRepository u = new UserRepository();
+            CreateUser createUser = new CreateUser(u);
             mainPanel.Controls.Add(createUser);
         }
 

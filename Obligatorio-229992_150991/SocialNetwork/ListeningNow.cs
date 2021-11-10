@@ -13,7 +13,6 @@ namespace SocialNetwork
         private string _albumName;
 
         public int Id { get; set; }
-
         public string SongName 
         {
             get { return _songName; }

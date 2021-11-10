@@ -15,7 +15,6 @@ namespace SocialNetwork
         const long MAX_SIZE_FOR_VALID_PHOTO = 5000000;//Byte
 
         public int Id { get; set; }
-
         public string ElPath
         {
             get { return _path; }

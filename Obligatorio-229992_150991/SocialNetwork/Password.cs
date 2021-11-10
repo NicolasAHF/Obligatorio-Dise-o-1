@@ -12,9 +12,8 @@ namespace SocialNetwork
         private string _hashpassword;
 
         const int MIN_LENGTH_FOR_VALID_PASSWORD = 8;
-
-        public int Id { get; set; }
        
+        public int Id { get; set; }
         public string Hashpassword
         {
             get { return _hashpassword; }
