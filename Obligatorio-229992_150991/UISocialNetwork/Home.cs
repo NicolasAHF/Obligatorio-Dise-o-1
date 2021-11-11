@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,17 +15,17 @@ namespace UISocialNetwork
     public delegate void PostSearch(User user);
     public partial class Home : UserControl
     {
-        private DirectoryUser users;
+        private UserRepository users;
         private User actualUser;
         private event PostSearch PostSearchEvent;
         private List<UserControl> content;
-        public Home(DirectoryUser users, User actualUser, List<UserControl> contents)
+        public Home(UserRepository users, User actualUser, List<UserControl> contents)
         {
             InitializeComponent();
             this.users = users;
             this.actualUser = actualUser;
             this.content = contents;
-            userList.DataSource = users.Users;
+            userList.DataSource = users.GetAll();
             ShowContent(content);
         }
 
@@ -62,7 +63,7 @@ namespace UISocialNetwork
         {
             try
             {
-                PostSearchEvent(users.GetUser(searchBox.Text));
+                PostSearchEvent(users.Get(searchBox.Text));
             }
             catch (Exception exp)
             {

@@ -15,12 +15,12 @@ namespace UISocialNetwork
 {
     public partial class MainForm : Form
     {
-        private DirectoryUser users;
+        private UserRepository users;
         private List<UserControl> contents;
         public MainForm()
         {
             InitializeComponent();
-            users = new DirectoryUser();
+            users = new UserRepository(new Password("Default123"), new Direction(), new Photo());
             contents = new List<UserControl>();        }
 
         private void loginBtn_Click(object sender, EventArgs e)
@@ -34,8 +34,7 @@ namespace UISocialNetwork
         private void createUserBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            UserRepository u = new UserRepository();
-            CreateUser createUser = new CreateUser(u);
+            CreateUser createUser = new CreateUser(users);
             mainPanel.Controls.Add(createUser);
         }
 
@@ -83,7 +82,7 @@ namespace UISocialNetwork
         private void profileBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            Profile profile = new Profile(users.GetUser(usernamelblHome.Text), users.GetUser(usernamelblHome.Text));
+            Profile profile = new Profile(users.Get(usernamelblHome.Text), users.Get(usernamelblHome.Text), users);
             mainPanel.Controls.Add(profile);
 
         }
@@ -113,7 +112,7 @@ namespace UISocialNetwork
         private void PostSearch(User user)
         {
             ClearPanel();
-            Profile profile = new Profile(user, users.GetUser(usernamelblHome.Text));
+            Profile profile = new Profile(user, users.Get(usernamelblHome.Text), users);
             mainPanel.Controls.Add(profile);
         }
 
@@ -122,7 +121,7 @@ namespace UISocialNetwork
             if (loginBtn.Visible != true)
             {
                 ClearPanel();
-                CreateHomePanel(users.GetUser(usernamelblHome.Text));
+                CreateHomePanel(users.Get(usernamelblHome.Text));
             }
 
         }
@@ -140,7 +139,7 @@ namespace UISocialNetwork
         private void marketplaceBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            MarketPlace marketPlace = new MarketPlace((users.GetUser(usernamelblHome.Text)));
+            MarketPlace marketPlace = new MarketPlace((users.Get(usernamelblHome.Text)));
             mainPanel.Controls.Add(marketPlace);
         }
     }

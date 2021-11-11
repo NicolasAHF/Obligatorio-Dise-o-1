@@ -18,13 +18,13 @@ namespace SocialNetwork
         public string ElPath
         {
             get { return _path; }
-            private set => SetPath(value);
+            set => SetPath(value);
         }
 
         public long ElSize
         {
             get { return _size; }
-            private set => SetSize(value);
+            set => SetSize(value);
         }
 
         public Photo()

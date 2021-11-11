@@ -71,7 +71,7 @@ namespace SocialNetwork
         public Photo Avatar
         {
             get { return _avatar; }
-            set => SetAvatar(_avatar);
+            set => SetAvatar(value);
         }
         public bool Admin
         {
@@ -114,7 +114,6 @@ namespace SocialNetwork
             this._albumList = null;
             this._gameScoreList = null;
             this._listeningNow = null;
-            this._avatar = null;
         }
         public User(string username, Password password, string name, string lastname, DateTime birthday, Direction direction, Photo avatar, bool Admin)
         {
@@ -126,10 +125,10 @@ namespace SocialNetwork
             this.SetPassword(password);
             this.Avatar = avatar;
             this.Admin = Admin;
-            this._followingList = null;
-            this._albumList = null;
-            this._gameScoreList = null;
-            this._listeningNow = null;
+            this._followingList = new List<User>();
+            this._albumList = new List<Album>();
+            this._gameScoreList = new List<GameScore>();
+            this._listeningNow = new ListeningNow();
 
         }
 

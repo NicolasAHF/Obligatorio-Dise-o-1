@@ -7,10 +7,20 @@ using System.Threading.Tasks;
 
 namespace SocialNetworkDB
 {
-    public class UserRepository : IRepository<User>
+    public class UserRepository
     {
         const string USER_ALREADY_EXISTS = "Usuario ya existente";
         private Mapper mapper = new Mapper();
+        private Password password;
+        private Direction direction;
+        private Photo photo;
+
+        public UserRepository(Password password, Direction direction, Photo photo)
+        {
+            this.password = password;
+            this.direction = direction;
+            this.photo = photo;
+        }
 
         public void Add(User user)
         {
@@ -22,6 +32,9 @@ namespace SocialNetworkDB
                 }
 
                 UserEntity entity = mapper.UserToEntity(user);
+                //entity.Password = context.Passwords.Find(this.password.Id);
+                //entity.Direction = context.Directions.Find(this.direction.Id);
+                //entity.Avatar = context.Photos.Find(this.photo.Id);
                 context.Users.Add(entity);
                 context.SaveChanges();
                 user.Id = entity.Id;
@@ -34,11 +47,11 @@ namespace SocialNetworkDB
                 return context.Users.Count() == 0;
             }
         }
-        public User Get(int Id)
+        public User Get(String Username)
         {
             using (SocialContext context = new SocialContext())
             {
-                UserEntity entity = context.Users.Include("Username").Where(p => p.Id == Id).FirstOrDefault<UserEntity>();
+                UserEntity entity = context.Users.Include("Password").Include("Direction").Include("Avatar").Where(u => u.Username == Username).FirstOrDefault<UserEntity>();
                 if(entity == null)
                 {
                     throw new Exception("No se encontro");
@@ -53,7 +66,7 @@ namespace SocialNetworkDB
             List<User> users = new List<User>();
             using (SocialContext context = new SocialContext())
             {
-                foreach(UserEntity entity in context.Users.ToList())
+                foreach (UserEntity entity in context.Users.Include("Password").Include("Direction").Include("Avatar").ToList())
                 {
                     users.Add(mapper.EntityToUser(entity));
                 }
@@ -72,20 +85,16 @@ namespace SocialNetworkDB
                 }
             }
         }
-        public void Update(User user)
+        public void Update(Password password, User user)
         {
             using (SocialContext context = new SocialContext())
             {
-                if(context.Users.Any(c => c.Username == user.Username))
-                {
-                    throw new Exception(USER_ALREADY_EXISTS);
-                }
-                UserEntity entity = context.Users.Include("Username").Where(p => p.Id == user.Id).FirstOrDefault<UserEntity>(); ;
+                UserEntity entity = context.Users.Include("Password").Where(p => p.Id == user.Id).FirstOrDefault<UserEntity>(); ;
                 if(entity == null)
                 {
                     throw new Exception("No se encontro");
                 }
-                entity.Username = user.Username;
+                entity.Password.Hashpassword = password.Hashpassword;
                 context.SaveChanges();
             }
         }

@@ -34,7 +34,6 @@ namespace UISocialNetwork
                 direction.City = textBoxCity.Text;
                 direction.Counrty = textBoxCountry.Text;
                 Password pass = new Password(textBoxPassword.Text);
-
                 User elUsuario = new User(textBoxUsername.Text, pass, textBoxName.Text, textBoxLastname.Text, dateofbirth.Value, direction, avatar, adminCheckBox.Checked);
                 users.Add(elUsuario);
                 ShowFeedbackMessage(System.Drawing.Color.Green, USER_CREATED_SUCCESFULLY);
@@ -62,7 +61,7 @@ namespace UISocialNetwork
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     imageLocation = dialog.FileName;
-                    String destinationPath = Path.Combine(@"C:\", Path.GetFileName(imageLocation));
+                    String destinationPath = Path.Combine(@"D:\", Path.GetFileName(imageLocation));
                     FileInfo fileSize = new FileInfo(dialog.FileName);
                     Photo avatar = new Photo(destinationPath, fileSize.Length);
                     this.avatar = avatar;
@@ -78,7 +77,7 @@ namespace UISocialNetwork
 
         private void SaveImage(string imageLocation)
         {
-            File.Copy(imageLocation, Path.Combine(@"C:\", Path.GetFileName(imageLocation)));
+            File.Copy(imageLocation, Path.Combine(@"D:\", Path.GetFileName(imageLocation)));
         }
 
     }

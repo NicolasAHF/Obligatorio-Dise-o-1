@@ -59,6 +59,7 @@
     <Compile Include="PasswordEntity.cs" />
     <Compile Include="PasswordRepository.cs" />
     <Compile Include="PhotoEntity.cs" />
+    <Compile Include="PhotoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SocialContext.cs" />
     <Compile Include="UserEntity.cs" />

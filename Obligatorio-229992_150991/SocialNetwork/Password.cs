@@ -17,7 +17,7 @@ namespace SocialNetwork
         public string Hashpassword
         {
             get { return _hashpassword; }
-            private set => SetPassword(value);
+            set => SetPassword(value);
         }
 
 
@@ -38,7 +38,8 @@ namespace SocialNetwork
            }
            else
            {
-                this._hashpassword = password.GetHashCode().ToString();
+                //this._hashpassword = password.GetHashCode().ToString();
+                this._hashpassword = password;
             }
         }
 

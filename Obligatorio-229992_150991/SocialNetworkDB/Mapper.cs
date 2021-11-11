@@ -13,6 +13,7 @@ namespace SocialNetworkDB
         {
             PasswordEntity password = PasswordToEntity(user.Password);
             DirectionEntity direction = DirectionToEntity(user.Direction);
+            PhotoEntity photo = PhotoToEntity(user.Avatar);
             UserEntity userEntity = new UserEntity
             {
                 Username = user.Username,
@@ -21,7 +22,7 @@ namespace SocialNetworkDB
                 Password = password,
                 DateOfBirth = user.DateOfBirth,
                 Direction = direction,
-                Avatar = user.Avatar,
+                Avatar = photo,
                 Admin = user.Admin
             };
             return userEntity;
@@ -30,11 +31,21 @@ namespace SocialNetworkDB
         {
             PasswordEntity entityPass = userEntity.Password;
             DirectionEntity entityDirection = userEntity.Direction;
+            PhotoEntity photoEntity = userEntity.Avatar;
             Password password = EntityToPassword(entityPass);
             Direction direction = EntityToDirection(entityDirection);
-            User user = new User(userEntity.Username, password, userEntity.Name, userEntity.LastName, userEntity.DateOfBirth, direction, userEntity.Avatar, userEntity.Admin)
+            Photo photo = EntityToPhoto(photoEntity);
+            User user = new User(userEntity.Username, password, userEntity.Name, userEntity.LastName, userEntity.DateOfBirth, direction, photo, userEntity.Admin)
             {
-                Id = userEntity.Id
+                Id = userEntity.Id,
+                Username = userEntity.Username,
+                Name = userEntity.Name,
+                Lastname = userEntity.LastName,
+                Password = password,
+                DateOfBirth = userEntity.DateOfBirth,
+                Direction = direction,
+                Avatar = photo,
+                Admin = userEntity.Admin
             };
             return user;
         }
@@ -50,7 +61,8 @@ namespace SocialNetworkDB
         {
             Password password = new Password()
             {
-                Id = passwordEntity.Id
+                Id = passwordEntity.Id,
+                Hashpassword = passwordEntity.Hashpassword
             };
             return password;
         }
@@ -69,9 +81,32 @@ namespace SocialNetworkDB
         {
             Direction direction = new Direction()
             {
-                Id = directionEntity.Id
+                Id = directionEntity.Id,
+                Street = directionEntity.Street,
+                City = directionEntity.City,
+                Counrty = directionEntity.Counrty
             };
             return direction;
+        }
+        public PhotoEntity PhotoToEntity(Photo photo)
+        {
+            PhotoEntity photoEntity = new PhotoEntity
+            {
+                Id = photo.Id,
+                Path = photo.ElPath,
+                Size = photo.ElSize
+            };
+            return photoEntity;
+        }
+        public Photo EntityToPhoto(PhotoEntity photoEntity)
+        {
+            Photo photo = new Photo()
+            {
+                Id = photoEntity.Id,
+                ElPath = photoEntity.Path,
+                ElSize = photoEntity.Size
+            };
+            return photo;
         }
     }
 }

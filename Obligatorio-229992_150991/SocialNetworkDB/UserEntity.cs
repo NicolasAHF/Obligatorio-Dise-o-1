@@ -17,7 +17,7 @@ namespace SocialNetworkDB
         public PasswordEntity Password { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DirectionEntity Direction { get; set; }
-        public Photo Avatar { get; set; }
+        public PhotoEntity Avatar { get; set; }
         public bool Admin { get; set; }
         public List<UserEntity> Following { get; set; }
         public List<AlbumEntity> Albums { get; set; }

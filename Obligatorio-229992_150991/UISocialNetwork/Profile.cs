@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,18 +16,20 @@ namespace UISocialNetwork
     {
         private User user;
         private User actualUser;
-        public Profile(User user, User actualUser)
+        private UserRepository users;
+        public Profile(User user, User actualUser, UserRepository users)
         {
             InitializeComponent();
             this.user = user;
             this.actualUser = actualUser;
+            this.users = users;
             CheckFollowing(user, actualUser);
         }
 
         private void Profile_Load(object sender, EventArgs e)
         {
             lblUsername.Text = user.Username;
-          //  avatar.ImageLocation = user.Avatar.ElPath;
+            avatar.ImageLocation = user.Avatar.ElPath;
             completeNameLbl.Text = user.Name + " " + user.Lastname;
             if (user.Username != actualUser.Username)
             {
@@ -101,7 +104,7 @@ namespace UISocialNetwork
 
         private void changePasswordBtn_Click(object sender, EventArgs e)
         {
-            ChangePassword newPassword = new ChangePassword(actualUser);
+            ChangePassword newPassword = new ChangePassword(actualUser, users);
             newPassword.AddListener(PostModifyPassword);
             changePasswordBtn.Enabled = false;
             passwordPanel.Controls.Clear();
