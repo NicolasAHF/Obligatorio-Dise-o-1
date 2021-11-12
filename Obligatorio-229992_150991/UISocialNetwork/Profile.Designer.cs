@@ -31,7 +31,7 @@ namespace UISocialNetwork
         {
             this.avatar = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.modifyUser = new System.Windows.Forms.Button();
+            this.modifyUserBtn = new System.Windows.Forms.Button();
             this.modifyPanel = new System.Windows.Forms.Panel();
             this.completeNameLbl = new System.Windows.Forms.Label();
             this.followBtn = new System.Windows.Forms.Button();
@@ -60,19 +60,20 @@ namespace UISocialNetwork
             this.lblUsername.TabIndex = 2;
             this.lblUsername.Text = "Username";
             // 
-            // modifyUser
+            // modifyUserBtn
             // 
-            this.modifyUser.Location = new System.Drawing.Point(452, 15);
-            this.modifyUser.Margin = new System.Windows.Forms.Padding(2);
-            this.modifyUser.Name = "modifyUser";
-            this.modifyUser.Size = new System.Drawing.Size(118, 37);
-            this.modifyUser.TabIndex = 3;
-            this.modifyUser.Text = "Modificar Usuario";
-            this.modifyUser.UseVisualStyleBackColor = true;
-            this.modifyUser.Click += new System.EventHandler(this.modifyUser_Click);
+            this.modifyUserBtn.Location = new System.Drawing.Point(452, 15);
+            this.modifyUserBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.modifyUserBtn.Name = "modifyUserBtn";
+            this.modifyUserBtn.Size = new System.Drawing.Size(118, 37);
+            this.modifyUserBtn.TabIndex = 3;
+            this.modifyUserBtn.Text = "Modificar Usuario";
+            this.modifyUserBtn.UseVisualStyleBackColor = true;
+            this.modifyUserBtn.Click += new System.EventHandler(this.modifyUser_Click);
             // 
             // modifyPanel
             // 
+            this.modifyPanel.AutoScroll = true;
             this.modifyPanel.Location = new System.Drawing.Point(383, 57);
             this.modifyPanel.Margin = new System.Windows.Forms.Padding(2);
             this.modifyPanel.Name = "modifyPanel";
@@ -135,7 +136,7 @@ namespace UISocialNetwork
             this.Controls.Add(this.followBtn);
             this.Controls.Add(this.completeNameLbl);
             this.Controls.Add(this.modifyPanel);
-            this.Controls.Add(this.modifyUser);
+            this.Controls.Add(this.modifyUserBtn);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.avatar);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -152,7 +153,7 @@ namespace UISocialNetwork
 
         private System.Windows.Forms.PictureBox avatar;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Button modifyUser;
+        private System.Windows.Forms.Button modifyUserBtn;
         private System.Windows.Forms.Panel modifyPanel;
         private System.Windows.Forms.Label completeNameLbl;
         private System.Windows.Forms.Button followBtn;

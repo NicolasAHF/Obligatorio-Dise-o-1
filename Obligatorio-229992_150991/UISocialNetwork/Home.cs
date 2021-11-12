@@ -17,6 +17,7 @@ namespace UISocialNetwork
     {
         private UserRepository users;
         private User actualUser;
+        private AlbumRepository albums;
         private event PostSearch PostSearchEvent;
         private List<UserControl> content;
         public Home(UserRepository users, User actualUser, List<UserControl> contents)
@@ -25,6 +26,7 @@ namespace UISocialNetwork
             this.users = users;
             this.actualUser = actualUser;
             this.content = contents;
+            albums = new AlbumRepository();
             userList.DataSource = users.GetAll();
             ShowContent(content);
         }
@@ -110,7 +112,7 @@ namespace UISocialNetwork
 
         private void createAlbumBtn_Click(object sender, EventArgs e)
         {
-            CreateAlbum album = new CreateAlbum(actualUser);
+            CreateAlbum album = new CreateAlbum(actualUser, albums);
             album.AddListener(PostCreateAlbum);
             panelContent.Controls.Clear();
             panelContent.Controls.Add(album);
@@ -123,7 +125,7 @@ namespace UISocialNetwork
 
         private void statusBtn_Click(object sender, EventArgs e)
         {
-            CreateStatus status = new CreateStatus(actualUser);
+            CreateStatus status = new CreateStatus(actualUser, users);
             status.AddListener(PostCreateStatus);
             panelContent.Controls.Clear();
             panelContent.Controls.Add(status);

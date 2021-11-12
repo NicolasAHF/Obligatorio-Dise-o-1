@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,13 @@ namespace UISocialNetwork
     public partial class CreateStatus : UserControl
     {
         private User actualUser;
+        private UserRepository users;
         private event PostCreateStatus PostCreateStatusEvent;
-        public CreateStatus(User actualUser)
+        public CreateStatus(User actualUser, UserRepository users)
         {
             InitializeComponent();
             this.actualUser = actualUser;
+            this.users = users;
         }
 
         public void AddListener(PostCreateStatus del)
@@ -31,6 +34,7 @@ namespace UISocialNetwork
         {
             actualUser.SetStatus(statusTxtBox.Text);
             StatusCreated status = new StatusCreated(actualUser);
+            users.UpdateStatus(statusTxtBox.Text, actualUser);
             PostCreateStatusEvent(status);
         }
     }

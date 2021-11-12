@@ -84,7 +84,7 @@ namespace SocialNetwork
                 return false;
             }
 
-            return this.Id == photoObj.Id ? true : false;
+            return this.ElPath == photoObj.ElPath ? true : false;
         }
     }
 }

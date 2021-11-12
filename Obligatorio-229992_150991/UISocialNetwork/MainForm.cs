@@ -20,7 +20,7 @@ namespace UISocialNetwork
         public MainForm()
         {
             InitializeComponent();
-            users = new UserRepository(new Password("Default123"), new Direction(), new Photo());
+            users = new UserRepository(new Password("Default123"), new Direction(), new Photo(), new List<Album>());
             contents = new List<UserControl>();        }
 
         private void loginBtn_Click(object sender, EventArgs e)

@@ -37,7 +37,7 @@ namespace UISocialNetwork
                 Password currentPassword = new Password(currentPasswordTxtBox.Text);
                 Password newPassword = new Password(newPasswordTxtBox.Text);
                 actualUser.ChangePassword(actualUser, currentPassword, newPassword);
-                users.Update(newPassword, actualUser);
+                users.UpdatePassword(newPassword, actualUser);
                 PostModifyPasswordEvent();
             }
             catch(Exception exp)

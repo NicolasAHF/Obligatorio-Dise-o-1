@@ -19,7 +19,7 @@ namespace UISocialNetwork
             InitializeComponent();
             this.actualUser = actualUser;
             usernameLbl.Text = actualUser.Username;
-            statusUpdateLbl.Text = statusUpdateLbl.Text;
+            statusUpdateLbl.Text = actualUser.Status;
         }
     }
 }

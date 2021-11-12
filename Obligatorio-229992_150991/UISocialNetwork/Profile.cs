@@ -33,7 +33,7 @@ namespace UISocialNetwork
             completeNameLbl.Text = user.Name + " " + user.Lastname;
             if (user.Username != actualUser.Username)
             {
-                modifyUser.Hide();
+                modifyUserBtn.Hide();
             }
             else
             {
@@ -46,17 +46,17 @@ namespace UISocialNetwork
         {
             completeNameLbl.Text = user.Name + " " + user.Lastname;
             modifyPanel.Hide();
-            modifyUser.Enabled = true;
+            modifyUserBtn.Enabled = true;
         }
 
         private void modifyUser_Click(object sender, EventArgs e)
         {
             modifyPanel.Controls.Clear();
-            ModifyUser modifyUser = new ModifyUser(user);
+            ModifyUser modifyUser = new ModifyUser(user, users);
             modifyUser.AddListener(PostModify);
             modifyPanel.Controls.Add(modifyUser);
             modifyPanel.Show();
-            modifyUser.Enabled = false;
+            modifyUserBtn.Enabled = false;
         }
 
         private void followBtn_Click(object sender, EventArgs e)

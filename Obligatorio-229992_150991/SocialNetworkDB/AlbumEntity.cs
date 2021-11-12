@@ -11,6 +11,5 @@ namespace SocialNetworkDB
         public int Id { get; set; }
         public string Name { get; set; }
         public List<PhotoEntity> Photos { get; set; }
-
     }
 }

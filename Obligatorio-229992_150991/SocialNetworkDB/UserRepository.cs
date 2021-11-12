@@ -14,12 +14,14 @@ namespace SocialNetworkDB
         private Password password;
         private Direction direction;
         private Photo photo;
+        private List<Album> albums;
 
-        public UserRepository(Password password, Direction direction, Photo photo)
+        public UserRepository(Password password, Direction direction, Photo photo, List<Album> albums)
         {
             this.password = password;
             this.direction = direction;
             this.photo = photo;
+            this.albums = albums;
         }
 
         public void Add(User user)
@@ -32,9 +34,6 @@ namespace SocialNetworkDB
                 }
 
                 UserEntity entity = mapper.UserToEntity(user);
-                //entity.Password = context.Passwords.Find(this.password.Id);
-                //entity.Direction = context.Directions.Find(this.direction.Id);
-                //entity.Avatar = context.Photos.Find(this.photo.Id);
                 context.Users.Add(entity);
                 context.SaveChanges();
                 user.Id = entity.Id;
@@ -85,7 +84,7 @@ namespace SocialNetworkDB
                 }
             }
         }
-        public void Update(Password password, User user)
+        public void UpdatePassword(Password password, User user)
         {
             using (SocialContext context = new SocialContext())
             {
@@ -95,6 +94,44 @@ namespace SocialNetworkDB
                     throw new Exception("No se encontro");
                 }
                 entity.Password.Hashpassword = password.Hashpassword;
+                context.SaveChanges();
+            }
+        }
+
+        public void UpdateModifyUser(User user)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                UserEntity entity = context.Users.Include("Direction").Include("Avatar").Where(p => p.Id == user.Id).FirstOrDefault<UserEntity>(); ;
+                if (entity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+                foreach(Album album in user.Albums)
+                {
+                    entity.Albums.Add(mapper.AlbumToEntity(album));
+                }
+                entity.Avatar.Path = user.Avatar.ElPath;
+                entity.Avatar.Size = user.Avatar.ElSize;
+                entity.Direction.Street = user.Direction.Street;
+                entity.Direction.City = user.Direction.City;
+                entity.Direction.Counrty = user.Direction.City;
+                entity.DateOfBirth = user.DateOfBirth;
+                entity.Name = user.Name;
+                entity.LastName = user.Lastname;
+                context.SaveChanges();
+            }
+        }
+        public void UpdateStatus(String status, User user)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                UserEntity entity = context.Users.Include("Direction").Include("Avatar").Where(p => p.Id == user.Id).FirstOrDefault<UserEntity>(); ;
+                if (entity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+                entity.status = status;
                 context.SaveChanges();
             }
         }

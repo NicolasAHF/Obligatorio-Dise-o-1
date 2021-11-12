@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlbumEntity.cs" />
+    <Compile Include="AlbumRepository.cs" />
     <Compile Include="DirectionEntity.cs" />
     <Compile Include="DirectionRepository.cs" />
     <Compile Include="ListeningNowEntity.cs" />

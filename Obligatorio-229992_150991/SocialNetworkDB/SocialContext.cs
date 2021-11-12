@@ -22,5 +22,6 @@ namespace SocialNetwork
         public DbSet<PhotoEntity> Photos { get; set; }
         public DbSet<DirectionEntity> Directions { get; set; }
         public DbSet<ListeningNowEntity> ListeningNows { get; set; }
+
     }
 }

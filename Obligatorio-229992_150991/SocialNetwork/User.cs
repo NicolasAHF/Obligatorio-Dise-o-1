@@ -85,7 +85,7 @@ namespace SocialNetwork
             set { _followingList = value; }
         }
 
-        public List<Album> AlbumList
+        public List<Album> Albums
         {
             get { return _albumList; }
             set { _albumList = value; }

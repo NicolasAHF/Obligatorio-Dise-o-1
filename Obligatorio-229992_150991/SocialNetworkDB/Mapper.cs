@@ -108,5 +108,30 @@ namespace SocialNetworkDB
             };
             return photo;
         }
+        public AlbumEntity AlbumToEntity(Album album)
+        {
+            AlbumEntity albumEntity = new AlbumEntity
+            {
+                Id = album.Id,
+                Name = album.Name,
+            };
+            return albumEntity;
+        }
+        public Album EntityToAlbum(AlbumEntity albumEntity)
+        {
+            List<Photo> photos = new List<Photo>();
+            List<PhotoEntity> photosEntity = (List<PhotoEntity>)albumEntity.Photos.ToList();
+            foreach (PhotoEntity photo in photosEntity)
+            {
+                photos.Add(EntityToPhoto(photo));
+            }
+            Album album = new Album
+            {
+                Id = albumEntity.Id,
+                Name = albumEntity.Name,
+                PhotoList = photos
+            };
+            return album;
+        }
     }
 }

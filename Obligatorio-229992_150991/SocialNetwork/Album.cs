@@ -16,22 +16,28 @@ namespace SocialNetwork
         public string Name
         {
             get { return _name; }
-            private set => SetName(value);
+            set => SetName(value);
         }
 
         public List<Photo> PhotoList
         {
             get { return _PhotoList; }
+            set => SetPhotos(value);
         }
 
         public Album()
         {
-            this._PhotoList = null;
+            this._PhotoList = new List<Photo>();
         }
         public Album(string elNombre)
         {
             this.Name = elNombre;
-            this._PhotoList = null;
+            this._PhotoList = new List<Photo>();
+        }
+
+        public void SetPhotos(List<Photo> photos)
+        {
+            this._PhotoList = photos;
         }
 
         public void SetName(string elNombre)
