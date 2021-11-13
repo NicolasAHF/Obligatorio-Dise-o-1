@@ -32,10 +32,18 @@ namespace UISocialNetwork
 
         private void saveStatusbtn_Click(object sender, EventArgs e)
         {
-            actualUser.SetStatus(statusTxtBox.Text);
-            StatusCreated status = new StatusCreated(actualUser);
-            users.UpdateStatus(statusTxtBox.Text, actualUser);
-            PostCreateStatusEvent(status);
+            try
+            {
+                actualUser.Status = statusTxtBox.Text;
+                users.UpdateStatus(statusTxtBox.Text, actualUser);
+                StatusCreated status = new StatusCreated(actualUser);
+                PostCreateStatusEvent(status);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

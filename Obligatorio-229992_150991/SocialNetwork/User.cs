@@ -47,8 +47,8 @@ namespace SocialNetwork
         }
         public string Status
         {
-            get { return _lastname; }
-            set => SetLastname(value);
+            get { return _status; }
+            set => SetStatus(value);
         }
 
         public Password Password

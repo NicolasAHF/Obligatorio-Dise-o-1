@@ -16,19 +16,19 @@ namespace SocialNetwork
         public string SongName 
         {
             get { return _songName; }
-            private set => SetSongName(value);
+            set => SetSongName(value);
         }
 
         public string Artist 
         {
             get { return _artist; }
-            private set => SetArtist(value);
+            set => SetArtist(value);
         }
 
         public string AlbumName
         {
             get { return _albumName; }
-            private set => SetAlbumName(value);
+            set => SetAlbumName(value);
         }
 
         public ListeningNow()

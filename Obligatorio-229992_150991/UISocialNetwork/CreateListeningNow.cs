@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,15 @@ namespace UISocialNetwork
     public partial class CreateListeningNow : UserControl
     {
         private User actualUser;
+        private UserRepository users;
+        private ListeningNowRepository songs;
         private event PostCreate PostCreateEvent;
-        public CreateListeningNow(User actualUser)
+        public CreateListeningNow(User actualUser, ListeningNowRepository songs, UserRepository users)
         {
             InitializeComponent();
             this.actualUser = actualUser;
+            this.users = users;
+            this.songs = songs;
 
         }
         public void AddListener(PostCreate del)
@@ -31,6 +36,8 @@ namespace UISocialNetwork
         {
             ListeningNow actualListening = new ListeningNow(songTxtBox.Text, artistTxtBox.Text, albumTxtBox.Text);
             actualUser.Listening = actualListening;
+            songs.Add(actualListening);
+            users.UpdateSong(actualListening, actualUser);
             ListeningNowCreated listening = new ListeningNowCreated(actualUser);
             PostCreateEvent(listening);
         }

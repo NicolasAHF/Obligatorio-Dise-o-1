@@ -133,5 +133,28 @@ namespace SocialNetworkDB
             };
             return album;
         }
+
+        public ListeningNowEntity ListeningNowToEntity(ListeningNow song)
+        {
+            ListeningNowEntity songEntity = new ListeningNowEntity
+            {
+                Id = song.Id,
+                SongName = song.SongName,
+                Artist = song.Artist,
+                AlbumName = song.AlbumName
+            };
+            return songEntity;
+        }
+        public ListeningNow EntityToListeningNow(ListeningNowEntity songEntity)
+        {
+            ListeningNow song = new ListeningNow()
+            {
+                Id = songEntity.Id,
+                SongName = songEntity.SongName,
+                Artist = songEntity.Artist,
+                AlbumName = songEntity.AlbumName
+            };
+            return song;
+        }
     }
 }

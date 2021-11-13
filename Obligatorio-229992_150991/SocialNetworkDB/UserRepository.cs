@@ -109,7 +109,7 @@ namespace SocialNetworkDB
                 }
                 foreach(Album album in user.Albums)
                 {
-                    entity.Albums.Add(mapper.AlbumToEntity(album));
+                    //entity.Albums.Add(mapper.AlbumToEntity(album));
                 }
                 entity.Avatar.Path = user.Avatar.ElPath;
                 entity.Avatar.Size = user.Avatar.ElSize;
@@ -132,6 +132,20 @@ namespace SocialNetworkDB
                     throw new Exception("No se encontro");
                 }
                 entity.status = status;
+                context.SaveChanges();
+            }
+        }
+
+        public void UpdateSong(ListeningNow song, User user)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                UserEntity entity = context.Users.Include("ListeningNow").Where(p => p.Id == user.Id).FirstOrDefault<UserEntity>(); ;
+                if (entity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+                entity.ListeningNow = mapper.ListeningNowToEntity(song);
                 context.SaveChanges();
             }
         }

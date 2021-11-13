@@ -20,7 +20,7 @@ namespace SocialNetworkDB
         public PhotoEntity Avatar { get; set; }
         public bool Admin { get; set; }
         public List<UserEntity> Following { get; set; }
-        public List<AlbumEntity> Albums { get; set; }
+        public AlbumEntity Albums { get; set; }
         public ListeningNowEntity ListeningNow { get; set; }
     }
 }

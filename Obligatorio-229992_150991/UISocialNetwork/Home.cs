@@ -18,6 +18,7 @@ namespace UISocialNetwork
         private UserRepository users;
         private User actualUser;
         private AlbumRepository albums;
+        private ListeningNowRepository songs;
         private event PostSearch PostSearchEvent;
         private List<UserControl> content;
         public Home(UserRepository users, User actualUser, List<UserControl> contents)
@@ -27,6 +28,7 @@ namespace UISocialNetwork
             this.actualUser = actualUser;
             this.content = contents;
             albums = new AlbumRepository();
+            songs = new ListeningNowRepository();
             userList.DataSource = users.GetAll();
             ShowContent(content);
         }
@@ -83,7 +85,7 @@ namespace UISocialNetwork
 
         private void listeningBtn_Click(object sender, EventArgs e)
         {
-            CreateListeningNow listening = new CreateListeningNow(actualUser);
+            CreateListeningNow listening = new CreateListeningNow(actualUser, songs, users);
             listening.AddListener(PostCreate);
             panelContent.Controls.Clear();
             panelContent.Controls.Add(listening);

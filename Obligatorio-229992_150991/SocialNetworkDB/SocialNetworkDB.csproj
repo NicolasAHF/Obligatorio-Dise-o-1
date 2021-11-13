@@ -56,6 +56,7 @@
     <Compile Include="DirectionEntity.cs" />
     <Compile Include="DirectionRepository.cs" />
     <Compile Include="ListeningNowEntity.cs" />
+    <Compile Include="ListeningNowRepository.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="PasswordEntity.cs" />
     <Compile Include="PasswordRepository.cs" />
