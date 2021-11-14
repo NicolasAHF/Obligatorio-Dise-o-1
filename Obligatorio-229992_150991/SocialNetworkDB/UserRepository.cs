@@ -39,13 +39,6 @@ namespace SocialNetworkDB
                 user.Id = entity.Id;
             }
         }
-        public bool IsEmpty()
-        {
-            using (SocialContext context = new SocialContext())
-            {
-                return context.Users.Count() == 0;
-            }
-        }
         public User Get(String Username)
         {
             using (SocialContext context = new SocialContext())
@@ -72,18 +65,6 @@ namespace SocialNetworkDB
             }
             return users;
         }
-        public void Delete(int id)
-        {
-            using (SocialContext context = new SocialContext())
-            {
-                UserEntity entity = context.Users.Find(id);
-                if(entity != null)
-                {
-                    context.Users.Remove(entity);
-                    context.SaveChanges();
-                }
-            }
-        }
         public void UpdatePassword(Password password, User user)
         {
             using (SocialContext context = new SocialContext())
@@ -106,10 +87,6 @@ namespace SocialNetworkDB
                 if (entity == null)
                 {
                     throw new Exception("No se encontro");
-                }
-                foreach(Album album in user.Albums)
-                {
-                    //entity.Albums.Add(mapper.AlbumToEntity(album));
                 }
                 entity.Avatar.Path = user.Avatar.ElPath;
                 entity.Avatar.Size = user.Avatar.ElSize;
@@ -146,6 +123,51 @@ namespace SocialNetworkDB
                     throw new Exception("No se encontro");
                 }
                 entity.ListeningNow = mapper.ListeningNowToEntity(song);
+                context.SaveChanges();
+            }
+        }
+        /*       public void AddFollowing(User actualUser, User user)
+               {
+                   using (SocialContext context = new SocialContext())
+                   {
+                       UserEntity userEntity = context.Users.Find(user.Id);
+                       UserEntity actualUserEntity = context.Users.Include("Following").Where(p => p.Id == actualUser.Id).FirstOrDefault<UserEntity>(); ;
+                       if (userEntity == null || actualUserEntity == null)
+                       {
+                           throw new Exception("No se encontro");
+                       }
+                       actualUserEntity.Following.Add(userEntity);
+                       context.SaveChanges();
+                   }
+               }
+        */
+
+        public void AddFollowing(User actualUser, User user)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                UserEntity userEntity = context.Users.Find(user.Id);
+                UserEntity actualUserEntity = context.Users.Include("Following").Where(p => p.Id == actualUser.Id).FirstOrDefault<UserEntity>(); ;
+                if (userEntity == null || actualUserEntity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+                actualUserEntity.Following.Add(userEntity);
+                context.SaveChanges();
+            }
+        }
+        public virtual ICollection<User> Users { get; set; }
+        public void RemoveFollowing(User actualUser, User user)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                UserEntity userEntity = context.Users.Find(user.Id);
+                UserEntity actualUserEntity = context.Users.Include("Following").Where(p => p.Id == actualUser.Id).FirstOrDefault<UserEntity>(); ;
+                if (userEntity == null || actualUserEntity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+                actualUserEntity.Following.Remove(userEntity);
                 context.SaveChanges();
             }
         }

@@ -28,6 +28,8 @@ namespace SocialNetwork
         const int MIN_LENGTH_FOR_VALID_STATUS = 10;
         const int MAX_LENGTH_FOR_VALID_STATUS = 160;
 
+        public virtual ICollection<User> Users { get; set; }
+
 
         public int Id { get; set; }
         public string Name
@@ -82,7 +84,7 @@ namespace SocialNetwork
         public List<User> Following
         {
             get { return _followingList; }
-            set { _followingList = value; }
+            set { _followingList = new List<User>(); }
         }
 
         public List<Album> Albums
@@ -110,10 +112,7 @@ namespace SocialNetwork
 
         public User()
         {
-            this._followingList = null;
-            this._albumList = null;
-            this._gameScoreList = null;
-            this._listeningNow = null;
+            this.Users = new HashSet<User>();
         }
         public User(string username, Password password, string name, string lastname, DateTime birthday, Direction direction, Photo avatar, bool Admin)
         {

@@ -123,7 +123,7 @@ namespace SocialNetworkTest
         [TestMethod]
         public void ChangePasswordWithValidUserEnteredPassword()
         {
-            validPassword.SetPassword("P@ssword10");
+            validPassword.SetPasswordEncription("P@ssword10");
             validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
             Password userEnteredActualPassword = new Password("P@ssword10");
             Password newPassword = new Password("Password20");

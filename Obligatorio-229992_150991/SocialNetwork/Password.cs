@@ -14,10 +14,11 @@ namespace SocialNetwork
         const int MIN_LENGTH_FOR_VALID_PASSWORD = 8;
        
         public int Id { get; set; }
+       
         public string Hashpassword
         {
             get { return _hashpassword; }
-            set => SetPassword(value);
+            set => SetPasswordClear(value);
         }
 
 
@@ -25,12 +26,15 @@ namespace SocialNetwork
         {
 
         }
+
         public Password(string password)
         {
-            this.SetPassword(password);
+            this.SetPasswordEncription(password);
         }
 
-        public void SetPassword(string password)
+
+
+        public void SetPasswordEncription(string password)
         {
             if (EmptyString(password) || !ValidLenghtPassword(password))
             {
@@ -38,9 +42,26 @@ namespace SocialNetwork
            }
            else
            {
-                //this._hashpassword = password.GetHashCode().ToString();
+                this._hashpassword = password.GetHashCode().ToString();
+            }
+        }
+
+        public void SetPasswordClear(string password)
+        {
+            if (EmptyString(password) || !ValidLenghtPassword(password))
+            {
+                throw new InvalidOperationException("Password no valida");
+            }
+            else
+            {
                 this._hashpassword = password;
             }
+        }
+
+
+        public void hash(string password)
+        {
+            password = password.GetHashCode().ToString();
         }
 
         public bool ValidLenghtPassword(string password)

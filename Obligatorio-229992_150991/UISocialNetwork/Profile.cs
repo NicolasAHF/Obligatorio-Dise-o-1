@@ -34,6 +34,7 @@ namespace UISocialNetwork
             if (user.Username != actualUser.Username)
             {
                 modifyUserBtn.Hide();
+                changePasswordBtn.Hide();
             }
             else
             {
@@ -66,12 +67,16 @@ namespace UISocialNetwork
                 followBtn.Text = "Siguiendo";
                 followBtn.BackColor = Color.White;
                 followBtn.ForeColor = Color.Maroon;
+                actualUser.Following.Add(user);
+                users.AddFollowing(actualUser, user);
             }
             else
             {
                 followBtn.Text = "Seguir";
                 followBtn.BackColor = Color.Maroon;
                 followBtn.ForeColor = Color.White;
+                actualUser.Following.Remove(user);
+                users.RemoveFollowing(actualUser, user);
             }
 
         }
@@ -94,7 +99,7 @@ namespace UISocialNetwork
 
         private void CheckFollowing(User user, User actualUser)
         {
-            if (actualUser.Following.Contains(user))
+            if (users.Get(actualUser.Username).Following.Contains(user))
             {
                 followBtn.Text = "Siguiendo";
                 followBtn.BackColor = Color.White;
@@ -116,5 +121,6 @@ namespace UISocialNetwork
             passwordPanel.Controls.Clear();
             changePasswordBtn.Enabled = true;
         }
+
     }
 }
