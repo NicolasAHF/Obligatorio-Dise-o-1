@@ -12,14 +12,14 @@ namespace SocialNetwork
         public string Name
         {
             get { return _name; }
-            private set => SetName(value);
+            set => SetName(value);
         }
 
      
         public int Score
         {
             get { return _score; }
-            private set => SetScore(value);
+            set => SetScore(value);
         }
 
         public GameScore()

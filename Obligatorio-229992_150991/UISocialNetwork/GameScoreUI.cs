@@ -11,16 +11,19 @@ using System.Windows.Forms;
 
 namespace UISocialNetwork
 {
-    public delegate void PostGame();
+    public delegate void PostGame(Game game);
     public partial class GameScoreUI : UserControl
     {
-        private GameScore game = new GameScore();
+        private GameScore gameScore;
         private User actualUser;
+        private Game game;
         private event PostGame PostGameScoreEvent;
-        public GameScoreUI(User actualUser)
+        public GameScoreUI(User actualUser, Game game)
         {
             InitializeComponent();
             this.actualUser = actualUser;
+            gameScore = new GameScore();
+            this.game = game;
         }
 
         public void AddListener(PostGame del)
@@ -30,9 +33,9 @@ namespace UISocialNetwork
 
         private void saveScore_Click(object sender, EventArgs e)
         {
-            game.SetName(actualUser.Username);
-            game.SetScore(Convert.ToInt32(scroreTxtBox.Text));
-            PostGameScoreEvent();
+            gameScore.Name = actualUser.Username;
+            gameScore.Score = Convert.ToInt32(scroreTxtBox.Text);
+            PostGameScoreEvent(game);
         }
     }
 }

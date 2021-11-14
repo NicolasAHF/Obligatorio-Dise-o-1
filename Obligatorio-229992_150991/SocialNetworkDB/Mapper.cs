@@ -156,5 +156,29 @@ namespace SocialNetworkDB
             };
             return song;
         }
+        public GameEntity GameToEntity(Game game)
+        {
+            GameEntity gameEntity = new GameEntity()
+            {
+                Id = game.Id,
+                Name = game.Name,
+                Category = game.Category,
+                Cover = PhotoToEntity(game.Cover),
+                Played = game.Played
+            };
+            return gameEntity;
+        }
+        public Game EntityToGame(GameEntity gameEntity)
+        {
+            Game game = new Game()
+            {
+                Id = gameEntity.Id,
+                Name = gameEntity.Name,
+                Category = gameEntity.Category,
+                Cover = EntityToPhoto(gameEntity.Cover),
+                Played = gameEntity.Played
+            };
+            return game;
+        }
     }
 }

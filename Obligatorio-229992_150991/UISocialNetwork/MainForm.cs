@@ -16,12 +16,15 @@ namespace UISocialNetwork
     public partial class MainForm : Form
     {
         private UserRepository users;
+        private GamesRepository games;
         private List<UserControl> contents;
         public MainForm()
         {
             InitializeComponent();
             users = new UserRepository(new Password("Default123"), new Direction(), new Photo(), new List<Album>());
-            contents = new List<UserControl>();        }
+            contents = new List<UserControl>();
+            games = new GamesRepository();
+        }
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
@@ -139,7 +142,7 @@ namespace UISocialNetwork
         private void marketplaceBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            MarketPlace marketPlace = new MarketPlace((users.Get(usernamelblHome.Text)));
+            MarketPlace marketPlace = new MarketPlace((users.Get(usernamelblHome.Text)), games);
             mainPanel.Controls.Add(marketPlace);
         }
     }

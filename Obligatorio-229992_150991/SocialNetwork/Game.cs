@@ -14,24 +14,24 @@ namespace SocialNetwork
         public string Name
         {
             get { return _name; }
-            private set => SetName(value);
+            set => SetName(value);
         }
 
         public string Category
         {
             get { return _category; }
-            private set => SetCategory(value);
+            set => SetCategory(value);
         }
         public Photo Cover
         {
             get { return _cover; }
-            private set => SetCover(value);
+            set => SetCover(value);
         }
 
         public int Played
         {
             get { return _played; }
-            private set => SetPlayed();
+            set => SetPlayed();
         }
 
         public Game()

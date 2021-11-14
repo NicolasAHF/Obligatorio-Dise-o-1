@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,14 @@ namespace UISocialNetwork
     public partial class MarketPlace : UserControl
     {
         private User actualUser;
-        public MarketPlace(User actualUser)
+        private GamesRepository games;
+        public MarketPlace(User actualUser, GamesRepository games)
         {
             InitializeComponent();
             this.actualUser = actualUser;
+            this.games = games;
             CheckIfAdmin();
+            ShowGames();
         }
 
         private void CheckIfAdmin()
@@ -26,6 +30,15 @@ namespace UISocialNetwork
             if(actualUser.Admin == true)
             {
                 createGameBtn.Show();
+            }
+        }
+        private void ShowGames()
+        {
+            List<Game> gamesCreated = games.GetAll().ToList();
+            foreach(Game game in gamesCreated)
+            {
+                GameCreated CreatedGame = new GameCreated(game, games, actualUser);
+                gamesPanel.Controls.Add(CreatedGame);
             }
         }
 
@@ -37,7 +50,7 @@ namespace UISocialNetwork
         private void createGameBtn_Click(object sender, EventArgs e)
         {
             crateGamePanel.Controls.Clear();
-            CreateGame game = new CreateGame(actualUser);
+            CreateGame game = new CreateGame(games, actualUser);
             game.AddListener(PostCreateGame);
             crateGamePanel.Controls.Add(game);
         }

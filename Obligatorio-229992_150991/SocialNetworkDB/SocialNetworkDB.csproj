@@ -55,6 +55,8 @@
     <Compile Include="AlbumRepository.cs" />
     <Compile Include="DirectionEntity.cs" />
     <Compile Include="DirectionRepository.cs" />
+    <Compile Include="GameEntity.cs" />
+    <Compile Include="GamesRepository.cs" />
     <Compile Include="ListeningNowEntity.cs" />
     <Compile Include="ListeningNowRepository.cs" />
     <Compile Include="Mapper.cs" />

@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,14 +16,14 @@ namespace UISocialNetwork
     public delegate void PostCreateGame(GameCreated game);
     public partial class CreateGame : UserControl
     {
-        private DirectoryGame games;
+        private GamesRepository games;
         private Photo cover;
-        private event PostCreateGame PostCreateGameEvent;
         private User actualUser;
-        public CreateGame(User actualUser)
+        private event PostCreateGame PostCreateGameEvent;
+        public CreateGame(GamesRepository games, User actualUser)
         {
             InitializeComponent();
-            games = new DirectoryGame();
+            this.games = games;
             this.actualUser = actualUser;
         }
 
@@ -66,8 +67,8 @@ namespace UISocialNetwork
             try
             {
                 Game game = new Game(nameTxtBox.Text, categoryTxrBox.Text, cover);
-                games.AddGame(game, actualUser);
-                GameCreated gameCreated = new GameCreated(game);
+                games.Add(game);
+                GameCreated gameCreated = new GameCreated(game, games, actualUser);
                 PostCreateGameEvent(gameCreated);
                 
             }
