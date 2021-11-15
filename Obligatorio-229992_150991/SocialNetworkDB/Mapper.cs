@@ -180,5 +180,15 @@ namespace SocialNetworkDB
             };
             return game;
         }
+        public GameScoreEntity ScoreToEntity(GameScore score)
+        {
+            GameScoreEntity scoreEntity = new GameScoreEntity()
+            {
+                Id = score.Id,
+                Name = score.Name,
+                score = score.Score
+            };
+            return scoreEntity;
+        }
     }
 }

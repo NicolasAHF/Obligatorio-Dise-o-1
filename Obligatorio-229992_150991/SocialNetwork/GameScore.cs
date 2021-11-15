@@ -14,7 +14,6 @@ namespace SocialNetwork
             get { return _name; }
             set => SetName(value);
         }
-
      
         public int Score
         {

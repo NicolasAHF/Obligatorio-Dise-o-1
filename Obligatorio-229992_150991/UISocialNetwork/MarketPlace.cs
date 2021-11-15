@@ -16,11 +16,13 @@ namespace UISocialNetwork
     {
         private User actualUser;
         private GamesRepository games;
-        public MarketPlace(User actualUser, GamesRepository games)
+        private ScoresRepository scores;
+        public MarketPlace(User actualUser, GamesRepository games, ScoresRepository scores)
         {
             InitializeComponent();
             this.actualUser = actualUser;
             this.games = games;
+            this.scores = scores;
             CheckIfAdmin();
             ShowGames();
         }
@@ -37,7 +39,7 @@ namespace UISocialNetwork
             List<Game> gamesCreated = games.GetAll().ToList();
             foreach(Game game in gamesCreated)
             {
-                GameCreated CreatedGame = new GameCreated(game, games, actualUser);
+                GameCreated CreatedGame = new GameCreated(game, games, actualUser, scores);
                 gamesPanel.Controls.Add(CreatedGame);
             }
         }
@@ -50,7 +52,7 @@ namespace UISocialNetwork
         private void createGameBtn_Click(object sender, EventArgs e)
         {
             crateGamePanel.Controls.Clear();
-            CreateGame game = new CreateGame(games, actualUser);
+            CreateGame game = new CreateGame(games, actualUser, scores);
             game.AddListener(PostCreateGame);
             crateGamePanel.Controls.Add(game);
         }

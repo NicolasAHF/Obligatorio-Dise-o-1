@@ -17,7 +17,8 @@ namespace UISocialNetwork
         private User actualUser;
         private Game game;
         private GamesRepository games;
-        public GameCreated(Game game, GamesRepository games, User actualUser)
+        private ScoresRepository scores;
+        public GameCreated(Game game, GamesRepository games, User actualUser, ScoresRepository scores)
         {
             InitializeComponent();
             this.coverPBox.ImageLocation = game.Cover.ElPath;
@@ -26,12 +27,13 @@ namespace UISocialNetwork
             this.games = games;
             this.actualUser = actualUser;
             this.game = game;
+            this.scores = scores;
             CheckIfPlayed();
         }
 
         private void playGameBtn_Click(object sender, EventArgs e)
         {
-            GameScoreUI gameScore = new GameScoreUI(actualUser, game);
+            GameScoreUI gameScore = new GameScoreUI(actualUser, game, scores);
             gameScore.AddListener(PostGame);
             gamePanel.Controls.Clear();
             gamePanel.Controls.Add(gameScore);

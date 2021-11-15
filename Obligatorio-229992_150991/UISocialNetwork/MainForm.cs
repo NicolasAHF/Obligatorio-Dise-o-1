@@ -17,6 +17,7 @@ namespace UISocialNetwork
     {
         private UserRepository users;
         private GamesRepository games;
+        private ScoresRepository scores;
         private List<UserControl> contents;
         public MainForm()
         {
@@ -24,6 +25,7 @@ namespace UISocialNetwork
             users = new UserRepository(new Password("Default123"), new Direction(), new Photo(), new List<Album>());
             contents = new List<UserControl>();
             games = new GamesRepository();
+            scores = new ScoresRepository();
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
@@ -85,7 +87,7 @@ namespace UISocialNetwork
         private void profileBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            Profile profile = new Profile(users.Get(usernamelblHome.Text), users.Get(usernamelblHome.Text), users);
+            Profile profile = new Profile(users.Get(usernamelblHome.Text), users.Get(usernamelblHome.Text), users, scores);
             mainPanel.Controls.Add(profile);
 
         }
@@ -115,7 +117,7 @@ namespace UISocialNetwork
         private void PostSearch(User user)
         {
             ClearPanel();
-            Profile profile = new Profile(user, users.Get(usernamelblHome.Text), users);
+            Profile profile = new Profile(user, users.Get(usernamelblHome.Text), users, scores);
             mainPanel.Controls.Add(profile);
         }
 
@@ -142,7 +144,7 @@ namespace UISocialNetwork
         private void marketplaceBtn_Click(object sender, EventArgs e)
         {
             ClearPanel();
-            MarketPlace marketPlace = new MarketPlace((users.Get(usernamelblHome.Text)), games);
+            MarketPlace marketPlace = new MarketPlace((users.Get(usernamelblHome.Text)), games, scores);
             mainPanel.Controls.Add(marketPlace);
         }
     }

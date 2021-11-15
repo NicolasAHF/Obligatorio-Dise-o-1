@@ -19,12 +19,14 @@ namespace UISocialNetwork
         private GamesRepository games;
         private Photo cover;
         private User actualUser;
+        private ScoresRepository scores;
         private event PostCreateGame PostCreateGameEvent;
-        public CreateGame(GamesRepository games, User actualUser)
+        public CreateGame(GamesRepository games, User actualUser, ScoresRepository scores)
         {
             InitializeComponent();
             this.games = games;
             this.actualUser = actualUser;
+            this.scores = scores;
         }
 
         public void AddListener(PostCreateGame del)
@@ -68,7 +70,7 @@ namespace UISocialNetwork
             {
                 Game game = new Game(nameTxtBox.Text, categoryTxrBox.Text, cover);
                 games.Add(game);
-                GameCreated gameCreated = new GameCreated(game, games, actualUser);
+                GameCreated gameCreated = new GameCreated(game, games, actualUser, scores);
                 PostCreateGameEvent(gameCreated);
                 
             }

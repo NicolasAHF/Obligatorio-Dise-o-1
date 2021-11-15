@@ -17,12 +17,14 @@ namespace UISocialNetwork
         private User user;
         private User actualUser;
         private UserRepository users;
-        public Profile(User user, User actualUser, UserRepository users)
+        private ScoresRepository scores;
+        public Profile(User user, User actualUser, UserRepository users, ScoresRepository scores)
         {
             InitializeComponent();
             this.user = user;
             this.actualUser = actualUser;
             this.users = users;
+            this.scores = scores;
             CheckFollowing(user, actualUser);
         }
 

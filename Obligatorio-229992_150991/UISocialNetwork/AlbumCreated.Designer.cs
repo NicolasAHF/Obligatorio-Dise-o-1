@@ -88,13 +88,15 @@ namespace UISocialNetwork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.howEliminatePhotoLbl);
             this.Controls.Add(this.albumPanel);
             this.Controls.Add(this.editAlbumBtn);
             this.Controls.Add(this.albumNameLbl);
             this.Controls.Add(this.usernameLblAlbum);
+            this.Cursor = System.Windows.Forms.Cursors.No;
             this.Name = "AlbumCreated";
-            this.Size = new System.Drawing.Size(520, 326);
+            this.Size = new System.Drawing.Size(518, 324);
             this.ResumeLayout(false);
             this.PerformLayout();
 
