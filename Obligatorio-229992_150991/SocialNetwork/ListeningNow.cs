@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetwork
 {
-    public class ListeningNow
+    public class ListeningNow : Contents
     {
         private string _songName;
         private string _artist;

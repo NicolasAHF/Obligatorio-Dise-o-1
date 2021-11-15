@@ -46,6 +46,10 @@
     <Compile Include="Game.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="DirectoryUser.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="Status.cs" />
+    <Compile Include="Reaction.cs" />
+    <Compile Include="Contents.cs" />
     <Compile Include="ListeningNow.cs" />
     <Compile Include="Password.cs" />
     <Compile Include="Album.cs" />

@@ -13,7 +13,7 @@ namespace SocialNetwork
         private string _username;
         private string _name;
         private string _lastname;
-        private string _status;
+        private Status _status;
         private Password _password;
         private DateTime _dateofbirth;
         private Direction _direction;
@@ -25,8 +25,7 @@ namespace SocialNetwork
         private ListeningNow _listeningNow = new ListeningNow();
 
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
-        const int MIN_LENGTH_FOR_VALID_STATUS = 10;
-        const int MAX_LENGTH_FOR_VALID_STATUS = 160;
+
 
         public string Name
         {
@@ -43,10 +42,10 @@ namespace SocialNetwork
             get { return _lastname; }
             set => SetLastname(value);
         }
-        public string Status
+        public Status Status
         {
-            get { return _lastname; }
-            set => SetLastname(value);
+            get { return _status; }
+            set => SetStatus(value);
         }
         public DateTime DateOfBirth 
         {
@@ -81,12 +80,6 @@ namespace SocialNetwork
             get { return _albumList; }
             set { _albumList = value; }
         }
-        public void SetStatus(String status)
-        {
-            ValidMinLengthStatus(status);
-            ValidMaxLengthStatus(status);
-            this._status = status;
-        }
 
         public Password GetPassword()
         {
@@ -110,6 +103,10 @@ namespace SocialNetwork
             this.Avatar = avatar;
             this.Admin = Admin;
 
+        }
+        public void SetStatus(Status status)
+        {
+            this._status = status;
         }
 
         private void SetPassword (Password password)
@@ -208,19 +205,6 @@ namespace SocialNetwork
         private bool ValidUsername(string username)
         {
             return username.Length >= MIN_LENGTH_FOR_VALID_NAME;
-        }
-
-        private void ValidMinLengthStatus(string status)
-        {
-            if (status.Length < MIN_LENGTH_FOR_VALID_STATUS) {
-                throw new InvalidOperationException("La frace de estado no alcanza el largo minimo");
-            }
-        }
-        private void ValidMaxLengthStatus(string status)
-        {
-            if (status.Length > MAX_LENGTH_FOR_VALID_STATUS) {
-                throw new InvalidOperationException("La frace de estado supera el largo máximo");
-            }
         }
 
         private bool EmptyString(string value)

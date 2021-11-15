@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace SocialNetwork
 {
-    public class Album
+    public class Album : Contents
     {
         private string _name;
         const int MIN_LENGTH_FOR_VALID_NAME = 5;

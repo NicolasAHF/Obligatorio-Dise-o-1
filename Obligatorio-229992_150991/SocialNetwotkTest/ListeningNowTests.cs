@@ -5,7 +5,7 @@ using SocialNetwork;
 namespace SocialNetworkTest
 {
     [TestClass]
-    public class ListeningNowTest
+    public class ListeningNowTests
     {
         ListeningNow validListeningNow;
 

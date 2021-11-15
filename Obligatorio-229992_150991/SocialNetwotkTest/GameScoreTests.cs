@@ -5,7 +5,7 @@ using System;
 namespace SocialNetworkTest
 {
     [TestClass]
-    public class GameScoreTest
+    public class GameScoreTests
     {
         private string validName = "Hitman 3";
         private int  validScore = 10;
