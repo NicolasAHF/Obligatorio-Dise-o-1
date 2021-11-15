@@ -131,15 +131,15 @@ namespace UISocialNetwork
 
         }
 
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            DirectoryInfo path = new DirectoryInfo(@"C:\Foto");
+        //private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    DirectoryInfo path = new DirectoryInfo(@"D:\Foto");
 
-            foreach (FileInfo image in path.GetFiles())
-            {
-                image.Delete();
-            }
-        }
+        //    foreach (FileInfo image in path.GetFiles())
+        //    {
+        //        image.Delete();
+        //    }
+        //}
 
         private void marketplaceBtn_Click(object sender, EventArgs e)
         {
@@ -147,5 +147,6 @@ namespace UISocialNetwork
             MarketPlace marketPlace = new MarketPlace((users.Get(usernamelblHome.Text)), games, scores);
             mainPanel.Controls.Add(marketPlace);
         }
+        
     }
 }

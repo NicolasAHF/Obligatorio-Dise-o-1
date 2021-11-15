@@ -81,7 +81,7 @@ namespace SocialNetwork
             set => SetAdmin(value);
         }
 
-        public List<User> Following
+        public ICollection<User> Following
         {
             get { return _followingList; }
             set { _followingList = new List<User>(); }

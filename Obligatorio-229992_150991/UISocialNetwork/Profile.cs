@@ -101,7 +101,7 @@ namespace UISocialNetwork
 
         private void CheckFollowing(User user, User actualUser)
         {
-            if (users.Get(actualUser.Username).Following.Contains(user))
+            if (users.GetFollowing(actualUser, user).Contains(user))
             {
                 followBtn.Text = "Siguiendo";
                 followBtn.BackColor = Color.White;

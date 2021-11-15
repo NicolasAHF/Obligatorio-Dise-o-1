@@ -215,7 +215,7 @@ namespace UISocialNetwork
             this.MinimumSize = new System.Drawing.Size(1081, 612);
             this.Name = "MainForm";
             this.Text = "Main";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            //this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.header.ResumeLayout(false);

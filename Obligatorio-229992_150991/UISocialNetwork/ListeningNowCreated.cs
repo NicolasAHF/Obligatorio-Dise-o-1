@@ -32,5 +32,9 @@ namespace UISocialNetwork
             }
             return true;
         }
+        public string UsernameUserSong()
+        {
+            return usernameLbl.Text;
+        }
     }
 }

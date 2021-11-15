@@ -15,13 +15,11 @@ namespace UISocialNetwork
     {
         private User actualUser;
         private Album album;
-        private bool clicked;
         public AlbumCreated(User actualUser, Album album)
         {
             InitializeComponent();
             this.actualUser = actualUser;
             this.album = album;
-            this.clicked = false;
             LoadAlbumPictures();
             usernameLblAlbum.Text = actualUser.Username;
             albumNameLbl.Text = album.Name;
@@ -59,12 +57,16 @@ namespace UISocialNetwork
             deleteButton.BackColor = Color.Maroon;
             deleteButton.ForeColor = Color.White;
             deleteButton.FlatStyle = FlatStyle.Flat;
-            deleteButton.Click += new EventHandler(deleteButton_Click);
+            //deleteButton.Click += new EventHandler();
             return deleteButton;
         }
-        private void deleteButton_Click(object sender, EventArgs e)
+        public void HideEditBtn()
         {
-            
+            editAlbumBtn.Hide();
+        }
+        public string UsernameUserAlbum()
+        {
+            return usernameLblAlbum.Text;
         }
     }
 }

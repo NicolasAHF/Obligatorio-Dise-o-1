@@ -43,7 +43,7 @@ namespace SocialNetworkDB
         {
             using (SocialContext context = new SocialContext())
             {
-                UserEntity entity = context.Users.Include("Password").Include("Direction").Include("Avatar").Where(u => u.Username == Username).FirstOrDefault<UserEntity>();
+                UserEntity entity = context.Users.Include("Password").Include("Direction").Include("Avatar").Include("Following").Where(u => u.Username == Username).FirstOrDefault<UserEntity>();
                 if(entity == null)
                 {
                     throw new Exception("No se encontro");
@@ -146,8 +146,8 @@ namespace SocialNetworkDB
         {
             using (SocialContext context = new SocialContext())
             {
-                UserEntity userEntity = context.Users.Find(user.Id);
-                UserEntity actualUserEntity = context.Users.Include("Following").Where(p => p.Id == actualUser.Id).FirstOrDefault<UserEntity>(); ;
+                UserEntity userEntity = context.Users.Include("Following").Include("Password").Include("Direction").Include("Avatar").Where(p => p.Id == user.Id).FirstOrDefault<UserEntity>(); ;
+                UserEntity actualUserEntity = context.Users.Include("Following").Include("Password").Include("Direction").Include("Avatar").Where(p => p.Id == actualUser.Id).FirstOrDefault<UserEntity>(); ;
                 if (userEntity == null || actualUserEntity == null)
                 {
                     throw new Exception("No se encontro");
@@ -156,19 +156,36 @@ namespace SocialNetworkDB
                 context.SaveChanges();
             }
         }
-        public virtual ICollection<User> Users { get; set; }
         public void RemoveFollowing(User actualUser, User user)
         {
             using (SocialContext context = new SocialContext())
             {
-                UserEntity userEntity = context.Users.Find(user.Id);
-                UserEntity actualUserEntity = context.Users.Include("Following").Where(p => p.Id == actualUser.Id).FirstOrDefault<UserEntity>(); ;
+                UserEntity userEntity = context.Users.Include("Following").Include("Password").Include("Direction").Include("Avatar").Where(p => p.Id == user.Id).FirstOrDefault<UserEntity>(); ;
+                UserEntity actualUserEntity = context.Users.Include("Following").Include("Password").Include("Direction").Include("Avatar").Where(p => p.Id == actualUser.Id).FirstOrDefault<UserEntity>(); ;
                 if (userEntity == null || actualUserEntity == null)
                 {
                     throw new Exception("No se encontro");
                 }
                 actualUserEntity.Following.Remove(userEntity);
                 context.SaveChanges();
+            }
+        }
+        public IEnumerable<User> GetFollowing(User actualUser, User user)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                List<User> following = new List<User>();
+                UserEntity userEntity = context.Users.Include("Following").Include("Password").Include("Direction").Include("Avatar").Where(p => p.Id == user.Id).FirstOrDefault<UserEntity>(); ;
+                UserEntity actualUserEntity = context.Users.Include("Following").Include("Password").Include("Direction").Include("Avatar").Where(p => p.Id == actualUser.Id).FirstOrDefault<UserEntity>(); ;
+                if (userEntity == null || actualUserEntity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+                foreach(UserEntity userin in actualUserEntity.Following)
+                {
+                    following.Add(mapper.EntityToUser(userin));
+                }
+                return following;
             }
         }
     }

@@ -31,6 +31,9 @@ namespace UISocialNetwork
             songs = new ListeningNowRepository();
             userList.DataSource = users.GetAll();
             ShowContent(content);
+            HideEditBtn();
+            FilterContentAlbum();
+            //FilterContentSongs();
         }
 
         public void AddListener(PostSearch del)
@@ -50,6 +53,44 @@ namespace UISocialNetwork
                 {
                     showContentPanel.Controls.Add(content[i]);
                 }
+            }
+
+        }
+        private void FilterContentAlbum()
+        {
+            if(content != null)
+            {
+                foreach (AlbumCreated album in content)
+                {
+                    if (album.UsernameUserAlbum() != actualUser.Username || !actualUser.Following.Contains(users.Get(album.UsernameUserAlbum())))
+                    {
+                        album.Hide();
+                    }
+                    else
+                    {
+                        album.Show();
+                    }
+                }
+
+            }
+            
+        }
+        private void FilterContentSongs()
+        {
+            if (content != null)
+            {
+                foreach (ListeningNowCreated song in content)
+                {
+                    if (song.UsernameUserSong() != actualUser.Username || !actualUser.Following.Contains(users.Get(song.UsernameUserSong())))
+                    {
+                        song.Hide();
+                    }
+                    else
+                    {
+                        song.Show();
+                    }
+                }
+
             }
 
         }
@@ -131,6 +172,19 @@ namespace UISocialNetwork
             status.AddListener(PostCreateStatus);
             panelContent.Controls.Clear();
             panelContent.Controls.Add(status);
+        }
+        private void HideEditBtn()
+        {
+            if (content != null)
+            {
+                foreach (AlbumCreated album in content)
+                {
+                    if (album.UsernameUserAlbum() != actualUser.Username)
+                    {
+                        album.HideEditBtn();
+                    }
+                }
+            }
         }
     }
 

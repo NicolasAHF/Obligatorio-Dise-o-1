@@ -19,8 +19,8 @@ namespace SocialNetworkDB
         public DirectionEntity Direction { get; set; }
         public PhotoEntity Avatar { get; set; }
         public bool Admin { get; set; }
-        public List<UserEntity> Following { get; set; }
-        public virtual ICollection <UserEntity> Users { get; set; }
+        public ICollection<UserEntity> Following { get; set; }
+        //public virtual ICollection <UserEntity> Users { get; set; }
         public AlbumEntity Albums { get; set; }
         public ListeningNowEntity ListeningNow { get; set; }
     }
