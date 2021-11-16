@@ -34,7 +34,7 @@ namespace UISocialNetwork
         {
             try
             {
-                actualUser.Status = statusTxtBox.Text;
+                actualUser.Status.ElStatus = statusTxtBox.Text;
                 users.UpdateStatus(statusTxtBox.Text, actualUser);
                 StatusCreated status = new StatusCreated(actualUser);
                 PostCreateStatusEvent(status);

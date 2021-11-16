@@ -53,6 +53,8 @@
   <ItemGroup>
     <Compile Include="AlbumEntity.cs" />
     <Compile Include="AlbumRepository.cs" />
+    <Compile Include="CommentEntity.cs" />
+    <Compile Include="CommentRepository.cs" />
     <Compile Include="DirectionEntity.cs" />
     <Compile Include="DirectionRepository.cs" />
     <Compile Include="GameEntity.cs" />

@@ -39,5 +39,17 @@ namespace SocialNetworkDB
                 context.SaveChanges();
             }
         }
+        public void Delete(Photo photo)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                PhotoEntity entity = context.Photos.Where(p => p.Id == photo.Id).FirstOrDefault<PhotoEntity>(); ;
+                if (entity != null)
+                {
+                    context.Photos.Remove(entity);
+                    context.SaveChanges();
+                }
+            }
+        }
     }
 }

@@ -17,7 +17,8 @@ namespace SocialNetwork
         const int MIN_LENGTH_FOR_VALID_COMMENT = 5;
         const int MAX_LENGTH_FOR_VALID_COMMENT = 250;
 
-        public string ElComment
+        public int Id { get; set; }
+        public string TheComment
         {
             get { return _comment; }
             set => SetComment(value);
@@ -37,14 +38,14 @@ namespace SocialNetwork
 
         public Comment(string comment, User user)
         {
-            this.SetComment(comment);
+            this.TheComment = comment;
+            this.User = user;
             this.SetDateComment();
-            this.SetUser(user);
         }
         public User User
         {
             get { return _user; }
-            private set => SetUser(value);
+            set => SetUser(value);
         }
 
         public void SetComment(String comment)

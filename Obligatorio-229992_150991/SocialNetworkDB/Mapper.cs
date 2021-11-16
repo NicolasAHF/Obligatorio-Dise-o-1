@@ -190,5 +190,16 @@ namespace SocialNetworkDB
             };
             return scoreEntity;
         }
+        public CommentEntity CommentToEntity(Comment comment)
+        {
+            CommentEntity commentEntity = new CommentEntity()
+            {
+                Id = comment.Id,
+                TheComment = comment.TheComment,
+                User = UserToEntity(comment.User),
+                DateComment = comment.DateComment
+            };
+            return commentEntity;
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace SocialNetwork
         public DbSet<ListeningNowEntity> ListeningNows { get; set; }
         public DbSet<GameEntity> Games { get; set; }
         public DbSet<GameScoreEntity> Scores { get; set; }
+        public DbSet<CommentEntity> Comments { get; set; }
 
     }
 }

@@ -86,10 +86,10 @@ namespace SocialNetwork
             set { _followingList = new List<User>(); }
         }
 
-        public List<Album> Albums
+        public ICollection<Album> Albums
         {
             get { return _albumList; }
-            set { _albumList = value; }
+            set { _albumList = new List<Album>(); ; }
         }
 
         public Password GetPassword()

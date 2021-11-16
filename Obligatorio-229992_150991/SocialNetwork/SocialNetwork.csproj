@@ -56,14 +56,10 @@
     <Compile Include="Game.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="DirectoryUser.cs" />
-<<<<<<< HEAD
-    <Compile Include="IRepository.cs" />
-=======
     <Compile Include="Comment.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="Reaction.cs" />
     <Compile Include="Contents.cs" />
->>>>>>> develop
     <Compile Include="ListeningNow.cs" />
     <Compile Include="Password.cs" />
     <Compile Include="Album.cs" />
