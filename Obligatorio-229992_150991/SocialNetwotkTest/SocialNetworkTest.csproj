@@ -58,14 +58,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectoryGameTests.cs" />
-    <Compile Include="GameScoreTest.cs" />
-    <Compile Include="GameTest.cs" />
+    <Compile Include="GameScoreTests.cs" />
+    <Compile Include="GameTests.cs" />
     <Compile Include="AlbumTests.cs" />
-    <Compile Include="DirectionTest.cs" />
-    <Compile Include="PhotoTest.cs" />
+    <Compile Include="DirectionTests.cs" />
+    <Compile Include="ReactionTests.cs" />
+    <Compile Include="PhotoTests.cs" />
     <Compile Include="DirectoryUserTests.cs" />
-    <Compile Include="ListeningNowTest.cs" />
-    <Compile Include="PasswordTest.cs" />
+    <Compile Include="ListeningNowTests.cs" />
+    <Compile Include="PasswordTests.cs" />
+    <Compile Include="CommentTests.cs" />
+    <Compile Include="StatusTests.cs" />
     <Compile Include="UserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

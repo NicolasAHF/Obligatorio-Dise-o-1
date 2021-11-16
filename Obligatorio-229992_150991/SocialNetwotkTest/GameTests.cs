@@ -5,7 +5,7 @@ using System;
 namespace SocialNetworkTest
 {
     [TestClass]
-    public class GameTest
+    public class GameTests
     {
         private string validName = "Hitman 3";
         private string validCategory = "Action";
