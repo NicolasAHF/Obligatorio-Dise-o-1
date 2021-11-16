@@ -35,7 +35,16 @@ namespace UISocialNetwork
         }
         public void PostCreateCommentListening(CommentCreated newComment)
         {
+            commentPanel.Controls.Add(newComment);
+            commentBtn.Enabled = true;
+        }
 
+        private void commentBtn_Click(object sender, EventArgs e)
+        {
+            CreateComment comment = new CreateComment(actualUser, actualUser.Listening);
+            comment.AddListenerListening(PostCreateCommentListening);
+            commentPanel.Controls.Add(comment);
+            commentBtn.Enabled = false;
         }
     }
 }

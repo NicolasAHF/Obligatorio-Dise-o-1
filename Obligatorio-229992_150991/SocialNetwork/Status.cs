@@ -20,7 +20,6 @@ namespace SocialNetwork
             set => SetStatus(value);
         }
 
-
         public Status()
         {
             

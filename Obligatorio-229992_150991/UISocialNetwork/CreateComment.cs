@@ -12,11 +12,17 @@ using System.Windows.Forms;
 namespace UISocialNetwork
 {
     public delegate void PostCreateCommentAlbum(CommentCreated newComment);
+    public delegate void PostCreateCommentListening(CommentCreated newComment);
+    public delegate void PostCreateCommentStatus(CommentCreated newComment);
+    public delegate void PostCreateCommentInComment(CommentCreated newComment);
     public partial class CreateComment : UserControl
     {
         private User actualUser;
         private Contents actualContent;
-        private event PostCreateCommentAlbum PostCreateCommentEvent;
+        private event PostCreateCommentAlbum PostCreateCommentAlbumEvent;
+        private event PostCreateCommentListening PostCreateCommentListeningEvent;
+        private event PostCreateCommentStatus PostCreateCommentStatusEvent;
+        private event PostCreateCommentInComment PostCreateCommentEvent;
         public CreateComment(User actualUser, Contents actualContent)
         {
             InitializeComponent();
@@ -25,9 +31,17 @@ namespace UISocialNetwork
         }
         public void AddListenerAlbum(PostCreateCommentAlbum del)
         {
-            PostCreateCommentEvent += del;
+            PostCreateCommentAlbumEvent += del;
         }
-        public void AddListenerListening(PostCreateCommentAlbum del)
+        public void AddListenerListening(PostCreateCommentListening del)
+        {
+            PostCreateCommentListeningEvent += del;
+        }
+        public void AddListenerStatus(PostCreateCommentStatus del)
+        {
+            PostCreateCommentStatusEvent += del;
+        }
+        public void AddListenerComment(PostCreateCommentInComment del)
         {
             PostCreateCommentEvent += del;
         }
@@ -35,7 +49,7 @@ namespace UISocialNetwork
         {
             Comment comment = new Comment(commentString.Text, actualUser);
             comment.DateComment = DateTime.Now;
-            CommentCreated newComment = new CommentCreated(comment);
+            CommentCreated newComment = new CommentCreated(comment, actualUser);
             actualContent.Comment.Add(comment);
             this.Hide();
             CheckContentType(newComment);
@@ -48,6 +62,16 @@ namespace UISocialNetwork
         private void CheckContentType(CommentCreated newComment)
         {
             if(typeof(Album).IsAssignableFrom(actualContent.GetType()))
+            {
+                PostCreateCommentAlbumEvent(newComment);
+            }
+            else if(typeof(ListeningNow).IsAssignableFrom(actualContent.GetType())){
+                PostCreateCommentListeningEvent(newComment);
+            }else if (typeof(Status).IsAssignableFrom(actualContent.GetType()))
+            {
+                PostCreateCommentStatusEvent(newComment);
+            }
+            else
             {
                 PostCreateCommentEvent(newComment);
             }

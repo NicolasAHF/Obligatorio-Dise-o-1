@@ -37,13 +37,16 @@ namespace UISocialNetwork
             this.likeCount = new System.Windows.Forms.Label();
             this.congratsCount = new System.Windows.Forms.Label();
             this.loveCount = new System.Windows.Forms.Label();
+            this.commentBtn = new System.Windows.Forms.Button();
+            this.commentPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // usernameLbl
             // 
             this.usernameLbl.AutoSize = true;
             this.usernameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.usernameLbl.Location = new System.Drawing.Point(21, 11);
+            this.usernameLbl.Location = new System.Drawing.Point(21, 17);
             this.usernameLbl.Name = "usernameLbl";
             this.usernameLbl.Size = new System.Drawing.Size(102, 25);
             this.usernameLbl.TabIndex = 0;
@@ -123,10 +126,44 @@ namespace UISocialNetwork
             this.loveCount.TabIndex = 7;
             this.loveCount.Text = "0";
             // 
+            // commentBtn
+            // 
+            this.commentBtn.BackColor = System.Drawing.Color.Maroon;
+            this.commentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.commentBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.commentBtn.Location = new System.Drawing.Point(428, 92);
+            this.commentBtn.Name = "commentBtn";
+            this.commentBtn.Size = new System.Drawing.Size(75, 23);
+            this.commentBtn.TabIndex = 8;
+            this.commentBtn.Text = "Comentar";
+            this.commentBtn.UseVisualStyleBackColor = false;
+            this.commentBtn.Click += new System.EventHandler(this.commentBtn_Click);
+            // 
+            // commentPanel
+            // 
+            this.commentPanel.AutoSize = true;
+            this.commentPanel.Location = new System.Drawing.Point(26, 121);
+            this.commentPanel.Name = "commentPanel";
+            this.commentPanel.Size = new System.Drawing.Size(834, 19);
+            this.commentPanel.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(863, 14);
+            this.panel1.TabIndex = 21;
+            // 
             // CommentCreated
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.commentPanel);
+            this.Controls.Add(this.commentBtn);
             this.Controls.Add(this.loveCount);
             this.Controls.Add(this.congratsCount);
             this.Controls.Add(this.likeCount);
@@ -136,7 +173,7 @@ namespace UISocialNetwork
             this.Controls.Add(this.commentBody);
             this.Controls.Add(this.usernameLbl);
             this.Name = "CommentCreated";
-            this.Size = new System.Drawing.Size(520, 130);
+            this.Size = new System.Drawing.Size(863, 143);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,5 +189,8 @@ namespace UISocialNetwork
         private System.Windows.Forms.Label likeCount;
         private System.Windows.Forms.Label congratsCount;
         private System.Windows.Forms.Label loveCount;
+        private System.Windows.Forms.Button commentBtn;
+        private System.Windows.Forms.FlowLayoutPanel commentPanel;
+        private System.Windows.Forms.Panel panel1;
     }
 }

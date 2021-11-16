@@ -66,7 +66,7 @@ namespace UISocialNetwork
             this.editAlbumBtn.BackColor = System.Drawing.Color.Maroon;
             this.editAlbumBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editAlbumBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.editAlbumBtn.Location = new System.Drawing.Point(387, 17);
+            this.editAlbumBtn.Location = new System.Drawing.Point(782, 20);
             this.editAlbumBtn.Name = "editAlbumBtn";
             this.editAlbumBtn.Size = new System.Drawing.Size(86, 35);
             this.editAlbumBtn.TabIndex = 2;
@@ -78,7 +78,7 @@ namespace UISocialNetwork
             // 
             this.albumPanel.Location = new System.Drawing.Point(0, 60);
             this.albumPanel.Name = "albumPanel";
-            this.albumPanel.Size = new System.Drawing.Size(520, 202);
+            this.albumPanel.Size = new System.Drawing.Size(882, 202);
             this.albumPanel.TabIndex = 3;
             // 
             // panel1
@@ -87,7 +87,7 @@ namespace UISocialNetwork
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(523, 14);
+            this.panel1.Size = new System.Drawing.Size(897, 14);
             this.panel1.TabIndex = 4;
             // 
             // likeBtn
@@ -95,7 +95,7 @@ namespace UISocialNetwork
             this.likeBtn.BackColor = System.Drawing.Color.Maroon;
             this.likeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.likeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.likeBtn.Location = new System.Drawing.Point(4, 269);
+            this.likeBtn.Location = new System.Drawing.Point(31, 270);
             this.likeBtn.Name = "likeBtn";
             this.likeBtn.Size = new System.Drawing.Size(75, 23);
             this.likeBtn.TabIndex = 5;
@@ -107,9 +107,9 @@ namespace UISocialNetwork
             this.congratsBtn.BackColor = System.Drawing.Color.Maroon;
             this.congratsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.congratsBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.congratsBtn.Location = new System.Drawing.Point(85, 269);
+            this.congratsBtn.Location = new System.Drawing.Point(162, 269);
             this.congratsBtn.Name = "congratsBtn";
-            this.congratsBtn.Size = new System.Drawing.Size(80, 23);
+            this.congratsBtn.Size = new System.Drawing.Size(89, 23);
             this.congratsBtn.TabIndex = 6;
             this.congratsBtn.Text = "Felicitaciones";
             this.congratsBtn.UseVisualStyleBackColor = false;
@@ -119,7 +119,7 @@ namespace UISocialNetwork
             this.loveBtn.BackColor = System.Drawing.Color.Maroon;
             this.loveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.loveBtn.Location = new System.Drawing.Point(171, 269);
+            this.loveBtn.Location = new System.Drawing.Point(308, 269);
             this.loveBtn.Name = "loveBtn";
             this.loveBtn.Size = new System.Drawing.Size(75, 23);
             this.loveBtn.TabIndex = 7;
@@ -130,9 +130,9 @@ namespace UISocialNetwork
             // 
             this.commentPanel.AutoSize = true;
             this.commentPanel.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
-            this.commentPanel.Location = new System.Drawing.Point(0, 299);
+            this.commentPanel.Location = new System.Drawing.Point(31, 299);
             this.commentPanel.Name = "commentPanel";
-            this.commentPanel.Size = new System.Drawing.Size(520, 22);
+            this.commentPanel.Size = new System.Drawing.Size(851, 22);
             this.commentPanel.TabIndex = 8;
             // 
             // commentBtn
@@ -140,7 +140,7 @@ namespace UISocialNetwork
             this.commentBtn.BackColor = System.Drawing.Color.Maroon;
             this.commentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.commentBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.commentBtn.Location = new System.Drawing.Point(433, 268);
+            this.commentBtn.Location = new System.Drawing.Point(793, 270);
             this.commentBtn.Name = "commentBtn";
             this.commentBtn.Size = new System.Drawing.Size(75, 23);
             this.commentBtn.TabIndex = 9;
@@ -164,7 +164,7 @@ namespace UISocialNetwork
             this.Controls.Add(this.albumNameLbl);
             this.Controls.Add(this.usernameLblAlbum);
             this.Name = "AlbumCreated";
-            this.Size = new System.Drawing.Size(523, 326);
+            this.Size = new System.Drawing.Size(897, 326);
             this.ResumeLayout(false);
             this.PerformLayout();
 

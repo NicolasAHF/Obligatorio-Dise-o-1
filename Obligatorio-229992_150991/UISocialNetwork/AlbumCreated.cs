@@ -49,10 +49,12 @@ namespace UISocialNetwork
             CreateComment comment = new CreateComment(actualUser, album);
             comment.AddListenerAlbum(PostCreateCommentAlbum);
             commentPanel.Controls.Add(comment);
+            commentBtn.Enabled = false;
         }
         public void PostCreateCommentAlbum(CommentCreated newComment)
         {
             commentPanel.Controls.Add(newComment);
+            commentBtn.Enabled = true;
         }
     }
 }

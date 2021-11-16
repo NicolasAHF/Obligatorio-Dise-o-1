@@ -19,7 +19,20 @@ namespace UISocialNetwork
             InitializeComponent();
             this.actualUser = actualUser;
             usernameLbl.Text = actualUser.Username;
-            statusUpdateLbl.Text = statusUpdateLbl.Text;
+            statusUpdateLbl.Text = actualUser.Status.ElStatus;
+        }
+        public void PostCreateCommentStatus(CommentCreated newComment)
+        {
+            commentPanel.Controls.Add(newComment);
+            commentBtn.Enabled = true;
+        }
+
+        private void commentBtn_Click(object sender, EventArgs e)
+        {
+            CreateComment comment = new CreateComment(actualUser, actualUser.Status);
+            comment.AddListenerStatus(PostCreateCommentStatus);
+            commentPanel.Controls.Add(comment);
+            commentBtn.Enabled = false;
         }
     }
 }
