@@ -39,9 +39,20 @@ namespace UISocialNetwork
 
         private void EditAlbumBtn_Click(object sender, EventArgs e)
         {
-            howEliminatePhotoLbl.Text = "Doble click en una imagen para eliminarla";
+            
             ControlCollection photos = albumPanel.Controls;
 
+        }
+
+        private void commentBtn_Click(object sender, EventArgs e)
+        {
+            CreateComment comment = new CreateComment(actualUser, album);
+            comment.AddListenerAlbum(PostCreateCommentAlbum);
+            commentPanel.Controls.Add(comment);
+        }
+        public void PostCreateCommentAlbum(CommentCreated newComment)
+        {
+            commentPanel.Controls.Add(newComment);
         }
     }
 }

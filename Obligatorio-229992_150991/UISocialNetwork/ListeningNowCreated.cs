@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 namespace UISocialNetwork
 {
@@ -31,6 +32,10 @@ namespace UISocialNetwork
                 return false;
             }
             return true;
+        }
+        public void PostCreateCommentListening(CommentCreated newComment)
+        {
+
         }
     }
 }

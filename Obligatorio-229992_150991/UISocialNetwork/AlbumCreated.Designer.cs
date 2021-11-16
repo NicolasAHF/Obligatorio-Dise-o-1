@@ -33,24 +33,31 @@ namespace UISocialNetwork
             this.albumNameLbl = new System.Windows.Forms.Label();
             this.editAlbumBtn = new System.Windows.Forms.Button();
             this.albumPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.howEliminatePhotoLbl = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.likeBtn = new System.Windows.Forms.Button();
+            this.congratsBtn = new System.Windows.Forms.Button();
+            this.loveBtn = new System.Windows.Forms.Button();
+            this.commentPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.commentBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usernameLblAlbum
             // 
             this.usernameLblAlbum.AutoSize = true;
-            this.usernameLblAlbum.Location = new System.Drawing.Point(20, 10);
+            this.usernameLblAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.usernameLblAlbum.Location = new System.Drawing.Point(20, 17);
             this.usernameLblAlbum.Name = "usernameLblAlbum";
-            this.usernameLblAlbum.Size = new System.Drawing.Size(55, 13);
+            this.usernameLblAlbum.Size = new System.Drawing.Size(102, 25);
             this.usernameLblAlbum.TabIndex = 0;
             this.usernameLblAlbum.Text = "Username";
             // 
             // albumNameLbl
             // 
             this.albumNameLbl.AutoSize = true;
-            this.albumNameLbl.Location = new System.Drawing.Point(20, 32);
+            this.albumNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.albumNameLbl.Location = new System.Drawing.Point(22, 42);
             this.albumNameLbl.Name = "albumNameLbl";
-            this.albumNameLbl.Size = new System.Drawing.Size(64, 13);
+            this.albumNameLbl.Size = new System.Drawing.Size(84, 17);
             this.albumNameLbl.TabIndex = 1;
             this.albumNameLbl.Text = "AlbumName";
             // 
@@ -59,7 +66,7 @@ namespace UISocialNetwork
             this.editAlbumBtn.BackColor = System.Drawing.Color.Maroon;
             this.editAlbumBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editAlbumBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.editAlbumBtn.Location = new System.Drawing.Point(387, 10);
+            this.editAlbumBtn.Location = new System.Drawing.Point(387, 17);
             this.editAlbumBtn.Name = "editAlbumBtn";
             this.editAlbumBtn.Size = new System.Drawing.Size(86, 35);
             this.editAlbumBtn.TabIndex = 2;
@@ -71,30 +78,93 @@ namespace UISocialNetwork
             // 
             this.albumPanel.Location = new System.Drawing.Point(0, 60);
             this.albumPanel.Name = "albumPanel";
-            this.albumPanel.Size = new System.Drawing.Size(520, 266);
+            this.albumPanel.Size = new System.Drawing.Size(520, 202);
             this.albumPanel.TabIndex = 3;
             // 
-            // howEliminatePhotoLbl
+            // panel1
             // 
-            this.howEliminatePhotoLbl.AutoSize = true;
-            this.howEliminatePhotoLbl.Location = new System.Drawing.Point(186, 10);
-            this.howEliminatePhotoLbl.Name = "howEliminatePhotoLbl";
-            this.howEliminatePhotoLbl.Size = new System.Drawing.Size(63, 13);
-            this.howEliminatePhotoLbl.TabIndex = 4;
-            this.howEliminatePhotoLbl.Text = "eliminar foto";
-            this.howEliminatePhotoLbl.Visible = false;
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(523, 14);
+            this.panel1.TabIndex = 4;
+            // 
+            // likeBtn
+            // 
+            this.likeBtn.BackColor = System.Drawing.Color.Maroon;
+            this.likeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.likeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.likeBtn.Location = new System.Drawing.Point(4, 269);
+            this.likeBtn.Name = "likeBtn";
+            this.likeBtn.Size = new System.Drawing.Size(75, 23);
+            this.likeBtn.TabIndex = 5;
+            this.likeBtn.Text = "Me Gusta";
+            this.likeBtn.UseVisualStyleBackColor = false;
+            // 
+            // congratsBtn
+            // 
+            this.congratsBtn.BackColor = System.Drawing.Color.Maroon;
+            this.congratsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.congratsBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.congratsBtn.Location = new System.Drawing.Point(85, 269);
+            this.congratsBtn.Name = "congratsBtn";
+            this.congratsBtn.Size = new System.Drawing.Size(80, 23);
+            this.congratsBtn.TabIndex = 6;
+            this.congratsBtn.Text = "Felicitaciones";
+            this.congratsBtn.UseVisualStyleBackColor = false;
+            // 
+            // loveBtn
+            // 
+            this.loveBtn.BackColor = System.Drawing.Color.Maroon;
+            this.loveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.loveBtn.Location = new System.Drawing.Point(171, 269);
+            this.loveBtn.Name = "loveBtn";
+            this.loveBtn.Size = new System.Drawing.Size(75, 23);
+            this.loveBtn.TabIndex = 7;
+            this.loveBtn.Text = "Me Encanta";
+            this.loveBtn.UseVisualStyleBackColor = false;
+            // 
+            // commentPanel
+            // 
+            this.commentPanel.AutoSize = true;
+            this.commentPanel.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.commentPanel.Location = new System.Drawing.Point(0, 299);
+            this.commentPanel.Name = "commentPanel";
+            this.commentPanel.Size = new System.Drawing.Size(520, 22);
+            this.commentPanel.TabIndex = 8;
+            // 
+            // commentBtn
+            // 
+            this.commentBtn.BackColor = System.Drawing.Color.Maroon;
+            this.commentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.commentBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.commentBtn.Location = new System.Drawing.Point(433, 268);
+            this.commentBtn.Name = "commentBtn";
+            this.commentBtn.Size = new System.Drawing.Size(75, 23);
+            this.commentBtn.TabIndex = 9;
+            this.commentBtn.Text = "Comentar";
+            this.commentBtn.UseVisualStyleBackColor = false;
+            this.commentBtn.Click += new System.EventHandler(this.commentBtn_Click);
             // 
             // AlbumCreated
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.howEliminatePhotoLbl);
+            this.AutoSize = true;
+            this.Controls.Add(this.commentBtn);
+            this.Controls.Add(this.commentPanel);
+            this.Controls.Add(this.loveBtn);
+            this.Controls.Add(this.congratsBtn);
+            this.Controls.Add(this.likeBtn);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.albumPanel);
             this.Controls.Add(this.editAlbumBtn);
             this.Controls.Add(this.albumNameLbl);
             this.Controls.Add(this.usernameLblAlbum);
             this.Name = "AlbumCreated";
-            this.Size = new System.Drawing.Size(520, 326);
+            this.Size = new System.Drawing.Size(523, 326);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,6 +176,11 @@ namespace UISocialNetwork
         private System.Windows.Forms.Label albumNameLbl;
         private System.Windows.Forms.Button editAlbumBtn;
         private System.Windows.Forms.FlowLayoutPanel albumPanel;
-        private System.Windows.Forms.Label howEliminatePhotoLbl;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button likeBtn;
+        private System.Windows.Forms.Button congratsBtn;
+        private System.Windows.Forms.Button loveBtn;
+        private System.Windows.Forms.FlowLayoutPanel commentPanel;
+        private System.Windows.Forms.Button commentBtn;
     }
 }
