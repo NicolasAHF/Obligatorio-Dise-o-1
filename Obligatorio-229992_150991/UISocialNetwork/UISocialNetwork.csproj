@@ -68,11 +68,23 @@
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommentCreated.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommentCreated.Designer.cs">
+      <DependentUpon>CommentCreated.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateAlbum.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CreateAlbum.Designer.cs">
       <DependentUpon>CreateAlbum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateComment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateComment.Designer.cs">
+      <DependentUpon>CreateComment.cs</DependentUpon>
     </Compile>
     <Compile Include="CreateGame.cs">
       <SubType>UserControl</SubType>
@@ -166,8 +178,14 @@
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CommentCreated.resx">
+      <DependentUpon>CommentCreated.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAlbum.resx">
       <DependentUpon>CreateAlbum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateComment.resx">
+      <DependentUpon>CreateComment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateGame.resx">
       <DependentUpon>CreateGame.cs</DependentUpon>
@@ -186,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListeningNowCreated.resx">
+      <DependentUpon>ListeningNowCreated.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

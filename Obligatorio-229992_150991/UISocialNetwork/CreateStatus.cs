@@ -34,12 +34,11 @@ namespace UISocialNetwork
         {
             try
             {
-                actualUser.Status.ElStatus = statusTxtBox.Text;
-                users.UpdateStatus(statusTxtBox.Text, actualUser);
-                StatusCreated status = new StatusCreated(actualUser);
+                Status newStatus = new Status(statusTxtBox.Text);
+                actualUser.Status = newStatus;
+                StatusCreated status = new StatusCreated(actualUser, newStatus);
                 PostCreateStatusEvent(status);
-            }
-            catch (Exception ex)
+            }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

@@ -11,83 +11,32 @@ using System.Windows.Forms;
 
 namespace UISocialNetwork
 {
-    public partial class AlbumCreated : UserControl
+    public partial class CommentCreated : UserControl
     {
+        private Comment comment;
         private User actualUser;
-        private Album album;
-        public AlbumCreated(User actualUser, Album album)
+        public CommentCreated(Comment comment, User actualUser)
         {
             InitializeComponent();
+            this.comment = comment;
             this.actualUser = actualUser;
-            this.album = album;
-            LoadAlbumPictures();
-            usernameLblAlbum.Text = actualUser.Username;
-            albumNameLbl.Text = album.Name;
+            this.usernameLbl.Text = comment.User.Username;
+            this.commentBody.Text = comment.ElComment;
+            this.date.Text = comment.DateComment.ToString();
         }
-
-        private void LoadAlbumPictures()
-        {
-            foreach(Photo photo in album.PhotoList)
-            {
-                PictureBox image = new PictureBox();
-                image.Size = new System.Drawing.Size(75, 75);
-                image.SizeMode = PictureBoxSizeMode.StretchImage;
-                image.ImageLocation = photo.ElPath;
-                image.Tag = "no";
-                albumPanel.Controls.Add(image);
-            }
-        }
-
-        private void EditAlbumBtn_Click(object sender, EventArgs e)
-        {
-<<<<<<< HEAD
-            for (int i = 0; i < albumPanel.Controls.Count; i++)
-            {
-                albumPanel.Controls[i].Controls.Add(CreateDeleteButton());
-                if(albumPanel.Controls[i].Tag.Equals("si"))
-                {
-                    albumPanel.Controls.Remove(albumPanel.Controls[i]);
-                }
-            }
-        }
-        private Button CreateDeleteButton()
-        {
-            Button deleteButton = new Button();
-            deleteButton.Text = "X";
-            deleteButton.Size = new System.Drawing.Size(25, 25);
-            deleteButton.BackColor = Color.Maroon;
-            deleteButton.ForeColor = Color.White;
-            deleteButton.FlatStyle = FlatStyle.Flat;
-            //deleteButton.Click += new EventHandler();
-            return deleteButton;
-        }
-        public void HideEditBtn()
-        {
-            editAlbumBtn.Hide();
-        }
-        public string UsernameUserAlbum()
-        {
-            return usernameLblAlbum.Text;
-=======
-            
-            ControlCollection photos = albumPanel.Controls;
-
->>>>>>> develop
-        }
-
-        private void commentBtn_Click(object sender, EventArgs e)
-        {
-            CreateComment comment = new CreateComment(actualUser, album);
-            comment.AddListenerAlbum(PostCreateCommentAlbum);
-            commentPanel.Controls.Add(comment);
-            commentBtn.Enabled = false;
-        }
-        public void PostCreateCommentAlbum(CommentCreated newComment)
+        public void PostCreateCommentInComment(CommentCreated newComment)
         {
             commentPanel.Controls.Add(newComment);
             commentBtn.Enabled = true;
         }
 
+        private void commentBtn_Click(object sender, EventArgs e)
+        {
+            CreateComment newComment = new CreateComment(actualUser, comment);
+            newComment.AddListenerComment(PostCreateCommentInComment);
+            commentPanel.Controls.Add(newComment);
+            commentBtn.Enabled = false;
+        }
         private void likeBtn_Click(object sender, EventArgs e)
         {
             if (likeBtn.Text == "Me Gusta")
@@ -96,16 +45,16 @@ namespace UISocialNetwork
                 likeBtn.Text = "Quitar";
                 likeBtn.BackColor = Color.White;
                 likeBtn.ForeColor = Color.Maroon;
-                album.Reaction.Add(reaction);
+                comment.Reaction.Add(reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
             else
             {
                 likeBtn.Text = "Me Gusta";
-                Reaction reaction = album.GetReaction(likeBtn.Text, actualUser);
+                Reaction reaction = comment.GetReaction(likeBtn.Text, actualUser);
                 likeBtn.BackColor = Color.Maroon;
                 likeBtn.ForeColor = Color.White;
-                album.Reaction.Remove(reaction);
+                comment.Reaction.Remove(reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
         }
@@ -118,16 +67,16 @@ namespace UISocialNetwork
                 congratsBtn.Text = "Quitar";
                 congratsBtn.BackColor = Color.White;
                 congratsBtn.ForeColor = Color.Maroon;
-                album.Reaction.Add(reaction);
+                comment.Reaction.Add(reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
             else
             {
                 congratsBtn.Text = "Felicitaciones";
-                Reaction reaction = album.GetReaction(congratsBtn.Text, actualUser);
+                Reaction reaction = comment.GetReaction(congratsBtn.Text, actualUser);
                 congratsBtn.BackColor = Color.Maroon;
                 congratsBtn.ForeColor = Color.White;
-                album.Reaction.Remove(reaction);
+                comment.Reaction.Remove(reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
         }
@@ -140,25 +89,25 @@ namespace UISocialNetwork
                 loveBtn.Text = "Quitar";
                 loveBtn.BackColor = Color.White;
                 loveBtn.ForeColor = Color.Maroon;
-                album.Reaction.Add(reaction);
+                comment.Reaction.Add(reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
             else
             {
                 loveBtn.Text = "Me Encanta";
-                Reaction reaction = album.GetReaction(loveBtn.Text, actualUser);
+                Reaction reaction = comment.GetReaction(loveBtn.Text, actualUser);
                 loveBtn.BackColor = Color.Maroon;
                 loveBtn.ForeColor = Color.White;
-                album.Reaction.Remove(reaction);
+                comment.Reaction.Remove(reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
         }
         private int CountLikes()
         {
             int count = 0;
-            foreach (Reaction reaction in album.Reaction)
+            foreach(Reaction reaction in comment.Reaction)
             {
-                if (reaction.ReactionName.Equals("Me Gusta"))
+                if(reaction.ReactionName.Equals("Me Gusta"))
                 {
                     count++;
                 }
@@ -168,7 +117,7 @@ namespace UISocialNetwork
         private int CountCongrats()
         {
             int count = 0;
-            foreach (Reaction reaction in album.Reaction)
+            foreach (Reaction reaction in comment.Reaction)
             {
                 if (reaction.ReactionName.Equals("Felicitaciones"))
                 {
@@ -180,7 +129,7 @@ namespace UISocialNetwork
         private int CountLoves()
         {
             int count = 0;
-            foreach (Reaction reaction in album.Reaction)
+            foreach (Reaction reaction in comment.Reaction)
             {
                 if (reaction.ReactionName.Equals("Me Encanta"))
                 {
