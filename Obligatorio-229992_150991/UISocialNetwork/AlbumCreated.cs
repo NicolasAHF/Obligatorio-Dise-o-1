@@ -40,39 +40,14 @@ namespace UISocialNetwork
 
         private void EditAlbumBtn_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             for (int i = 0; i < albumPanel.Controls.Count; i++)
             {
                 albumPanel.Controls[i].Controls.Add(CreateDeleteButton());
-                if(albumPanel.Controls[i].Tag.Equals("si"))
+                if (albumPanel.Controls[i].Tag.Equals("si"))
                 {
                     albumPanel.Controls.Remove(albumPanel.Controls[i]);
                 }
             }
-        }
-        private Button CreateDeleteButton()
-        {
-            Button deleteButton = new Button();
-            deleteButton.Text = "X";
-            deleteButton.Size = new System.Drawing.Size(25, 25);
-            deleteButton.BackColor = Color.Maroon;
-            deleteButton.ForeColor = Color.White;
-            deleteButton.FlatStyle = FlatStyle.Flat;
-            //deleteButton.Click += new EventHandler();
-            return deleteButton;
-        }
-        public void HideEditBtn()
-        {
-            editAlbumBtn.Hide();
-        }
-        public string UsernameUserAlbum()
-        {
-            return usernameLblAlbum.Text;
-=======
-            
-            ControlCollection photos = albumPanel.Controls;
-
->>>>>>> develop
         }
 
         private void commentBtn_Click(object sender, EventArgs e)
@@ -188,6 +163,25 @@ namespace UISocialNetwork
                 }
             }
             return count;
+        }
+        private Button CreateDeleteButton()
+        {
+            Button deleteButton = new Button();
+            deleteButton.Text = "X";
+            deleteButton.Size = new System.Drawing.Size(25, 25);
+            deleteButton.BackColor = Color.Maroon;
+            deleteButton.ForeColor = Color.White;
+            deleteButton.FlatStyle = FlatStyle.Flat;
+            //deleteButton.Click += new EventHandler();
+            return deleteButton;
+        }
+        public void HideEditBtn()
+        {
+            editAlbumBtn.Hide();
+        }
+        public string UsernameUserAlbum()
+        {
+            return usernameLblAlbum.Text;
         }
     }
 }

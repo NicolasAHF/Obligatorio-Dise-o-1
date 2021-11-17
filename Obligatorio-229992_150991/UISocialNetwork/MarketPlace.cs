@@ -47,11 +47,14 @@ namespace UISocialNetwork
         private void PostCreateGame(GameCreated game)
         {
             gamesPanel.Controls.Add(game);
+            crateGamePanel.Controls.Clear();
+            crateGamePanel.Hide();
         }
 
         private void createGameBtn_Click(object sender, EventArgs e)
         {
             crateGamePanel.Controls.Clear();
+            crateGamePanel.Show();
             CreateGame game = new CreateGame(games, actualUser, scores);
             game.AddListener(PostCreateGame);
             crateGamePanel.Controls.Add(game);

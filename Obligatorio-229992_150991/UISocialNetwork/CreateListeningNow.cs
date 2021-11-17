@@ -38,7 +38,7 @@ namespace UISocialNetwork
             actualUser.Listening = actualListening;
             songs.Add(actualListening);
             users.UpdateSong(actualListening, actualUser);
-            ListeningNowCreated listening = new ListeningNowCreated(actualUser);
+            ListeningNowCreated listening = new ListeningNowCreated(actualUser, actualListening);
             PostCreateEvent(listening);
         }
     }

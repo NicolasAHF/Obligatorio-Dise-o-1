@@ -21,7 +21,7 @@ namespace UISocialNetwork
             this.comment = comment;
             this.actualUser = actualUser;
             this.usernameLbl.Text = comment.User.Username;
-            this.commentBody.Text = comment.ElComment;
+            this.commentBody.Text = comment.TheComment;
             this.date.Text = comment.DateComment.ToString();
         }
         public void PostCreateCommentInComment(CommentCreated newComment)

@@ -62,13 +62,16 @@ namespace UISocialNetwork
             // 
             // modifyUserBtn
             // 
+            this.modifyUserBtn.BackColor = System.Drawing.Color.Maroon;
+            this.modifyUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.modifyUserBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.modifyUserBtn.Location = new System.Drawing.Point(452, 15);
             this.modifyUserBtn.Margin = new System.Windows.Forms.Padding(2);
             this.modifyUserBtn.Name = "modifyUserBtn";
             this.modifyUserBtn.Size = new System.Drawing.Size(118, 37);
             this.modifyUserBtn.TabIndex = 3;
             this.modifyUserBtn.Text = "Modificar Usuario";
-            this.modifyUserBtn.UseVisualStyleBackColor = true;
+            this.modifyUserBtn.UseVisualStyleBackColor = false;
             this.modifyUserBtn.Click += new System.EventHandler(this.modifyUser_Click);
             // 
             // modifyPanel

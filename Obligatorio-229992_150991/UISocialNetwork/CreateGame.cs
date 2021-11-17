@@ -71,6 +71,7 @@ namespace UISocialNetwork
                 Game game = new Game(nameTxtBox.Text, categoryTxrBox.Text, cover);
                 games.Add(game);
                 GameCreated gameCreated = new GameCreated(game, games, actualUser, scores);
+
                 PostCreateGameEvent(gameCreated);
                 
             }
