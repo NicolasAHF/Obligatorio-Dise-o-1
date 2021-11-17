@@ -40,6 +40,7 @@ namespace UISocialNetwork
             this.commentBtn = new System.Windows.Forms.Button();
             this.commentPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.date = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // usernameLbl
@@ -74,6 +75,7 @@ namespace UISocialNetwork
             this.likeBtn.TabIndex = 2;
             this.likeBtn.Text = "Me Gusta";
             this.likeBtn.UseVisualStyleBackColor = false;
+            this.likeBtn.Click += new System.EventHandler(this.likeBtn_Click);
             // 
             // congratsBtn
             // 
@@ -86,6 +88,7 @@ namespace UISocialNetwork
             this.congratsBtn.TabIndex = 3;
             this.congratsBtn.Text = "Felicitaciones";
             this.congratsBtn.UseVisualStyleBackColor = false;
+            this.congratsBtn.Click += new System.EventHandler(this.congratsBtn_Click);
             // 
             // loveBtn
             // 
@@ -98,6 +101,7 @@ namespace UISocialNetwork
             this.loveBtn.TabIndex = 4;
             this.loveBtn.Text = "Me Encanta";
             this.loveBtn.UseVisualStyleBackColor = false;
+            this.loveBtn.Click += new System.EventHandler(this.loveBtn_Click);
             // 
             // likeCount
             // 
@@ -156,11 +160,21 @@ namespace UISocialNetwork
             this.panel1.Size = new System.Drawing.Size(863, 14);
             this.panel1.TabIndex = 21;
             // 
+            // date
+            // 
+            this.date.AutoSize = true;
+            this.date.Location = new System.Drawing.Point(143, 26);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(28, 13);
+            this.date.TabIndex = 22;
+            this.date.Text = "date";
+            // 
             // CommentCreated
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.date);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.commentPanel);
             this.Controls.Add(this.commentBtn);
@@ -192,5 +206,6 @@ namespace UISocialNetwork
         private System.Windows.Forms.Button commentBtn;
         private System.Windows.Forms.FlowLayoutPanel commentPanel;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label date;
     }
 }

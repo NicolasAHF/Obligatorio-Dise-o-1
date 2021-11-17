@@ -31,7 +31,7 @@ namespace UISocialNetwork
         {
             ListeningNow actualListening = new ListeningNow(songTxtBox.Text, artistTxtBox.Text, albumTxtBox.Text);
             actualUser.Listening = actualListening;
-            ListeningNowCreated listening = new ListeningNowCreated(actualUser);
+            ListeningNowCreated listening = new ListeningNowCreated(actualUser, actualListening);
             PostCreateEvent(listening);
         }
     }

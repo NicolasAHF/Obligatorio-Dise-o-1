@@ -39,6 +39,9 @@ namespace UISocialNetwork
             this.loveBtn = new System.Windows.Forms.Button();
             this.commentPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.commentBtn = new System.Windows.Forms.Button();
+            this.likeCount = new System.Windows.Forms.Label();
+            this.congratsCount = new System.Windows.Forms.Label();
+            this.loveCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // usernameLblAlbum
@@ -101,6 +104,7 @@ namespace UISocialNetwork
             this.likeBtn.TabIndex = 5;
             this.likeBtn.Text = "Me Gusta";
             this.likeBtn.UseVisualStyleBackColor = false;
+            this.likeBtn.Click += new System.EventHandler(this.likeBtn_Click);
             // 
             // congratsBtn
             // 
@@ -113,6 +117,7 @@ namespace UISocialNetwork
             this.congratsBtn.TabIndex = 6;
             this.congratsBtn.Text = "Felicitaciones";
             this.congratsBtn.UseVisualStyleBackColor = false;
+            this.congratsBtn.Click += new System.EventHandler(this.congratsBtn_Click);
             // 
             // loveBtn
             // 
@@ -125,6 +130,7 @@ namespace UISocialNetwork
             this.loveBtn.TabIndex = 7;
             this.loveBtn.Text = "Me Encanta";
             this.loveBtn.UseVisualStyleBackColor = false;
+            this.loveBtn.Click += new System.EventHandler(this.loveBtn_Click);
             // 
             // commentPanel
             // 
@@ -148,11 +154,41 @@ namespace UISocialNetwork
             this.commentBtn.UseVisualStyleBackColor = false;
             this.commentBtn.Click += new System.EventHandler(this.commentBtn_Click);
             // 
+            // likeCount
+            // 
+            this.likeCount.AutoSize = true;
+            this.likeCount.Location = new System.Drawing.Point(112, 274);
+            this.likeCount.Name = "likeCount";
+            this.likeCount.Size = new System.Drawing.Size(13, 13);
+            this.likeCount.TabIndex = 10;
+            this.likeCount.Text = "0";
+            // 
+            // congratsCount
+            // 
+            this.congratsCount.AutoSize = true;
+            this.congratsCount.Location = new System.Drawing.Point(257, 274);
+            this.congratsCount.Name = "congratsCount";
+            this.congratsCount.Size = new System.Drawing.Size(13, 13);
+            this.congratsCount.TabIndex = 11;
+            this.congratsCount.Text = "0";
+            // 
+            // loveCount
+            // 
+            this.loveCount.AutoSize = true;
+            this.loveCount.Location = new System.Drawing.Point(389, 275);
+            this.loveCount.Name = "loveCount";
+            this.loveCount.Size = new System.Drawing.Size(13, 13);
+            this.loveCount.TabIndex = 12;
+            this.loveCount.Text = "0";
+            // 
             // AlbumCreated
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.loveCount);
+            this.Controls.Add(this.congratsCount);
+            this.Controls.Add(this.likeCount);
             this.Controls.Add(this.commentBtn);
             this.Controls.Add(this.commentPanel);
             this.Controls.Add(this.loveBtn);
@@ -182,5 +218,8 @@ namespace UISocialNetwork
         private System.Windows.Forms.Button loveBtn;
         private System.Windows.Forms.FlowLayoutPanel commentPanel;
         private System.Windows.Forms.Button commentBtn;
+        private System.Windows.Forms.Label likeCount;
+        private System.Windows.Forms.Label congratsCount;
+        private System.Windows.Forms.Label loveCount;
     }
 }

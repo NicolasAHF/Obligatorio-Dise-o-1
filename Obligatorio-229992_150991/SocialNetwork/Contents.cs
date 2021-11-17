@@ -18,7 +18,7 @@ namespace SocialNetwork
 
         }
 
-        public List<Reaction> ReactionStringTypeList
+        public List<Reaction> Reaction
         {
             get { return _reactionList; }
             set { _reactionList = value; }
@@ -29,7 +29,17 @@ namespace SocialNetwork
             get { return _commentList; }
             set { _commentList = value; }
         }
-
+        public Reaction GetReaction(string reactionName, User user)
+        {
+            foreach(Reaction reactions in Reaction)
+            {
+                if(reactions.User.Equals(user) && reactions.ReactionName.Equals(reactionName))
+                {
+                    return reactions;
+                }
+            }
+            return null;
+        }
 
     }
 }

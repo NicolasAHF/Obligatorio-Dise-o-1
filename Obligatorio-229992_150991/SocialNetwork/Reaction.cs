@@ -10,7 +10,6 @@ namespace SocialNetwork
     {
         private string _reactionName;
         private User _user;
-        private DateTime _dateReaction;
 
 
         public string ReactionName 
@@ -25,12 +24,6 @@ namespace SocialNetwork
             private set => SetUser(value);
         }
 
-        public DateTime DateReaction
-        {
-            get { return _dateReaction; }
-            set => SetDateReaction();
-        }
-
         public Reaction()
         {
 
@@ -39,7 +32,6 @@ namespace SocialNetwork
         public Reaction(string reaction, User user)
         {
             this.SetReactionName(reaction);
-            this.SetDateReaction();
             this.SetUser(user);
         }
 
@@ -65,11 +57,6 @@ namespace SocialNetwork
             {
                 this._user = user;
             }
-        }
-
-        public void SetDateReaction()
-        {
-            this._dateReaction = DateTime.Now; ;
         }
 
         private bool EmptyString(string value)
