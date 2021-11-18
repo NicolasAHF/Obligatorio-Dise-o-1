@@ -191,18 +191,18 @@ namespace UISocialNetwork
                 //        }
                 //    }
                 //}
-                if (!comments.IsEmpty())
-                {
-                    List<SocialNetwork.Comment> commentList = (List<SocialNetwork.Comment>)comments.GetAll();
-                    foreach (User user in usersList)
-                    {
-                        foreach (Comment comm in commentList)
-                        {
-                            CommentCreated commentCreated = new CommentCreated(comm, user, comments);
-                            contents.Add(commentCreated);
-                        }
-                    }
-                }
+                //if (!comments.IsEmpty())
+                //{
+                //    List<SocialNetwork.Comment> commentList = (List<SocialNetwork.Comment>)comments.GetAll();
+                //    foreach (User user in usersList)
+                //    {
+                //        foreach (Comment comm in commentList)
+                //        {
+                //            CommentCreated commentCreated = new CommentCreated(comm, user, comments);
+                //            contents.Add(commentCreated);
+                //        }
+                //    }
+                //}
             }
         }
     }

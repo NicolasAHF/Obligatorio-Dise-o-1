@@ -213,22 +213,22 @@ namespace SocialNetworkDB
         }
         public Comment EntityToComment(CommentEntity commentEntity)
         {
-            List<Reaction> reactions = new List<Reaction>();
-            List<ReactionEntity> reactionEntity = (List<ReactionEntity>)commentEntity.Reactions.ToList();
+            //List<Reaction> reactions = new List<Reaction>();
+            //List<ReactionEntity> reactionEntity = (List<ReactionEntity>)commentEntity.Reactions.ToList();
             List<Comment> coments = new List<Comment>();
             List<CommentEntity> commentListEntity = (List<CommentEntity>)commentEntity.Comments.ToList();
             foreach (CommentEntity comm in commentListEntity)
             {
                 coments.Add(EntityToComment(comm));
             }
-            foreach(ReactionEntity react in reactionEntity)
-            {
-                reactions.Add(EntityToReaction(react));
-            }
+            //foreach(ReactionEntity react in reactionEntity)
+            //{
+            //    reactions.Add(EntityToReaction(react));
+            //}
             Comment comment = new Comment()
             {
                 Id = commentEntity.Id,
-                Reactions = reactions,
+                //Reactions = reactions,
                 Comments = coments,
                 DateComment = commentEntity.DateComment,
                 TheComment = commentEntity.TheComment,
