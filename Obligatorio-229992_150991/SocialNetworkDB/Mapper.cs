@@ -190,6 +190,16 @@ namespace SocialNetworkDB
             };
             return scoreEntity;
         }
+        public GameScore EntityToScore(GameScoreEntity gameScoreEntity)
+        {
+            GameScore gameScore = new GameScore()
+            {
+                Id = gameScoreEntity.Id,
+                Name = gameScoreEntity.Name,
+                Score = gameScoreEntity.score
+            };
+            return gameScore;
+        }
         public CommentEntity CommentToEntity(Comment comment)
         {
             CommentEntity commentEntity = new CommentEntity()
@@ -201,6 +211,31 @@ namespace SocialNetworkDB
             };
             return commentEntity;
         }
+        public Comment EntityToComment(CommentEntity commentEntity)
+        {
+            List<Reaction> reactions = new List<Reaction>();
+            List<ReactionEntity> reactionEntity = (List<ReactionEntity>)commentEntity.Reactions.ToList();
+            List<Comment> coments = new List<Comment>();
+            List<CommentEntity> commentListEntity = (List<CommentEntity>)commentEntity.Comments.ToList();
+            foreach (CommentEntity comm in commentListEntity)
+            {
+                coments.Add(EntityToComment(comm));
+            }
+            foreach(ReactionEntity react in reactionEntity)
+            {
+                reactions.Add(EntityToReaction(react));
+            }
+            Comment comment = new Comment()
+            {
+                Id = commentEntity.Id,
+                Reactions = reactions,
+                Comments = coments,
+                DateComment = commentEntity.DateComment,
+                TheComment = commentEntity.TheComment,
+                User = EntityToUser(commentEntity.User)
+            };
+            return comment;
+        }
         public StatusEntity StatusToEntity(Status content)
         {
             StatusEntity contentEntity = new StatusEntity()
@@ -209,6 +244,35 @@ namespace SocialNetworkDB
                 StatusBody = content.StatusBody
             };
             return contentEntity;
+        }
+        public Status EntityToStatus(StatusEntity contentEntity)
+        {
+            Status content = new Status()
+            {
+                Id = contentEntity.Id,
+                StatusBody = contentEntity.StatusBody
+            };
+            return content;
+        }
+        public Reaction EntityToReaction(ReactionEntity reactionEntity)
+        {
+            Reaction reaction = new Reaction()
+            {
+                Id = reactionEntity.Id,
+                ReactionName = reactionEntity.ReactionName,
+                User = EntityToUser(reactionEntity.User)
+            };
+            return reaction;
+        }
+        public ReactionEntity ReactionToEntity(Reaction reaction)
+        {
+            ReactionEntity reactionEntity = new ReactionEntity()
+            {
+                Id = reaction.Id,
+                ReactionName = reaction.ReactionName,
+                User = UserToEntity(reaction.User)
+            };
+            return reactionEntity;
         }
     }
 }

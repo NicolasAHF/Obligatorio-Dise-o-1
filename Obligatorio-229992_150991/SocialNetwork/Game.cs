@@ -40,9 +40,9 @@ namespace SocialNetwork
         }
         public Game(string name, string category, Photo cover)
         {
-            this.SetName(name);
-            this.SetCategory(category);
-            this.SetCover(cover);
+            this.Name = name;
+            this.Category = category;
+            this.Cover = cover;
         }
 
         private void SetName(string name)

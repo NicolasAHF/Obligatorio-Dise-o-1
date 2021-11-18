@@ -63,6 +63,7 @@ namespace UISocialNetwork
                 likeBtn.BackColor = Color.White;
                 likeBtn.ForeColor = Color.Maroon;
                 song.Reactions.Add(reaction);
+                songs.AddReaction(song, reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
             else
@@ -72,6 +73,7 @@ namespace UISocialNetwork
                 likeBtn.BackColor = Color.Maroon;
                 likeBtn.ForeColor = Color.White;
                 song.Reactions.Remove(reaction);
+                songs.RemoveReaction(song, reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
         }
@@ -85,6 +87,7 @@ namespace UISocialNetwork
                 congratsBtn.BackColor = Color.White;
                 congratsBtn.ForeColor = Color.Maroon;
                 song.Reactions.Add(reaction);
+                songs.AddReaction(song, reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
             else
@@ -94,6 +97,7 @@ namespace UISocialNetwork
                 congratsBtn.BackColor = Color.Maroon;
                 congratsBtn.ForeColor = Color.White;
                 song.Reactions.Remove(reaction);
+                songs.RemoveReaction(song, reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
         }
@@ -107,6 +111,7 @@ namespace UISocialNetwork
                 loveBtn.BackColor = Color.White;
                 loveBtn.ForeColor = Color.Maroon;
                 song.Reactions.Add(reaction);
+                songs.AddReaction(song, reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
             else
@@ -116,6 +121,7 @@ namespace UISocialNetwork
                 loveBtn.BackColor = Color.Maroon;
                 loveBtn.ForeColor = Color.White;
                 song.Reactions.Remove(reaction);
+                songs.RemoveReaction(song, reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
         }

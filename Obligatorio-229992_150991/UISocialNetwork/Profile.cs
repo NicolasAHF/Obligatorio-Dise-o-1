@@ -101,7 +101,7 @@ namespace UISocialNetwork
 
         private void CheckFollowing(User user, User actualUser)
         {
-            if (users.GetFollowing(actualUser, user).Contains(user))
+            if (actualUser.Following.Contains(user))
             {
                 followBtn.Text = "Siguiendo";
                 followBtn.BackColor = Color.White;
@@ -122,6 +122,16 @@ namespace UISocialNetwork
         {
             passwordPanel.Controls.Clear();
             changePasswordBtn.Enabled = true;
+        }
+        public void PostPlayGame()
+        {
+            if (!scores.IsEmpty())
+            {
+                
+                //GameScoreCreated gameScoreCreated = new GameScoreCreated(scores);
+                //gameScorePanel.Controls.Clear();
+                //gameScorePanel.Controls.Add(gameScoreCreated);
+            }
         }
 
     }

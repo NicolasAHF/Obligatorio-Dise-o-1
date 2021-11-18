@@ -36,12 +36,17 @@ namespace UISocialNetwork
 
         private void saveListeningNowBtn_Click(object sender, EventArgs e)
         {
-            ListeningNow actualListening = new ListeningNow(songTxtBox.Text, artistTxtBox.Text, albumTxtBox.Text);
-            actualUser.Listening = actualListening;
-            songs.Add(actualListening);
-            users.UpdateSong(actualListening, actualUser);
-            ListeningNowCreated listening = new ListeningNowCreated(actualUser, actualListening, comments, songs);
-            PostCreateEvent(listening);
+            try
+            {
+                ListeningNow actualListening = new ListeningNow(songTxtBox.Text, artistTxtBox.Text, albumTxtBox.Text);
+                actualUser.Listening = actualListening;
+                users.UpdateSong(actualListening, actualUser);
+                ListeningNowCreated listening = new ListeningNowCreated(actualUser, actualListening, comments, songs);
+                PostCreateEvent(listening);
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

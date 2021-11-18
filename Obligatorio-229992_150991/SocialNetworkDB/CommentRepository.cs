@@ -38,5 +38,50 @@ namespace SocialNetworkDB
                 context.SaveChanges();
             }
         }
+        public IEnumerable<Comment> GetAll()
+        {
+            List<Comment> comments = new List<Comment>();
+            using (SocialContext context = new SocialContext())
+            {
+                foreach (CommentEntity entity in context.Comments.ToList())
+                {
+                    comments.Add(mapper.EntityToComment(entity));
+                }
+            }
+            return comments;
+        }
+        public void AddReaction(Comment comment, Reaction reaction)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                CommentEntity entity = context.Comments.Where(p => p.Id == comment.Id).FirstOrDefault<CommentEntity>(); ;
+                if (entity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+                entity.Reactions.Add(mapper.ReactionToEntity(reaction));
+                context.SaveChanges();
+            }
+        }
+        public void RemoveReaction(Comment comment, Reaction reaction)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                CommentEntity entity = context.Comments.Where(p => p.Id == comment.Id).FirstOrDefault<CommentEntity>(); ;
+                if (entity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+                entity.Reactions.Remove(mapper.ReactionToEntity(reaction));
+                context.SaveChanges();
+            }
+        }
+        public bool IsEmpty()
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                return context.Comments.Count() == 0;
+            }
+        }
     }
 }

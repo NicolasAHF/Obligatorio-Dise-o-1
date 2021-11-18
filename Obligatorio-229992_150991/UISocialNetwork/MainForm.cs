@@ -26,14 +26,6 @@ namespace UISocialNetwork
         public MainForm()
         {
             InitializeComponent();
-            //users = new UserRepository(new Password("Default123"), new Direction(), new Photo(), new List<Album>());
-            //contents = new List<UserControl>();
-            //games = new GamesRepository();
-            //scores = new ScoresRepository();
-            //albums = new AlbumRepository();
-            //songs = new ListeningNowRepository();
-            //statusDB = new StatusRepository();
-            //comments = new CommentRepository();
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
@@ -157,24 +149,58 @@ namespace UISocialNetwork
                 if (!albums.IsEmpty())
                 {
                     List<SocialNetwork.Album> albumsList = (List<SocialNetwork.Album>)albums.GetAll();
+                   
                     foreach (User user in usersList)
                     {
                         foreach(Album album in albumsList)
                         {
-                            AlbumCreated albumCreated = new AlbumCreated(album, user);
-                            contents.Add(albumCreated);
-                        }
-                        
-                    }
-                    List<SocialNetwork.Status> statusList = (List<SocialNetwork.Status>)statusDB.GetAll();
-                    foreach (User user in usersList)
-                    {
-                        foreach (Album album in albumsList)
-                        {
-                            AlbumCreated albumCreated = new AlbumCreated(album, user);
+                            AlbumCreated albumCreated = new AlbumCreated(user, album, comments, albums);
                             contents.Add(albumCreated);
                         }
 
+                    }
+                }
+                if (!songs.IsEmpty())
+                {
+                    List<SocialNetwork.ListeningNow> songsList = (List<SocialNetwork.ListeningNow>)songs.GetAll();
+                    foreach(User user in usersList)
+                    {
+                        foreach (ListeningNow song in songsList)
+                        {
+                            if (user.Listening.Equals(song))
+                            {
+                                ListeningNowCreated listeningNowCreated = new ListeningNowCreated(user, song, comments, songs);
+                                contents.Add(listeningNowCreated);
+                            }
+                        }
+                    }
+
+                }
+                //if (!statusDB.IsEmpty())
+                //{
+                //    List<SocialNetwork.Status> statusList = (List<SocialNetwork.Status>)statusDB.GetAll();
+                //    foreach (User user in usersList)
+                //    {
+                //        foreach (Status status in statusList)
+                //        {
+                //            if (user.Status.Equals(status))
+                //            {
+                //                StatusCreated statusCreated = new StatusCreated(user, status, statusDB, comments);
+                //                contents.Add(statusCreated);
+                //            }
+                //        }
+                //    }
+                //}
+                if (!comments.IsEmpty())
+                {
+                    List<SocialNetwork.Comment> commentList = (List<SocialNetwork.Comment>)comments.GetAll();
+                    foreach (User user in usersList)
+                    {
+                        foreach (Comment comm in commentList)
+                        {
+                            CommentCreated commentCreated = new CommentCreated(comm, user, comments);
+                            contents.Add(commentCreated);
+                        }
                     }
                 }
             }

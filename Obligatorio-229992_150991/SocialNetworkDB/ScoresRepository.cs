@@ -24,5 +24,26 @@ namespace SocialNetworkDB
                 score.Id = entity.Id;
             }
         }
+        public GameScore GetAll(String Username)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                GameScoreEntity entity = context.Scores.Where(u => u.Name == Username).FirstOrDefault<GameScoreEntity>();
+                if (entity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+
+                GameScore score = mapper.EntityToScore(entity);
+                return score;
+            }
+        }
+        public bool IsEmpty()
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                return context.Scores.Count() == 0;
+            }
+        }
     }
 }

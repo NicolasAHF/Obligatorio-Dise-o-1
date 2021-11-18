@@ -37,6 +37,7 @@ namespace UISocialNetwork
             this.followBtn = new System.Windows.Forms.Button();
             this.passwordPanel = new System.Windows.Forms.Panel();
             this.changePasswordBtn = new System.Windows.Forms.Button();
+            this.gameScorePanel = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,10 +131,19 @@ namespace UISocialNetwork
             this.changePasswordBtn.UseVisualStyleBackColor = false;
             this.changePasswordBtn.Click += new System.EventHandler(this.changePasswordBtn_Click);
             // 
+            // gameScorePanel
+            // 
+            this.gameScorePanel.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.gameScorePanel.Location = new System.Drawing.Point(131, 77);
+            this.gameScorePanel.Name = "gameScorePanel";
+            this.gameScorePanel.Size = new System.Drawing.Size(236, 72);
+            this.gameScorePanel.TabIndex = 11;
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gameScorePanel);
             this.Controls.Add(this.changePasswordBtn);
             this.Controls.Add(this.passwordPanel);
             this.Controls.Add(this.followBtn);
@@ -162,5 +172,6 @@ namespace UISocialNetwork
         private System.Windows.Forms.Button followBtn;
         private System.Windows.Forms.Panel passwordPanel;
         private System.Windows.Forms.Button changePasswordBtn;
+        private System.Windows.Forms.FlowLayoutPanel gameScorePanel;
     }
 }

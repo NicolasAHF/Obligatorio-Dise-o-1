@@ -116,6 +116,12 @@
     <Compile Include="GameCreated.Designer.cs">
       <DependentUpon>GameCreated.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameScoreCreated.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameScoreCreated.Designer.cs">
+      <DependentUpon>GameScoreCreated.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameScoreUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GameCreated.resx">
       <DependentUpon>GameCreated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameScoreCreated.resx">
+      <DependentUpon>GameScoreCreated.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameScoreUI.resx">
       <DependentUpon>GameScoreUI.cs</DependentUpon>

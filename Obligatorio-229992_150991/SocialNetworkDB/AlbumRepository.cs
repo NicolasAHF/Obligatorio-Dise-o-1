@@ -63,5 +63,31 @@ namespace SocialNetworkDB
                 return mapper.EntityToUser(user);
             }
         }
+        public void AddReaction(Album album, Reaction reaction)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                AlbumEntity entity = context.Albums.Where(p => p.Id == album.Id).FirstOrDefault<AlbumEntity>(); ;
+                if (entity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+                entity.Reactions.Add(mapper.ReactionToEntity(reaction));
+                context.SaveChanges();
+            }
+        }
+        public void RemoveReaction(Album album, Reaction reaction)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                AlbumEntity entity = context.Albums.Where(p => p.Id == album.Id).FirstOrDefault<AlbumEntity>(); ;
+                if (entity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+                entity.Reactions.Remove(mapper.ReactionToEntity(reaction));
+                context.SaveChanges();
+            }
+        }
     }
 }

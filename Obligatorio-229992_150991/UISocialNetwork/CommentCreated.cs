@@ -50,6 +50,7 @@ namespace UISocialNetwork
                 likeBtn.BackColor = Color.White;
                 likeBtn.ForeColor = Color.Maroon;
                 comment.Reactions.Add(reaction);
+                comments.AddReaction(comment, reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
             else
@@ -59,6 +60,7 @@ namespace UISocialNetwork
                 likeBtn.BackColor = Color.Maroon;
                 likeBtn.ForeColor = Color.White;
                 comment.Reactions.Remove(reaction);
+                comments.RemoveReaction(comment, reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
         }
@@ -72,6 +74,7 @@ namespace UISocialNetwork
                 congratsBtn.BackColor = Color.White;
                 congratsBtn.ForeColor = Color.Maroon;
                 comment.Reactions.Add(reaction);
+                comments.AddReaction(comment, reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
             else
@@ -81,6 +84,7 @@ namespace UISocialNetwork
                 congratsBtn.BackColor = Color.Maroon;
                 congratsBtn.ForeColor = Color.White;
                 comment.Reactions.Remove(reaction);
+                comments.RemoveReaction(comment, reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
         }
@@ -94,6 +98,7 @@ namespace UISocialNetwork
                 loveBtn.BackColor = Color.White;
                 loveBtn.ForeColor = Color.Maroon;
                 comment.Reactions.Add(reaction);
+                comments.AddReaction(comment, reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
             else
@@ -103,6 +108,7 @@ namespace UISocialNetwork
                 loveBtn.BackColor = Color.Maroon;
                 loveBtn.ForeColor = Color.White;
                 comment.Reactions.Remove(reaction);
+                comments.RemoveReaction(comment, reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
         }

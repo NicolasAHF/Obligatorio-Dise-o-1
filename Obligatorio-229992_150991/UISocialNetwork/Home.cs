@@ -35,9 +35,9 @@ namespace UISocialNetwork
             this.comments = comments;
             userList.DataSource = users.GetAll();
             ShowContent(content);
-            HideEditBtn();
+            //HideEditBtn();
             FilterContentAlbum();
-            //FilterContentSongs();
+            FilterContentSongs();
         }
 
         public void AddListener(PostSearch del)
@@ -47,36 +47,37 @@ namespace UISocialNetwork
 
         private void ShowContent(List<UserControl> content)
         {
-            for(int i = 0; i < content.Count(); i++)
-                {
-                showContentPanel.Controls.Add(content[i]);
+
+            if (showContentPanel.Controls.Count < 0)
+            {
+                showContentPanel.Controls.Clear();
             }
-            //if (showContentPanel.Controls.Count < 0)
-            //{
-            //    showContentPanel.Controls.Clear();
-            //}
-            //else
-            //{
-            //    for(int i = 0; i< content.Count(); i++)
-            //    {
-            //        showContentPanel.Controls.Add(content[i]);
-            //    }
-            //}
+            else
+            {
+                for (int i = 0; i < content.Count(); i++)
+                {
+                    showContentPanel.Controls.Add(content[i]);
+                }
+            }
 
         }
         private void FilterContentAlbum()
         {
-            if(content != null)
+            if(!albums.IsEmpty())
             {
-                foreach (AlbumCreated album in content)
+                foreach (UserControl control in content)
                 {
-                    if (album.UsernameUserAlbum() != actualUser.Username && !actualUser.Following.Contains(users.Get(album.UsernameUserAlbum())))
+                    if (typeof(AlbumCreated).IsAssignableFrom(control.GetType()))
                     {
-                        album.Hide();
-                    }
-                    else
-                    {
-                        album.Show();
+                        AlbumCreated album = (AlbumCreated)control;
+                        if (album.UsernameUserAlbum() != actualUser.Username && !actualUser.Following.Contains(users.Get(album.UsernameUserAlbum())))
+                        {
+                            album.Hide();
+                        }
+                        else
+                        {
+                            album.Show();
+                        }
                     }
                 }
 
@@ -85,17 +86,21 @@ namespace UISocialNetwork
         }
         private void FilterContentSongs()
         {
-            if (content != null)
+            if (!songs.IsEmpty())
             {
-                foreach (ListeningNowCreated song in content)
+                foreach (UserControl control in content)
                 {
-                    if (song.UsernameUserSong() != actualUser.Username || !actualUser.Following.Contains(users.Get(song.UsernameUserSong())))
+                    if (typeof(ListeningNowCreated).IsAssignableFrom(control.GetType()))
                     {
-                        song.Hide();
-                    }
-                    else
-                    {
-                        song.Show();
+                        ListeningNowCreated song = (ListeningNowCreated)control;
+                        if (song.UsernameUserSong() != actualUser.Username || actualUser.Following.Contains(users.Get(song.UsernameUserSong())))
+                        {
+                            song.Hide();
+                        }
+                        else
+                        {
+                            song.Show();
+                        }
                     }
                 }
 
@@ -181,19 +186,19 @@ namespace UISocialNetwork
             panelContent.Controls.Clear();
             panelContent.Controls.Add(status);
         }
-        private void HideEditBtn()
-        {
-            if (content != null)
-            {
-                foreach (AlbumCreated album in content)
-                {
-                    if (album.UsernameUserAlbum() != actualUser.Username)
-                    {
-                        album.HideEditBtn();
-                    }
-                }
-            }
-        }
+        //private void HideEditBtn()
+        //{
+        //    if (!albums.IsEmpty())
+        //    {
+        //        foreach (AlbumCreated album in content.Skip<StatusCreated>(0))
+        //        {
+        //            if (album.UsernameUserAlbum() != actualUser.Username)
+        //            {
+        //                album.HideEditBtn();
+        //            }
+        //        }
+        //    }
+        //}
     }
 
 }

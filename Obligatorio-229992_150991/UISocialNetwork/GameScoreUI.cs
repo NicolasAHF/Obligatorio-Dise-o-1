@@ -33,7 +33,6 @@ namespace UISocialNetwork
         {
             PostGameScoreEvent += del;
         }
-
         private void saveScore_Click(object sender, EventArgs e)
         {
             gameScore.Name = actualUser.Username;

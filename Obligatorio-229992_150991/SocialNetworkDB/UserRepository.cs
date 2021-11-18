@@ -166,9 +166,9 @@ namespace SocialNetworkDB
                 {
                     throw new Exception("No se encontro");
                 }
-                foreach(UserEntity userin in actualUserEntity.Following)
+                foreach (UserEntity entity in context.Users.Include("Password").Include("Direction").Include("Avatar").ToList())
                 {
-                    following.Add(mapper.EntityToUser(userin));
+                    following.Add(mapper.EntityToUser(entity));
                 }
                 return following;
             }

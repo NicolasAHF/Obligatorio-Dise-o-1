@@ -15,13 +15,13 @@ namespace SocialNetwork
         public string ReactionName 
         {
             get { return _reactionName; }
-            private set => SetReactionName(value);
+            set => SetReactionName(value);
         }
 
         public User User
         {
             get { return _user; }
-            private set => SetUser(value);
+            set => SetUser(value);
         }
 
         public Reaction()
