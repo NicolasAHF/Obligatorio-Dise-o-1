@@ -25,6 +25,8 @@ namespace SocialNetwork
         public DbSet<GameEntity> Games { get; set; }
         public DbSet<GameScoreEntity> Scores { get; set; }
         public DbSet<CommentEntity> Comments { get; set; }
+        public DbSet<StatusEntity> StatusEntities { get; set; }
+        public DbSet<ReactionEntity> Reactions { get; set; }
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,23 +16,28 @@ namespace UISocialNetwork
     {
         private User actualUser;
         private Status status;
-        public StatusCreated(User actualUser, Status status)
+        private StatusRepository statusDB;
+        private CommentRepository comments;
+        public StatusCreated(User actualUser, Status status, StatusRepository statusDB, CommentRepository comments)
         {
             InitializeComponent();
             this.actualUser = actualUser;
             this.status = status;
             usernameLbl.Text = actualUser.Username;
-            statusUpdateLbl.Text = status.ElStatus;
+            statusUpdateLbl.Text = status.StatusBody;
+            this.statusDB = statusDB;
+            this.comments = comments;
         }
-        public void PostCreateCommentStatus(CommentCreated newComment)
+        public void PostCreateCommentStatus(CommentCreated newComment, Comment comment)
         {
             commentPanel.Controls.Add(newComment);
             commentBtn.Enabled = true;
+            statusDB.AddComment(status, comment);
         }
 
         private void commentBtn_Click(object sender, EventArgs e)
         {
-            CreateComment comment = new CreateComment(actualUser, actualUser.Status);
+            CreateComment comment = new CreateComment(actualUser, actualUser.Status, comments);
             comment.AddListenerStatus(PostCreateCommentStatus);
             commentPanel.Controls.Add(comment);
             commentBtn.Enabled = false;
@@ -44,7 +50,7 @@ namespace UISocialNetwork
                 likeBtn.Text = "Quitar";
                 likeBtn.BackColor = Color.White;
                 likeBtn.ForeColor = Color.Maroon;
-                status.Reaction.Add(reaction);
+                status.Reactions.Add(reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
             else
@@ -53,7 +59,7 @@ namespace UISocialNetwork
                 Reaction reaction = status.GetReaction(likeBtn.Text, actualUser);
                 likeBtn.BackColor = Color.Maroon;
                 likeBtn.ForeColor = Color.White;
-                status.Reaction.Remove(reaction);
+                status.Reactions.Remove(reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
         }
@@ -66,7 +72,7 @@ namespace UISocialNetwork
                 congratsBtn.Text = "Quitar";
                 congratsBtn.BackColor = Color.White;
                 congratsBtn.ForeColor = Color.Maroon;
-                status.Reaction.Add(reaction);
+                status.Reactions.Add(reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
             else
@@ -75,7 +81,7 @@ namespace UISocialNetwork
                 Reaction reaction = status.GetReaction(congratsBtn.Text, actualUser);
                 congratsBtn.BackColor = Color.Maroon;
                 congratsBtn.ForeColor = Color.White;
-                status.Reaction.Remove(reaction);
+                status.Reactions.Remove(reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
         }
@@ -88,7 +94,7 @@ namespace UISocialNetwork
                 loveBtn.Text = "Quitar";
                 loveBtn.BackColor = Color.White;
                 loveBtn.ForeColor = Color.Maroon;
-                status.Reaction.Add(reaction);
+                status.Reactions.Add(reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
             else
@@ -97,14 +103,14 @@ namespace UISocialNetwork
                 Reaction reaction = status.GetReaction(loveBtn.Text, actualUser);
                 loveBtn.BackColor = Color.Maroon;
                 loveBtn.ForeColor = Color.White;
-                status.Reaction.Remove(reaction);
+                status.Reactions.Remove(reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
         }
         private int CountLikes()
         {
             int count = 0;
-            foreach (Reaction reaction in status.Reaction)
+            foreach (Reaction reaction in status.Reactions)
             {
                 if (reaction.ReactionName.Equals("Me Gusta"))
                 {
@@ -116,7 +122,7 @@ namespace UISocialNetwork
         private int CountCongrats()
         {
             int count = 0;
-            foreach (Reaction reaction in status.Reaction)
+            foreach (Reaction reaction in status.Reactions)
             {
                 if (reaction.ReactionName.Equals("Felicitaciones"))
                 {
@@ -128,7 +134,7 @@ namespace UISocialNetwork
         private int CountLoves()
         {
             int count = 0;
-            foreach (Reaction reaction in status.Reaction)
+            foreach (Reaction reaction in status.Reactions)
             {
                 if (reaction.ReactionName.Equals("Me Encanta"))
                 {

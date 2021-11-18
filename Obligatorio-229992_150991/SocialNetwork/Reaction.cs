@@ -11,7 +11,7 @@ namespace SocialNetwork
         private string _reactionName;
         private User _user;
 
-
+        public int Id { get; set; }
         public string ReactionName 
         {
             get { return _reactionName; }

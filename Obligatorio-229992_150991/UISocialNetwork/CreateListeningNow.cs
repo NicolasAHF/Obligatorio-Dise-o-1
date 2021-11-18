@@ -18,13 +18,15 @@ namespace UISocialNetwork
         private User actualUser;
         private UserRepository users;
         private ListeningNowRepository songs;
+        private CommentRepository comments;
         private event PostCreate PostCreateEvent;
-        public CreateListeningNow(User actualUser, ListeningNowRepository songs, UserRepository users)
+        public CreateListeningNow(User actualUser, ListeningNowRepository songs, UserRepository users, CommentRepository comments)
         {
             InitializeComponent();
             this.actualUser = actualUser;
             this.users = users;
             this.songs = songs;
+            this.comments = comments;
 
         }
         public void AddListener(PostCreate del)
@@ -38,7 +40,7 @@ namespace UISocialNetwork
             actualUser.Listening = actualListening;
             songs.Add(actualListening);
             users.UpdateSong(actualListening, actualUser);
-            ListeningNowCreated listening = new ListeningNowCreated(actualUser, actualListening);
+            ListeningNowCreated listening = new ListeningNowCreated(actualUser, actualListening, comments, songs);
             PostCreateEvent(listening);
         }
     }

@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,14 +16,27 @@ namespace UISocialNetwork
     {
         private User actualUser;
         private Album album;
-        public AlbumCreated(User actualUser, Album album)
+        private CommentRepository comments;
+        private AlbumRepository albums;
+        public AlbumCreated(Album album, User user)
+        {
+            InitializeComponent();
+            this.album = album;
+            this.actualUser = user;
+            LoadAlbumPictures();
+            usernameLblAlbum.Text = user.Username;
+            albumNameLbl.Text = album.Name;
+        }
+        public AlbumCreated(User actualUser, Album album, CommentRepository comments, AlbumRepository albums)
         {
             InitializeComponent();
             this.actualUser = actualUser;
             this.album = album;
+            this.comments = comments;
             LoadAlbumPictures();
             usernameLblAlbum.Text = actualUser.Username;
             albumNameLbl.Text = album.Name;
+            this.albums = albums;
         }
 
         private void LoadAlbumPictures()
@@ -52,15 +66,17 @@ namespace UISocialNetwork
 
         private void commentBtn_Click(object sender, EventArgs e)
         {
-            CreateComment comment = new CreateComment(actualUser, album);
+            CreateComment comment = new CreateComment(actualUser, album, comments);
             comment.AddListenerAlbum(PostCreateCommentAlbum);
             commentPanel.Controls.Add(comment);
             commentBtn.Enabled = false;
         }
-        public void PostCreateCommentAlbum(CommentCreated newComment)
+        public void PostCreateCommentAlbum(CommentCreated newComment, Comment comment)
         {
             commentPanel.Controls.Add(newComment);
             commentBtn.Enabled = true;
+            album.Comments.Add(comment);
+            albums.AddComment(album, comment);
         }
 
         private void likeBtn_Click(object sender, EventArgs e)
@@ -71,7 +87,7 @@ namespace UISocialNetwork
                 likeBtn.Text = "Quitar";
                 likeBtn.BackColor = Color.White;
                 likeBtn.ForeColor = Color.Maroon;
-                album.Reaction.Add(reaction);
+                album.Reactions.Add(reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
             else
@@ -80,7 +96,7 @@ namespace UISocialNetwork
                 Reaction reaction = album.GetReaction(likeBtn.Text, actualUser);
                 likeBtn.BackColor = Color.Maroon;
                 likeBtn.ForeColor = Color.White;
-                album.Reaction.Remove(reaction);
+                album.Reactions.Remove(reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
         }
@@ -93,7 +109,7 @@ namespace UISocialNetwork
                 congratsBtn.Text = "Quitar";
                 congratsBtn.BackColor = Color.White;
                 congratsBtn.ForeColor = Color.Maroon;
-                album.Reaction.Add(reaction);
+                album.Reactions.Add(reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
             else
@@ -102,7 +118,7 @@ namespace UISocialNetwork
                 Reaction reaction = album.GetReaction(congratsBtn.Text, actualUser);
                 congratsBtn.BackColor = Color.Maroon;
                 congratsBtn.ForeColor = Color.White;
-                album.Reaction.Remove(reaction);
+                album.Reactions.Remove(reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
         }
@@ -115,7 +131,7 @@ namespace UISocialNetwork
                 loveBtn.Text = "Quitar";
                 loveBtn.BackColor = Color.White;
                 loveBtn.ForeColor = Color.Maroon;
-                album.Reaction.Add(reaction);
+                album.Reactions.Add(reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
             else
@@ -124,14 +140,14 @@ namespace UISocialNetwork
                 Reaction reaction = album.GetReaction(loveBtn.Text, actualUser);
                 loveBtn.BackColor = Color.Maroon;
                 loveBtn.ForeColor = Color.White;
-                album.Reaction.Remove(reaction);
+                album.Reactions.Remove(reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
         }
         private int CountLikes()
         {
             int count = 0;
-            foreach (Reaction reaction in album.Reaction)
+            foreach (Reaction reaction in album.Reactions)
             {
                 if (reaction.ReactionName.Equals("Me Gusta"))
                 {
@@ -143,7 +159,7 @@ namespace UISocialNetwork
         private int CountCongrats()
         {
             int count = 0;
-            foreach (Reaction reaction in album.Reaction)
+            foreach (Reaction reaction in album.Reactions)
             {
                 if (reaction.ReactionName.Equals("Felicitaciones"))
                 {
@@ -155,7 +171,7 @@ namespace UISocialNetwork
         private int CountLoves()
         {
             int count = 0;
-            foreach (Reaction reaction in album.Reaction)
+            foreach (Reaction reaction in album.Reactions)
             {
                 if (reaction.ReactionName.Equals("Me Encanta"))
                 {

@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,9 @@ namespace UISocialNetwork
     {
         private User actualUser;
         private ListeningNow song;
-        public ListeningNowCreated(User actualUser, ListeningNow song)
+        private CommentRepository comments;
+        private ListeningNowRepository songs;
+        public ListeningNowCreated(User actualUser, ListeningNow song, CommentRepository comments, ListeningNowRepository songs)
         {
             this.actualUser = actualUser;
             this.song = song;
@@ -25,6 +28,8 @@ namespace UISocialNetwork
             songLbl.Text = songLbl.Text + " " + song.SongName;
             albumLbl.Text = albumLbl.Text + " " + song.AlbumName;
             artistLbl.Text = artistLbl.Text + " " + song.Artist;
+            this.comments = comments;
+            this.songs = songs;
         }
 
         public bool CheckCreated()
@@ -35,15 +40,16 @@ namespace UISocialNetwork
             }
             return true;
         }
-        public void PostCreateCommentListening(CommentCreated newComment)
+        public void PostCreateCommentListening(CommentCreated newComment, Comment comment)
         {
             commentPanel.Controls.Add(newComment);
+            songs.UpdateComment(song, comment);
             commentBtn.Enabled = true;
         }
 
         private void commentBtn_Click(object sender, EventArgs e)
         {
-            CreateComment comment = new CreateComment(actualUser, actualUser.Listening);
+            CreateComment comment = new CreateComment(actualUser, actualUser.Listening, comments);
             comment.AddListenerListening(PostCreateCommentListening);
             commentPanel.Controls.Add(comment);
             commentBtn.Enabled = false;
@@ -56,7 +62,7 @@ namespace UISocialNetwork
                 likeBtn.Text = "Quitar";
                 likeBtn.BackColor = Color.White;
                 likeBtn.ForeColor = Color.Maroon;
-                song.Reaction.Add(reaction);
+                song.Reactions.Add(reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
             else
@@ -65,7 +71,7 @@ namespace UISocialNetwork
                 Reaction reaction = song.GetReaction(likeBtn.Text, actualUser);
                 likeBtn.BackColor = Color.Maroon;
                 likeBtn.ForeColor = Color.White;
-                song.Reaction.Remove(reaction);
+                song.Reactions.Remove(reaction);
                 likeCount.Text = Convert.ToString(CountLikes());
             }
         }
@@ -78,7 +84,7 @@ namespace UISocialNetwork
                 congratsBtn.Text = "Quitar";
                 congratsBtn.BackColor = Color.White;
                 congratsBtn.ForeColor = Color.Maroon;
-                song.Reaction.Add(reaction);
+                song.Reactions.Add(reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
             else
@@ -87,7 +93,7 @@ namespace UISocialNetwork
                 Reaction reaction = song.GetReaction(congratsBtn.Text, actualUser);
                 congratsBtn.BackColor = Color.Maroon;
                 congratsBtn.ForeColor = Color.White;
-                song.Reaction.Remove(reaction);
+                song.Reactions.Remove(reaction);
                 congratsCount.Text = Convert.ToString(CountCongrats());
             }
         }
@@ -100,7 +106,7 @@ namespace UISocialNetwork
                 loveBtn.Text = "Quitar";
                 loveBtn.BackColor = Color.White;
                 loveBtn.ForeColor = Color.Maroon;
-                song.Reaction.Add(reaction);
+                song.Reactions.Add(reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
             else
@@ -109,14 +115,14 @@ namespace UISocialNetwork
                 Reaction reaction = song.GetReaction(loveBtn.Text, actualUser);
                 loveBtn.BackColor = Color.Maroon;
                 loveBtn.ForeColor = Color.White;
-                song.Reaction.Remove(reaction);
+                song.Reactions.Remove(reaction);
                 loveCount.Text = Convert.ToString(CountLoves());
             }
         }
         private int CountLikes()
         {
             int count = 0;
-            foreach (Reaction reaction in song.Reaction)
+            foreach (Reaction reaction in song.Reactions)
             {
                 if (reaction.ReactionName.Equals("Me Gusta"))
                 {
@@ -128,7 +134,7 @@ namespace UISocialNetwork
         private int CountCongrats()
         {
             int count = 0;
-            foreach (Reaction reaction in song.Reaction)
+            foreach (Reaction reaction in song.Reactions)
             {
                 if (reaction.ReactionName.Equals("Felicitaciones"))
                 {
@@ -140,7 +146,7 @@ namespace UISocialNetwork
         private int CountLoves()
         {
             int count = 0;
-            foreach (Reaction reaction in song.Reaction)
+            foreach (Reaction reaction in song.Reactions)
             {
                 if (reaction.ReactionName.Equals("Me Encanta"))
                 {

@@ -29,5 +29,14 @@ namespace SocialNetworkDB
                 comment.Id = entity.Id;
             }
         }
+        public void AddComment(Comment mainComment, Comment comment)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                CommentEntity entity = context.Comments.Include("Comments").Where(p => p.Id == mainComment.Id).FirstOrDefault<CommentEntity>(); ;
+                entity.Comments.Add(mapper.CommentToEntity(comment));
+                context.SaveChanges();
+            }
+        }
     }
 }

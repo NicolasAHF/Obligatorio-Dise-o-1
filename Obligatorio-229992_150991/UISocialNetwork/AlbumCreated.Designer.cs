@@ -134,12 +134,12 @@ namespace UISocialNetwork
             // 
             // commentPanel
             // 
-            this.commentPanel.AutoSize = true;
-            this.commentPanel.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
-            this.commentPanel.Location = new System.Drawing.Point(31, 299);
+            this.commentPanel.AutoScroll = true;
+            this.commentPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.commentPanel.Location = new System.Drawing.Point(19, 307);
             this.commentPanel.Name = "commentPanel";
-            this.commentPanel.Size = new System.Drawing.Size(851, 22);
-            this.commentPanel.TabIndex = 8;
+            this.commentPanel.Size = new System.Drawing.Size(870, 150);
+            this.commentPanel.TabIndex = 5;
             // 
             // commentBtn
             // 
@@ -174,12 +174,6 @@ namespace UISocialNetwork
             // 
             // loveCount
             // 
-            this.commentPanel.AutoScroll = true;
-            this.commentPanel.AutoSize = true;
-            this.commentPanel.Location = new System.Drawing.Point(0, 307);
-            this.commentPanel.Name = "commentPanel";
-            this.commentPanel.Size = new System.Drawing.Size(515, 14);
-            this.commentPanel.TabIndex = 5;
             this.loveCount.AutoSize = true;
             this.loveCount.Location = new System.Drawing.Point(389, 275);
             this.loveCount.Name = "loveCount";
@@ -207,7 +201,7 @@ namespace UISocialNetwork
             this.Controls.Add(this.usernameLblAlbum);
             this.Cursor = System.Windows.Forms.Cursors.No;
             this.Name = "AlbumCreated";
-            this.Size = new System.Drawing.Size(897, 326);
+            this.Size = new System.Drawing.Size(897, 460);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -17,12 +17,16 @@ namespace UISocialNetwork
     {
         private User actualUser;
         private UserRepository users;
+        private StatusRepository statusBD;
+        private CommentRepository comments;
         private event PostCreateStatus PostCreateStatusEvent;
-        public CreateStatus(User actualUser, UserRepository users)
+        public CreateStatus(User actualUser, UserRepository users, StatusRepository statusBD, CommentRepository comments)
         {
             InitializeComponent();
             this.actualUser = actualUser;
             this.users = users;
+            this.statusBD = statusBD;
+            this.comments = comments;
         }
 
         public void AddListener(PostCreateStatus del)
@@ -36,7 +40,8 @@ namespace UISocialNetwork
             {
                 Status newStatus = new Status(statusTxtBox.Text);
                 actualUser.Status = newStatus;
-                StatusCreated status = new StatusCreated(actualUser, newStatus);
+                users.UpdateStatus(newStatus, actualUser);
+                StatusCreated status = new StatusCreated(actualUser, newStatus, statusBD, comments);
                 PostCreateStatusEvent(status);
             }catch(Exception ex)
             {

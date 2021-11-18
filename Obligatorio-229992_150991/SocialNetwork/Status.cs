@@ -14,7 +14,8 @@ namespace SocialNetwork
         const int MIN_LENGTH_FOR_VALID_STATUS = 10;
         const int MAX_LENGTH_FOR_VALID_STATUS = 160;
 
-        public string ElStatus
+        public int Id { get; set; }
+        public string StatusBody
         {
             get { return _status; }
             set => SetStatus(value);

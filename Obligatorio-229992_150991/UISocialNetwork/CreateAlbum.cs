@@ -20,12 +20,16 @@ namespace UISocialNetwork
         private Album album = new Album("Default");
         private User actualUser;
         private AlbumRepository albums;
+        private CommentRepository comments;
+        private UserRepository users;
         private event PostCreateAlbum PostCreateAlbumEvent;
-        public CreateAlbum(User actualUser, AlbumRepository albums)
+        public CreateAlbum(User actualUser, AlbumRepository albums, CommentRepository comments, UserRepository users)
         {
             InitializeComponent();
             this.actualUser = actualUser;
             this.albums = albums;
+            this.comments = comments;
+            this.users = users;
         }
 
         public void AddListener(PostCreateAlbum del)
@@ -64,11 +68,10 @@ namespace UISocialNetwork
             try
             {
                 album.SetName(albumNameTxtBox.Text);
+                AlbumCreated albumAdded = new AlbumCreated(actualUser, album, comments, albums);
                 actualUser.Albums.Add(album);
-                AlbumCreated albumAdded = new AlbumCreated(actualUser, album);
-                albums.Add(album);
-                actualUser.Albums.Add(album);
-                
+                users.AddAlbum(album, actualUser);
+
                 PostCreateAlbumEvent(albumAdded);
             }catch(Exception ex)
             {

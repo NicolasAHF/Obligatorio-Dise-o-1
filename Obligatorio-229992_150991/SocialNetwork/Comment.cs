@@ -29,7 +29,11 @@ namespace SocialNetwork
             get { return _dateComment; }
             set => SetDateComment();
         }
-
+        public User User
+        {
+            get { return _user; }
+            set => SetUser(value);
+        }
 
         public Comment()
         {
@@ -41,11 +45,6 @@ namespace SocialNetwork
             this.TheComment = comment;
             this.User = user;
             this.SetDateComment();
-        }
-        public User User
-        {
-            get { return _user; }
-            set => SetUser(value);
         }
 
         public void SetComment(String comment)

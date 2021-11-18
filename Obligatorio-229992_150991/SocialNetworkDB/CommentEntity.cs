@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SocialNetworkDB
 {
-    class CommentEntity
+    class CommentEntity : ContentEntity
     {
         public int Id { get; set; }
         public string TheComment { get; set; }

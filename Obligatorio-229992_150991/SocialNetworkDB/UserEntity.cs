@@ -13,7 +13,7 @@ namespace SocialNetworkDB
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
-        public string status { get; set; }
+        public StatusEntity status { get; set; }
         public PasswordEntity Password { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DirectionEntity Direction { get; set; }
@@ -21,7 +21,7 @@ namespace SocialNetworkDB
         public bool Admin { get; set; }
         public ICollection<UserEntity> Following { get; set; }
         //public virtual ICollection <UserEntity> Users { get; set; }
-        public AlbumEntity Albums { get; set; }
+        public ICollection<AlbumEntity> Albums { get; set; }
         public ListeningNowEntity ListeningNow { get; set; }
     }
 }

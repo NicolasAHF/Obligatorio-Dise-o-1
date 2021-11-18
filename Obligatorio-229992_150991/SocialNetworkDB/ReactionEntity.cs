@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace SocialNetworkDB
 {
-    class ListeningNowEntity : ContentEntity
+    class ReactionEntity
     {
         public int Id { get; set; }
-        public string SongName { get; set; }
-        public string Artist { get; set; }
-        public string AlbumName { get; set; }
+        public string ReactionName { get; set; }
+        public UserEntity User { get; set; }
     }
 }

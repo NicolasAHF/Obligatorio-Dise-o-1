@@ -26,7 +26,7 @@ namespace SocialNetworkDB
                 song.Id = entity.Id;
             }
         }
-        public void Update(ListeningNow song)
+        public void UpdateComment(ListeningNow song, Comment comment)
         {
             using (SocialContext context = new SocialContext())
             {
@@ -35,7 +35,7 @@ namespace SocialNetworkDB
                 {
                     throw new Exception("No se encontro");
                 }
-                entity.Id = song.Id;
+                entity.Comments.Add(mapper.CommentToEntity(comment));
                 context.SaveChanges();
             }
         }

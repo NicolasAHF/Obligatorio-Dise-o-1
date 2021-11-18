@@ -201,5 +201,14 @@ namespace SocialNetworkDB
             };
             return commentEntity;
         }
+        public StatusEntity StatusToEntity(Status content)
+        {
+            StatusEntity contentEntity = new StatusEntity()
+            {
+                Id = content.Id,
+                StatusBody = content.StatusBody
+            };
+            return contentEntity;
+        }
     }
 }

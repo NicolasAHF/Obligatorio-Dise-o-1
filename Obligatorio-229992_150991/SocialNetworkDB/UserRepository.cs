@@ -99,7 +99,7 @@ namespace SocialNetworkDB
                 context.SaveChanges();
             }
         }
-        public void UpdateStatus(String status, User user)
+        public void UpdateStatus(Status status, User user)
         {
             using (SocialContext context = new SocialContext())
             {
@@ -108,7 +108,7 @@ namespace SocialNetworkDB
                 {
                     throw new Exception("No se encontro");
                 }
-                entity.status = status;
+                entity.status = mapper.StatusToEntity(status);
                 context.SaveChanges();
             }
         }
@@ -126,21 +126,6 @@ namespace SocialNetworkDB
                 context.SaveChanges();
             }
         }
-        /*       public void AddFollowing(User actualUser, User user)
-               {
-                   using (SocialContext context = new SocialContext())
-                   {
-                       UserEntity userEntity = context.Users.Find(user.Id);
-                       UserEntity actualUserEntity = context.Users.Include("Following").Where(p => p.Id == actualUser.Id).FirstOrDefault<UserEntity>(); ;
-                       if (userEntity == null || actualUserEntity == null)
-                       {
-                           throw new Exception("No se encontro");
-                       }
-                       actualUserEntity.Following.Add(userEntity);
-                       context.SaveChanges();
-                   }
-               }
-        */
 
         public void AddFollowing(User actualUser, User user)
         {
@@ -186,6 +171,27 @@ namespace SocialNetworkDB
                     following.Add(mapper.EntityToUser(userin));
                 }
                 return following;
+            }
+        }
+        public bool IsEmpty()
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                return context.Users.Count() == 0;
+            }
+        }
+        public void AddAlbum(Album album, User user)
+        {
+            using (SocialContext context = new SocialContext())
+            {
+                UserEntity entity = context.Users.Include("Albums").Where(p => p.Id == user.Id).FirstOrDefault<UserEntity>(); ;
+                UserEntity actualUserEntity = context.Users.Include("Following").Include("Password").Include("Direction").Include("Avatar").Include("Albums").Where(p => p.Id == user.Id).FirstOrDefault<UserEntity>(); ;
+                if (entity == null)
+                {
+                    throw new Exception("No se encontro");
+                }
+                entity.Albums.Add(mapper.AlbumToEntity(album));
+                context.SaveChanges();
             }
         }
     }
