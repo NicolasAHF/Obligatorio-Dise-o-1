@@ -13,7 +13,7 @@ namespace SocialNetwork
         private string _username;
         private string _name;
         private string _lastname;
-        private string _status;
+        private Status _status;
         private Password _password;
         private DateTime _dateofbirth;
         private Direction _direction;
@@ -25,9 +25,12 @@ namespace SocialNetwork
         private ListeningNow _listeningNow = new ListeningNow();
 
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
-        const int MIN_LENGTH_FOR_VALID_STATUS = 10;
-        const int MAX_LENGTH_FOR_VALID_STATUS = 160;
 
+
+        public virtual ICollection<User> Users { get; set; }
+
+
+        public int Id { get; set; }
         public string Name
         {
             get { return _name; }
@@ -43,11 +46,18 @@ namespace SocialNetwork
             get { return _lastname; }
             set => SetLastname(value);
         }
-        public string Status
+        public Status Status
         {
-            get { return _lastname; }
-            set => SetLastname(value);
+            get { return _status; }
+            set => SetStatus(value);
         }
+
+        public Password Password
+        {
+            get { return _password; }
+            set => SetPassword(value);
+        }
+
         public DateTime DateOfBirth 
         {
             get { return _dateofbirth; }
@@ -57,12 +67,12 @@ namespace SocialNetwork
         public Direction Direction 
         {
             get { return _direction; }
-            set => _direction = Direction;
+            set => _direction = value;
         }
         public Photo Avatar
         {
             get { return _avatar; }
-            set => SetAvatar(_avatar);
+            set => SetAvatar(value);
         }
         public bool Admin
         {
@@ -70,22 +80,16 @@ namespace SocialNetwork
             set => SetAdmin(value);
         }
 
-        public List<User> Following
+        public ICollection<User> Following
         {
             get { return _followingList; }
-            set { _followingList = value; }
+            set { _followingList = new List<User>(); }
         }
 
-        public List<Album> AlbumList
+        public ICollection<Album> Albums
         {
             get { return _albumList; }
-            set { _albumList = value; }
-        }
-        public void SetStatus(String status)
-        {
-            ValidMinLengthStatus(status);
-            ValidMaxLengthStatus(status);
-            this._status = status;
+            set { _albumList = new List<Album>(); ; }
         }
 
         public Password GetPassword()
@@ -99,6 +103,10 @@ namespace SocialNetwork
             set { _listeningNow = value; }
         }
 
+        public User()
+        {
+            this.Users = new HashSet<User>();
+        }
         public User(string username, Password password, string name, string lastname, DateTime birthday, Direction direction, Photo avatar, bool Admin)
         {
             this.Username = username;
@@ -109,7 +117,15 @@ namespace SocialNetwork
             this.SetPassword(password);
             this.Avatar = avatar;
             this.Admin = Admin;
+            this._followingList = new List<User>();
+            this._albumList = new List<Album>();
+            this._gameScoreList = new List<GameScore>();
+            this._listeningNow = new ListeningNow();
 
+        }
+        public void SetStatus(Status status)
+        {
+            this._status = status;
         }
 
         private void SetPassword (Password password)
@@ -120,7 +136,7 @@ namespace SocialNetwork
         public void ChangePassword(User elUsuario, Password userEnteredActualPassword, Password pasNueva)
         {
 
-            if (this.GetPassword().LaPassword != userEnteredActualPassword.LaPassword)
+            if (this.GetPassword().Hashpassword != userEnteredActualPassword.Hashpassword)
             {
                 throw new InvalidOperationException("La Password ingresada no es correcta");
             }
@@ -210,19 +226,6 @@ namespace SocialNetwork
             return username.Length >= MIN_LENGTH_FOR_VALID_NAME;
         }
 
-        private void ValidMinLengthStatus(string status)
-        {
-            if (status.Length < MIN_LENGTH_FOR_VALID_STATUS) {
-                throw new InvalidOperationException("La frace de estado no alcanza el largo minimo");
-            }
-        }
-        private void ValidMaxLengthStatus(string status)
-        {
-            if (status.Length > MAX_LENGTH_FOR_VALID_STATUS) {
-                throw new InvalidOperationException("La frace de estado supera el largo máximo");
-            }
-        }
-
         private bool EmptyString(string value)
         {
             return value.Length.Equals(0);
@@ -250,5 +253,18 @@ namespace SocialNetwork
         {
             return this.Username;
         }
+
+        public override bool Equals(object obj)
+        {
+            User userObj = obj as User;
+
+            if (userObj == null || this.GetType() != userObj.GetType())
+            {
+                return false;
+            }
+
+            return Id == userObj.Id ? true : false;
+        }
     }
 }
+

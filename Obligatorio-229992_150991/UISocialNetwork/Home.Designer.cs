@@ -104,7 +104,7 @@ namespace UISocialNetwork
             this.panelContent.AutoSize = true;
             this.panelContent.Location = new System.Drawing.Point(0, 92);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(712, 105);
+            this.panelContent.Size = new System.Drawing.Size(897, 105);
             this.panelContent.TabIndex = 5;
             // 
             // panelButtons
@@ -115,7 +115,7 @@ namespace UISocialNetwork
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelButtons.Location = new System.Drawing.Point(0, 0);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(716, 86);
+            this.panelButtons.Size = new System.Drawing.Size(900, 86);
             this.panelButtons.TabIndex = 6;
             // 
             // statusBtn
@@ -123,9 +123,9 @@ namespace UISocialNetwork
             this.statusBtn.BackColor = System.Drawing.Color.Maroon;
             this.statusBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.statusBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.statusBtn.Location = new System.Drawing.Point(429, 44);
+            this.statusBtn.Location = new System.Drawing.Point(707, 4);
             this.statusBtn.Name = "statusBtn";
-            this.statusBtn.Size = new System.Drawing.Size(132, 30);
+            this.statusBtn.Size = new System.Drawing.Size(140, 34);
             this.statusBtn.TabIndex = 9;
             this.statusBtn.Text = "Crear frase de status";
             this.statusBtn.UseVisualStyleBackColor = false;
@@ -150,7 +150,7 @@ namespace UISocialNetwork
             this.showContentPanel.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.showContentPanel.Location = new System.Drawing.Point(3, 203);
             this.showContentPanel.Name = "showContentPanel";
-            this.showContentPanel.Size = new System.Drawing.Size(709, 131);
+            this.showContentPanel.Size = new System.Drawing.Size(894, 131);
             this.showContentPanel.TabIndex = 7;
             // 
             // Home
@@ -167,7 +167,7 @@ namespace UISocialNetwork
             this.Controls.Add(this.showContentPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Home";
-            this.Size = new System.Drawing.Size(716, 480);
+            this.Size = new System.Drawing.Size(900, 490);
             this.panelButtons.ResumeLayout(false);
             this.panelButtons.PerformLayout();
             this.ResumeLayout(false);

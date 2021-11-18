@@ -59,7 +59,7 @@
             this.lblErrorMsg.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblErrorMsg.AutoSize = true;
             this.lblErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblErrorMsg.Location = new System.Drawing.Point(24, 415);
+            this.lblErrorMsg.Location = new System.Drawing.Point(87, 474);
             this.lblErrorMsg.Name = "lblErrorMsg";
             this.lblErrorMsg.Size = new System.Drawing.Size(40, 17);
             this.lblErrorMsg.TabIndex = 42;
@@ -72,7 +72,7 @@
             this.saveUser.BackColor = System.Drawing.Color.Maroon;
             this.saveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.saveUser.Location = new System.Drawing.Point(27, 372);
+            this.saveUser.Location = new System.Drawing.Point(90, 431);
             this.saveUser.Name = "saveUser";
             this.saveUser.Size = new System.Drawing.Size(127, 23);
             this.saveUser.TabIndex = 41;
@@ -86,7 +86,7 @@
             this.avatarBtn.BackColor = System.Drawing.Color.Maroon;
             this.avatarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.avatarBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.avatarBtn.Location = new System.Drawing.Point(289, 315);
+            this.avatarBtn.Location = new System.Drawing.Point(352, 374);
             this.avatarBtn.Name = "avatarBtn";
             this.avatarBtn.Size = new System.Drawing.Size(75, 23);
             this.avatarBtn.TabIndex = 40;
@@ -98,7 +98,7 @@
             // 
             this.avatarBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.avatarBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.avatarBox.Location = new System.Drawing.Point(454, 242);
+            this.avatarBox.Location = new System.Drawing.Point(517, 301);
             this.avatarBox.Name = "avatarBox";
             this.avatarBox.Size = new System.Drawing.Size(203, 153);
             this.avatarBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -110,7 +110,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(401, 140);
+            this.label1.Location = new System.Drawing.Point(464, 199);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 17);
             this.label1.TabIndex = 38;
@@ -121,7 +121,7 @@
             this.cityLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cityLbl.AutoSize = true;
             this.cityLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.cityLbl.Location = new System.Drawing.Point(398, 114);
+            this.cityLbl.Location = new System.Drawing.Point(461, 173);
             this.cityLbl.Name = "cityLbl";
             this.cityLbl.Size = new System.Drawing.Size(56, 17);
             this.cityLbl.TabIndex = 37;
@@ -130,7 +130,7 @@
             // textBoxCountry
             // 
             this.textBoxCountry.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxCountry.Location = new System.Drawing.Point(537, 134);
+            this.textBoxCountry.Location = new System.Drawing.Point(600, 193);
             this.textBoxCountry.Name = "textBoxCountry";
             this.textBoxCountry.Size = new System.Drawing.Size(133, 20);
             this.textBoxCountry.TabIndex = 36;
@@ -138,7 +138,7 @@
             // textBoxCity
             // 
             this.textBoxCity.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxCity.Location = new System.Drawing.Point(537, 108);
+            this.textBoxCity.Location = new System.Drawing.Point(600, 167);
             this.textBoxCity.Name = "textBoxCity";
             this.textBoxCity.Size = new System.Drawing.Size(133, 20);
             this.textBoxCity.TabIndex = 35;
@@ -146,7 +146,7 @@
             // textBoxStreet
             // 
             this.textBoxStreet.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxStreet.Location = new System.Drawing.Point(537, 82);
+            this.textBoxStreet.Location = new System.Drawing.Point(600, 141);
             this.textBoxStreet.Name = "textBoxStreet";
             this.textBoxStreet.Size = new System.Drawing.Size(133, 20);
             this.textBoxStreet.TabIndex = 34;
@@ -156,7 +156,7 @@
             this.streetlbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.streetlbl.AutoSize = true;
             this.streetlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.streetlbl.Location = new System.Drawing.Point(395, 85);
+            this.streetlbl.Location = new System.Drawing.Point(458, 144);
             this.streetlbl.Name = "streetlbl";
             this.streetlbl.Size = new System.Drawing.Size(43, 17);
             this.streetlbl.TabIndex = 33;
@@ -167,7 +167,7 @@
             this.titleCreateUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.titleCreateUser.AutoSize = true;
             this.titleCreateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.titleCreateUser.Location = new System.Drawing.Point(255, 13);
+            this.titleCreateUser.Location = new System.Drawing.Point(318, 72);
             this.titleCreateUser.Name = "titleCreateUser";
             this.titleCreateUser.Size = new System.Drawing.Size(183, 31);
             this.titleCreateUser.TabIndex = 32;
@@ -178,7 +178,7 @@
             this.doblbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.doblbl.AutoSize = true;
             this.doblbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.doblbl.Location = new System.Drawing.Point(24, 192);
+            this.doblbl.Location = new System.Drawing.Point(87, 251);
             this.doblbl.Name = "doblbl";
             this.doblbl.Size = new System.Drawing.Size(143, 17);
             this.doblbl.TabIndex = 31;
@@ -187,7 +187,7 @@
             // dateofbirth
             // 
             this.dateofbirth.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateofbirth.Location = new System.Drawing.Point(173, 189);
+            this.dateofbirth.Location = new System.Drawing.Point(236, 248);
             this.dateofbirth.MinDate = new System.DateTime(1941, 1, 1, 0, 0, 0, 0);
             this.dateofbirth.Name = "dateofbirth";
             this.dateofbirth.Size = new System.Drawing.Size(200, 20);
@@ -197,7 +197,7 @@
             // textBoxLastname
             // 
             this.textBoxLastname.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxLastname.Location = new System.Drawing.Point(166, 163);
+            this.textBoxLastname.Location = new System.Drawing.Point(229, 222);
             this.textBoxLastname.Name = "textBoxLastname";
             this.textBoxLastname.Size = new System.Drawing.Size(133, 20);
             this.textBoxLastname.TabIndex = 29;
@@ -205,7 +205,7 @@
             // textBoxName
             // 
             this.textBoxName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxName.Location = new System.Drawing.Point(166, 137);
+            this.textBoxName.Location = new System.Drawing.Point(229, 196);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(133, 20);
             this.textBoxName.TabIndex = 28;
@@ -213,16 +213,15 @@
             // textBoxPassword
             // 
             this.textBoxPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxPassword.Location = new System.Drawing.Point(166, 111);
+            this.textBoxPassword.Location = new System.Drawing.Point(229, 170);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(133, 20);
             this.textBoxPassword.TabIndex = 27;
-            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBoxUsername
             // 
             this.textBoxUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxUsername.Location = new System.Drawing.Point(166, 84);
+            this.textBoxUsername.Location = new System.Drawing.Point(229, 143);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(133, 20);
             this.textBoxUsername.TabIndex = 26;
@@ -232,7 +231,7 @@
             this.Lastnamelbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Lastnamelbl.AutoSize = true;
             this.Lastnamelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Lastnamelbl.Location = new System.Drawing.Point(24, 166);
+            this.Lastnamelbl.Location = new System.Drawing.Point(87, 225);
             this.Lastnamelbl.Name = "Lastnamelbl";
             this.Lastnamelbl.Size = new System.Drawing.Size(62, 17);
             this.Lastnamelbl.TabIndex = 25;
@@ -243,7 +242,7 @@
             this.nameLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nameLbl.AutoSize = true;
             this.nameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.nameLbl.Location = new System.Drawing.Point(24, 140);
+            this.nameLbl.Location = new System.Drawing.Point(87, 199);
             this.nameLbl.Name = "nameLbl";
             this.nameLbl.Size = new System.Drawing.Size(62, 17);
             this.nameLbl.TabIndex = 24;
@@ -254,7 +253,7 @@
             this.PasswordlblCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PasswordlblCreate.AutoSize = true;
             this.PasswordlblCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.PasswordlblCreate.Location = new System.Drawing.Point(24, 114);
+            this.PasswordlblCreate.Location = new System.Drawing.Point(87, 173);
             this.PasswordlblCreate.Name = "PasswordlblCreate";
             this.PasswordlblCreate.Size = new System.Drawing.Size(85, 17);
             this.PasswordlblCreate.TabIndex = 23;
@@ -265,7 +264,7 @@
             this.UsernamelblCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UsernamelblCreate.AutoSize = true;
             this.UsernamelblCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.UsernamelblCreate.Location = new System.Drawing.Point(24, 87);
+            this.UsernamelblCreate.Location = new System.Drawing.Point(87, 146);
             this.UsernamelblCreate.Name = "UsernamelblCreate";
             this.UsernamelblCreate.Size = new System.Drawing.Size(133, 17);
             this.UsernamelblCreate.TabIndex = 22;
@@ -274,7 +273,7 @@
             // adminCheckBox
             // 
             this.adminCheckBox.AutoSize = true;
-            this.adminCheckBox.Location = new System.Drawing.Point(31, 256);
+            this.adminCheckBox.Location = new System.Drawing.Point(90, 301);
             this.adminCheckBox.Name = "adminCheckBox";
             this.adminCheckBox.Size = new System.Drawing.Size(55, 17);
             this.adminCheckBox.TabIndex = 45;
@@ -320,7 +319,7 @@
             this.Controls.Add(this.PasswordlblCreate);
             this.Controls.Add(this.UsernamelblCreate);
             this.Name = "CreateUser";
-            this.Size = new System.Drawing.Size(715, 480);
+            this.Size = new System.Drawing.Size(840, 599);
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

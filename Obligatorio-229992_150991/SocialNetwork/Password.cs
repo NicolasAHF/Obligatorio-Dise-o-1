@@ -9,23 +9,32 @@ namespace SocialNetwork
 {
     public class Password
     {
-        private string _password;
+        private string _hashpassword;
 
         const int MIN_LENGTH_FOR_VALID_PASSWORD = 8;
-
-        public string LaPassword
+       
+        public int Id { get; set; }
+       
+        public string Hashpassword
         {
-            get { return _password; }
-            private set => SetPassword(value);
+            get { return _hashpassword; }
+            set => SetPasswordClear(value);
         }
 
+
+        public Password()
+        {
+
+        }
 
         public Password(string password)
         {
-            this.SetPassword(password);
+            this.SetPasswordEncription(password);
         }
 
-        public void SetPassword(string password)
+
+
+        public void SetPasswordEncription(string password)
         {
             if (EmptyString(password) || !ValidLenghtPassword(password))
             {
@@ -33,8 +42,26 @@ namespace SocialNetwork
            }
            else
            {
-                this._password = password.GetHashCode().ToString();
+                this._hashpassword = password.GetHashCode().ToString();
             }
+        }
+
+        public void SetPasswordClear(string password)
+        {
+            if (EmptyString(password) || !ValidLenghtPassword(password))
+            {
+                throw new InvalidOperationException("Password no valida");
+            }
+            else
+            {
+                this._hashpassword = password;
+            }
+        }
+
+
+        public void hash(string password)
+        {
+            password = password.GetHashCode().ToString();
         }
 
         public bool ValidLenghtPassword(string password)
@@ -55,7 +82,7 @@ namespace SocialNetwork
 
         private bool Equals(Password pass)
         {
-            return this.LaPassword.Equals(pass.LaPassword);
+            return this.Hashpassword.Equals(pass.Hashpassword);
         }
 
         public bool CheckPassword(Password password)
@@ -68,11 +95,19 @@ namespace SocialNetwork
             else
             {
                 return true;
-
             }
         }
 
+        public override bool Equals(object obj)
+        {
+            Password passObj = obj as Password;
 
+            if (passObj == null || this.GetType() != passObj.GetType())
+            {
+                return false;
+            }
 
+            return this.Id == passObj.Id ? true : false;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,13 @@ namespace UISocialNetwork
     public partial class ChangePassword : UserControl
     {
         private User actualUser;
+        private UserRepository users;
         private event PostModifyPassword PostModifyPasswordEvent;
-        public ChangePassword(User actualUser)
+        public ChangePassword(User actualUser, UserRepository users)
         {
             InitializeComponent();
             this.actualUser = actualUser;
+            this.users = users;
         }
 
         public void AddListener(PostModifyPassword del)
@@ -34,6 +37,7 @@ namespace UISocialNetwork
                 Password currentPassword = new Password(currentPasswordTxtBox.Text);
                 Password newPassword = new Password(newPasswordTxtBox.Text);
                 actualUser.ChangePassword(actualUser, currentPassword, newPassword);
+                users.UpdatePassword(newPassword, actualUser);
                 PostModifyPasswordEvent();
             }
             catch(Exception exp)

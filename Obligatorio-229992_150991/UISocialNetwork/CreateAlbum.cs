@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
+using SocialNetworkDB;
 
 namespace UISocialNetwork
 {
@@ -17,11 +19,17 @@ namespace UISocialNetwork
     {
         private Album album = new Album("Default");
         private User actualUser;
+        private AlbumRepository albums;
+        private CommentRepository comments;
+        private UserRepository users;
         private event PostCreateAlbum PostCreateAlbumEvent;
-        public CreateAlbum(User actualUser)
+        public CreateAlbum(User actualUser, AlbumRepository albums, CommentRepository comments, UserRepository users)
         {
             InitializeComponent();
             this.actualUser = actualUser;
+            this.albums = albums;
+            this.comments = comments;
+            this.users = users;
         }
 
         public void AddListener(PostCreateAlbum del)
@@ -47,7 +55,6 @@ namespace UISocialNetwork
                     image.ImageLocation = imageLocation;
                     album.addPhoto(newPhoto);
                     AlbumPanel.Controls.Add(image);
-
                 }
             }catch(Exception ex)
             {
@@ -61,8 +68,10 @@ namespace UISocialNetwork
             try
             {
                 album.SetName(albumNameTxtBox.Text);
-                actualUser.AlbumList.Add(album);
-                AlbumCreated albumAdded = new AlbumCreated(actualUser, album);
+                AlbumCreated albumAdded = new AlbumCreated(actualUser, album, comments, albums);
+                actualUser.Albums.Add(album);
+                users.AddAlbum(album, actualUser);
+
                 PostCreateAlbumEvent(albumAdded);
             }catch(Exception ex)
             {

@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,15 +16,17 @@ namespace UISocialNetwork
     public delegate void PostCreateGame(GameCreated game);
     public partial class CreateGame : UserControl
     {
-        private DirectoryGame games;
+        private GamesRepository games;
         private Photo cover;
-        private event PostCreateGame PostCreateGameEvent;
         private User actualUser;
-        public CreateGame(User actualUser)
+        private ScoresRepository scores;
+        private event PostCreateGame PostCreateGameEvent;
+        public CreateGame(GamesRepository games, User actualUser, ScoresRepository scores)
         {
             InitializeComponent();
-            games = new DirectoryGame();
+            this.games = games;
             this.actualUser = actualUser;
+            this.scores = scores;
         }
 
         public void AddListener(PostCreateGame del)
@@ -58,7 +61,7 @@ namespace UISocialNetwork
         private void SaveImage(string imageLocation)
         {
 
-            File.Copy(imageLocation, Path.Combine(@"C:\ORT\2021\02_S2\Diseño AP1\Obligatorio\Repo_1\229992_150991\Obligatorio - 229992_150991\UISocialNetwork\Resources", Path.GetFileName(cover.ElPath)));
+            File.Copy(imageLocation, Path.Combine(@"C:\", Path.GetFileName(cover.ElPath)));
         }
 
         private void saveGame_Click(object sender, EventArgs e)
@@ -66,8 +69,9 @@ namespace UISocialNetwork
             try
             {
                 Game game = new Game(nameTxtBox.Text, categoryTxrBox.Text, cover);
-                games.AddGame(game, actualUser);
-                GameCreated gameCreated = new GameCreated(game);
+                games.Add(game);
+                GameCreated gameCreated = new GameCreated(game, games, actualUser, scores);
+
                 PostCreateGameEvent(gameCreated);
                 
             }

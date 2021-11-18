@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,9 @@ namespace UISocialNetwork
     public delegate void PostLogin(User user);
     public partial class Login : UserControl
     {
-        private DirectoryUser users;
+        private UserRepository users;
         private event PostLogin PostLoginEvent;
-        public Login(DirectoryUser users)
+        public Login(UserRepository users)
         {
             InitializeComponent();
             this.users = users;
@@ -33,8 +34,7 @@ namespace UISocialNetwork
             {
                 string username = UsernameTextBox.Text;
                 Password password = new Password(PasswordTextBox.Text);
-
-                User actualUser = users.GetUser(username);
+                User actualUser = users.Get(username);
                 if (actualUser.GetPassword().CheckPassword(password))
                 {
                     PostLoginEvent(actualUser);
@@ -80,7 +80,6 @@ namespace UISocialNetwork
             if (PasswordTextBox.Text.Equals("Contraseña"))
             {
                 PasswordTextBox.Text = "";
-                PasswordTextBox.PasswordChar = '*';
                 PasswordTextBox.ForeColor = Color.Black;
             }
         }

@@ -123,7 +123,7 @@ namespace SocialNetworkTest
         [TestMethod]
         public void ChangePasswordWithValidUserEnteredPassword()
         {
-            validPassword.SetPassword("P@ssword10");
+            validPassword.SetPasswordEncription("P@ssword10");
             validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
             Password userEnteredActualPassword = new Password("P@ssword10");
             Password newPassword = new Password("Password20");
@@ -170,67 +170,5 @@ namespace SocialNetworkTest
         {
             Assert.IsTrue(validUser.Following.Count() == 0);
         }
-
-        [TestMethod]
-        public void ValidSetStatus()
-        {
-            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
-            validUser.SetStatus("Día lluvioso hermoso para programar");
-        }
-
-        [TestMethod]
-        public void ValidMinSetStatus()
-        {
-            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
-
-            string status = "a";
-            for (int i = 0; i < 9; i++)
-            {
-                status += "a";
-            }
-            validUser.SetStatus(status);
-        }
-
-        [TestMethod]
-        public void ValidMaxSetStatus()
-        {
-            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
-
-            string status = "a";
-            for (int i = 0; i < 159; i++)
-            {
-                status += "a";
-            }
-            validUser.SetStatus(status);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void InvalidMinSetStatus()
-        {
-            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
-
-            string status = "a";
-            for (int i = 0; i < 8; i++)
-            {
-                status += "a";
-            }
-            validUser.SetStatus(status);
-        }
-    
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void InvalidMaxSetStatus()
-        {
-            User validUser = new User("User1", validPassword, "Fernando", "Rivera", validBirthday, validDirection, validPhoto, admin);
-            
-            string status = "a";
-            for (int i = 0; i < 160; i++)
-            {
-                status += "a";                
-            }
-            validUser.SetStatus(status);
-        }
-
     }
 }

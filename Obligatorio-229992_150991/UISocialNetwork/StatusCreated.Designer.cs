@@ -32,13 +32,22 @@ namespace UISocialNetwork
             this.usernameLbl = new System.Windows.Forms.Label();
             this.staticlabelStatusUpdate = new System.Windows.Forms.Label();
             this.statusUpdateLbl = new System.Windows.Forms.Label();
+            this.commentBtn = new System.Windows.Forms.Button();
+            this.commentPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.loveBtn = new System.Windows.Forms.Button();
+            this.congratsBtn = new System.Windows.Forms.Button();
+            this.likeBtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.loveCount = new System.Windows.Forms.Label();
+            this.congratsCount = new System.Windows.Forms.Label();
+            this.likeCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // usernameLbl
             // 
             this.usernameLbl.AutoSize = true;
             this.usernameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.usernameLbl.Location = new System.Drawing.Point(35, 10);
+            this.usernameLbl.Location = new System.Drawing.Point(2, 17);
             this.usernameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.usernameLbl.Name = "usernameLbl";
             this.usernameLbl.Size = new System.Drawing.Size(102, 25);
@@ -48,7 +57,7 @@ namespace UISocialNetwork
             // staticlabelStatusUpdate
             // 
             this.staticlabelStatusUpdate.AutoSize = true;
-            this.staticlabelStatusUpdate.Location = new System.Drawing.Point(37, 35);
+            this.staticlabelStatusUpdate.Location = new System.Drawing.Point(4, 42);
             this.staticlabelStatusUpdate.Name = "staticlabelStatusUpdate";
             this.staticlabelStatusUpdate.Size = new System.Drawing.Size(140, 13);
             this.staticlabelStatusUpdate.TabIndex = 2;
@@ -56,21 +65,128 @@ namespace UISocialNetwork
             // 
             // statusUpdateLbl
             // 
-            this.statusUpdateLbl.Location = new System.Drawing.Point(37, 58);
+            this.statusUpdateLbl.Location = new System.Drawing.Point(4, 64);
             this.statusUpdateLbl.Name = "statusUpdateLbl";
             this.statusUpdateLbl.Size = new System.Drawing.Size(636, 36);
             this.statusUpdateLbl.TabIndex = 3;
             this.statusUpdateLbl.Text = "label1";
             // 
+            // commentBtn
+            // 
+            this.commentBtn.BackColor = System.Drawing.Color.Maroon;
+            this.commentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.commentBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.commentBtn.Location = new System.Drawing.Point(793, 120);
+            this.commentBtn.Name = "commentBtn";
+            this.commentBtn.Size = new System.Drawing.Size(75, 23);
+            this.commentBtn.TabIndex = 19;
+            this.commentBtn.Text = "Comentar";
+            this.commentBtn.UseVisualStyleBackColor = false;
+            this.commentBtn.Click += new System.EventHandler(this.commentBtn_Click);
+            // 
+            // commentPanel
+            // 
+            this.commentPanel.AutoSize = true;
+            this.commentPanel.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
+            this.commentPanel.Location = new System.Drawing.Point(29, 149);
+            this.commentPanel.Name = "commentPanel";
+            this.commentPanel.Size = new System.Drawing.Size(863, 22);
+            this.commentPanel.TabIndex = 18;
+            // 
+            // loveBtn
+            // 
+            this.loveBtn.BackColor = System.Drawing.Color.Maroon;
+            this.loveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loveBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.loveBtn.Location = new System.Drawing.Point(288, 119);
+            this.loveBtn.Name = "loveBtn";
+            this.loveBtn.Size = new System.Drawing.Size(75, 23);
+            this.loveBtn.TabIndex = 17;
+            this.loveBtn.Text = "Me Encanta";
+            this.loveBtn.UseVisualStyleBackColor = false;
+            this.loveBtn.Click += new System.EventHandler(this.loveBtn_Click);
+            // 
+            // congratsBtn
+            // 
+            this.congratsBtn.BackColor = System.Drawing.Color.Maroon;
+            this.congratsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.congratsBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.congratsBtn.Location = new System.Drawing.Point(148, 119);
+            this.congratsBtn.Name = "congratsBtn";
+            this.congratsBtn.Size = new System.Drawing.Size(88, 23);
+            this.congratsBtn.TabIndex = 16;
+            this.congratsBtn.Text = "Felicitaciones";
+            this.congratsBtn.UseVisualStyleBackColor = false;
+            this.congratsBtn.Click += new System.EventHandler(this.congratsBtn_Click);
+            // 
+            // likeBtn
+            // 
+            this.likeBtn.BackColor = System.Drawing.Color.Maroon;
+            this.likeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.likeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.likeBtn.Location = new System.Drawing.Point(29, 119);
+            this.likeBtn.Name = "likeBtn";
+            this.likeBtn.Size = new System.Drawing.Size(75, 23);
+            this.likeBtn.TabIndex = 15;
+            this.likeBtn.Text = "Me Gusta";
+            this.likeBtn.UseVisualStyleBackColor = false;
+            this.likeBtn.Click += new System.EventHandler(this.likeBtn_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(900, 14);
+            this.panel1.TabIndex = 20;
+            // 
+            // loveCount
+            // 
+            this.loveCount.AutoSize = true;
+            this.loveCount.Location = new System.Drawing.Point(369, 125);
+            this.loveCount.Name = "loveCount";
+            this.loveCount.Size = new System.Drawing.Size(13, 13);
+            this.loveCount.TabIndex = 23;
+            this.loveCount.Text = "0";
+            // 
+            // congratsCount
+            // 
+            this.congratsCount.AutoSize = true;
+            this.congratsCount.Location = new System.Drawing.Point(242, 124);
+            this.congratsCount.Name = "congratsCount";
+            this.congratsCount.Size = new System.Drawing.Size(13, 13);
+            this.congratsCount.TabIndex = 22;
+            this.congratsCount.Text = "0";
+            // 
+            // likeCount
+            // 
+            this.likeCount.AutoSize = true;
+            this.likeCount.Location = new System.Drawing.Point(110, 124);
+            this.likeCount.Name = "likeCount";
+            this.likeCount.Size = new System.Drawing.Size(13, 13);
+            this.likeCount.TabIndex = 21;
+            this.likeCount.Text = "0";
+            // 
             // StatusCreated
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.Controls.Add(this.loveCount);
+            this.Controls.Add(this.congratsCount);
+            this.Controls.Add(this.likeCount);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.commentBtn);
+            this.Controls.Add(this.commentPanel);
+            this.Controls.Add(this.loveBtn);
+            this.Controls.Add(this.congratsBtn);
+            this.Controls.Add(this.likeBtn);
             this.Controls.Add(this.statusUpdateLbl);
             this.Controls.Add(this.staticlabelStatusUpdate);
             this.Controls.Add(this.usernameLbl);
             this.Name = "StatusCreated";
-            this.Size = new System.Drawing.Size(712, 105);
+            this.Size = new System.Drawing.Size(900, 180);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,5 +197,14 @@ namespace UISocialNetwork
         private System.Windows.Forms.Label usernameLbl;
         private System.Windows.Forms.Label staticlabelStatusUpdate;
         private System.Windows.Forms.Label statusUpdateLbl;
+        private System.Windows.Forms.Button commentBtn;
+        private System.Windows.Forms.FlowLayoutPanel commentPanel;
+        private System.Windows.Forms.Button loveBtn;
+        private System.Windows.Forms.Button congratsBtn;
+        private System.Windows.Forms.Button likeBtn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label loveCount;
+        private System.Windows.Forms.Label congratsCount;
+        private System.Windows.Forms.Label likeCount;
     }
 }

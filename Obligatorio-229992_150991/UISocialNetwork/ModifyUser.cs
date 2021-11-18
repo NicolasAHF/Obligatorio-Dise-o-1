@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,13 @@ namespace UISocialNetwork
     public partial class ModifyUser : UserControl
     {
         private User user;
+        private UserRepository users;
         private event PostModify PostModifyEvent;
-        public ModifyUser(User user)
+        public ModifyUser(User user, UserRepository users)
         {
             InitializeComponent();
             this.user = user;
+            this.users = users;
         }
 
         public void AddListener(PostModify del)
@@ -61,6 +64,7 @@ namespace UISocialNetwork
                 user.SetLastname(lastnameModifyBox.Text);
                 user.Direction = auxDirection;
                 user.Avatar = new Photo(avatarModifyBox.ImageLocation, fileInfo.Length/1000);
+                users.UpdateModifyUser(user);
                 PostModifyEvent();
             }
             catch (Exception exp)

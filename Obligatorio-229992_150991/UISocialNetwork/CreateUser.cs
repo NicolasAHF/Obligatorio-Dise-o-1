@@ -9,14 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
+using SocialNetworkDB;
 
 namespace UISocialNetwork
 {
     public partial class CreateUser : UserControl
     {
-        private DirectoryUser users;
+        private UserRepository users;
         private Photo avatar;
-        public CreateUser(DirectoryUser users)
+        public CreateUser(UserRepository users)
         {
             InitializeComponent();
             this.users = users;
@@ -32,9 +34,9 @@ namespace UISocialNetwork
                 direction.City = textBoxCity.Text;
                 direction.Counrty = textBoxCountry.Text;
                 Password pass = new Password(textBoxPassword.Text);
-                users.AddUser(new User(textBoxUsername.Text, pass, textBoxName.Text, textBoxLastname.Text, dateofbirth.Value, direction, avatar, adminCheckBox.Checked));
+                User elUsuario = new User(textBoxUsername.Text, pass, textBoxName.Text, textBoxLastname.Text, dateofbirth.Value, direction, avatar, adminCheckBox.Checked);
+                users.Add(elUsuario);
                 ShowFeedbackMessage(System.Drawing.Color.Green, USER_CREATED_SUCCESFULLY);
-   
             }
             catch (Exception exp)
             {
@@ -59,7 +61,7 @@ namespace UISocialNetwork
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     imageLocation = dialog.FileName;
-                    String destinationPath = Path.Combine(@"C:\ORT\2021\02_S2\Diseño AP1\Obligatorio\Repo_1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources", Path.GetFileName(imageLocation));
+                    String destinationPath = Path.Combine(@"D:\", Path.GetFileName(imageLocation));
                     FileInfo fileSize = new FileInfo(dialog.FileName);
                     Photo avatar = new Photo(destinationPath, fileSize.Length);
                     this.avatar = avatar;
@@ -75,7 +77,7 @@ namespace UISocialNetwork
 
         private void SaveImage(string imageLocation)
         {
-            File.Copy(imageLocation, Path.Combine(@"C:\ORT\2021\02_S2\Diseño AP1\Obligatorio\Repo_1\229992_150991\Obligatorio-229992_150991\UISocialNetwork\Resources", Path.GetFileName(imageLocation)));
+            File.Copy(imageLocation, Path.Combine(@"D:\", Path.GetFileName(imageLocation)));
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,18 +15,29 @@ namespace UISocialNetwork
     public delegate void PostSearch(User user);
     public partial class Home : UserControl
     {
-        private DirectoryUser users;
+        private UserRepository users;
         private User actualUser;
+        private AlbumRepository albums;
+        private ListeningNowRepository songs;
+        private StatusRepository statusDB;
+        private CommentRepository comments;
         private event PostSearch PostSearchEvent;
         private List<UserControl> content;
-        public Home(DirectoryUser users, User actualUser, List<UserControl> contents)
+        public Home(UserRepository users, User actualUser, List<UserControl> contents, AlbumRepository albums, ListeningNowRepository songs, StatusRepository statusDB, CommentRepository comments)
         {
             InitializeComponent();
             this.users = users;
             this.actualUser = actualUser;
             this.content = contents;
-            userList.DataSource = users.Users;
+            this.albums = albums;
+            this.songs = songs;
+            this.statusDB = statusDB;
+            this.comments = comments;
+            userList.DataSource = users.GetAll();
             ShowContent(content);
+            //HideEditBtn();
+            FilterContentAlbum();
+            FilterContentSongs();
         }
 
         public void AddListener(PostSearch del)
@@ -35,16 +47,63 @@ namespace UISocialNetwork
 
         private void ShowContent(List<UserControl> content)
         {
+
             if (showContentPanel.Controls.Count < 0)
             {
                 showContentPanel.Controls.Clear();
             }
             else
             {
-                for(int i = 0; i< content.Count(); i++)
+                for (int i = 0; i < content.Count(); i++)
                 {
                     showContentPanel.Controls.Add(content[i]);
                 }
+            }
+
+        }
+        private void FilterContentAlbum()
+        {
+            if(!albums.IsEmpty())
+            {
+                foreach (UserControl control in content)
+                {
+                    if (typeof(AlbumCreated).IsAssignableFrom(control.GetType()))
+                    {
+                        AlbumCreated album = (AlbumCreated)control;
+                        if (album.UsernameUserAlbum() != actualUser.Username && !actualUser.Following.Contains(users.Get(album.UsernameUserAlbum())))
+                        {
+                            album.Hide();
+                        }
+                        else
+                        {
+                            album.Show();
+                        }
+                    }
+                }
+
+            }
+            
+        }
+        private void FilterContentSongs()
+        {
+            if (!songs.IsEmpty())
+            {
+                foreach (UserControl control in content)
+                {
+                    if (typeof(ListeningNowCreated).IsAssignableFrom(control.GetType()))
+                    {
+                        ListeningNowCreated song = (ListeningNowCreated)control;
+                        if (song.UsernameUserSong() != actualUser.Username || actualUser.Following.Contains(users.Get(song.UsernameUserSong())))
+                        {
+                            song.Hide();
+                        }
+                        else
+                        {
+                            song.Show();
+                        }
+                    }
+                }
+
             }
 
         }
@@ -62,7 +121,7 @@ namespace UISocialNetwork
         {
             try
             {
-                PostSearchEvent(users.GetUser(searchBox.Text));
+                PostSearchEvent(users.Get(searchBox.Text));
             }
             catch (Exception exp)
             {
@@ -80,7 +139,7 @@ namespace UISocialNetwork
 
         private void listeningBtn_Click(object sender, EventArgs e)
         {
-            CreateListeningNow listening = new CreateListeningNow(actualUser);
+            CreateListeningNow listening = new CreateListeningNow(actualUser, songs, users, comments);
             listening.AddListener(PostCreate);
             panelContent.Controls.Clear();
             panelContent.Controls.Add(listening);
@@ -109,7 +168,7 @@ namespace UISocialNetwork
 
         private void createAlbumBtn_Click(object sender, EventArgs e)
         {
-            CreateAlbum album = new CreateAlbum(actualUser);
+            CreateAlbum album = new CreateAlbum(actualUser, albums, comments, users);
             album.AddListener(PostCreateAlbum);
             panelContent.Controls.Clear();
             panelContent.Controls.Add(album);
@@ -122,11 +181,24 @@ namespace UISocialNetwork
 
         private void statusBtn_Click(object sender, EventArgs e)
         {
-            CreateStatus status = new CreateStatus(actualUser);
+            CreateStatus status = new CreateStatus(actualUser, users, statusDB, comments);
             status.AddListener(PostCreateStatus);
             panelContent.Controls.Clear();
             panelContent.Controls.Add(status);
         }
+        //private void HideEditBtn()
+        //{
+        //    if (!albums.IsEmpty())
+        //    {
+        //        foreach (AlbumCreated album in content.Skip<StatusCreated>(0))
+        //        {
+        //            if (album.UsernameUserAlbum() != actualUser.Username)
+        //            {
+        //                album.HideEditBtn();
+        //            }
+        //        }
+        //    }
+        //}
     }
 
 }

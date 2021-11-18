@@ -1,4 +1,5 @@
 ﻿using SocialNetwork;
+using SocialNetworkDB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,22 +16,27 @@ namespace UISocialNetwork
     {
         private User user;
         private User actualUser;
-        public Profile(User user, User actualUser)
+        private UserRepository users;
+        private ScoresRepository scores;
+        public Profile(User user, User actualUser, UserRepository users, ScoresRepository scores)
         {
             InitializeComponent();
             this.user = user;
             this.actualUser = actualUser;
+            this.users = users;
+            this.scores = scores;
             CheckFollowing(user, actualUser);
         }
 
         private void Profile_Load(object sender, EventArgs e)
         {
             lblUsername.Text = user.Username;
-          //  avatar.ImageLocation = user.Avatar.ElPath;
+            avatar.ImageLocation = user.Avatar.ElPath;
             completeNameLbl.Text = user.Name + " " + user.Lastname;
             if (user.Username != actualUser.Username)
             {
-                modifyUser.Hide();
+                modifyUserBtn.Hide();
+                changePasswordBtn.Hide();
             }
             else
             {
@@ -43,17 +49,17 @@ namespace UISocialNetwork
         {
             completeNameLbl.Text = user.Name + " " + user.Lastname;
             modifyPanel.Hide();
-            modifyUser.Enabled = true;
+            modifyUserBtn.Enabled = true;
         }
 
         private void modifyUser_Click(object sender, EventArgs e)
         {
             modifyPanel.Controls.Clear();
-            ModifyUser modifyUser = new ModifyUser(user);
+            ModifyUser modifyUser = new ModifyUser(user, users);
             modifyUser.AddListener(PostModify);
             modifyPanel.Controls.Add(modifyUser);
             modifyPanel.Show();
-            modifyUser.Enabled = false;
+            modifyUserBtn.Enabled = false;
         }
 
         private void followBtn_Click(object sender, EventArgs e)
@@ -63,12 +69,16 @@ namespace UISocialNetwork
                 followBtn.Text = "Siguiendo";
                 followBtn.BackColor = Color.White;
                 followBtn.ForeColor = Color.Maroon;
+                actualUser.Following.Add(user);
+                users.AddFollowing(actualUser, user);
             }
             else
             {
                 followBtn.Text = "Seguir";
                 followBtn.BackColor = Color.Maroon;
                 followBtn.ForeColor = Color.White;
+                actualUser.Following.Remove(user);
+                users.RemoveFollowing(actualUser, user);
             }
 
         }
@@ -101,7 +111,7 @@ namespace UISocialNetwork
 
         private void changePasswordBtn_Click(object sender, EventArgs e)
         {
-            ChangePassword newPassword = new ChangePassword(actualUser);
+            ChangePassword newPassword = new ChangePassword(actualUser, users);
             newPassword.AddListener(PostModifyPassword);
             changePasswordBtn.Enabled = false;
             passwordPanel.Controls.Clear();
@@ -113,5 +123,16 @@ namespace UISocialNetwork
             passwordPanel.Controls.Clear();
             changePasswordBtn.Enabled = true;
         }
+        public void PostPlayGame()
+        {
+            if (!scores.IsEmpty())
+            {
+                
+                //GameScoreCreated gameScoreCreated = new GameScoreCreated(scores);
+                //gameScorePanel.Controls.Clear();
+                //gameScorePanel.Controls.Add(gameScoreCreated);
+            }
+        }
+
     }
 }

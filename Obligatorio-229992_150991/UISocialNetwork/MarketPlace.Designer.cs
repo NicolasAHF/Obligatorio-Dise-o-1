@@ -37,6 +37,8 @@ namespace UISocialNetwork
             // 
             // gamesPanel
             // 
+            this.gamesPanel.AutoScroll = true;
+            this.gamesPanel.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.gamesPanel.Location = new System.Drawing.Point(0, 46);
             this.gamesPanel.Name = "gamesPanel";
             this.gamesPanel.Size = new System.Drawing.Size(715, 434);
@@ -72,6 +74,7 @@ namespace UISocialNetwork
             this.crateGamePanel.Name = "crateGamePanel";
             this.crateGamePanel.Size = new System.Drawing.Size(258, 298);
             this.crateGamePanel.TabIndex = 3;
+            this.crateGamePanel.Visible = false;
             // 
             // MarketPlace
             // 

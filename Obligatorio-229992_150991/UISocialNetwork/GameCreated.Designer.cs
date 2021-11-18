@@ -34,6 +34,7 @@ namespace UISocialNetwork
             this.nameLbl = new System.Windows.Forms.Label();
             this.playGameBtn = new System.Windows.Forms.Button();
             this.gamePanel = new System.Windows.Forms.Panel();
+            this.deleteBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.coverPBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,10 +84,23 @@ namespace UISocialNetwork
             this.gamePanel.Size = new System.Drawing.Size(200, 100);
             this.gamePanel.TabIndex = 9;
             // 
+            // deleteBtn
+            // 
+            this.deleteBtn.BackColor = System.Drawing.Color.Maroon;
+            this.deleteBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.deleteBtn.Location = new System.Drawing.Point(209, 3);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(34, 31);
+            this.deleteBtn.TabIndex = 10;
+            this.deleteBtn.Text = "X";
+            this.deleteBtn.UseVisualStyleBackColor = false;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
             // GameCreated
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.gamePanel);
             this.Controls.Add(this.playGameBtn);
             this.Controls.Add(this.categoryLbl);
@@ -107,5 +121,6 @@ namespace UISocialNetwork
         private System.Windows.Forms.Label nameLbl;
         private System.Windows.Forms.Button playGameBtn;
         private System.Windows.Forms.Panel gamePanel;
+        private System.Windows.Forms.Button deleteBtn;
     }
 }

@@ -4,27 +4,40 @@ using System.Collections.Generic;
 
 namespace SocialNetwork
 {
-    public class Album
+    public class Album : Contents
     {
         private string _name;
         const int MIN_LENGTH_FOR_VALID_NAME = 5;
         const int MAX_CANT_FOR_VALID_LOAD_PHOTO = 10;
         private List<Photo> _PhotoList = new List<Photo>();
 
+        public int Id { get; set; }
+
         public string Name
         {
             get { return _name; }
-            private set => SetName(value);
+            set => SetName(value);
         }
 
         public List<Photo> PhotoList
         {
             get { return _PhotoList; }
+            set => SetPhotos(value);
         }
 
+        public Album()
+        {
+            this._PhotoList = new List<Photo>();
+        }
         public Album(string elNombre)
         {
             this.Name = elNombre;
+            this._PhotoList = new List<Photo>();
+        }
+
+        public void SetPhotos(List<Photo> photos)
+        {
+            this._PhotoList = photos;
         }
 
         public void SetName(string elNombre)
@@ -75,6 +88,18 @@ namespace SocialNetwork
         private bool EmptyString(string value)
         {
             return value.Length.Equals(0);
+        }
+
+        public override bool Equals(object obj)
+        {
+            Album albumObj = obj as Album;
+
+            if (albumObj == null || this.GetType() != albumObj.GetType())
+            {
+                return false;
+            }
+
+            return Id == albumObj.Id ? true : false;
         }
     }
 }

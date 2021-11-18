@@ -9,35 +9,40 @@ namespace SocialNetwork
         private string _category;
         private Photo _cover;
         private int _played = 0;
+        public int Id { get; set; }
 
         public string Name
         {
             get { return _name; }
-            private set => SetName(value);
+            set => SetName(value);
         }
 
         public string Category
         {
             get { return _category; }
-            private set => SetCategory(value);
+            set => SetCategory(value);
         }
         public Photo Cover
         {
             get { return _cover; }
-            private set => SetCover(value);
+            set => SetCover(value);
         }
 
         public int Played
         {
             get { return _played; }
-            private set => SetPlayed();
+            set => SetPlayed();
         }
 
+        public Game()
+        {
+
+        }
         public Game(string name, string category, Photo cover)
         {
-            this.SetName(name);
-            this.SetCategory(category);
-            this.SetCover(cover);
+            this.Name = name;
+            this.Category = category;
+            this.Cover = cover;
         }
 
         private void SetName(string name)
@@ -88,7 +93,7 @@ namespace SocialNetwork
             else 
             {
                 Game elObj = (Game)obj;
-                return this.Name.Equals(elObj.Name);
+                return this.Name.Equals(elObj.Name) || this.Id == elObj.Id ? true : false;
             }
         }
     }
